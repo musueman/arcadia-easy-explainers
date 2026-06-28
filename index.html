@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arcadia 쉬운해설본</title>
+  <style>
+    :root {
+      --bg: #f7f5ef;
+      --surface: #fffdf7;
+      --surface-strong: #f0eadf;
+      --ink: #20242a;
+      --muted: #66706b;
+      --line: #d9d3c4;
+      --accent: #285f77;
+      --accent-soft: #dce9ec;
+      --danger: #8c3b2f;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Noto Sans KR", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.65;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 320px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+    aside {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: auto;
+      padding: 24px;
+      border-right: 1px solid var(--line);
+      background: #ebe5d9;
+    }
+    main {
+      min-width: 0;
+      padding: 28px;
+    }
+    .doc {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+    .brand {
+      margin: 0 0 6px;
+      font-size: 24px;
+      line-height: 1.25;
+    }
+    .caption {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .doc-link {
+      display: block;
+      width: 100%;
+      padding: 10px 12px;
+      margin: 8px 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--ink);
+      background: var(--surface);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .doc-link:hover,
+    .doc-link.active {
+      border-color: #8ea8a4;
+      background: var(--accent-soft);
+    }
+    .side-section {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+    .side-title {
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+    button,
+    .utility-link {
+      border: 1px solid #b8c5bf;
+      border-radius: 8px;
+      padding: 8px 11px;
+      color: #183b42;
+      background: #edf5f2;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    button:hover,
+    .utility-link:hover {
+      background: #dce9ec;
+    }
+    .meta {
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    article h1 {
+      margin: 0 0 18px;
+      font-size: 32px;
+      line-height: 1.25;
+    }
+    article h2 {
+      margin: 32px 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+      font-size: 24px;
+      line-height: 1.35;
+    }
+    article h3 {
+      margin: 24px 0 10px;
+      font-size: 19px;
+      line-height: 1.4;
+    }
+    article p {
+      margin: 10px 0;
+    }
+    article code {
+      padding: 2px 5px;
+      border-radius: 5px;
+      background: #eee8dd;
+      font-family: Consolas, "Cascadia Mono", monospace;
+      font-size: 0.92em;
+    }
+    pre {
+      overflow: auto;
+      padding: 14px;
+      border-radius: 8px;
+      background: #20242a;
+      color: #f7f5ef;
+    }
+    pre code {
+      padding: 0;
+      background: transparent;
+      color: inherit;
+    }
+    table {
+      width: 100%;
+      margin: 14px 0 20px;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    th,
+    td {
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      vertical-align: top;
+    }
+    th {
+      background: var(--surface-strong);
+      text-align: left;
+    }
+    ul,
+    ol {
+      padding-left: 24px;
+    }
+    .section {
+      margin: 14px 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--surface);
+    }
+    .section-toggle {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      border: 0;
+      border-radius: 0;
+      padding: 12px 14px;
+      color: var(--ink);
+      background: var(--surface-strong);
+      text-align: left;
+    }
+    .section-toggle-title {
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+    .section-toggle-icon {
+      flex: 0 0 auto;
+      width: 24px;
+      height: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #8ca08b;
+      border-radius: 50%;
+      color: #254633;
+      line-height: 1;
+    }
+    .section-body {
+      padding: 0 18px 18px;
+    }
+    .section.collapsed .section-body {
+      display: none;
+    }
+    .error {
+      padding: 14px;
+      border: 1px solid #d9aaa2;
+      border-radius: 8px;
+      color: var(--danger);
+      background: #fff0ed;
+    }
+    @media (max-width: 860px) {
+      .layout {
+        display: block;
+      }
+      aside {
+        position: static;
+        height: auto;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+      main {
+        padding: 16px;
+      }
+      .doc {
+        padding: 18px;
+      }
+      article h1 {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside>
+      <h1 class="brand">Arcadia 쉬운해설본</h1>
+      <p class="caption">정본의 객관정보를 외부 검토자가 읽기 쉽게 풀어 둔 HTML 열람 페이지입니다.</p>
+      <nav id="docList" aria-label="문서 목록"></nav>
+      <div class="side-section">
+        <p class="side-title">보기</p>
+        <div class="button-row">
+          <button id="expandAll" type="button">모두 펼치기</button>
+          <button id="collapseAll" type="button">모두 접기</button>
+        </div>
+        <a id="sourceLink" class="utility-link" href="#" download>마크다운 받기</a>
+      </div>
+      <div class="side-section">
+        <p class="side-title">문서 기준</p>
+        <p class="caption">이 페이지는 해설용입니다. 정본값 수정은 원천 정본에서만 진행합니다.</p>
+      </div>
+    </aside>
+    <main>
+      <div class="doc">
+        <div id="meta" class="meta"></div>
+        <article id="content"></article>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const documents = [
+      {
+        title: "마스터 객관정보 쉬운해설본 v1",
+        file: "Arcadia_마스터_객관정보_쉬운해설본_v1.md"
+      }
+    ];
+
+    const docList = document.getElementById("docList");
+    const content = document.getElementById("content");
+    const meta = document.getElementById("meta");
+    const sourceLink = document.getElementById("sourceLink");
+
+    function escapeHtml(value) {
+      return value
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function inlineMarkdown(value) {
+      return escapeHtml(value)
+        .replace(/`([^`]+)`/g, "<code>$1</code>")
+        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+    }
+
+    function isTableDivider(line) {
+      return /^\s*\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)+\|?\s*$/.test(line);
+    }
+
+    function splitTableRow(line) {
+      return line.trim().replace(/^\|/, "").replace(/\|$/, "").split("|").map(cell => cell.trim());
+    }
+
+    function renderTable(lines, start) {
+      const headers = splitTableRow(lines[start]);
+      let index = start + 2;
+      const rows = [];
+      while (index < lines.length && lines[index].includes("|") && lines[index].trim()) {
+        rows.push(splitTableRow(lines[index]));
+        index++;
+      }
+      const head = "<thead><tr>" + headers.map(cell => "<th>" + inlineMarkdown(cell) + "</th>").join("") + "</tr></thead>";
+      const body = "<tbody>" + rows.map(row => "<tr>" + row.map(cell => "<td>" + inlineMarkdown(cell) + "</td>").join("") + "</tr>").join("") + "</tbody>";
+      return { html: "<table>" + head + body + "</table>", next: index };
+    }
+
+    function renderMarkdown(text) {
+      const lines = text.replace(/\r\n/g, "\n").split("\n");
+      const html = [];
+      let index = 0;
+      let paragraph = [];
+      let listType = null;
+      let inCode = false;
+      let codeLines = [];
+
+      function flushParagraph() {
+        if (!paragraph.length) return;
+        html.push("<p>" + inlineMarkdown(paragraph.join(" ")) + "</p>");
+        paragraph = [];
+      }
+
+      function closeList() {
+        if (!listType) return;
+        html.push(listType === "ol" ? "</ol>" : "</ul>");
+        listType = null;
+      }
+
+      while (index < lines.length) {
+        const line = lines[index];
+        const trimmed = line.trim();
+
+        if (trimmed.startsWith("```")) {
+          if (inCode) {
+            html.push("<pre><code>" + escapeHtml(codeLines.join("\n")) + "</code></pre>");
+            codeLines = [];
+            inCode = false;
+          } else {
+            flushParagraph();
+            closeList();
+            inCode = true;
+          }
+          index++;
+          continue;
+        }
+
+        if (inCode) {
+          codeLines.push(line);
+          index++;
+          continue;
+        }
+
+        if (!trimmed) {
+          flushParagraph();
+          closeList();
+          index++;
+          continue;
+        }
+
+        if (line.includes("|") && index + 1 < lines.length && isTableDivider(lines[index + 1])) {
+          flushParagraph();
+          closeList();
+          const table = renderTable(lines, index);
+          html.push(table.html);
+          index = table.next;
+          continue;
+        }
+
+        const heading = /^(#{1,4})\s+(.+)$/.exec(line);
+        if (heading) {
+          flushParagraph();
+          closeList();
+          const level = heading[1].length;
+          html.push("<h" + level + ">" + inlineMarkdown(heading[2]) + "</h" + level + ">");
+          index++;
+          continue;
+        }
+
+        const unordered = /^[-*]\s+(.+)$/.exec(line);
+        if (unordered) {
+          flushParagraph();
+          if (listType !== "ul") {
+            closeList();
+            html.push("<ul>");
+            listType = "ul";
+          }
+          html.push("<li>" + inlineMarkdown(unordered[1]) + "</li>");
+          index++;
+          continue;
+        }
+
+        const ordered = /^\d+\.\s+(.+)$/.exec(line);
+        if (ordered) {
+          flushParagraph();
+          if (listType !== "ol") {
+            closeList();
+            html.push("<ol>");
+            listType = "ol";
+          }
+          html.push("<li>" + inlineMarkdown(ordered[1]) + "</li>");
+          index++;
+          continue;
+        }
+
+        paragraph.push(trimmed);
+        index++;
+      }
+
+      flushParagraph();
+      closeList();
+      return html.join("\n");
+    }
+
+    function updateSectionButton(section) {
+      const expanded = !section.classList.contains("collapsed");
+      const button = section.querySelector(".section-toggle");
+      const icon = section.querySelector(".section-toggle-icon");
+      button.setAttribute("aria-expanded", expanded ? "true" : "false");
+      icon.textContent = expanded ? "⌄" : "›";
+    }
+
+    function decorateSections() {
+      const nodes = Array.from(content.childNodes);
+      const h2s = nodes.filter(node => node.nodeType === Node.ELEMENT_NODE && node.tagName === "H2");
+      if (!h2s.length) return;
+
+      const fragment = document.createDocumentFragment();
+      let currentSection = null;
+      let currentBody = null;
+      let sectionIndex = 0;
+      const defaultExpanded = h2s.length <= 4;
+
+      nodes.forEach(node => {
+        if (node.nodeType === Node.ELEMENT_NODE && node.tagName === "H2") {
+          sectionIndex++;
+          currentSection = document.createElement("section");
+          currentSection.className = "section";
+          currentSection.classList.toggle("collapsed", !defaultExpanded);
+
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "section-toggle";
+
+          const title = document.createElement("span");
+          title.className = "section-toggle-title";
+          title.innerHTML = node.innerHTML;
+          const icon = document.createElement("span");
+          icon.className = "section-toggle-icon";
+          icon.setAttribute("aria-hidden", "true");
+          button.appendChild(title);
+          button.appendChild(icon);
+
+          currentBody = document.createElement("div");
+          currentBody.className = "section-body";
+          currentSection.appendChild(button);
+          currentSection.appendChild(currentBody);
+          fragment.appendChild(currentSection);
+          updateSectionButton(currentSection);
+
+          const section = currentSection;
+          button.addEventListener("click", () => {
+            section.classList.toggle("collapsed");
+            updateSectionButton(section);
+          });
+        } else if (currentBody) {
+          currentBody.appendChild(node);
+        } else {
+          fragment.appendChild(node);
+        }
+      });
+      content.replaceChildren(fragment);
+    }
+
+    function setAllSections(expanded) {
+      content.querySelectorAll(".section").forEach(section => {
+        section.classList.toggle("collapsed", !expanded);
+        updateSectionButton(section);
+      });
+    }
+
+    function currentFile() {
+      const params = new URLSearchParams(location.search);
+      const requested = params.get("file");
+      return documents.some(doc => doc.file === requested) ? requested : documents[0].file;
+    }
+
+    function renderDocList(activeFile) {
+      docList.innerHTML = "";
+      documents.forEach(doc => {
+        const link = document.createElement("a");
+        link.className = "doc-link" + (doc.file === activeFile ? " active" : "");
+        link.href = "?file=" + encodeURIComponent(doc.file);
+        link.textContent = doc.title;
+        docList.appendChild(link);
+      });
+    }
+
+    async function loadDocument(file) {
+      renderDocList(file);
+      sourceLink.href = file;
+      meta.textContent = "Loading " + file;
+      try {
+        const response = await fetch(encodeURI(file), { cache: "no-store" });
+        if (!response.ok) throw new Error(response.status + " " + response.statusText);
+        const text = await response.text();
+        content.innerHTML = renderMarkdown(text);
+        decorateSections();
+        meta.textContent = file + " / " + text.length.toLocaleString() + " chars";
+        document.title = "Arcadia 쉬운해설본 - " + file;
+      } catch (error) {
+        content.innerHTML = '<div class="error">문서를 열 수 없습니다: ' + escapeHtml(error.message) + "</div>";
+        meta.textContent = file;
+      }
+    }
+
+    document.getElementById("expandAll").addEventListener("click", () => setAllSections(true));
+    document.getElementById("collapseAll").addEventListener("click", () => setAllSections(false));
+    loadDocument(currentFile());
+  </script>
+</body>
+</html>
