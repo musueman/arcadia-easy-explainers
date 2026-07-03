@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arcadia Markdown Viewer</title>
+  <style>
+    :root {
+      --bg: #f4f1ea;
+      --panel: #fffdf8;
+      --panel2: #ece5d9;
+      --ink: #20251f;
+      --muted: #667064;
+      --line: #d8d0c4;
+      --accent: #2f6848;
+      --accent2: #e7f0e8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Segoe UI", "Malgun Gothic", Arial, sans-serif;
+    }
+    .app {
+      display: grid;
+      grid-template-columns: 310px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+    aside {
+      border-right: 1px solid var(--line);
+      background: #eee8dd;
+      padding: 18px 14px;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: auto;
+    }
+    main {
+      min-width: 0;
+      padding: 28px 32px 72px;
+    }
+    h1, h2, h3, h4 { line-height: 1.25; }
+    h1 { font-size: 30px; margin: 0 0 16px; }
+    h2 { font-size: 22px; margin: 34px 0 12px; padding-bottom: 7px; border-bottom: 1px solid var(--line); }
+    h3 { font-size: 18px; margin: 26px 0 10px; }
+    h4 { font-size: 16px; margin: 20px 0 8px; }
+    p, li { line-height: 1.72; }
+    a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    a:hover { text-decoration: underline; }
+    .brand {
+      font-size: 18px;
+      font-weight: 750;
+      margin-bottom: 12px;
+    }
+    .toolbar {
+      display: flex;
+      gap: 8px;
+      margin: 12px 0;
+    }
+    .modebar {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin: 10px 0 12px;
+    }
+    input[type="search"] {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: #fffaf0;
+      color: var(--ink);
+      padding: 10px 11px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    button, .button {
+      border: 1px solid #80967f;
+      background: var(--accent2);
+      color: #193323;
+      padding: 8px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 650;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .button.active {
+      background: #d4e5d6;
+      border-color: #3c7152;
+      color: #10291b;
+    }
+    .file-list {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-top: 12px;
+    }
+    .file-section {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-top: 14px;
+    }
+    .file-section:first-child {
+      margin-top: 0;
+    }
+    .file-section-title {
+      display: flex;
+      align-items: baseline;
+      gap: 7px;
+      margin: 6px 2px 2px;
+      color: #4f5d52;
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .file-section-note {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 500;
+    }
+    .file-link {
+      display: block;
+      padding: 8px 9px;
+      border-radius: 6px;
+      color: #26312a;
+      font-size: 13px;
+      line-height: 1.35;
+      word-break: keep-all;
+    }
+    .file-link:hover, .file-link.active {
+      background: #fffaf0;
+      text-decoration: none;
+      color: #163b26;
+    }
+    .empty-state {
+      color: var(--muted);
+      font-size: 13px;
+      padding: 10px 3px;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+    .doc {
+      max-width: 1120px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 30px 34px;
+      border-radius: 8px;
+      box-shadow: 0 10px 28px rgba(55, 43, 28, 0.06);
+    }
+    .doc-controls {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 0 0 18px;
+      padding: 10px 0 14px;
+      border-bottom: 1px solid var(--line);
+    }
+    .doc-controls.visible {
+      display: flex;
+    }
+    .doc-controls .hint {
+      color: var(--muted);
+      font-size: 12px;
+      margin-left: auto;
+    }
+    .markdown-section {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fffaf2;
+      margin: 12px 0;
+      overflow: hidden;
+    }
+    .section-toggle {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      border: 0;
+      border-radius: 0;
+      background: #f0eadf;
+      padding: 12px 14px;
+      color: var(--ink);
+      text-align: left;
+      white-space: normal;
+    }
+    .section-toggle:hover {
+      background: #e7efe6;
+    }
+    .section-toggle-title {
+      font-size: 19px;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+    .section-toggle-icon {
+      flex: 0 0 auto;
+      width: 24px;
+      height: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 1px solid #8ca08b;
+      color: #254633;
+      font-size: 15px;
+      line-height: 1;
+    }
+    .section-body {
+      padding: 0 18px 18px;
+    }
+    .markdown-section.collapsed .section-body {
+      display: none;
+    }
+    .markdown-section.collapsed .section-toggle-icon {
+      transform: rotate(-90deg);
+    }
+    .markdown-section .section-body > h3:first-child,
+    .markdown-section .section-body > h4:first-child {
+      margin-top: 18px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 16px 0 22px;
+      background: #fff;
+      font-size: 14px;
+    }
+    .doc img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      margin: 18px auto 24px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #101821;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 9px 10px;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.55;
+    }
+    th { background: var(--panel2); }
+    code {
+      background: #eee7dd;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-family: Consolas, "Cascadia Mono", monospace;
+    }
+    pre {
+      background: #262923;
+      color: #f7f2e8;
+      overflow: auto;
+      padding: 14px 16px;
+      border-radius: 6px;
+    }
+    blockquote {
+      border-left: 4px solid #9db39c;
+      margin: 16px 0;
+      padding: 6px 14px;
+      background: #f0f5ed;
+      color: #344038;
+    }
+    .error {
+      padding: 16px;
+      border: 1px solid #c98d7b;
+      background: #fff1ec;
+      border-radius: 6px;
+    }
+    @media (max-width: 820px) {
+      .app { grid-template-columns: 1fr; }
+      aside { position: relative; height: auto; }
+      main { padding: 18px 14px 44px; }
+      .doc { padding: 22px 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside>
+      <div class="brand">Arcadia Markdown Viewer</div>
+      <input id="search" type="search" placeholder="문서 검색">
+      <div class="toolbar">
+        <a class="button" href="Arcadia_Internal_Browser_Hub.html">허브</a>
+        <button id="reload" type="button">새로고침</button>
+      </div>
+      <div class="modebar">
+        <a id="agendaMode" class="button" href="?mode=agenda">안건 보기</a>
+        <a id="allMode" class="button" href="?mode=all">전체 보기</a>
+      </div>
+      <div id="fileList" class="file-list"></div>
+    </aside>
+    <main>
+        <div class="doc">
+          <div id="meta" class="meta"></div>
+          <div id="docControls" class="doc-controls" aria-label="문서 카테고리 접기 컨트롤">
+            <button id="expandSections" type="button">모두 펼치기</button>
+            <button id="collapseSections" type="button">모두 접기</button>
+            <button id="h2OnlySections" type="button">H2만 보기</button>
+            <span id="sectionHint" class="hint"></span>
+          </div>
+          <article id="content"></article>
+        </div>
+      </main>
+  </div>
+
+  <script>
+    const masterWorldFile = "Arcadia_마스터_세계관설정집_v1.md";
+    const currentAgendaFile = "Arcadia_문서용이미지_기준시대5083_분류표_v1.md";
+    const masterDiagramFile = "Arcadia_문서용이미지_마스터객관정보_분류표_v1.md";
+    const settingIllustrationFile = "Arcadia_문서용이미지_설정화_분류표_v1.md";
+    const objectiveGapFile = "Arcadia_마스터_객관정보_기반주제_누락점검_v1.md";
+    const separationPlanFile = "Arcadia_마스터본_객관정보_기준시대_분리소플랜_v1.md";
+    const objectiveCanonFile = "Arcadia_마스터_객관정보_정본_v2.md";
+    const objectiveEasyFile = "Arcadia_쉬운해설본_v1.md";
+    const era5083NaturalFile = "Arcadia_기준시대_5083_자연오버레이_v1.md";
+    const era5083File = "Arcadia_기준시대_5083_객관정보_v2.md";
+    const operationsAppendixFile = "Arcadia_객관정보_운용부록_v2.md";
+    const era5083SocialCoreFile = "Arcadia_기준시대_5083_사회문화_핵심정보_v1.md";
+    const era5083IntegrationCheckFile = "Arcadia_기준시대_5083_자연오버레이_사회문화_통합상태점검표_v1.md";
+    const priorityRulesFile = "Arcadia_작업규칙_우선참고_v1.md";
+    const agendaSections = [
+      {
+        title: "객관정보",
+        note: "백과형 v2 정본",
+        files: [objectiveCanonFile, era5083File]
+      },
+      {
+        title: "운용부록",
+        note: "검산·접근권·금지선",
+        files: [operationsAppendixFile]
+      },
+      {
+        title: "현재 안건",
+        note: "기준시대 5083 도식·설정화 제작 상태",
+        files: [currentAgendaFile]
+      },
+      {
+        title: "완료 안건",
+        note: "마스터 객관정보 도식·설정화 분류표",
+        files: [masterDiagramFile, settingIllustrationFile]
+      }
+    ];
+    const agendaFiles = agendaSections.flatMap(section => section.files);
+    const files = [
+      masterWorldFile,
+      objectiveGapFile,
+      "Arcadia_마스터_객관정보_AST_구조설계_v1.md",
+      "Arcadia_마스터_객관정보_확장안건_v1.md",
+      "Arcadia_마스터본_4회차_행성계_위성_논의초안_v1.md",
+      "Arcadia_마스터본_객관정보_기준시대_분리소플랜_v1.md",
+      "Arcadia_마스터_객관정보_정본_v1.md",
+      objectiveCanonFile,
+      objectiveEasyFile,
+      currentAgendaFile,
+      settingIllustrationFile,
+      era5083NaturalFile,
+      "Arcadia_기준시대_5083_객관정보_v1.md",
+      era5083File,
+      "Arcadia_기준시대_5083_사회문화_핵심정보_v1.md",
+      era5083IntegrationCheckFile,
+      operationsAppendixFile,
+      masterDiagramFile,
+      "Arcadia_백과형_정본화_현재안건_v1.md",
+      priorityRulesFile,
+      "Arcadia_문화권별_달력체계_정리본_v3.md",
+      "Arcadia_문화권별_달력체계_정리본_v2.md",
+      "Arcadia_문화권별_달력체계_설계초안_v1.md",
+      "Arcadia_마스터본_3회차_Arion_반영초안_v1.md",
+      "Arcadia_마스터본_3회차_사용자검토결정_20260624.md",
+      "Arcadia_마스터본_회차노트_v1.md",
+      "Arcadia_마스터본_정리플랜_v1.md",
+      "Arcadia_루나톡_세계관_정본_v1.md",
+      "Arcadia_루나톡_역사사건_정본_v1.md",
+      "Arcadia_루나톡_세계관_보강참고_v1.md",
+      "Arcadia_Obsidian_Hub.md",
+      "arcadia_00_world_overview_expanded_links.md",
+      "arcadia_01_arion_system_expanded.md",
+      "arcadia_02_language_time_history_expanded.md",
+      "arcadia_03_civilization_races_expanded.md",
+      "arcadia_03_1_continents_nations_expanded.md",
+      "arcadia_04_faith_law_institutions_expanded.md",
+      "arcadia_07_characters_expanded.md",
+      "arcadia_lore_integration_report.md",
+      "arcadia_lunatalk_wiki_consolidation_plan.md",
+      "arcadia_updated_index.md"
+    ];
+
+    const fileList = document.getElementById("fileList");
+    const search = document.getElementById("search");
+    const content = document.getElementById("content");
+    const meta = document.getElementById("meta");
+    const docControls = document.getElementById("docControls");
+    const sectionHint = document.getElementById("sectionHint");
+    const expandSections = document.getElementById("expandSections");
+    const collapseSections = document.getElementById("collapseSections");
+    const h2OnlySections = document.getElementById("h2OnlySections");
+
+    function escapeHtml(value) {
+      return value
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
+    }
+
+    function slugToFile(target) {
+      const clean = target.split("#")[0].trim();
+      if (!clean) return "";
+      const direct = clean.endsWith(".md") ? clean : clean + ".md";
+      const found = files.find(f => f.toLowerCase() === direct.toLowerCase());
+      return found || direct;
+    }
+
+    function inline(text) {
+      let out = escapeHtml(text);
+      out = out.replace(/`([^`]+)`/g, "<code>$1</code>");
+      out = out.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+      out = out.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_, alt, src) => {
+        return `<img src="${src}" alt="${alt}">`;
+      });
+      out = out.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label, href) => {
+        if (href.startsWith("http://") || href.startsWith("https://") || href.startsWith("obsidian://")) {
+          return `<a href="${escapeHtml(href)}" target="_blank" rel="noreferrer">${label}</a>`;
+        }
+        const file = slugToFile(href);
+        return `<a href="?mode=${currentMode()}&file=${encodeURIComponent(file)}">${label}</a>`;
+      });
+      out = out.replace(/\[\[([^\]|#]+)(?:#[^\]|]+)?(?:\|([^\]]+))?\]\]/g, (_, target, label) => {
+        const file = slugToFile(target);
+        const shown = label || target;
+        return `<a href="?mode=${currentMode()}&file=${encodeURIComponent(file)}">${escapeHtml(shown)}</a>`;
+      });
+      return out;
+    }
+
+    function isTableStart(lines, i) {
+      return i + 1 < lines.length && /^\s*\|.*\|\s*$/.test(lines[i]) && /^\s*\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)+\|?\s*$/.test(lines[i + 1]);
+    }
+
+    function renderTable(lines, start) {
+      const rows = [];
+      let i = start;
+      while (i < lines.length && /^\s*\|.*\|\s*$/.test(lines[i])) {
+        rows.push(lines[i]);
+        i++;
+      }
+      const cells = row => row.trim().replace(/^\|/, "").replace(/\|$/, "").split("|").map(c => c.trim());
+      const head = cells(rows[0]);
+      const body = rows.slice(2).map(cells);
+      let html = "<table><thead><tr>" + head.map(c => `<th>${inline(c)}</th>`).join("") + "</tr></thead><tbody>";
+      html += body.map(r => "<tr>" + r.map(c => `<td>${inline(c)}</td>`).join("") + "</tr>").join("");
+      html += "</tbody></table>";
+      return { html, next: i };
+    }
+
+    function renderMarkdown(md) {
+      const lines = md.replace(/\r\n/g, "\n").split("\n");
+      const html = [];
+      let i = 0;
+      let inCode = false;
+      let code = [];
+      let list = [];
+      const flushList = () => {
+        if (list.length) {
+          html.push("<ul>" + list.map(item => `<li>${inline(item)}</li>`).join("") + "</ul>");
+          list = [];
+        }
+      };
+      while (i < lines.length) {
+        const line = lines[i];
+        if (/^```/.test(line)) {
+          flushList();
+          if (!inCode) { inCode = true; code = []; }
+          else {
+            html.push(`<pre><code>${escapeHtml(code.join("\n"))}</code></pre>`);
+            inCode = false;
+          }
+          i++;
+          continue;
+        }
+        if (inCode) { code.push(line); i++; continue; }
+        if (!line.trim()) { flushList(); i++; continue; }
+        if (isTableStart(lines, i)) {
+          flushList();
+          const table = renderTable(lines, i);
+          html.push(table.html);
+          i = table.next;
+          continue;
+        }
+        const heading = /^(#{1,6})\s+(.+)$/.exec(line);
+        if (heading) {
+          flushList();
+          const level = heading[1].length;
+          html.push(`<h${level}>${inline(heading[2])}</h${level}>`);
+          i++;
+          continue;
+        }
+        const bullet = /^\s*[-*]\s+(.+)$/.exec(line);
+        if (bullet) {
+          list.push(bullet[1]);
+          i++;
+          continue;
+        }
+        if (/^\s*>/.test(line)) {
+          flushList();
+          html.push(`<blockquote>${inline(line.replace(/^\s*>\s?/, ""))}</blockquote>`);
+          i++;
+          continue;
+        }
+        flushList();
+        html.push(`<p>${inline(line)}</p>`);
+        i++;
+      }
+      flushList();
+      return html.join("\n");
+    }
+
+    function makeSectionKey(title, index) {
+      return index + ":" + title.replace(/\s+/g, " ").trim();
+    }
+
+    function updateSectionButton(section) {
+      const expanded = !section.classList.contains("collapsed");
+      const button = section.querySelector(".section-toggle");
+      const icon = section.querySelector(".section-toggle-icon");
+      button.setAttribute("aria-expanded", expanded ? "true" : "false");
+      icon.textContent = expanded ? "⌄" : "›";
+    }
+
+    function setAllSections(expanded) {
+      content.querySelectorAll(".markdown-section").forEach(section => {
+        section.classList.toggle("collapsed", !expanded);
+        updateSectionButton(section);
+      });
+    }
+
+    function decorateDocumentSections() {
+      const nodes = Array.from(content.childNodes);
+      const h2s = nodes.filter(node => node.nodeType === Node.ELEMENT_NODE && node.tagName === "H2");
+      docControls.classList.toggle("visible", h2s.length > 0);
+      sectionHint.textContent = h2s.length ? h2s.length + "개 카테고리" : "";
+      if (!h2s.length) return;
+
+      const defaultExpanded = h2s.length <= 4;
+      const fragment = document.createDocumentFragment();
+      let currentSection = null;
+      let currentBody = null;
+      let sectionIndex = 0;
+
+      nodes.forEach(node => {
+        const isH2 = node.nodeType === Node.ELEMENT_NODE && node.tagName === "H2";
+        if (isH2) {
+          sectionIndex++;
+          const titleText = node.textContent || "Section";
+          const sectionKey = makeSectionKey(titleText, sectionIndex);
+          currentSection = document.createElement("section");
+          currentSection.className = "markdown-section";
+          currentSection.dataset.sectionKey = sectionKey;
+
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "section-toggle";
+          button.setAttribute("aria-controls", "section-body-" + sectionIndex);
+
+          const title = document.createElement("span");
+          title.className = "section-toggle-title";
+          title.innerHTML = node.innerHTML;
+          const icon = document.createElement("span");
+          icon.className = "section-toggle-icon";
+          icon.setAttribute("aria-hidden", "true");
+          button.appendChild(title);
+          button.appendChild(icon);
+
+          currentBody = document.createElement("div");
+          currentBody.className = "section-body";
+          currentBody.id = "section-body-" + sectionIndex;
+
+          currentSection.classList.toggle("collapsed", !defaultExpanded);
+          currentSection.appendChild(button);
+          currentSection.appendChild(currentBody);
+          fragment.appendChild(currentSection);
+          updateSectionButton(currentSection);
+
+          const sectionForButton = currentSection;
+          button.addEventListener("click", () => {
+            sectionForButton.classList.toggle("collapsed");
+            updateSectionButton(sectionForButton);
+          });
+        } else if (currentBody) {
+          currentBody.appendChild(node);
+        } else {
+          fragment.appendChild(node);
+        }
+      });
+
+      content.replaceChildren(fragment);
+    }
+
+    function renderFileList(active) {
+      const q = search.value.trim().toLowerCase();
+      fileList.innerHTML = "";
+      const appendFileLink = file => {
+        const a = document.createElement("a");
+        a.className = "file-link" + (file === active ? " active" : "");
+        a.href = "?mode=" + currentMode() + "&file=" + encodeURIComponent(file);
+        a.textContent = file;
+        fileList.appendChild(a);
+      };
+      let visibleCount = 0;
+      if (currentMode() === "all") {
+        files.filter(f => !q || f.toLowerCase().includes(q)).forEach(file => {
+          visibleCount++;
+          appendFileLink(file);
+        });
+      } else {
+        agendaSections.forEach(section => {
+          const matchedFiles = section.files.filter(f => !q || f.toLowerCase().includes(q));
+          if (!matchedFiles.length) return;
+          const group = document.createElement("section");
+          group.className = "file-section";
+          const title = document.createElement("div");
+          title.className = "file-section-title";
+          const label = document.createElement("span");
+          label.textContent = section.title;
+          const note = document.createElement("span");
+          note.className = "file-section-note";
+          note.textContent = section.note;
+          title.appendChild(label);
+          title.appendChild(note);
+          group.appendChild(title);
+          matchedFiles.forEach(file => {
+            visibleCount++;
+            const a = document.createElement("a");
+            a.className = "file-link" + (file === active ? " active" : "");
+            a.href = "?mode=" + currentMode() + "&file=" + encodeURIComponent(file);
+            a.textContent = file;
+            group.appendChild(a);
+          });
+          fileList.appendChild(group);
+        });
+      }
+      if (!visibleCount) {
+        const empty = document.createElement("div");
+        empty.className = "empty-state";
+        empty.textContent = "검색 결과가 없습니다.";
+        fileList.appendChild(empty);
+      }
+      document.getElementById("agendaMode").classList.toggle("active", currentMode() !== "all");
+      document.getElementById("allMode").classList.toggle("active", currentMode() === "all");
+    }
+
+    async function loadFile(file) {
+      renderFileList(file);
+      meta.textContent = "Loading " + file;
+      try {
+        const res = await fetch(encodeURI(file), { cache: "no-store" });
+        if (!res.ok) throw new Error(res.status + " " + res.statusText);
+        const text = await res.text();
+        document.title = file + " - Arcadia Viewer";
+        meta.textContent = file + " / " + text.length.toLocaleString() + " chars";
+        content.innerHTML = renderMarkdown(text);
+        decorateDocumentSections();
+      } catch (err) {
+        meta.textContent = file;
+        docControls.classList.remove("visible");
+        sectionHint.textContent = "";
+        content.innerHTML = `<div class="error">문서를 열 수 없습니다: ${escapeHtml(err.message)}</div>`;
+      }
+    }
+
+    search.addEventListener("input", () => renderFileList(currentFile()));
+    document.getElementById("reload").addEventListener("click", () => loadFile(currentFile()));
+    expandSections.addEventListener("click", () => setAllSections(true));
+    collapseSections.addEventListener("click", () => setAllSections(false));
+    h2OnlySections.addEventListener("click", () => setAllSections(false));
+
+    function currentFile() {
+      const params = new URLSearchParams(location.search);
+      const requested = params.get("file");
+      if (currentMode() === "all") return requested || masterWorldFile;
+      if (requested && agendaFiles.includes(requested)) return requested;
+      return currentAgendaFile;
+    }
+
+    function currentMode() {
+      const params = new URLSearchParams(location.search);
+      return params.get("mode") === "all" ? "all" : "agenda";
+    }
+
+    loadFile(currentFile());
+  </script>
+</body>
+</html>

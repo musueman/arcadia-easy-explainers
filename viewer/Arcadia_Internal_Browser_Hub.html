@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arcadia 문서 허브</title>
+  <style>
+    body { font-family: "Segoe UI", "Malgun Gothic", sans-serif; margin: 0; background: #f6f3ee; color: #1f2521; }
+    main { max-width: 980px; margin: 0 auto; padding: 32px 24px 56px; }
+    h1 { font-size: 28px; margin: 0 0 8px; }
+    h2 { font-size: 18px; margin: 28px 0 12px; border-bottom: 1px solid #d5cec2; padding-bottom: 6px; }
+    p { line-height: 1.6; }
+    table { border-collapse: collapse; width: 100%; background: #fffdf9; }
+    th, td { border: 1px solid #ddd5ca; padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background: #e8e0d4; }
+    a { color: #285e43; text-decoration: none; font-weight: 600; }
+    a:hover { text-decoration: underline; }
+    .note { background: #fff9e8; border: 1px solid #e6d69e; padding: 12px 14px; margin: 18px 0; }
+    .actions { display: flex; gap: 10px; flex-wrap: wrap; margin: 18px 0 26px; }
+    .button { display: inline-block; padding: 10px 14px; border: 1px solid #7b927f; background: #edf4ed; border-radius: 6px; }
+    code { background: #eee7dd; padding: 2px 4px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Arcadia 문서 허브</h1>
+  <p>내부 브라우저에서는 이 HTML을 현재 작업 허브로 쓴다. 정리 완료된 문서는 허브 목록에서 제외하고, 필요할 때만 전체 Markdown 보기에서 연다.</p>
+  <div class="actions">
+    <a class="button" href="Arcadia_Markdown_Viewer.html?mode=agenda">현재 안건 뷰어</a>
+    <a class="button" href="Arcadia_Markdown_Viewer.html?mode=all">전체 Markdown 보기</a>
+    <a class="button" href="Arcadia_Markdown_Viewer.html?file=Arcadia_%EB%A7%88%EC%8A%A4%ED%84%B0_%EC%84%B8%EA%B3%84%EA%B4%80%EC%84%A4%EC%A0%95%EC%A7%91_v1.md">마스터본 보기</a>
+    <a class="button" href="Arcadia_Markdown_Viewer.html?mode=agenda&file=Arcadia_%EA%B8%B0%EC%A4%80%EC%8B%9C%EB%8C%80_5083_%EA%B0%9D%EA%B4%80%EC%A0%95%EB%B3%B4_v1.md">현재 안건 보기</a>
+  </div>
+  <div class="note">Obsidian 프로토콜 대신 내부 브라우저 전용 Markdown 뷰어를 사용한다. 표, 일반 링크, 위키링크가 렌더링되고 문서 간 이동이 가능하다.</div>
+
+  <h2>마스터 작업</h2>
+  <table>
+    <tr><th>문서</th><th>열기</th><th>용도</th></tr>
+    <tr><td>Arcadia_마스터_세계관설정집_v1.md</td><td><a href="Arcadia_Markdown_Viewer.html?file=Arcadia_%EB%A7%88%EC%8A%A4%ED%84%B0_%EC%84%B8%EA%B3%84%EA%B4%80%EC%84%A4%EC%A0%95%EC%A7%91_v1.md">보기</a></td><td>현재 기준 세계관 마스터본</td></tr>
+    <tr><td>Arcadia_작업규칙_우선참고_v1.md</td><td><a href="Arcadia_Markdown_Viewer.html?mode=agenda&file=Arcadia_%EC%9E%91%EC%97%85%EA%B7%9C%EC%B9%99_%EC%9A%B0%EC%84%A0%EC%B0%B8%EA%B3%A0_v1.md">보기</a></td><td>매 회차 우선 확인할 작업 규칙</td></tr>
+    <tr><td>Arcadia_기준시대_5083_객관정보_v1.md</td><td><a href="Arcadia_Markdown_Viewer.html?mode=agenda&file=Arcadia_%EA%B8%B0%EC%A4%80%EC%8B%9C%EB%8C%80_5083_%EA%B0%9D%EA%B4%80%EC%A0%95%EB%B3%B4_v1.md">보기</a></td><td>현재 안건: 5083 기준시대 객관정보 골격 검산</td></tr>
+  </table>
+</main>
+</body>
+</html>
