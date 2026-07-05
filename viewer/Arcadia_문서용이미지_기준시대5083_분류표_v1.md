@@ -23,17 +23,26 @@
 | 1 | IMG-CK5083-WLD-001 | 문서 병합 완료 | 기준시대 5083 객관정보 1장 | `assets/images/ck5083-world-overview-life-zones-v1.svg` | 비레스 북반구 중심의 아르카디아권, 주요 생활권, 대국 압력, 중심 생활 단위, 지식층을 한 장에서 읽는 세계 총람 도식 |
 | 2 | IMG-ILL-CK5083-WLD-001 | 문서 병합 완료 | 기준시대 5083 객관정보 1장 | `assets/illustrations/ck5083-world-overview-life-surfaces-v1.png` | 5083년 세계가 작은 인물에게 어떻게 보이는지 보여주는 생활 표면 설정화 |
 
-## 3. 검수 기록
+## 3. 2장 자연권과 생활권 제작 후보
+
+| 우선순위 | 이미지 ID | 상태 | 연결 단락 | 제안 파일명 | 핵심 내용 |
+|---:|---|---|---|---|---|
+| 1 | IMG-CK5083-LFZ-001 | 문서 병합 완료 | 기준시대 5083 객관정보 2장 | `assets/images/ck5083-natural-life-zones-v1.svg` | 마스터 자연 지도 위에 5083년 생활권 레이어를 겹친 자연권·생활권 지도형 도식 |
+| 2 | IMG-ILL-CK5083-LFZ-001 | 대기 | 기준시대 5083 객관정보 2장 | `assets/illustrations/ck5083-natural-life-zones-environment-sheet-v1.png` | 자연권·생활권 도식을 바탕으로 한 생활 환경 설정화 |
+
+## 4. 검수 기록
 
 | 이미지 ID | 산출 파일 | 검수 상태 | 기록 |
 |---|---|---|---|
 | IMG-CK5083-WLD-001 | `assets/images/ck5083-world-overview-life-zones-v1.svg` | 통과·병합 | 기준시대 5083 객관정보 1장 세계 총람 도식을 정본 1장 아래에 병합했다. |
 | IMG-ILL-CK5083-WLD-001 | `assets/illustrations/ck5083-world-overview-life-surfaces-v1.png` | 통과·병합 | 세계 총람 도식을 기준으로 제작된 생활 표면 설정화를 기준시대 5083 객관정보 1장에 병합했다. |
+| IMG-CK5083-LFZ-001 | `assets/images/ck5083-natural-life-zones-v1.svg` | 통과·병합 | 기준시대 5083 객관정보 2장 자연권과 생활권 아래에 지도형 구조도를 병합했다. |
 
-## 4. 삽입 기준
+## 5. 삽입 기준
 
 | 구분 | 처리 |
 |---|---|
 | 세계 총람 도식 | 1장 표 앞 또는 직후에 삽입 |
 | 세계 총람 설정화 | 도식 검수 후 1장 설명문 앞에 삽입 |
+| 자연권·생활권 도식 | 2장 생활권 표 앞에 삽입 |
 | 실패·비교본 | 정본에 넣지 않고 검수 기록 또는 제작 스레드에만 둠 |
