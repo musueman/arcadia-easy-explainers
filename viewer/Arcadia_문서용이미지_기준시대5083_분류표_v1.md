@@ -35,7 +35,7 @@
 | 우선순위 | 이미지 ID | 상태 | 연결 단락 | 제안 파일명 | 핵심 내용 |
 |---:|---|---|---|---|---|
 | 1 | IMG-CK5083-POL-001 | 문서 병합 완료 | 기준시대 5083 객관정보 3장 | `assets/images/ck5083-regions-nations-culture-zones-v1.svg` | 에덴포르트 중심권, 북방·외연권, 남방 복합권, 주변 대륙·전승권과 각 국가·권역의 관계를 보여주는 대권역·국가·문화권 도식 |
-| 2 | IMG-CK5083-ADM-001 | 제작 필요 | 기준시대 5083 객관정보 3.3~3.4 | `assets/images/ck5083-internal-regions-settlements-hierarchy-v1.svg` | 각 국가·권역 안의 내부 지역, 중심 정착지, 하위 구역, 마을·야영지, 공공시설 계층을 보여주는 백과형 도식 |
+| 2 | IMG-CK5083-ADM-001 | 제작 필요 | 기준시대 5083 객관정보 3.3~3.5 | `assets/images/ck5083-internal-regions-settlements-hierarchy-v1.svg` | 각 국가·권역 안의 내부 지역, 중심 정착지, 하위 구역, 마을·야영지, 공공시설 계층과 정본 발음 지역명을 보여주는 백과형 도식 |
 | 3 | IMG-ILL-CK5083-POL-001 | 도식 확정 후 대기 | 기준시대 5083 객관정보 3장 | `assets/illustrations/ck5083-regions-nations-culture-zones-environment-sheet-v1.png` | 3장 국가·문화권 도식을 바탕으로 궁정, 항만, 영지, 요새, 산악, 강하 교역권의 정치·문화 표면을 보여주는 설정화 |
 
 ## 5. 4장 도시·장소 백과 제작 후보
@@ -54,7 +54,7 @@
 | IMG-ILL-CK5083-WLD-001 | `assets/illustrations/ck5083-world-overview-life-surfaces-v1.png` | 통과·병합 | 세계 총람 도식을 기준으로 제작된 생활 표면 설정화를 기준시대 5083 객관정보 1장에 병합했다. |
 | IMG-CK5083-LFZ-001 | `assets/images/ck5083-natural-life-zones-v1.svg` | 통과·병합 | 기준시대 5083 객관정보 2장 자연권과 생활권 아래에 지도형 구조도를 병합했다. |
 | IMG-CK5083-POL-001 | `assets/images/ck5083-regions-nations-culture-zones-v1.svg` | 통과·병합 | 기준시대 5083 객관정보 3장 대륙권·국가·문화권 백과 아래에 대권역·국가·문화권 관계도를 병합했다. |
-| IMG-CK5083-ADM-001 | `assets/images/ck5083-internal-regions-settlements-hierarchy-v1.svg` | 제작 필요 | 기준시대 5083 객관정보 3.3~3.4에 추가된 내부 지역·정착지 계층을 설명할 도식이다. |
+| IMG-CK5083-ADM-001 | `assets/images/ck5083-internal-regions-settlements-hierarchy-v1.svg` | 제작 필요 | 기준시대 5083 객관정보 3.3~3.5에 추가된 내부 지역·정착지 계층과 정본 발음 지역명을 설명할 도식이다. |
 | IMG-CK5083-PLC-001 | `assets/images/ck5083-cities-places-function-network-v1.svg` | 수정 대체 | 4장 세부 장소를 반영했으나 티리스와 레이븐스톤 하위 장소 비중이 높아 전 권역 장소 총람으로 교체했다. |
 | IMG-CK5083-PLC-002 | `assets/images/ck5083-places-public-facilities-v2.svg` | 통과·병합 | 기준시대 5083 객관정보 4장 도시·장소 백과 아래에 권역별 지명·공공시설망 도식을 병합했다. |
 | IMG-ILL-CK5083-LFZ-001 | `assets/illustrations/ck5083-natural-life-zones-environment-sheet-v1.png` | 통과·병합 | 기준시대 5083 객관정보 2장 자연권과 생활권 아래에 생활 환경 설정화를 병합했다. |
