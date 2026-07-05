@@ -28,7 +28,7 @@
 | 우선순위 | 이미지 ID | 상태 | 연결 단락 | 제안 파일명 | 핵심 내용 |
 |---:|---|---|---|---|---|
 | 1 | IMG-CK5083-LFZ-001 | 문서 병합 완료 | 기준시대 5083 객관정보 2장 | `assets/images/ck5083-natural-life-zones-v1.svg` | 마스터 자연 지도 위에 5083년 생활권 레이어를 겹친 자연권·생활권 지도형 도식 |
-| 2 | IMG-ILL-CK5083-LFZ-001 | 문서 병합 완료 | 기준시대 5083 객관정보 2장 | `assets/illustrations/ck5083-natural-life-zones-environment-sheet-v1.png` | 자연권·생활권 도식을 바탕으로 한 생활 환경 설정화 |
+| 2 | IMG-ILL-CK5083-LFZ-001 | 문서 병합 완료 | 기준시대 5083 객관정보 2장 | `assets/illustrations/ck5083-natural-life-zones-environment-sheet-v1.jpg` | 자연권·생활권 도식을 바탕으로 한 생활 환경 설정화 |
 
 ## 4. 검수 기록
 
@@ -37,7 +37,7 @@
 | IMG-CK5083-WLD-001 | `assets/images/ck5083-world-overview-life-zones-v1.svg` | 통과·병합 | 기준시대 5083 객관정보 1장 세계 총람 도식을 정본 1장 아래에 병합했다. |
 | IMG-ILL-CK5083-WLD-001 | `assets/illustrations/ck5083-world-overview-life-surfaces-v1.png` | 통과·병합 | 세계 총람 도식을 기준으로 제작된 생활 표면 설정화를 기준시대 5083 객관정보 1장에 병합했다. |
 | IMG-CK5083-LFZ-001 | `assets/images/ck5083-natural-life-zones-v1.svg` | 통과·병합 | 기준시대 5083 객관정보 2장 자연권과 생활권 아래에 지도형 구조도를 병합했다. |
-| IMG-ILL-CK5083-LFZ-001 | `assets/illustrations/ck5083-natural-life-zones-environment-sheet-v1.png` | 통과·병합 | 기준시대 5083 객관정보 2장 자연권과 생활권 아래에 생활 환경 설정화를 병합했다. |
+| IMG-ILL-CK5083-LFZ-001 | `assets/illustrations/ck5083-natural-life-zones-environment-sheet-v1.jpg` | 통과·병합 | 기준시대 5083 객관정보 2장 자연권과 생활권 아래에 생활 환경 설정화를 병합했다. |
 
 ## 5. 삽입 기준
 
