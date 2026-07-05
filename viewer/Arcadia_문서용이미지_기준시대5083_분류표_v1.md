@@ -41,8 +41,8 @@
 
 | 우선순위 | 이미지 ID | 상태 | 연결 단락 | 제안 파일명 | 핵심 내용 |
 |---:|---|---|---|---|---|
-| 1 | IMG-CK5083-PLC-001 | 문서 병합 완료 | 기준시대 5083 객관정보 4장 | `assets/images/ck5083-cities-places-function-network-v1.svg` | 중심권, 북방·외연권, 남방·주변권, 레이븐스톤 하위 장소를 권력·기록·물류·생존 기능망으로 묶어 보여주는 도시·장소 도식 |
-| 2 | IMG-ILL-CK5083-PLC-001 | 도식 확정 후 대기 | 기준시대 5083 객관정보 4장 | `assets/illustrations/ck5083-cities-places-life-surfaces-v1.png` | 4장 장소 기능망을 바탕으로 궁정, 군항, 성문, 창고, 수문, 기록원, 산악 수도원, 강하 항구의 생활 표면을 보여주는 설정화 |
+| 1 | IMG-CK5083-PLC-001 | 문서 병합 완료 | 기준시대 5083 객관정보 4장 | `assets/images/ck5083-places-public-facilities-v2.svg` | 전 권역의 대표 지명과 행정·기록·물류·생존·통행 공공시설을 균등하게 보여주는 권역별 장소 총람 도식 |
+| 2 | IMG-ILL-CK5083-PLC-001 | 도식 확정 후 대기 | 기준시대 5083 객관정보 4장 | `assets/illustrations/ck5083-cities-places-life-surfaces-v1.png` | 4장 장소 총람을 바탕으로 각 권역의 공공시설과 생활 표면을 보여주는 설정화 |
 
 ## 6. 검수 기록
 
@@ -52,7 +52,8 @@
 | IMG-ILL-CK5083-WLD-001 | `assets/illustrations/ck5083-world-overview-life-surfaces-v1.png` | 통과·병합 | 세계 총람 도식을 기준으로 제작된 생활 표면 설정화를 기준시대 5083 객관정보 1장에 병합했다. |
 | IMG-CK5083-LFZ-001 | `assets/images/ck5083-natural-life-zones-v1.svg` | 통과·병합 | 기준시대 5083 객관정보 2장 자연권과 생활권 아래에 지도형 구조도를 병합했다. |
 | IMG-CK5083-POL-001 | `assets/images/ck5083-regions-nations-culture-zones-v1.svg` | 통과·병합 | 기준시대 5083 객관정보 3장 대륙권·국가·문화권 백과 아래에 대권역·국가·문화권 관계도를 병합했다. |
-| IMG-CK5083-PLC-001 | `assets/images/ck5083-cities-places-function-network-v1.svg` | 통과·병합 | 기준시대 5083 객관정보 4장 도시·장소 백과 아래에 도시·장소 기능망 도식을 병합했다. |
+| IMG-CK5083-PLC-001 | `assets/images/ck5083-cities-places-function-network-v1.svg` | 수정 대체 | 4장 세부 장소를 반영했으나 티리스와 레이븐스톤 하위 장소 비중이 높아 전 권역 장소 총람으로 교체했다. |
+| IMG-CK5083-PLC-001 | `assets/images/ck5083-places-public-facilities-v2.svg` | 통과·병합 | 기준시대 5083 객관정보 4장 도시·장소 백과 아래에 권역별 지명·공공시설망 도식을 병합했다. |
 | IMG-ILL-CK5083-LFZ-001 | `assets/illustrations/ck5083-natural-life-zones-environment-sheet-v1.png` | 통과·병합 | 기준시대 5083 객관정보 2장 자연권과 생활권 아래에 생활 환경 설정화를 병합했다. |
 
 ## 7. 삽입 기준
@@ -65,6 +66,6 @@
 | 자연권·생활권 설정화 | 2장 생활권 표 앞, 도식 직후에 삽입 |
 | 대륙권·국가·문화권 도식 | 3장 대권역 표 앞에 삽입 |
 | 대륙권·국가·문화권 설정화 | 3장 대권역 표 앞, 도식 직후에 삽입 |
-| 도시·장소 기능망 도식 | 4장 장소 표 앞에 삽입 |
+| 권역별 지명·공공시설망 도식 | 4장 장소 표 앞에 삽입 |
 | 도시·장소 설정화 | 4장 장소 표 앞, 도식 직후에 삽입 |
 | 실패·비교본 | 정본에 넣지 않고 검수 기록 또는 제작 스레드에만 둠 |
