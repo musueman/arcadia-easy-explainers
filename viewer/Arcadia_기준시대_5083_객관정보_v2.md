@@ -124,6 +124,8 @@
 
 ## 4. 도시·장소 백과
 
+![5083년 도시·장소 기능망](assets/images/ck5083-cities-places-function-network-v1.svg)
+
 ### 4.1 중심권 장소
 
 | 장소 | 권역 | 기능 | 생활 표면 |

@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2560" height="1440" viewBox="0 0 2560 1440" role="img" aria-label="기준시대 5083 도시 장소 기능망">
+<defs>
+<style><![CDATA[
+    text { font-family: "Malgun Gothic", "Noto Sans CJK KR", Arial, sans-serif; dominant-baseline: hanging; letter-spacing: 0; }
+    .title { fill: #f4ecd7; font-size: 44px; font-weight: 800; }
+    .subtitle { fill: #9aabc0; font-size: 22px; }
+    .h { fill: #f4ecd7; font-size: 25px; font-weight: 800; }
+    .label { fill: #f4ecd7; font-size: 19px; font-weight: 800; }
+    .small { fill: #a8b6c8; font-size: 16px; }
+    .tiny { fill: #9dafc4; font-size: 14px; }
+    .micro { fill: #8295aa; font-size: 12px; }
+    .gold { fill: #d7bd73; }
+    .blue { fill: #9cc8de; }
+    .green { fill: #9bcf7a; }
+    .warm { fill: #d5a065; }
+    .red { fill: #d68a7a; }
+    .pillText { fill: #f4ecd7; font-size: 14px; font-weight: 800; }
+    .panel { fill: #0d1727; fill-opacity: .92; stroke: #293c55; stroke-width: 2; }
+    .centerNode { fill: #17283d; fill-opacity: .96; stroke: #d7bd73; stroke-width: 2.5; }
+    .conn { stroke: #6f8aa6; stroke-width: 2; stroke-opacity: .52; fill: none; }
+    .connGold { stroke: #d7bd73; stroke-width: 2.2; stroke-opacity: .72; fill: none; }
+    .connSoft { stroke: #6f8aa6; stroke-width: 1.4; stroke-opacity: .38; fill: none; stroke-dasharray: 8 8; }
+    .ring { fill: none; stroke: #6f8aa6; stroke-width: 1.2; stroke-opacity: .25; }
+  ]]></style>
+<radialGradient id="bg" cx="50%" cy="43%" r="74%"><stop offset="0%" stop-color="#142235"/><stop offset="100%" stop-color="#050913"/></radialGradient>
+</defs>
+<rect width="2560" height="1440" fill="url(#bg)"/>
+<circle cx="437" cy="1098" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2361" cy="992" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="351" cy="847" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1065" cy="349" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="190" cy="326" r="1.4" fill="#8da6c2" opacity=".22"/>
+<circle cx="246" cy="663" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="921" cy="195" r="1.4" fill="#8da6c2" opacity=".22"/>
+<circle cx="1620" cy="331" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1028" cy="644" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2260" cy="526" r="1.4" fill="#8da6c2" opacity=".22"/>
+<circle cx="1446" cy="1411" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1858" cy="227" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2399" cy="273" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="770" cy="377" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2110" cy="1069" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="703" cy="627" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="745" cy="497" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1775" cy="241" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="159" cy="31" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="517" cy="950" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1303" cy="1106" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="22" cy="1281" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1413" cy="749" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1262" cy="1101" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2444" cy="190" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2254" cy="908" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2452" cy="1068" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1191" cy="1144" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="814" cy="1409" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1447" cy="260" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2317" cy="73" r="1.4" fill="#8da6c2" opacity=".22"/>
+<circle cx="651" cy="58" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2220" cy="532" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="61" cy="784" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="799" cy="219" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1146" cy="730" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="760" cy="1188" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1807" cy="189" r="1.4" fill="#8da6c2" opacity=".22"/>
+<circle cx="2484" cy="406" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="66" cy="1387" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2006" cy="673" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2101" cy="1213" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="265" cy="945" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="106" cy="68" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="283" cy="771" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="396" cy="997" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2298" cy="1404" r="1.4" fill="#8da6c2" opacity=".22"/>
+<circle cx="1807" cy="245" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2480" cy="1013" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1842" cy="1154" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="575" cy="41" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2060" cy="273" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2030" cy="1246" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2018" cy="1264" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="145" cy="1016" r="1.4" fill="#8da6c2" opacity=".22"/>
+<circle cx="1569" cy="155" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1907" cy="445" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="285" cy="802" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="755" cy="1361" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1882" cy="369" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1791" cy="667" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="918" cy="265" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="9" cy="626" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1379" cy="1034" r="1.4" fill="#8da6c2" opacity=".22"/>
+<circle cx="891" cy="885" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="223" cy="1338" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="723" cy="131" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="266" cy="1388" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1974" cy="431" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1998" cy="461" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="662" cy="920" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2210" cy="1350" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="251" cy="372" r="1.4" fill="#8da6c2" opacity=".22"/>
+<circle cx="1932" cy="810" r="1.4" fill="#8da6c2" opacity=".22"/>
+<circle cx="2404" cy="1173" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="899" cy="111" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="276" cy="223" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2513" cy="370" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2303" cy="7" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1878" cy="8" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2255" cy="659" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="311" cy="537" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="130" cy="517" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="116" cy="1257" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2205" cy="251" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="807" cy="838" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2470" cy="982" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="772" cy="848" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2415" cy="497" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1371" cy="457" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1267" cy="927" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2318" cy="609" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1108" cy="694" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1366" cy="242" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1721" cy="152" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="76" cy="1031" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="4" cy="521" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1775" cy="667" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="298" cy="890" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2264" cy="982" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2530" cy="1235" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="833" cy="229" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1139" cy="538" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="138" cy="761" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1688" cy="1035" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="531" cy="554" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1051" cy="247" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="806" cy="571" r="1.4" fill="#8da6c2" opacity=".22"/>
+<circle cx="729" cy="691" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1063" cy="378" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1938" cy="274" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1570" cy="1204" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="364" cy="1321" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1888" cy="1233" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="60" cy="876" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="307" cy="1177" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2068" cy="1045" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="582" cy="515" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2010" cy="542" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1377" cy="714" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="872" cy="481" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1748" cy="1257" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="156" cy="987" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="210" cy="334" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="574" cy="54" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="274" cy="599" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2243" cy="1341" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2057" cy="852" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="433" cy="1246" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1125" cy="1398" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="543" cy="304" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="462" cy="439" r="1.4" fill="#8da6c2" opacity=".22"/>
+<circle cx="369" cy="1225" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="285" cy="1053" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2117" cy="962" r="1.4" fill="#8da6c2" opacity=".22"/>
+<circle cx="376" cy="629" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="602" cy="919" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="557" cy="1254" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1753" cy="300" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2520" cy="334" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="510" cy="840" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="910" cy="674" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2496" cy="586" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1900" cy="552" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2102" cy="1126" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1083" cy="614" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2443" cy="918" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="292" cy="1018" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1098" cy="993" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2375" cy="744" r="1.4" fill="#8da6c2" opacity=".22"/>
+<circle cx="266" cy="1048" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2410" cy="640" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="463" cy="375" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1537" cy="1278" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="828" cy="987" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1949" cy="1010" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2518" cy="1114" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="926" cy="955" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="409" cy="421" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="200" cy="1050" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="374" cy="1108" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2402" cy="690" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="754" cy="884" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="700" cy="83" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="351" cy="1107" r="1.4" fill="#8da6c2" opacity=".22"/>
+<circle cx="1728" cy="106" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1997" cy="1040" r="1.4" fill="#8da6c2" opacity=".22"/>
+<circle cx="850" cy="999" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="117" cy="1003" r="1.4" fill="#8da6c2" opacity=".22"/>
+<circle cx="868" cy="414" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1937" cy="249" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2051" cy="1281" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1570" cy="257" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2477" cy="125" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1628" cy="63" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1683" cy="284" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2404" cy="203" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="124" cy="665" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2517" cy="825" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="13" cy="1157" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="575" cy="542" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1501" cy="463" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1500" cy="999" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1976" cy="547" r="1.4" fill="#8da6c2" opacity=".22"/>
+<circle cx="413" cy="1439" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2175" cy="1050" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1130" cy="34" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2125" cy="1332" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2110" cy="1401" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2164" cy="144" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1650" cy="126" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="539" cy="495" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="461" cy="159" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2094" cy="315" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1068" cy="1203" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="860" cy="1066" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1454" cy="351" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="814" cy="254" r="1.4" fill="#8da6c2" opacity=".22"/>
+<circle cx="1941" cy="1079" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1126" cy="945" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1958" cy="669" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1643" cy="868" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1150" cy="112" r="1.4" fill="#8da6c2" opacity=".22"/>
+<circle cx="1530" cy="1084" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1257" cy="892" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1748" cy="1129" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1026" cy="10" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="97" cy="943" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1205" cy="686" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1280" cy="785" r="1.4" fill="#8da6c2" opacity=".22"/>
+<circle cx="1477" cy="1160" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1692" cy="1366" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1020" cy="342" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="352" cy="1425" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2496" cy="354" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2383" cy="825" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1107" cy="458" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1300" cy="672" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1030" cy="1219" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1449" cy="108" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="161" cy="806" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="953" cy="531" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="79" cy="1051" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1790" cy="687" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1208" cy="452" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1850" cy="897" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2464" cy="217" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1102" cy="1056" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1899" cy="67" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="279" cy="1416" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="753" cy="1411" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2410" cy="17" r="1.4" fill="#8da6c2" opacity=".22"/>
+<circle cx="1329" cy="581" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1819" cy="702" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1059" cy="1011" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1527" cy="409" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="3" cy="1296" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="506" cy="977" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1304" cy="1033" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1795" cy="1385" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="878" cy="949" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1738" cy="663" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1362" cy="1431" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2148" cy="808" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2190" cy="1247" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="723" cy="994" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="235" cy="536" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="2455" cy="901" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1528" cy="1255" r="1.4" fill="#8da6c2" opacity=".22"/>
+<circle cx="432" cy="1259" r="0.75" fill="#8da6c2" opacity=".22"/>
+<circle cx="1280" cy="642" r="420" class="ring"/>
+<circle cx="1280" cy="642" r="275" class="ring"/>
+<text x="72" y="48" class="title" >5083년 도시·장소 기능망</text>
+<text x="72" y="108" class="subtitle" >장소는 국경점이 아니라 권력·기록·물류·생존 기능이 드러나는 생활 접점이다</text>
+<rect x="64" y="155" width="2432" height="1040" rx="12" class="panel"/>
+<rect x="64" y="1228" width="2432" height="124" rx="12" class="panel"/>
+<rect x="1012" y="500" width="536" height="210" rx="22" class="centerNode"/>
+<text x="1280" y="528" class="title" text-anchor="middle">아르카디아권 장소 백과</text>
+<text x="1280" y="590" class="h gold" text-anchor="middle">궁정·항만·성문·창고·수문·기록원</text>
+<text x="1280" y="640" class="small" text-anchor="middle">생활 표면은 문서, 대기열, 통행, 납품, 물길, 증언으로 드러난다</text>
+<rect x="110" y="215" width="790" height="515" rx="18" fill="#243b32" fill-opacity=".86" stroke="#6d9578" stroke-width="2"/>
+<text x="138" y="239" class="h" >중심권 장소</text>
+<text x="138" y="277" class="small gold" >궁정·군항·법정·영지·공방·신전·수로</text>
+<text x="140" y="310" class="tiny" >레오니아 궁정</text>
+<text x="140" y="335" class="tiny" >기사단 회랑</text>
+<text x="140" y="360" class="tiny" >노르가르드 군항</text>
+<text x="140" y="385" class="tiny" >해상 법정</text>
+<text x="140" y="410" class="tiny" >실버킵</text>
+<text x="140" y="435" class="tiny" >레이븐스톤</text>
+<text x="140" y="460" class="tiny" >그린할로우</text>
+<text x="140" y="485" class="tiny" >뉴할로우</text>
+<text x="405" y="310" class="tiny" >하이가든</text>
+<text x="405" y="335" class="tiny" >스톤홀</text>
+<text x="405" y="360" class="tiny" >윈드워치</text>
+<text x="405" y="385" class="tiny" >브라이트워터</text>
+<text x="405" y="410" class="tiny" >아이언포드</text>
+<text x="405" y="435" class="tiny" >메도필드</text>
+<text x="405" y="460" class="tiny" >선스파이어</text>
+<text x="405" y="485" class="tiny" >프로스트홀드</text>
+<text x="655" y="310" class="tiny" >오크실드</text>
+<text x="655" y="335" class="tiny" >린레네트 기록원</text>
+<text x="655" y="360" class="tiny" >린레네트 극장</text>
+<text x="655" y="385" class="tiny" >벡도레트 성문</text>
+<text x="655" y="410" class="tiny" >벡도레트 공사장</text>
+<text x="655" y="435" class="tiny" >센할레트 공동 창고</text>
+<text x="655" y="460" class="tiny" >센할레트 수문</text>
+<rect x="140" y="650" width="146" height="42" rx="16" fill="#4a2d36" fill-opacity=".92" stroke="#b07980" stroke-width="1.5"/>
+<text x="213" y="662" class="pillText" text-anchor="middle">권력 의례</text>
+<rect x="305" y="650" width="146" height="42" rx="16" fill="#263f58" fill-opacity=".92" stroke="#6f99bd" stroke-width="1.5"/>
+<text x="378" y="662" class="pillText" text-anchor="middle">항만 계약</text>
+<rect x="470" y="650" width="146" height="42" rx="16" fill="#2f4c35" fill-opacity=".92" stroke="#7fa772" stroke-width="1.5"/>
+<text x="543" y="662" class="pillText" text-anchor="middle">농경 저장</text>
+<rect x="635" y="650" width="146" height="42" rx="16" fill="#332e57" fill-opacity=".92" stroke="#887cc8" stroke-width="1.5"/>
+<text x="708" y="662" class="pillText" text-anchor="middle">기록 해석</text>
+<rect x="1660" y="215" width="760" height="420" rx="18" fill="#2d4158" fill-opacity=".86" stroke="#6e88a6" stroke-width="2"/>
+<text x="1688" y="239" class="h" >북방·외연권 장소</text>
+<text x="1688" y="277" class="small gold" >혹한 생존·원정 허가·자유항·금기 보관</text>
+<text x="1690" y="310" class="tiny" >헤스페레트 저장고</text>
+<text x="1690" y="338" class="tiny" >헤스페레트 무기 중개소</text>
+<text x="1690" y="366" class="tiny" >북방 고개 초소</text>
+<text x="1690" y="394" class="tiny" >켈나베트 원정 허가소</text>
+<text x="1690" y="422" class="tiny" >켈나베트 자유항</text>
+<text x="1980" y="310" class="tiny" >헤스베케트 혹한 통행소</text>
+<text x="1980" y="338" class="tiny" >옌메베트 고공 통행소</text>
+<text x="1980" y="366" class="tiny" >님나레트 감찰실</text>
+<text x="1980" y="394" class="tiny" >님나레트 금기 보관소</text>
+<rect x="1690" y="545" width="145" height="42" rx="16" fill="#38475a" fill-opacity=".92" stroke="#7f9bb8" stroke-width="1.5"/>
+<text x="1762.5" y="557" class="pillText" text-anchor="middle">저장·불씨</text>
+<rect x="1855" y="545" width="145" height="42" rx="16" fill="#263f58" fill-opacity=".92" stroke="#6f99bd" stroke-width="1.5"/>
+<text x="1927.5" y="557" class="pillText" text-anchor="middle">해도·보험</text>
+<rect x="2020" y="545" width="145" height="42" rx="16" fill="#332e57" fill-opacity=".92" stroke="#887cc8" stroke-width="1.5"/>
+<text x="2092.5" y="557" class="pillText" text-anchor="middle">감찰·봉인</text>
+<rect x="1660" y="680" width="760" height="405" rx="18" fill="#3a4430" fill-opacity=".86" stroke="#87965f" stroke-width="2"/>
+<text x="1688" y="704" class="h" >남방·주변권 장소</text>
+<text x="1688" y="742" class="small gold" >수도원·성림·강하 항구·전승지·외해 기록</text>
+<text x="1690" y="775" class="tiny" >아르도레트 산악 수도원</text>
+<text x="1690" y="800" class="tiny" >아르도레트 관측대</text>
+<text x="1690" y="825" class="tiny" >가르메베트 계절 야영지</text>
+<text x="1690" y="850" class="tiny" >실할레트 성림</text>
+<text x="1690" y="875" class="tiny" >실할레트 숲 감시소</text>
+<text x="1690" y="900" class="tiny" >메르할레트 강하 항구</text>
+<text x="1690" y="925" class="tiny" >메르할레트 상인 의회장</text>
+<text x="1980" y="775" class="tiny" >님소레트 학당</text>
+<text x="1980" y="800" class="tiny" >실니메트 약초 장터</text>
+<text x="1980" y="825" class="tiny" >실바니아 숲 전승지</text>
+<text x="1980" y="850" class="tiny" >드래곤스파이어 화산 항로</text>
+<text x="1980" y="875" class="tiny" >펜리르의 눈 등대권</text>
+<text x="1980" y="900" class="tiny" >외해 난파 기록소</text>
+<rect x="1690" y="1005" width="145" height="42" rx="16" fill="#4a3a2f" fill-opacity=".92" stroke="#aa8567" stroke-width="1.5"/>
+<text x="1762.5" y="1017" class="pillText" text-anchor="middle">관측·필사</text>
+<rect x="1855" y="1005" width="145" height="42" rx="16" fill="#2f4c35" fill-opacity=".92" stroke="#7fa772" stroke-width="1.5"/>
+<text x="1927.5" y="1017" class="pillText" text-anchor="middle">숲·약초</text>
+<rect x="2020" y="1005" width="145" height="42" rx="16" fill="#4b3b30" fill-opacity=".92" stroke="#a17e60" stroke-width="1.5"/>
+<text x="2092.5" y="1017" class="pillText" text-anchor="middle">항로·전승</text>
+<rect x="110" y="780" width="790" height="305" rx="18" fill="#3f3430" fill-opacity=".86" stroke="#9d7867" stroke-width="2"/>
+<text x="138" y="804" class="h" >레이븐스톤 하위 장소</text>
+<text x="138" y="842" class="small gold" >접경 방어 장소 안의 내부 동선과 비공식 경계</text>
+<text x="140" y="875" class="tiny" >병참관의 방</text>
+<text x="140" y="903" class="tiny" >훈련장</text>
+<text x="140" y="931" class="tiny" >성문 위 보초길</text>
+<text x="140" y="959" class="tiny" >높은 식탁</text>
+<text x="140" y="987" class="tiny" >하인들의 계단</text>
+<text x="140" y="1015" class="tiny" >창고 뒤 그늘</text>
+<text x="430" y="875" class="small warm" >성문·보초길·병참·식탁·계단·창고 뒤 그늘은</text>
+<text x="430" y="912" class="small" >보호와 의심, 배급과 굶주림, 공식 기록과 소문이</text>
+<text x="430" y="949" class="small" >겹치는 레이븐스톤 생활 구조를 이룬다.</text>
+<rect x="430" y="1010" width="152" height="42" rx="16" fill="#4a2d36" fill-opacity=".92" stroke="#b07980" stroke-width="1.5"/>
+<text x="506" y="1022" class="pillText" text-anchor="middle">검문</text>
+<rect x="600" y="1010" width="152" height="42" rx="16" fill="#4a3a2f" fill-opacity=".92" stroke="#aa8567" stroke-width="1.5"/>
+<text x="676" y="1022" class="pillText" text-anchor="middle">병참</text>
+<rect x="770" y="1010" width="92" height="42" rx="16" fill="#332e57" fill-opacity=".92" stroke="#887cc8" stroke-width="1.5"/>
+<text x="816" y="1022" class="pillText" text-anchor="middle">소문</text>
+<rect x="965" y="800" width="610" height="285" rx="18" fill="#222f42" fill-opacity=".86" stroke="#5f7896" stroke-width="2"/>
+<text x="993" y="824" class="h" >기능층</text>
+<text x="993" y="862" class="small gold" >장소명을 생활 표면으로 묶는 반복 구조</text>
+<text x="1000" y="888" class="label red" >권력·치안</text>
+<text x="1000" y="922" class="tiny" >• 궁정</text>
+<text x="1000" y="947" class="tiny" >• 성문</text>
+<text x="1000" y="972" class="tiny" >• 법정</text>
+<text x="1000" y="997" class="tiny" >• 검문</text>
+<text x="1160" y="888" class="label blue" >기록·해석</text>
+<text x="1160" y="922" class="tiny" >• 기록원</text>
+<text x="1160" y="947" class="tiny" >• 신전</text>
+<text x="1160" y="972" class="tiny" >• 학당</text>
+<text x="1160" y="997" class="tiny" >• 관측대</text>
+<text x="1325" y="888" class="label green" >물류·생업</text>
+<text x="1325" y="922" class="tiny" >• 군항</text>
+<text x="1325" y="947" class="tiny" >• 공방</text>
+<text x="1325" y="972" class="tiny" >• 창고</text>
+<text x="1325" y="997" class="tiny" >• 장터</text>
+<text x="1480" y="888" class="label warm" >위험·전승</text>
+<text x="1480" y="922" class="tiny" >• 고개</text>
+<text x="1480" y="947" class="tiny" >• 화산 항로</text>
+<text x="1480" y="972" class="tiny" >• 등대권</text>
+<text x="1480" y="997" class="tiny" >• 금기 보관</text>
+<path d="M 1012 585 C 956 585, 956 460, 900 460" class="connGold"/>
+<path d="M 1548 585 C 1604 585, 1604 425, 1660 425" class="connGold"/>
+<path d="M 1548 650 C 1604 650, 1604 880, 1660 880" class="connGold"/>
+<path d="M 1012 665 C 956 665, 956 930, 900 930" class="connGold"/>
+<path d="M 1280 710 C 1280 710, 1280 800, 1280 800" class="connGold"/>
+<path d="M 900 665 C 956 665, 956 615, 1012 615" class="connSoft"/>
+<path d="M 1660 545 C 1604 545, 1604 610, 1548 610" class="connSoft"/>
+<path d="M 1660 960 C 1604 960, 1604 650, 1548 650" class="connSoft"/>
+<path d="M 900 990 C 956 990, 956 660, 1012 660" class="connSoft"/>
+<path d="M 1575 940 C 1617.5 940, 1617.5 925, 1660 925" class="connSoft"/>
+<text x="96" y="1255" class="h" >정보 반영 요약</text>
+<text x="372" y="1262" class="small" >4장의 장소는 실제 축척 지도가 아니라 기준시대 사람들이 통과하고 기다리고 기록을 남기는 생활 접점이다.</text>
+<text x="372" y="1298" class="small" >중심권은 권력·항만·영지·기록 기능이 밀집하고, 북방·외연권은 혹한 생존과 원정·감찰 기능이 강하다.</text>
+<text x="372" y="1334" class="small" >남방·주변권은 수도원·성림·강하 교역·전승지로 이어지며, 레이븐스톤은 접경 방어와 피난민 통제의 내부 구조를 따로 가진다.</text>
+</svg>
