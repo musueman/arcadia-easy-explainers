@@ -37,7 +37,8 @@
 | 1 | IMG-CK5083-POL-001 | 문서 병합 완료 | 기준시대 5083 객관정보 3장 | `assets/images/ck5083-regions-nations-culture-zones-v1.svg` | 에덴포르트 중심권, 북방·외연권, 남방 복합권, 주변 대륙·전승권과 각 국가·권역의 관계를 보여주는 대권역·국가·문화권 도식 |
 | 2 | IMG-CK5083-ADM-001 | 제작 필요 | 기준시대 5083 객관정보 3.3~3.8 | `assets/images/ck5083-internal-regions-settlements-hierarchy-v1.svg` | 각 국가·권역 안의 내부 지역, 영토 규모별 도시 밀도, 수도·중심도시, 대표도시, 지역 도시·거점, 하위 구역, 마을·야영지, 공공시설 계층, 도시 유형, 도시별 성격과 정본 발음 지역명을 보여주는 백과형 도식 |
 | 3 | IMG-CK5083-ADM-002 | 제작 필요 | 기준시대 5083 객관정보 3.9 | `assets/images/ck5083-settlement-coordinate-scale-grid-v1.svg` | 권역 중심 좌표, 도시·거점 좌표, 규모층, 생활권 반경, 마을·야영지 위치형을 한 장에서 확인하는 도시·마을 지도 좌표 도식 |
-| 4 | IMG-ILL-CK5083-POL-001 | 도식 확정 후 대기 | 기준시대 5083 객관정보 3장 | `assets/illustrations/ck5083-regions-nations-culture-zones-environment-sheet-v1.png` | 3장 국가·문화권 도식을 바탕으로 궁정, 항만, 영지, 요새, 산악, 강하 교역권의 정치·문화 표면을 보여주는 설정화 |
+| 4 | IMG-CK5083-ADM-003 | 제작 필요 | 기준시대 5083 객관정보 3.10 | `assets/images/ck5083-terrain-routes-borders-village-anchors-v1.svg` | 주요 산악·해안·습지·초지·화산·외해 구획, 가도·수로·항로, 국경·경계대, 마을 위치형 앵커를 한 장에서 정리하는 물리 구획 지도 |
+| 5 | IMG-ILL-CK5083-POL-001 | 도식 확정 후 대기 | 기준시대 5083 객관정보 3장 | `assets/illustrations/ck5083-regions-nations-culture-zones-environment-sheet-v1.png` | 3장 국가·문화권 도식을 바탕으로 궁정, 항만, 영지, 요새, 산악, 강하 교역권의 정치·문화 표면을 보여주는 설정화 |
 
 ## 5. 4장 도시·장소 백과 제작 후보
 
@@ -65,6 +66,7 @@
 | IMG-CK5083-POL-001 | `assets/images/ck5083-regions-nations-culture-zones-v1.svg` | 통과·병합 | 기준시대 5083 객관정보 3장 대륙권·국가·문화권 백과 아래에 대권역·국가·문화권 관계도를 병합했다. |
 | IMG-CK5083-ADM-001 | `assets/images/ck5083-internal-regions-settlements-hierarchy-v1.svg` | 제작 필요 | 기준시대 5083 객관정보 3.3~3.8에 추가된 내부 지역·정착지 계층, 영토 규모별 도시 밀도, 정본 발음 지역명, 수도·대표도시·지역 도시 체계와 도시별 성격을 설명할 도식이다. |
 | IMG-CK5083-ADM-002 | `assets/images/ck5083-settlement-coordinate-scale-grid-v1.svg` | 제작 필요 | 기준시대 5083 객관정보 3.9에 추가된 정본 지도 격자, 권역 중심 좌표, 도시·거점 좌표, 규모층, 생활권 반경, 마을·하위 정착지 위치형을 설명할 도식이다. |
+| IMG-CK5083-ADM-003 | `assets/images/ck5083-terrain-routes-borders-village-anchors-v1.svg` | 제작 필요 | 기준시대 5083 객관정보 3.10에 추가된 물리 구획, 가도·수로·항로, 국경·경계대, 마을 위치형 앵커를 설명할 도식이다. |
 | IMG-CK5083-PLC-001 | `assets/images/ck5083-cities-places-function-network-v1.svg` | 수정 대체 | 4장 세부 장소를 반영했으나 티리스와 레이븐스톤 하위 장소 비중이 높아 전 권역 장소 총람으로 교체했다. |
 | IMG-CK5083-PLC-002 | `assets/images/ck5083-places-public-facilities-v2.svg` | 통과·병합 | 기준시대 5083 객관정보 4장 도시·장소 백과 아래에 권역별 지명·도시망 설계·공공시설망 도식을 병합했다. |
 | IMG-CK5083-CITY-DEM-001 | `assets/images/ck5083-city-population-species-composition-v1.svg` | 제작 필요 | 기준시대 5083 객관정보 4.3에 추가된 도시별 상주 인구, 상주·유동 비, 기능 인구비, 종족비를 권역별로 비교하는 도식이다. |
@@ -83,6 +85,7 @@
 | 대륙권·국가·문화권 도식 | 3장 대권역 표 앞에 삽입 |
 | 국가 내부 지역·정착지 계층도 | 3.3 내부 지역·정착지 계층 앞에 삽입 |
 | 도시·마을 지도 좌표 도식 | 3.9 도시·마을 지도 좌표와 규모 DB 앞에 삽입 |
+| 지형·가도·국경 물리 구획도 | 3.10 지형·가도·국경 물리 구획 DB 앞에 삽입 |
 | 대륙권·국가·문화권 설정화 | 3장 대권역 표 앞, 도식 직후에 삽입 |
 | 권역별 지명·공공시설망 도식 | 4장 장소 표 앞에 삽입 |
 | 도시 인구·종족 구성 도식 | 4.3 도시별 인구·종족 구성 표 앞에 삽입 |
