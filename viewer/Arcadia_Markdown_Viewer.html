@@ -312,9 +312,9 @@
 
   <script>
     const masterWorldFile = "Arcadia_마스터_세계관설정집_v1.md";
-    const currentAgendaFile = "Arcadia_비레스_세계관_DB_통합정리_v4.md";
-    const easyExplainerFile = "Arcadia_쉬운해설본_v3.md";
-    const lunaWorldUploadFile = "Arcadia_루나톡_세계관DB_실투입_v2.md";
+    const currentAgendaFile = "Arcadia_비레스_세계관_DB_통합정리_v5.md";
+    const easyExplainerFile = "Arcadia_쉬운해설본_v4.md";
+    const lunaWorldUploadFile = "Arcadia_루나톡_세계관DB_실투입_v3.md";
     const lunaCharacterUploadFile = "Arcadia_루나톡_캐릭터DB_실투입_v1.md";
     const lunaSystemUploadFile = "Arcadia_루나톡_시스템DB_실투입_v1.md";
     const lunaDesignFile = "Arcadia_루나톡_통합DB_3구조설계_v1.md";
@@ -327,35 +327,30 @@
     const objectiveEasyFile = easyExplainerFile;
     const era5083NaturalFile = "Arcadia_기준시대_5083_자연오버레이_v1.md";
     const era5083File = "Arcadia_기준시대_5083_객관정보_v3.md";
-    const operationsAppendixFile = "Arcadia_객관정보_운용부록_v3.md";
+    const operationsAppendixFile = "Arcadia_객관정보_운용부록_v4.md";
     const era5083SocialCoreFile = "Arcadia_기준시대_5083_사회문화_핵심정보_v1.md";
     const era5083IntegrationCheckFile = "Arcadia_기준시대_5083_자연오버레이_사회문화_통합상태점검표_v1.md";
     const priorityRulesFile = "Arcadia_작업규칙_우선참고_v1.md";
     const agendaSections = [
       {
-        title: "객관정보",
-        note: "백과형 v3 정본",
-        files: [objectiveCanonFile, era5083File]
+        title: "메인 정본",
+        note: "마스터·기준시대 통합 백과 v5",
+        files: [currentAgendaFile]
+      },
+      {
+        title: "쉬운해설본",
+        note: "통합정리본의 생활어 해석본 v4",
+        files: [easyExplainerFile]
       },
       {
         title: "운용부록",
-        note: "검산·접근권·금지선",
+        note: "검산·접근권·금지선·조어 규칙",
         files: [operationsAppendixFile]
       },
       {
-        title: "현재 안건",
-        note: "마스터·기준시대 합본 생활어 v4/v3",
-        files: [currentAgendaFile, easyExplainerFile]
-      },
-      {
-        title: "완료 안건",
-        note: "루나톡 실투입 DB",
-        files: ["Arcadia_루나톡_통합DB_실투입_v1.md", lunaWorldUploadFile, lunaCharacterUploadFile, lunaSystemUploadFile, lunaDesignFile]
-      },
-      {
-        title: "완료 안건",
-        note: "마스터 객관정보 도식·설정화 분류표",
-        files: [masterDiagramFile, settingIllustrationFile]
+        title: "루나톡",
+        note: "플레이용 세계관 실투입본 v3",
+        files: [lunaWorldUploadFile]
       }
     ];
     const agendaFiles = agendaSections.flatMap(section => section.files);
