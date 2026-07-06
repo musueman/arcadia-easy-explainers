@@ -57,7 +57,7 @@
 
 | 우선순위 | 이미지 ID | 상태 | 연결 단락 | 제안 파일명 | 핵심 내용 |
 |---:|---|---|---|---|---|
-| 1 | IMG-CK5083-TECH-001 | 제작 필요 | 기준시대 5083 객관정보 10.4~10.5 | `assets/images/ck5083-civilization-technology-capability-matrix-v1.svg` | 국가·권역별 문명 기반, 강한 기술·제도, 상용 도시 기능, 희소·부재 기능을 한 장에서 비교하는 문명·기술 기능 매트릭스 |
+| 1 | IMG-CK5083-TECH-001 | 문서 병합 완료 | 기준시대 5083 객관정보 10.4~10.5 | `assets/images/ck5083-civilization-technology-capability-matrix-v1.svg` | 국가·권역별 문명 기반, 강한 기술·제도, 상용 도시 기능, 희소·부재 기능을 한 장에서 비교하는 문명·기술 기능 매트릭스 |
 
 ## 7. 검수 기록
 
@@ -77,7 +77,7 @@
 | IMG-CK5083-PLC-002 | `assets/images/ck5083-places-public-facilities-v2.svg` | 통과·병합 | 기준시대 5083 객관정보 4장 도시·장소 백과 아래에 권역별 지명·도시망 설계·공공시설망 도식을 병합했다. |
 | IMG-CK5083-CITY-DEM-001 | `assets/images/ck5083-city-population-species-composition-v1.svg` | 통과·병합 | 기준시대 5083 객관정보 4.3에 추가된 도시별 상주 인구, 상주·유동 비, 기능 인구비, 종족비를 권역별로 비교하는 도식을 4.3 앞에 병합했다. |
 | IMG-CK5083-CITY-DB-001 | `assets/images/ck5083-city-district-hinterland-issues-v1.svg` | 통과·병합 | 기준시대 5083 객관정보 4.4에 추가된 도시 내부 구역, 배후 정착지·마을망, 도시 현안을 권역별로 보여주는 도식을 4.4 앞에 병합했다. |
-| IMG-CK5083-TECH-001 | `assets/images/ck5083-civilization-technology-capability-matrix-v1.svg` | 제작 필요 | 기준시대 5083 객관정보 10.4~10.5에 추가된 국가·권역별 문명·기술 복합도와 도시 기능 분포 DB를 비교하는 도식이다. |
+| IMG-CK5083-TECH-001 | `assets/images/ck5083-civilization-technology-capability-matrix-v1.svg` | 통과·병합 | 기준시대 5083 객관정보 10.4~10.5에 추가된 국가·권역별 문명·기술 복합도와 도시 기능 분포 DB를 비교하는 도식을 10.4 앞에 병합했다. |
 | IMG-ILL-CK5083-LFZ-001 | `assets/illustrations/ck5083-natural-life-zones-environment-sheet-v1.png` | 통과·병합 | 기준시대 5083 객관정보 2장 자연권과 생활권 아래에 생활 환경 설정화를 병합했다. |
 
 ## 8. 삽입 기준
