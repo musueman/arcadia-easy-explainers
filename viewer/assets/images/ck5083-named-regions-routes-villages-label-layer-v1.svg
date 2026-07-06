@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2560" height="1440" viewBox="0 0 2560 1440" role="img" aria-label="기준시대 5083 이름 있는 지역 가도 마을 구조물 라벨 도식">
+<defs>
+<style><![CDATA[
+      text { font-family: "Malgun Gothic", "Noto Sans CJK KR", Arial, sans-serif; dominant-baseline: hanging; letter-spacing: 0; }
+      .title { fill: #f4ecd7; font-size: 42px; font-weight: 800; }
+      .subtitle { fill: #9aabc0; font-size: 20px; }
+      .h { fill: #f4ecd7; font-size: 23px; font-weight: 800; }
+      .label { fill: #f4ecd7; font-size: 16px; font-weight: 800; }
+      .small { fill: #a8b6c8; font-size: 14px; }
+      .tiny { fill: #95a8bd; font-size: 12.5px; }
+      .micro { fill: #8fa1b4; font-size: 11px; }
+      .gold { fill: #d7bd73; }
+      .panel { fill: #0d1727; fill-opacity: .92; stroke: #293c55; stroke-width: 2; }
+      .gridFrame { fill: #07101d; fill-opacity: .58; stroke: #55708c; stroke-width: 2; }
+      .gridLine { stroke: #6f8aa6; stroke-width: 1; stroke-opacity: .22; }
+      .gridMajor { stroke: #9fb3ca; stroke-width: 1.4; stroke-opacity: .42; }
+      .routeRoad { stroke: #d7bd73; stroke-width: 3.2; stroke-opacity: .9; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .routeSea { stroke: #7fc0df; stroke-width: 3; stroke-opacity: .9; fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 14 9; }
+      .routeMountain { stroke: #c9d2dc; stroke-width: 2.7; stroke-opacity: .86; fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 7 8; }
+      .routeForest { stroke: #8fcf93; stroke-width: 2.7; stroke-opacity: .86; fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 10 7; }
+      .mapLabel { fill: #fff7df; font-size: 13px; font-weight: 800; stroke: none; }
+      .routeLabel { fill: #fff7df; font-size: 12px; font-weight: 800; stroke: none; }
+      .chipText { fill: #f4ecd7; font-size: 13px; font-weight: 800; }
+      .tableHead { fill: #d7bd73; font-size: 13px; font-weight: 800; }
+      .tableText { fill: #a8b6c8; font-size: 12.5px; }
+      .tableStrong { fill: #f4ecd7; font-size: 12.5px; font-weight: 800; }
+      .flowLine { stroke: #6f8aa6; stroke-width: 2; stroke-opacity: .55; fill: none; marker-end: url(#arrowSoft); }
+      .barBack { fill: #142236; stroke: #2d3f56; stroke-width: 1.2; }
+    ]]></style>
+<radialGradient id="bg" cx="50%" cy="42%" r="74%"><stop offset="0%" stop-color="#142235"/><stop offset="100%" stop-color="#050913"/></radialGradient>
+<marker id="arrowSoft" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#8fa1b4"/></marker>
+</defs>
+<rect width="2560" height="1440" fill="url(#bg)"/>
+<circle cx="597" cy="0" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1264" cy="740" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="534" cy="386" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="724" cy="770" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2371" cy="363" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="2161" cy="977" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="60" cy="62" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1614" cy="72" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="1447" cy="1009" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="928" cy="946" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2047" cy="574" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="847" cy="800" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1513" cy="765" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2374" cy="1070" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="1543" cy="1202" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="264" cy="233" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="380" cy="1434" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="582" cy="1216" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1742" cy="569" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="106" cy="703" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2444" cy="165" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="257" cy="567" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="855" cy="254" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2190" cy="118" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="603" cy="1090" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1045" cy="1112" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1947" cy="1289" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1327" cy="914" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2148" cy="745" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1922" cy="173" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="228" cy="806" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="628" cy="1395" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2266" cy="99" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1444" cy="913" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="275" cy="775" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2489" cy="66" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1435" cy="1289" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1017" cy="1021" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1032" cy="825" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1938" cy="672" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2347" cy="862" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1070" cy="786" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2332" cy="776" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1985" cy="294" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2014" cy="270" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1137" cy="99" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="249" cy="1431" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2137" cy="796" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="436" cy="31" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="110" cy="395" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="677" cy="1169" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1472" cy="756" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1808" cy="480" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1286" cy="528" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1832" cy="655" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1998" cy="270" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="217" cy="735" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1826" cy="409" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1934" cy="966" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1211" cy="955" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1311" cy="773" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="686" cy="697" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1974" cy="965" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1822" cy="1129" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1502" cy="418" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="804" cy="134" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2226" cy="116" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="678" cy="920" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="500" cy="867" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2474" cy="1119" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2070" cy="313" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1493" cy="699" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="743" cy="364" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="816" cy="1361" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="534" cy="687" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1900" cy="1113" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1673" cy="480" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="918" cy="219" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="704" cy="1284" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="697" cy="370" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="31" cy="913" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="830" cy="1138" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1329" cy="213" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="150" cy="625" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="281" cy="1426" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="791" cy="658" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="533" cy="886" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1849" cy="1141" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1528" cy="1085" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="388" cy="834" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1368" cy="253" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="405" cy="863" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2166" cy="1167" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2346" cy="260" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1873" cy="1315" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="397" cy="326" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="143" cy="1180" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1297" cy="1259" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1608" cy="1359" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="676" cy="328" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="633" cy="854" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="531" cy="673" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="941" cy="1369" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="872" cy="965" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="46" cy="1139" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="530" cy="1100" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="724" cy="295" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1106" cy="641" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="407" cy="501" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1004" cy="637" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="406" cy="190" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2383" cy="786" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1267" cy="446" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2475" cy="145" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="938" cy="1024" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="425" cy="783" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1429" cy="1439" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1750" cy="1225" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1546" cy="378" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2193" cy="1077" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2445" cy="986" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="1914" cy="62" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="582" cy="590" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="244" cy="1138" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1367" cy="236" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1731" cy="13" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1042" cy="395" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2015" cy="871" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1828" cy="1370" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="1716" cy="1313" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1525" cy="280" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1830" cy="75" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1497" cy="1409" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="747" cy="99" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="94" cy="737" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1665" cy="952" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1625" cy="1413" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1254" cy="522" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="775" cy="331" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="482" cy="332" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="570" cy="1" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="725" cy="852" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="252" cy="840" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="558" cy="385" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="362" cy="954" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1617" cy="1251" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2068" cy="1189" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="544" cy="731" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2295" cy="239" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="782" cy="632" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1340" cy="1109" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1922" cy="1420" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1398" cy="204" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2028" cy="737" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1388" cy="1277" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2424" cy="592" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="570" cy="1169" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1390" cy="1403" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1439" cy="8" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1817" cy="1163" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1758" cy="175" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="256" cy="136" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="158" cy="1316" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="5" cy="983" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1356" cy="1090" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2319" cy="826" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1534" cy="586" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1343" cy="258" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2250" cy="333" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="2153" cy="801" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="39" cy="826" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1261" cy="1393" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1836" cy="651" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2009" cy="655" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1979" cy="547" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1101" cy="1222" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="457" cy="649" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1912" cy="1020" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2360" cy="1196" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="392" cy="446" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1085" cy="268" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="944" cy="1175" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1059" cy="398" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="927" cy="742" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2457" cy="869" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2153" cy="400" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1958" cy="920" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="1322" cy="667" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1309" cy="519" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1350" cy="407" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="741" cy="898" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2343" cy="431" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2053" cy="1306" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2188" cy="380" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1010" cy="287" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="388" cy="23" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2197" cy="1182" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="647" cy="975" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1710" cy="1305" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="936" cy="32" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1770" cy="850" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="510" cy="880" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1908" cy="1118" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2480" cy="467" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1201" cy="365" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1704" cy="132" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="485" cy="1326" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1935" cy="423" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1371" cy="820" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1291" cy="271" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2217" cy="116" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1496" cy="377" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2283" cy="930" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1497" cy="399" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1413" cy="986" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="97" cy="607" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2531" cy="272" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1833" cy="121" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1944" cy="305" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1912" cy="1121" r="0.7" fill="#8da6c2" opacity=".20"/>
+<text x="58" y="42" class="title" >이름 있는 지역·가도·마을·구조물 DB</text>
+<text x="58" y="96" class="subtitle" >정본 지명과 생활 설명명을 지도 라벨 레이어로 분리한 기준도</text>
+<rect x="48" y="150" width="276" height="855" rx="12" class="panel"/>
+<text x="68" y="168" class="h" >라벨 층위</text>
+<text x="68" y="202" class="tiny gold" >이름을 기능별로 분리</text>
+<text x="74" y="228" class="label" >정본 지명</text>
+<text x="74" y="276" class="label" >생활 설명명</text>
+<text x="74" y="324" class="label" >지도 라벨 레이어</text>
+<text x="74" y="372" class="label" >가도</text>
+<text x="74" y="420" class="label" >항로</text>
+<text x="74" y="468" class="label" >마을</text>
+<text x="74" y="516" class="label" >구조물</text>
+<text x="74" y="564" class="label" >정본 라벨</text>
+<text x="74" y="612" class="label" >생활 라벨</text>
+<rect x="360" y="155" width="1285" height="855" rx="10" class="gridFrame"/>
+<line x1="360" y1="155" x2="360" y2="1010" class="gridMajor"/>
+<line x1="360" y1="155" x2="1645" y2="155" class="gridMajor"/>
+<text x="352" y="1022" class="tiny" >0</text>
+<text x="326" y="147" class="tiny" >0</text>
+<line x1="488.5" y1="155" x2="488.5" y2="1010" class="gridLine"/>
+<line x1="360" y1="240.5" x2="1645" y2="240.5" class="gridLine"/>
+<line x1="617" y1="155" x2="617" y2="1010" class="gridMajor"/>
+<line x1="360" y1="326" x2="1645" y2="326" class="gridMajor"/>
+<text x="609" y="1022" class="tiny" >20</text>
+<text x="326" y="318" class="tiny" >20</text>
+<line x1="745.5" y1="155" x2="745.5" y2="1010" class="gridLine"/>
+<line x1="360" y1="411.5" x2="1645" y2="411.5" class="gridLine"/>
+<line x1="874" y1="155" x2="874" y2="1010" class="gridMajor"/>
+<line x1="360" y1="497" x2="1645" y2="497" class="gridMajor"/>
+<text x="866" y="1022" class="tiny" >40</text>
+<text x="326" y="489" class="tiny" >40</text>
+<line x1="1002.5" y1="155" x2="1002.5" y2="1010" class="gridLine"/>
+<line x1="360" y1="582.5" x2="1645" y2="582.5" class="gridLine"/>
+<line x1="1131" y1="155" x2="1131" y2="1010" class="gridMajor"/>
+<line x1="360" y1="668" x2="1645" y2="668" class="gridMajor"/>
+<text x="1123" y="1022" class="tiny" >60</text>
+<text x="326" y="660" class="tiny" >60</text>
+<line x1="1259.5" y1="155" x2="1259.5" y2="1010" class="gridLine"/>
+<line x1="360" y1="753.5" x2="1645" y2="753.5" class="gridLine"/>
+<line x1="1388" y1="155" x2="1388" y2="1010" class="gridMajor"/>
+<line x1="360" y1="839" x2="1645" y2="839" class="gridMajor"/>
+<text x="1380" y="1022" class="tiny" >80</text>
+<text x="326" y="831" class="tiny" >80</text>
+<line x1="1516.5" y1="155" x2="1516.5" y2="1010" class="gridLine"/>
+<line x1="360" y1="924.5" x2="1645" y2="924.5" class="gridLine"/>
+<line x1="1645" y1="155" x2="1645" y2="1010" class="gridMajor"/>
+<line x1="360" y1="1010" x2="1645" y2="1010" class="gridMajor"/>
+<text x="1637" y="1022" class="tiny" >100</text>
+<text x="326" y="1002" class="tiny" >100</text>
+<text x="1590" y="1048" class="tiny" >가로 좌표</text>
+<text x="284" y="148" class="tiny" >세로 좌표</text>
+<path d="M 899.7 514.1 L 848.3 531.2 L 938.3 556.8" class="routeRoad"/>
+<text x="868.3" y="507.20000000000005" class="routeLabel" >라드지르켈</text>
+<text x="868.3" y="525.2" class="tiny" >라드가르길</text>
+<path d="M 732.6 642.3 L 784.0 625.3 L 655.5 702.2" class="routeSea"/>
+<text x="692.05" y="635.25" class="routeLabel" >마르워크켈</text>
+<text x="692.05" y="653.25" class="tiny" >마르워크항로</text>
+<path d="M 1143.8 796.3 L 1105.3 821.9 L 1208.1 787.7" class="routeMountain"/>
+<text x="1017.3" y="793.9" class="routeLabel" >소르메르켈</text>
+<text x="1017.3" y="811.9" class="tiny" >소르도르길</text>
+<path d="M 1002.5 539.8 L 1066.8 556.8 L 1285.2 556.8" class="routeForest"/>
+<text x="1078.75" y="531.8499999999999" class="routeLabel" >실소르켈</text>
+<text x="1078.75" y="549.8499999999999" class="tiny" >숲·신전 동쪽길</text>
+<path d="M 1529.4 830.5 L 1555.0 804.8 L 1490.8 856.1 L 1580.8 873.2" class="routeSea"/>
+<text x="1392.8" y="828.0999999999999" class="routeLabel" >나르모스마르</text>
+<text x="1392.8" y="846.0999999999999" class="tiny" >화산 피난 항로</text>
+<path d="M 591.3 360.2 L 629.8 377.3 L 565.6 394.4 L 655.5 411.5" class="routeSea"/>
+<text x="577.6" y="368.40000000000003" class="routeLabel" >둔마르토르</text>
+<text x="577.6" y="386.40000000000003" class="tiny" >외해 금기 등대선</text>
+<circle cx="886.85" cy="522.65" r="6" fill="#c9a06d" stroke="#f4ecd7" stroke-width="1.2"/>
+<text x="894.85" y="505.65" class="mapLabel" >라드가르가</text>
+<circle cx="835.45" cy="539.75" r="6" fill="#c9a06d" stroke="#f4ecd7" stroke-width="1.2"/>
+<circle cx="925.4" cy="308.9" r="6" fill="#8fb9d1" stroke="#f4ecd7" stroke-width="1.2"/>
+<circle cx="951.1" cy="317.45" r="6" fill="#8fb9d1" stroke="#f4ecd7" stroke-width="1.2"/>
+<text x="959.1" y="300.45" class="mapLabel" >헤스마르가</text>
+<circle cx="848.3" cy="591.05" r="6" fill="#d58a72" stroke="#f4ecd7" stroke-width="1.2"/>
+<circle cx="1028.2" cy="608.1500000000001" r="6" fill="#73b8dc" stroke="#f4ecd7" stroke-width="1.2"/>
+<circle cx="1002.5" cy="548.3" r="6" fill="#79b77a" stroke="#f4ecd7" stroke-width="1.2"/>
+<text x="1010.5" y="531.3" class="mapLabel" >실베크가</text>
+<circle cx="1092.4499999999998" cy="659.45" r="6" fill="#d7bd73" stroke="#f4ecd7" stroke-width="1.2"/>
+<circle cx="1208.1" cy="633.8000000000001" r="6" fill="#b8a6d9" stroke="#f4ecd7" stroke-width="1.2"/>
+<circle cx="1143.85" cy="804.8" r="6" fill="#c9a06d" stroke="#f4ecd7" stroke-width="1.2"/>
+<text x="1151.85" y="787.8" class="mapLabel" >소르산가</text>
+<circle cx="976.8" cy="804.8" r="6" fill="#bfae5d" stroke="#f4ecd7" stroke-width="1.2"/>
+<circle cx="1272.35" cy="727.85" r="6" fill="#79b77a" stroke="#f4ecd7" stroke-width="1.2"/>
+<circle cx="1220.95" cy="873.1999999999999" r="6" fill="#73b8dc" stroke="#f4ecd7" stroke-width="1.2"/>
+<text x="1228.95" y="856.1999999999999" class="mapLabel" >메르나브가</text>
+<circle cx="1516.5" cy="642.3499999999999" r="6" fill="#79b77a" stroke="#f4ecd7" stroke-width="1.2"/>
+<circle cx="1529.3500000000001" cy="839" r="6" fill="#d58a72" stroke="#f4ecd7" stroke-width="1.2"/>
+<circle cx="591.3" cy="360.2" r="6" fill="#8fb9d1" stroke="#f4ecd7" stroke-width="1.2"/>
+<text x="599.3" y="343.2" class="mapLabel" >둔토르가</text>
+<rect x="1680" y="150" width="828" height="855" rx="12" class="panel"/>
+<text x="1700" y="168" class="h" >권역별 대표 라벨</text>
+<text x="1700" y="202" class="tiny gold" >정본 지명과 생활 설명명 병기</text>
+<rect x="1710" y="230" width="760" height="86" rx="8" fill="#111d2f" stroke="#2d3f56" stroke-width="1.4"/>
+<text x="1730" y="242" class="tableHead" >중심권</text>
+<text x="1730" y="270" class="tableText" >라드가르가 왕도 봉토촌 / 베크벱가 접경 피난민 대기촌 / 벨렐가 수문 마을 / 켈베크가 검문 대기촌</text>
+<rect x="1710" y="346" width="760" height="86" rx="8" fill="#111d2f" stroke="#2d3f56" stroke-width="1.4"/>
+<text x="1730" y="358" class="tableHead" >북방·외연권</text>
+<text x="1730" y="386" class="tableText" >마르토르가 북방 등대촌 / 헤스푸크가 보존품 저장촌 / 마르푸크섬 서부 보급섬</text>
+<rect x="1710" y="462" width="760" height="86" rx="8" fill="#111d2f" stroke="#2d3f56" stroke-width="1.4"/>
+<text x="1730" y="474" class="tableHead" >산악·감찰권</text>
+<text x="1730" y="502" class="tableText" >옌켈가 고공 숙소촌 / 얄베크가 감찰 초소촌 / 푸크베크움 봉인 창고 위성구</text>
+<rect x="1710" y="578" width="760" height="86" rx="8" fill="#111d2f" stroke="#2d3f56" stroke-width="1.4"/>
+<text x="1730" y="590" class="tableHead" >남방 복합권</text>
+<text x="1730" y="618" class="tableText" >소르산가 사원 아래 마을 / 틱람가 계절 천막장 / 메르나브가 하역 노동자 거리</text>
+<rect x="1710" y="694" width="760" height="86" rx="8" fill="#111d2f" stroke="#2d3f56" stroke-width="1.4"/>
+<text x="1730" y="706" class="tableHead" >숲·전승권</text>
+<text x="1730" y="734" class="tableText" >실문가 성림 숲문 마을 / 실킨가 계보 마을 / 워크실가 길잡이 마을</text>
+<rect x="1710" y="810" width="760" height="86" rx="8" fill="#111d2f" stroke="#2d3f56" stroke-width="1.4"/>
+<text x="1730" y="822" class="tableHead" >외해·화산권</text>
+<text x="1730" y="850" class="tableText" >나르모스가 화산 피난 표식촌 / 마르나르가 군도 보급 선착장 / 둔푸크가 난파 유품 보관소</text>
+<rect x="48" y="1040" width="2460" height="270" rx="12" class="panel"/>
+<text x="68" y="1058" class="h" >가도·항로 라벨 변환</text>
+<text x="68" y="1092" class="tiny gold" >정본 라벨과 생활 라벨을 함께 읽는 표</text>
+<text x="90" y="1115" class="tableHead" >정본 라벨</text>
+<text x="480" y="1115" class="tableHead" >생활 라벨</text>
+<text x="900" y="1115" class="tableHead" >분류</text>
+<text x="1180" y="1115" class="tableHead" >주요 통과점</text>
+<line x1="78" y1="1145" x2="2478" y2="1145" stroke="#2d3f56" stroke-width="1"/>
+<text x="90" y="1153" class="tableText" >라드지르켈</text>
+<text x="480" y="1153" class="tableText" >라드가르길</text>
+<text x="900" y="1153" class="tableText" >가도</text>
+<text x="1180" y="1153" class="tableText" >라드아르할·지르바르에트·팔테쿰가</text>
+<line x1="78" y1="1183" x2="2478" y2="1183" stroke="#2d3f56" stroke-width="1"/>
+<text x="90" y="1191" class="tableText" >마르워크켈</text>
+<text x="480" y="1191" class="tableText" >마르워크항로</text>
+<text x="900" y="1191" class="tableText" >항로</text>
+<text x="1180" y="1191" class="tableText" >마르켈미르·워크바르·움마르켈</text>
+<line x1="78" y1="1221" x2="2478" y2="1221" stroke="#2d3f56" stroke-width="1"/>
+<text x="90" y="1229" class="tableText" >소르메르켈</text>
+<text x="480" y="1229" class="tableText" >소르도르길</text>
+<text x="900" y="1229" class="tableText" >가도</text>
+<text x="1180" y="1229" class="tableText" >도르소르산·실메르미르·실소르켈</text>
+<line x1="78" y1="1259" x2="2478" y2="1259" stroke="#2d3f56" stroke-width="1"/>
+<text x="90" y="1267" class="tableText" >둔마르토르</text>
+<text x="480" y="1267" class="tableText" >외해 금기 등대선</text>
+<text x="900" y="1267" class="tableText" >항로</text>
+<text x="1180" y="1267" class="tableText" >둔아르토르·둔나브렌움·움마르소르</text>
+<line x1="78" y1="1297" x2="2478" y2="1297" stroke="#2d3f56" stroke-width="1"/>
+</svg>

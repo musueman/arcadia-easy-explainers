@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2560" height="1440" viewBox="0 0 2560 1440" role="img" aria-label="기준시대 5083 마을별 쟁점 소문 권위자 출입 조건 물자 흐름 도식">
+<defs>
+<style><![CDATA[
+      text { font-family: "Malgun Gothic", "Noto Sans CJK KR", Arial, sans-serif; dominant-baseline: hanging; letter-spacing: 0; }
+      .title { fill: #f4ecd7; font-size: 42px; font-weight: 800; }
+      .subtitle { fill: #9aabc0; font-size: 20px; }
+      .h { fill: #f4ecd7; font-size: 23px; font-weight: 800; }
+      .label { fill: #f4ecd7; font-size: 16px; font-weight: 800; }
+      .small { fill: #a8b6c8; font-size: 14px; }
+      .tiny { fill: #95a8bd; font-size: 12.5px; }
+      .micro { fill: #8fa1b4; font-size: 11px; }
+      .gold { fill: #d7bd73; }
+      .panel { fill: #0d1727; fill-opacity: .92; stroke: #293c55; stroke-width: 2; }
+      .gridFrame { fill: #07101d; fill-opacity: .58; stroke: #55708c; stroke-width: 2; }
+      .gridLine { stroke: #6f8aa6; stroke-width: 1; stroke-opacity: .22; }
+      .gridMajor { stroke: #9fb3ca; stroke-width: 1.4; stroke-opacity: .42; }
+      .routeRoad { stroke: #d7bd73; stroke-width: 3.2; stroke-opacity: .9; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .routeSea { stroke: #7fc0df; stroke-width: 3; stroke-opacity: .9; fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 14 9; }
+      .routeMountain { stroke: #c9d2dc; stroke-width: 2.7; stroke-opacity: .86; fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 7 8; }
+      .routeForest { stroke: #8fcf93; stroke-width: 2.7; stroke-opacity: .86; fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 10 7; }
+      .mapLabel { fill: #f4ecd7; font-size: 13px; font-weight: 800; paint-order: stroke; stroke: #07101d; stroke-width: 2px; }
+      .routeLabel { fill: #f4ecd7; font-size: 12px; font-weight: 800; paint-order: stroke; stroke: #07101d; stroke-width: 1.8px; }
+      .chipText { fill: #f4ecd7; font-size: 13px; font-weight: 800; }
+      .tableHead { fill: #d7bd73; font-size: 13px; font-weight: 800; }
+      .tableText { fill: #a8b6c8; font-size: 12.5px; }
+      .tableStrong { fill: #f4ecd7; font-size: 12.5px; font-weight: 800; }
+      .flowLine { stroke: #6f8aa6; stroke-width: 2; stroke-opacity: .55; fill: none; marker-end: url(#arrowSoft); }
+      .barBack { fill: #142236; stroke: #2d3f56; stroke-width: 1.2; }
+    ]]></style>
+<radialGradient id="bg" cx="50%" cy="42%" r="74%"><stop offset="0%" stop-color="#142235"/><stop offset="100%" stop-color="#050913"/></radialGradient>
+<marker id="arrowSoft" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#8fa1b4"/></marker>
+</defs>
+<rect width="2560" height="1440" fill="url(#bg)"/>
+<circle cx="599" cy="261" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="1453" cy="1219" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="181" cy="144" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1018" cy="636" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2253" cy="225" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1987" cy="1418" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1589" cy="1176" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1936" cy="562" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2048" cy="841" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2296" cy="399" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="2496" cy="1020" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1391" cy="505" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="779" cy="252" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="564" cy="300" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1848" cy="1365" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="259" cy="1376" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1906" cy="1014" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2424" cy="1362" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="680" cy="313" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="437" cy="143" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="637" cy="334" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1052" cy="62" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2016" cy="914" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="504" cy="622" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2407" cy="126" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1383" cy="1011" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1988" cy="793" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1731" cy="1276" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1583" cy="576" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="574" cy="480" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="605" cy="933" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2141" cy="111" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="370" cy="348" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1305" cy="558" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2378" cy="7" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="520" cy="995" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="19" cy="954" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2047" cy="1014" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="671" cy="80" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2173" cy="328" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2074" cy="252" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1207" cy="1238" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1753" cy="882" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="932" cy="1000" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1696" cy="694" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1521" cy="349" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1773" cy="532" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2196" cy="177" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1809" cy="709" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1685" cy="1212" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2074" cy="821" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="1350" cy="14" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="683" cy="1338" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1271" cy="1436" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="399" cy="1081" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1528" cy="63" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="913" cy="88" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2087" cy="821" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1150" cy="1053" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1714" cy="1050" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1348" cy="545" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="15" cy="421" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1452" cy="412" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2031" cy="1099" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="729" cy="336" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="414" cy="382" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="42" cy="223" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2009" cy="403" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="1485" cy="1099" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1206" cy="1219" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2357" cy="460" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1558" cy="451" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="198" cy="912" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1047" cy="589" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1008" cy="1042" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2202" cy="139" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="542" cy="567" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="1010" cy="1020" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1017" cy="1222" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1656" cy="81" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="653" cy="731" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2167" cy="1206" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1148" cy="1183" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1061" cy="865" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="2256" cy="485" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2038" cy="12" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2013" cy="1415" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1334" cy="111" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="2456" cy="918" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="1250" cy="928" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2191" cy="103" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1524" cy="714" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1452" cy="522" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1642" cy="742" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="553" cy="672" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2523" cy="1273" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1153" cy="1171" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="721" cy="1295" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="612" cy="204" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2156" cy="545" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1075" cy="642" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="852" cy="17" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="510" cy="380" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="1609" cy="605" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1067" cy="1252" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="966" cy="252" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1591" cy="876" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="287" cy="940" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="587" cy="1209" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="668" cy="688" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2538" cy="291" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="328" cy="564" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="255" cy="416" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1193" cy="1283" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="484" cy="1272" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1703" cy="1106" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1798" cy="1009" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1078" cy="131" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="663" cy="983" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="180" cy="1307" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="582" cy="519" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="443" cy="671" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="939" cy="299" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1064" cy="1094" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="1426" cy="415" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="230" cy="53" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="162" cy="651" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="847" cy="614" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1958" cy="1302" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="1326" cy="413" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="529" cy="1006" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2156" cy="157" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1090" cy="1027" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1449" cy="185" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="397" cy="629" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="45" cy="35" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1208" cy="809" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1115" cy="701" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="232" cy="678" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1189" cy="1313" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="1464" cy="381" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2491" cy="356" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1488" cy="919" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2501" cy="1397" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="712" cy="927" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="923" cy="774" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1902" cy="1166" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2250" cy="521" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1071" cy="407" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="318" cy="846" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1552" cy="135" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2205" cy="882" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1200" cy="776" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2237" cy="938" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1424" cy="597" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="918" cy="785" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2284" cy="876" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1156" cy="1034" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2413" cy="1289" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1951" cy="839" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1742" cy="1002" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1051" cy="4" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="591" cy="1007" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="42" cy="788" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1473" cy="842" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2543" cy="653" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="760" cy="397" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1024" cy="442" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1828" cy="220" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="86" cy="1083" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1859" cy="227" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="1352" cy="1259" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1725" cy="905" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1153" cy="784" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="584" cy="1087" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2262" cy="1201" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="402" cy="925" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="679" cy="1284" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1339" cy="1144" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1074" cy="265" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2039" cy="517" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="764" cy="243" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="806" cy="501" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="68" cy="1402" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2095" cy="360" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2522" cy="1293" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="516" cy="878" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2350" cy="476" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1397" cy="420" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2475" cy="360" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1641" cy="1207" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="582" cy="1075" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2501" cy="925" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="997" cy="287" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="839" cy="226" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="928" cy="1042" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2365" cy="137" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="202" cy="824" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1506" cy="156" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2344" cy="214" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1135" cy="1225" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="28" cy="655" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1683" cy="225" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="458" cy="1435" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1403" cy="588" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1933" cy="1040" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2418" cy="778" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1421" cy="330" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="1101" cy="896" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2060" cy="930" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1658" cy="245" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="1070" cy="1427" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="1741" cy="319" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2501" cy="1201" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="830" cy="678" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="546" cy="683" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="615" cy="481" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="750" cy="1411" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="724" cy="502" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2183" cy="69" r="0.7" fill="#8da6c2" opacity=".20"/>
+<text x="58" y="42" class="title" >마을별 쟁점·소문·권위자·출입 조건·물자 흐름 DB</text>
+<text x="58" y="96" class="subtitle" >마을 유형이 장면 안에서 움직이는 방식을 쟁점, 소문, 권위, 출입, 물자로 연결</text>
+<rect x="55" y="145" width="430" height="1030" rx="12" class="panel"/>
+<text x="75" y="163" class="h" >흐름 기준</text>
+<text x="75" y="197" class="tiny gold" >고정 사건이 아닌 현장 변수</text>
+<text x="86" y="225" class="label" >발발 가능 쟁점</text>
+<text x="86" y="279" class="label" >해소 가능 쟁점</text>
+<text x="86" y="333" class="label" >소문</text>
+<text x="86" y="387" class="label" >권위자</text>
+<text x="86" y="441" class="label" >출입 조건</text>
+<text x="86" y="495" class="label" >물자 흐름</text>
+<text x="86" y="610" class="label gold" >핵심 장치</text>
+<text x="86" y="650" class="small" >보증인</text>
+<text x="86" y="680" class="small" >장부</text>
+<text x="86" y="710" class="small" >초소</text>
+<text x="86" y="740" class="small" >창고</text>
+<text x="86" y="770" class="small" >수문</text>
+<text x="86" y="800" class="small" >항만세</text>
+<text x="86" y="830" class="small" >산길 허가</text>
+<text x="86" y="860" class="small" >피난 표식</text>
+<rect x="520" y="145" width="1988" height="1030" rx="12" class="panel"/>
+<text x="540" y="163" class="h" >마을 유형별 현장 흐름</text>
+<text x="540" y="197" class="tiny gold" >쟁점은 조건에 따라 생기고 중재·거래로 풀린다</text>
+<text x="555" y="222" class="tableHead" >마을 유형</text>
+<text x="800" y="222" class="tableHead" >발발 가능 쟁점</text>
+<text x="1035" y="222" class="tableHead" >소문</text>
+<text x="1265" y="222" class="tableHead" >권위자</text>
+<text x="1490" y="222" class="tableHead" >출입 조건</text>
+<text x="1725" y="222" class="tableHead" >물자 흐름</text>
+<text x="1980" y="222" class="tableHead" >해소 연결</text>
+<rect x="545" y="260" width="1908" height="72" rx="8" fill="#0f1a2b" stroke="#24364c" stroke-width="1"/>
+<text x="555" y="272" class="tableStrong" >봉토 마을</text>
+<text x="800" y="272" class="tableText" >곡물세·봉토 경계</text>
+<text x="1035" y="272" class="tableText" >장부 소문</text>
+<text x="1265" y="272" class="tableText" >영지 서리</text>
+<text x="1490" y="272" class="tableText" >추천장</text>
+<text x="1725" y="272" class="tableText" >곡물·마차 부품</text>
+<text x="1980" y="272" class="tableText" >보증인·장부·현장 권위자</text>
+<rect x="545" y="348" width="1908" height="72" rx="8" fill="#101b2d" stroke="#24364c" stroke-width="1"/>
+<text x="555" y="360" class="tableStrong" >산길 숙소촌</text>
+<text x="800" y="360" class="tableText" >눈길 안내료</text>
+<text x="1035" y="360" class="tableText" >눈사태 소문</text>
+<text x="1265" y="360" class="tableText" >숙소장</text>
+<text x="1490" y="360" class="tableText" >산길 허가</text>
+<text x="1725" y="360" class="tableText" >장작·밧줄</text>
+<text x="1980" y="360" class="tableText" >보증인·장부·현장 권위자</text>
+<rect x="545" y="436" width="1908" height="72" rx="8" fill="#0f1a2b" stroke="#24364c" stroke-width="1"/>
+<text x="555" y="448" class="tableStrong" >영지 장터촌</text>
+<text x="800" y="448" class="tableText" >방앗간 차례</text>
+<text x="1035" y="448" class="tableText" >숨긴 곡물</text>
+<text x="1265" y="448" class="tableText" >저장고 지기</text>
+<text x="1490" y="448" class="tableText" >곡물표</text>
+<text x="1725" y="448" class="tableText" >곡물·수레</text>
+<text x="1980" y="448" class="tableText" >보증인·장부·현장 권위자</text>
+<rect x="545" y="524" width="1908" height="72" rx="8" fill="#101b2d" stroke="#24364c" stroke-width="1"/>
+<text x="555" y="536" class="tableStrong" >계절 야영지</text>
+<text x="800" y="536" class="tableText" >가축 교역값</text>
+<text x="1035" y="536" class="tableText" >낙인 소문</text>
+<text x="1265" y="536" class="tableText" >장터장</text>
+<text x="1490" y="536" class="tableText" >부족 표식</text>
+<text x="1725" y="536" class="tableText" >가축·약초</text>
+<text x="1980" y="536" class="tableText" >보증인·장부·현장 권위자</text>
+<rect x="545" y="612" width="1908" height="72" rx="8" fill="#0f1a2b" stroke="#24364c" stroke-width="1"/>
+<text x="555" y="624" class="tableStrong" >수문 마을</text>
+<text x="800" y="624" class="tableText" >수문 개방 순서</text>
+<text x="1035" y="624" class="tableText" >물맛 기록</text>
+<text x="1265" y="624" class="tableText" >수문지기</text>
+<text x="1490" y="624" class="tableText" >작업일 제한</text>
+<text x="1725" y="624" class="tableText" >물·어획</text>
+<text x="1980" y="624" class="tableText" >보증인·장부·현장 권위자</text>
+<rect x="545" y="700" width="1908" height="72" rx="8" fill="#101b2d" stroke="#24364c" stroke-width="1"/>
+<text x="555" y="712" class="tableStrong" >피난 표식촌</text>
+<text x="800" y="712" class="tableText" >피난민 노동</text>
+<text x="1035" y="712" class="tableText" >죽은 이름 보증</text>
+<text x="1265" y="712" class="tableText" >명부소장</text>
+<text x="1490" y="712" class="tableText" >통행문</text>
+<text x="1725" y="712" class="tableText" >구휼 곡물</text>
+<text x="1980" y="712" class="tableText" >보증인·장부·현장 권위자</text>
+<rect x="545" y="788" width="1908" height="72" rx="8" fill="#0f1a2b" stroke="#24364c" stroke-width="1"/>
+<text x="555" y="800" class="tableStrong" >해안 어항</text>
+<text x="800" y="800" class="tableText" >등대 기름</text>
+<text x="1035" y="800" class="tableText" >늦은 구조 종</text>
+<text x="1265" y="800" class="tableText" >등대지기</text>
+<text x="1490" y="800" class="tableText" >등대 허가</text>
+<text x="1725" y="800" class="tableText" >생선·밧줄</text>
+<text x="1980" y="800" class="tableText" >보증인·장부·현장 권위자</text>
+<rect x="545" y="876" width="1908" height="72" rx="8" fill="#101b2d" stroke="#24364c" stroke-width="1"/>
+<text x="555" y="888" class="tableStrong" >감시 초소촌</text>
+<text x="800" y="888" class="tableText" >허가 심사</text>
+<text x="1035" y="888" class="tableText" >사라진 상자</text>
+<text x="1265" y="888" class="tableText" >감찰 초소장</text>
+<text x="1490" y="888" class="tableText" >허가장</text>
+<text x="1725" y="888" class="tableText" >봉인 상자</text>
+<text x="1980" y="888" class="tableText" >보증인·장부·현장 권위자</text>
+<rect x="610" y="1040" width="190" height="54" rx="14" fill="#d58a72" fill-opacity=".22" stroke="#d58a72" stroke-width="2"/>
+<text x="705" y="1056" class="chipText" text-anchor="middle">발발 가능 쟁점</text>
+<rect x="880" y="1040" width="190" height="54" rx="14" fill="#b8a6d9" fill-opacity=".22" stroke="#b8a6d9" stroke-width="2"/>
+<text x="975" y="1056" class="chipText" text-anchor="middle">소문</text>
+<rect x="1130" y="1040" width="190" height="54" rx="14" fill="#d7bd73" fill-opacity=".22" stroke="#d7bd73" stroke-width="2"/>
+<text x="1225" y="1056" class="chipText" text-anchor="middle">권위자</text>
+<rect x="1380" y="1040" width="190" height="54" rx="14" fill="#73b8dc" fill-opacity=".22" stroke="#73b8dc" stroke-width="2"/>
+<text x="1475" y="1056" class="chipText" text-anchor="middle">출입 조건</text>
+<rect x="1645" y="1040" width="190" height="54" rx="14" fill="#79b77a" fill-opacity=".22" stroke="#79b77a" stroke-width="2"/>
+<text x="1740" y="1056" class="chipText" text-anchor="middle">물자 흐름</text>
+<rect x="1925" y="1040" width="190" height="54" rx="14" fill="#c9a06d" fill-opacity=".22" stroke="#c9a06d" stroke-width="2"/>
+<text x="2020" y="1056" class="chipText" text-anchor="middle">해소 가능 쟁점</text>
+<path d="M 800 1067 C 830 1067, 850 1067, 880 1067" class="flowLine"/>
+<path d="M 1070 1067 C 1100 1067, 1100 1067, 1130 1067" class="flowLine"/>
+<path d="M 1320 1067 C 1350 1067, 1350 1067, 1380 1067" class="flowLine"/>
+<path d="M 1570 1067 C 1600 1067, 1615 1067, 1645 1067" class="flowLine"/>
+<path d="M 1835 1067 C 1865 1067, 1895 1067, 1925 1067" class="flowLine"/>
+<rect x="55" y="1210" width="2453" height="145" rx="12" class="panel"/>
+<text x="75" y="1228" class="h" >현장 물자 예시</text>
+<text x="75" y="1262" class="tiny gold" >창고·수문·항만세·초소·피난 표식은 장면의 출입과 거래를 동시에 만든다.</text>
+<text x="86" y="1292" class="small" >곡물·건초·마차 부품 / 장작·보존식·밧줄 / 수문 부품·하천 어획</text>
+<text x="86" y="1320" class="small" >봉인 상자·기록지 / 항만 보급품·피난 물자 / 등대 기름·구조 밧줄</text>
+<text x="86" y="1348" class="small" >물자는 창고, 초소, 수문, 항만세, 산길 허가, 피난 표식과 함께 흐른다.</text>
+</svg>
