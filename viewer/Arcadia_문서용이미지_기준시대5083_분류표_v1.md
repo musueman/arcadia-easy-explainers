@@ -44,8 +44,9 @@
 |---:|---|---|---|---|---|
 | 1 | IMG-CK5083-PLC-002 | 문서 병합 완료 | 기준시대 5083 객관정보 4장 | `assets/images/ck5083-places-public-facilities-v2.svg` | 전 권역의 대표 지명, 도시망 설계, 행정·기록·물류·생존·통행 공공시설을 균등하게 보여주는 권역별 장소 백과 도식 |
 | 2 | IMG-CK5083-CITY-DEM-001 | 제작 필요 | 기준시대 5083 객관정보 4.3 | `assets/images/ck5083-city-population-species-composition-v1.svg` | 도시별 상주 인구, 상주·유동 비, 기능 인구비, 종족비를 권역별로 비교하는 도시 인구·종족 구성 도식 |
-| 3 | IMG-CK5083-PLC-001 | 구버전 보조 | 기준시대 5083 객관정보 4장 | `assets/images/ck5083-cities-places-function-network-v1.svg` | 중심권과 레이븐스톤 하위 장소 비중이 커서 대표 도식에서는 제외하고 보조 참고로 둔다. |
-| 4 | IMG-ILL-CK5083-PLC-002 | 도식 확정 후 대기 | 기준시대 5083 객관정보 4장 | `assets/illustrations/ck5083-places-public-facilities-life-surfaces-v1.png` | 4장 권역별 지명·공공시설망을 바탕으로 각 권역의 관청, 시장, 창고, 신전, 항만, 산길, 학당을 균형 있게 보여주는 설정화 |
+| 3 | IMG-CK5083-CITY-DB-001 | 제작 필요 | 기준시대 5083 객관정보 4.4 | `assets/images/ck5083-city-district-hinterland-issues-v1.svg` | 96개 도시의 내부 구역, 배후 정착지·마을망, 도시 현안을 권역별로 묶어 보여주는 도시 세부 DB 도식 |
+| 4 | IMG-CK5083-PLC-001 | 구버전 보조 | 기준시대 5083 객관정보 4장 | `assets/images/ck5083-cities-places-function-network-v1.svg` | 중심권과 레이븐스톤 하위 장소 비중이 커서 대표 도식에서는 제외하고 보조 참고로 둔다. |
+| 5 | IMG-ILL-CK5083-PLC-002 | 도식 확정 후 대기 | 기준시대 5083 객관정보 4장 | `assets/illustrations/ck5083-places-public-facilities-life-surfaces-v1.png` | 4장 권역별 지명·공공시설망을 바탕으로 각 권역의 관청, 시장, 창고, 신전, 항만, 산길, 학당을 균형 있게 보여주는 설정화 |
 
 ## 6. 검수 기록
 
@@ -59,6 +60,7 @@
 | IMG-CK5083-PLC-001 | `assets/images/ck5083-cities-places-function-network-v1.svg` | 수정 대체 | 4장 세부 장소를 반영했으나 티리스와 레이븐스톤 하위 장소 비중이 높아 전 권역 장소 총람으로 교체했다. |
 | IMG-CK5083-PLC-002 | `assets/images/ck5083-places-public-facilities-v2.svg` | 통과·병합 | 기준시대 5083 객관정보 4장 도시·장소 백과 아래에 권역별 지명·도시망 설계·공공시설망 도식을 병합했다. |
 | IMG-CK5083-CITY-DEM-001 | `assets/images/ck5083-city-population-species-composition-v1.svg` | 제작 필요 | 기준시대 5083 객관정보 4.3에 추가된 도시별 상주 인구, 상주·유동 비, 기능 인구비, 종족비를 권역별로 비교하는 도식이다. |
+| IMG-CK5083-CITY-DB-001 | `assets/images/ck5083-city-district-hinterland-issues-v1.svg` | 제작 필요 | 기준시대 5083 객관정보 4.4에 추가된 도시 내부 구역, 배후 정착지·마을망, 도시 현안을 권역별로 보여주는 도식이다. |
 | IMG-ILL-CK5083-LFZ-001 | `assets/illustrations/ck5083-natural-life-zones-environment-sheet-v1.png` | 통과·병합 | 기준시대 5083 객관정보 2장 자연권과 생활권 아래에 생활 환경 설정화를 병합했다. |
 
 ## 7. 삽입 기준
@@ -74,5 +76,6 @@
 | 대륙권·국가·문화권 설정화 | 3장 대권역 표 앞, 도식 직후에 삽입 |
 | 권역별 지명·공공시설망 도식 | 4장 장소 표 앞에 삽입 |
 | 도시 인구·종족 구성 도식 | 4.3 도시별 인구·종족 구성 표 앞에 삽입 |
+| 도시 세부 DB 도식 | 4.4 도시 내부 구역·배후망·현안 DB 표 앞에 삽입 |
 | 권역별 지명·공공시설 설정화 | 4장 장소 표 앞, 도식 직후에 삽입 |
 | 실패·비교본 | 정본에 넣지 않고 검수 기록 또는 제작 스레드에만 둠 |
