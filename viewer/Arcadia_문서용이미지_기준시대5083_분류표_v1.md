@@ -35,7 +35,7 @@
 | 우선순위 | 이미지 ID | 상태 | 연결 단락 | 제안 파일명 | 핵심 내용 |
 |---:|---|---|---|---|---|
 | 1 | IMG-CK5083-POL-001 | 문서 병합 완료 | 기준시대 5083 객관정보 3장 | `assets/images/ck5083-regions-nations-culture-zones-v1.svg` | 에덴포르트 중심권, 북방·외연권, 남방 복합권, 주변 대륙·전승권과 각 국가·권역의 관계를 보여주는 대권역·국가·문화권 도식 |
-| 2 | IMG-CK5083-ADM-001 | 제작 필요 | 기준시대 5083 객관정보 3.3~3.8 | `assets/images/ck5083-internal-regions-settlements-hierarchy-v1.svg` | 각 국가·권역 안의 내부 지역, 영토 규모별 도시 밀도, 수도·중심도시, 대표도시, 지역 도시·거점, 하위 구역, 마을·야영지, 공공시설 계층, 도시 유형, 도시별 성격과 정본 발음 지역명을 보여주는 백과형 도식 |
+| 2 | IMG-CK5083-ADM-001 | 문서 병합 완료 | 기준시대 5083 객관정보 3.3~3.8 | `assets/images/ck5083-internal-regions-settlements-hierarchy-v1.svg` | 각 국가·권역 안의 내부 지역, 영토 규모별 도시 밀도, 수도·중심도시, 대표도시, 지역 도시·거점, 하위 구역, 마을·야영지, 공공시설 계층, 도시 유형, 도시별 성격과 정본 발음 지역명을 보여주는 백과형 도식 |
 | 3 | IMG-CK5083-ADM-002 | 제작 필요 | 기준시대 5083 객관정보 3.9 | `assets/images/ck5083-settlement-coordinate-scale-grid-v1.svg` | 권역 중심 좌표, 도시·거점 좌표, 규모층, 생활권 반경, 마을·야영지 위치형을 한 장에서 확인하는 도시·마을 지도 좌표 도식 |
 | 4 | IMG-CK5083-ADM-003 | 제작 필요 | 기준시대 5083 객관정보 3.10 | `assets/images/ck5083-terrain-routes-borders-village-anchors-v1.svg` | 주요 산악·해안·습지·초지·화산·외해 구획, 가도·수로·항로, 국경·경계대, 마을 위치형 앵커를 한 장에서 정리하는 물리 구획 지도 |
 | 5 | IMG-CK5083-ADM-004 | 제작 필요 | 기준시대 5083 객관정보 3.11 | `assets/images/ck5083-named-regions-routes-villages-label-layer-v1.svg` | 정본 지명, 생활 설명명, 이름 있는 마을·구조물·가도 라벨을 지도에 올리기 위한 고유지명 레이어 |
@@ -67,7 +67,7 @@
 | IMG-ILL-CK5083-WLD-001 | `assets/illustrations/ck5083-world-overview-life-surfaces-v1.png` | 통과·병합 | 세계 총람 도식을 기준으로 제작된 생활 표면 설정화를 기준시대 5083 객관정보 1장에 병합했다. |
 | IMG-CK5083-LFZ-001 | `assets/images/ck5083-natural-life-zones-v1.svg` | 통과·병합 | 기준시대 5083 객관정보 2장 자연권과 생활권 아래에 지도형 구조도를 병합했다. |
 | IMG-CK5083-POL-001 | `assets/images/ck5083-regions-nations-culture-zones-v1.svg` | 통과·병합 | 기준시대 5083 객관정보 3장 대륙권·국가·문화권 백과 아래에 대권역·국가·문화권 관계도를 병합했다. |
-| IMG-CK5083-ADM-001 | `assets/images/ck5083-internal-regions-settlements-hierarchy-v1.svg` | 제작 필요 | 기준시대 5083 객관정보 3.3~3.8에 추가된 내부 지역·정착지 계층, 영토 규모별 도시 밀도, 정본 발음 지역명, 수도·대표도시·지역 도시 체계와 도시별 성격을 설명할 도식이다. |
+| IMG-CK5083-ADM-001 | `assets/images/ck5083-internal-regions-settlements-hierarchy-v1.svg` | 통과·병합 | 기준시대 5083 객관정보 3.3~3.8에 추가된 내부 지역·정착지 계층, 영토 규모별 도시 밀도, 정본 발음 지역명, 수도·대표도시·지역 도시 체계와 도시별 성격을 설명하는 도식을 3.3 앞에 병합했다. |
 | IMG-CK5083-ADM-002 | `assets/images/ck5083-settlement-coordinate-scale-grid-v1.svg` | 제작 필요 | 기준시대 5083 객관정보 3.9에 추가된 정본 지도 격자, 권역 중심 좌표, 도시·거점 좌표, 규모층, 생활권 반경, 마을·하위 정착지 위치형을 설명할 도식이다. |
 | IMG-CK5083-ADM-003 | `assets/images/ck5083-terrain-routes-borders-village-anchors-v1.svg` | 제작 필요 | 기준시대 5083 객관정보 3.10에 추가된 물리 구획, 가도·수로·항로, 국경·경계대, 마을 위치형 앵커를 설명할 도식이다. |
 | IMG-CK5083-ADM-004 | `assets/images/ck5083-named-regions-routes-villages-label-layer-v1.svg` | 제작 필요 | 기준시대 5083 객관정보 3.11에 추가된 이름 있는 지역, 가도·항로, 마을·구조물 정본 지명과 생활 설명명을 지도 라벨로 정리하는 도식이다. |
