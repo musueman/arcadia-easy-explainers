@@ -41,7 +41,8 @@
 | 5 | IMG-CK5083-ADM-004 | 문서 병합 완료 | 기준시대 5083 객관정보 3.11 | `assets/images/ck5083-named-regions-routes-villages-label-layer-v1.svg` | 정본 지명, 생활 설명명, 이름 있는 마을·구조물·가도 라벨을 지도에 올리기 위한 고유지명 레이어 |
 | 6 | IMG-CK5083-ADM-005 | 문서 병합 완료 | 기준시대 5083 객관정보 3.12 | `assets/images/ck5083-village-population-livelihood-facility-db-v1.svg` | 이름 있는 마을·구조물별 상주 인구, 종족비, 생업, 핵심 시설, 가까운 도시와 거리, 소속축을 비교하는 마을 세부 DB 도식 |
 | 7 | IMG-CK5083-ADM-006 | 문서 병합 완료 | 기준시대 5083 객관정보 3.13 | `assets/images/ck5083-village-issue-rumor-authority-flow-db-v1.svg` | 이름 있는 마을·구조물별 발발·해소 가능한 쟁점, 소문, 현장 권위자, 출입 조건, 물자 흐름을 장면 작동 변수로 정리하는 마을 현장 DB 도식 |
-| 8 | IMG-ILL-CK5083-POL-001 | 도식 확정 후 대기 | 기준시대 5083 객관정보 3장 | `assets/illustrations/ck5083-regions-nations-culture-zones-environment-sheet-v1.png` | 3장 국가·문화권 도식을 바탕으로 궁정, 항만, 영지, 요새, 산악, 강하 교역권의 정치·문화 표면을 보여주는 설정화 |
+| 8 | IMG-ILL-CK5083-POL-001 | 문서 병합 완료 | 기준시대 5083 객관정보 3장 | `assets/illustrations/ck5083-regions-nations-culture-zones-environment-sheet-v1.png` | 3장 국가·문화권 도식을 바탕으로 궁정, 항만, 영지, 요새, 산악, 강하 교역권의 정치·문화 표면을 보여주는 설정화 |
+| 9 | IMG-ILL-CK5083-ADM-001 | 문서 병합 완료 | 기준시대 5083 객관정보 3.3~3.13 | `assets/illustrations/ck5083-settlements-routes-village-life-sheet-v1.png` | 정착지 좌표·가도·국경·마을 DB 도식을 바탕으로 봉토 마을, 산길 숙소촌, 영지 장터촌, 계절 야영지, 수문 마을, 피난 표식촌, 해안 어항, 감시 초소촌의 생활 표면을 보여주는 설정화 |
 
 ## 5. 4장 도시·장소 백과 제작 후보
 
@@ -51,13 +52,14 @@
 | 2 | IMG-CK5083-CITY-DEM-001 | 문서 병합 완료 | 기준시대 5083 객관정보 4.3 | `assets/images/ck5083-city-population-species-composition-v1.svg` | 도시별 상주 인구, 상주·유동 비, 기능 인구비, 종족비를 권역별로 비교하는 도시 인구·종족 구성 도식 |
 | 3 | IMG-CK5083-CITY-DB-001 | 문서 병합 완료 | 기준시대 5083 객관정보 4.4 | `assets/images/ck5083-city-district-hinterland-issues-v1.svg` | 96개 도시의 내부 구역, 배후 정착지·마을망, 도시 현안을 권역별로 묶어 보여주는 도시 세부 DB 도식 |
 | 4 | IMG-CK5083-PLC-001 | 구버전 보조 | 기준시대 5083 객관정보 4장 | `assets/images/ck5083-cities-places-function-network-v1.svg` | 중심권과 레이븐스톤 하위 장소 비중이 커서 대표 도식에서는 제외하고 보조 참고로 둔다. |
-| 5 | IMG-ILL-CK5083-PLC-002 | 도식 확정 후 대기 | 기준시대 5083 객관정보 4장 | `assets/illustrations/ck5083-places-public-facilities-life-surfaces-v1.png` | 4장 권역별 지명·공공시설망을 바탕으로 각 권역의 관청, 시장, 창고, 신전, 항만, 산길, 학당을 균형 있게 보여주는 설정화 |
+| 5 | IMG-ILL-CK5083-PLC-002 | 문서 병합 완료 | 기준시대 5083 객관정보 4장 | `assets/illustrations/ck5083-places-public-facilities-life-surfaces-v1.png` | 4장 권역별 지명·공공시설망을 바탕으로 각 권역의 관청, 시장, 창고, 신전, 항만, 산길, 학당을 균형 있게 보여주는 설정화 |
 
 ## 6. 10장 문명·기술 복합도 제작 후보
 
 | 우선순위 | 이미지 ID | 상태 | 연결 단락 | 제안 파일명 | 핵심 내용 |
 |---:|---|---|---|---|---|
 | 1 | IMG-CK5083-TECH-001 | 문서 병합 완료 | 기준시대 5083 객관정보 10.4~10.5 | `assets/images/ck5083-civilization-technology-capability-matrix-v1.svg` | 국가·권역별 문명 기반, 강한 기술·제도, 상용 도시 기능, 희소·부재 기능을 한 장에서 비교하는 문명·기술 기능 매트릭스 |
+| 2 | IMG-ILL-CK5083-TECH-001 | 문서 병합 완료 | 기준시대 5083 객관정보 10.4~10.5 | `assets/illustrations/ck5083-civilization-technology-capability-life-sheet-v1.png` | 문명·기술 기능 매트릭스를 관청 기록, 항만세, 수문, 가도, 병영, 길드, 신전, 약초, 제철, 석공, 보존식, 검문·구휼 생활 장면으로 풀어낸 설정화 |
 
 ## 7. 검수 기록
 
@@ -79,6 +81,10 @@
 | IMG-CK5083-CITY-DB-001 | `assets/images/ck5083-city-district-hinterland-issues-v1.svg` | 통과·병합 | 기준시대 5083 객관정보 4.4에 추가된 도시 내부 구역, 배후 정착지·마을망, 도시 현안을 권역별로 보여주는 도식을 4.4 앞에 병합했다. |
 | IMG-CK5083-TECH-001 | `assets/images/ck5083-civilization-technology-capability-matrix-v1.svg` | 통과·병합 | 기준시대 5083 객관정보 10.4~10.5에 추가된 국가·권역별 문명·기술 복합도와 도시 기능 분포 DB를 비교하는 도식을 10.4 앞에 병합했다. |
 | IMG-ILL-CK5083-LFZ-001 | `assets/illustrations/ck5083-natural-life-zones-environment-sheet-v1.png` | 통과·병합 | 기준시대 5083 객관정보 2장 자연권과 생활권 아래에 생활 환경 설정화를 병합했다. |
+| IMG-ILL-CK5083-POL-001 | `assets/illustrations/ck5083-regions-nations-culture-zones-environment-sheet-v1.png` | 통과·병합 | 기준시대 5083 객관정보 3장 대권역·국가·문화권 도식 직후에 정치·문화 표면 설정화를 병합했다. |
+| IMG-ILL-CK5083-ADM-001 | `assets/illustrations/ck5083-settlements-routes-village-life-sheet-v1.png` | 통과·병합 | 기준시대 5083 객관정보 3.3~3.13의 정착지·가도·마을 DB 묶음을 생활 장면으로 보여주는 설정화를 3.14 앞에 병합했다. |
+| IMG-ILL-CK5083-PLC-002 | `assets/illustrations/ck5083-places-public-facilities-life-surfaces-v1.png` | 통과·병합 | 기준시대 5083 객관정보 4장 도시·장소 백과 도식 직후에 도시·공공시설 생활 표면 설정화를 병합했다. |
+| IMG-ILL-CK5083-TECH-001 | `assets/illustrations/ck5083-civilization-technology-capability-life-sheet-v1.png` | 통과·병합 | 기준시대 5083 객관정보 10.4~10.5의 문명·기술 기능 매트릭스 직후에 기술 생활 설정화를 병합했다. |
 
 ## 8. 삽입 기준
 

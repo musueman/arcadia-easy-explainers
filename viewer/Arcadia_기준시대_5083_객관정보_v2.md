@@ -67,6 +67,8 @@
 
 ![5083년 대권역·국가·문화권 관계도](assets/images/ck5083-regions-nations-culture-zones-v1.svg)
 
+![5083년 대권역·국가·문화권 생활 표면 설정화](assets/illustrations/ck5083-regions-nations-culture-zones-environment-sheet-v1.png)
+
 ### 3.1 대권역
 
 | 대권역 | 포함 국가·권역 | 성격 |
@@ -894,6 +896,8 @@
 | 둔푸크가 | 유품 보관, 보험 증언, 난파 명부 보조 | 젖은 명부대의 잉크가 마르지 않는 이름은 배가 돌아오지 않는다는 말 | 유품 보관소장, 보험 증언실장, 난파 명부 보조관 | 유품 청구 증언과 선박명 확인 | 젖은 짐·유품·증언자 유입, 보험 증언·난파 명부·유품 반환 유출 |
 | 벱나브가 | 구조 대기 순서, 선원 피난, 외해 경보 | 외해 경보 종이 바람 없는 날에도 스스로 흔들린다는 말 | 구조 대기소장, 피난 숙소장, 외해 경보 종 관리인 | 피난 숙소 등록과 구조 신호 확인 | 피난 선원·물·응급 밧줄 유입, 구조대·외해 경보·생존 소문 유출 |
 
+![5083년 정착지·가도·마을 생활 설정화](assets/illustrations/ck5083-settlements-routes-village-life-sheet-v1.png)
+
 ### 3.14 권역별 생활 밀도
 
 | 권역 | 하루가 시작되는 낮은 장소 | 마찰이 생기는 지점 | 먼저 보이는 권위 |
@@ -918,6 +922,8 @@
 ## 4. 도시·장소 백과
 
 ![5083년 권역별 지명·공공시설망](assets/images/ck5083-places-public-facilities-v2.svg)
+
+![5083년 도시·공공시설 생활 표면 설정화](assets/illustrations/ck5083-places-public-facilities-life-surfaces-v1.png)
 
 ### 4.1 권역별 지명·공공시설 총람
 
@@ -1735,6 +1741,8 @@
 | 보존 기술 | 건조, 염장, 저장고 통풍, 북방 냉장 관습 | 겨울과 습기에 강하지만 부패와 장부 누락은 계속 생긴다. |
 
 ![5083년 문명·기술 기능 매트릭스](assets/images/ck5083-civilization-technology-capability-matrix-v1.svg)
+
+![5083년 문명·기술 기능 생활 설정화](assets/illustrations/ck5083-civilization-technology-capability-life-sheet-v1.png)
 
 ### 10.4 문명·기술 복합도 DB
 
