@@ -40,7 +40,8 @@
 | 4 | IMG-CK5083-ADM-003 | 제작 필요 | 기준시대 5083 객관정보 3.10 | `assets/images/ck5083-terrain-routes-borders-village-anchors-v1.svg` | 주요 산악·해안·습지·초지·화산·외해 구획, 가도·수로·항로, 국경·경계대, 마을 위치형 앵커를 한 장에서 정리하는 물리 구획 지도 |
 | 5 | IMG-CK5083-ADM-004 | 제작 필요 | 기준시대 5083 객관정보 3.11 | `assets/images/ck5083-named-regions-routes-villages-label-layer-v1.svg` | 정본 지명, 생활 설명명, 이름 있는 마을·구조물·가도 라벨을 지도에 올리기 위한 고유지명 레이어 |
 | 6 | IMG-CK5083-ADM-005 | 제작 필요 | 기준시대 5083 객관정보 3.12 | `assets/images/ck5083-village-population-livelihood-facility-db-v1.svg` | 이름 있는 마을·구조물별 상주 인구, 종족비, 생업, 핵심 시설, 가까운 도시와 거리, 소속축을 비교하는 마을 세부 DB 도식 |
-| 7 | IMG-ILL-CK5083-POL-001 | 도식 확정 후 대기 | 기준시대 5083 객관정보 3장 | `assets/illustrations/ck5083-regions-nations-culture-zones-environment-sheet-v1.png` | 3장 국가·문화권 도식을 바탕으로 궁정, 항만, 영지, 요새, 산악, 강하 교역권의 정치·문화 표면을 보여주는 설정화 |
+| 7 | IMG-CK5083-ADM-006 | 제작 필요 | 기준시대 5083 객관정보 3.13 | `assets/images/ck5083-village-conflict-rumor-authority-flow-db-v1.svg` | 이름 있는 마을·구조물별 갈등, 소문, 현장 권위자, 출입 조건, 물자 흐름을 장면 작동 변수로 정리하는 마을 현장 DB 도식 |
+| 8 | IMG-ILL-CK5083-POL-001 | 도식 확정 후 대기 | 기준시대 5083 객관정보 3장 | `assets/illustrations/ck5083-regions-nations-culture-zones-environment-sheet-v1.png` | 3장 국가·문화권 도식을 바탕으로 궁정, 항만, 영지, 요새, 산악, 강하 교역권의 정치·문화 표면을 보여주는 설정화 |
 
 ## 5. 4장 도시·장소 백과 제작 후보
 
@@ -71,6 +72,7 @@
 | IMG-CK5083-ADM-003 | `assets/images/ck5083-terrain-routes-borders-village-anchors-v1.svg` | 제작 필요 | 기준시대 5083 객관정보 3.10에 추가된 물리 구획, 가도·수로·항로, 국경·경계대, 마을 위치형 앵커를 설명할 도식이다. |
 | IMG-CK5083-ADM-004 | `assets/images/ck5083-named-regions-routes-villages-label-layer-v1.svg` | 제작 필요 | 기준시대 5083 객관정보 3.11에 추가된 이름 있는 지역, 가도·항로, 마을·구조물 정본 지명과 생활 설명명을 지도 라벨로 정리하는 도식이다. |
 | IMG-CK5083-ADM-005 | `assets/images/ck5083-village-population-livelihood-facility-db-v1.svg` | 제작 필요 | 기준시대 5083 객관정보 3.12에 추가된 마을별 인구, 종족비, 생업, 시설, 가까운 도시와 거리, 길·하천·국경 소속축을 정리하는 도식이다. |
+| IMG-CK5083-ADM-006 | `assets/images/ck5083-village-conflict-rumor-authority-flow-db-v1.svg` | 제작 필요 | 기준시대 5083 객관정보 3.13에 추가된 마을별 갈등, 소문, 현장 권위자, 출입 조건, 물자 흐름을 정리하는 도식이다. |
 | IMG-CK5083-PLC-001 | `assets/images/ck5083-cities-places-function-network-v1.svg` | 수정 대체 | 4장 세부 장소를 반영했으나 티리스와 레이븐스톤 하위 장소 비중이 높아 전 권역 장소 총람으로 교체했다. |
 | IMG-CK5083-PLC-002 | `assets/images/ck5083-places-public-facilities-v2.svg` | 통과·병합 | 기준시대 5083 객관정보 4장 도시·장소 백과 아래에 권역별 지명·도시망 설계·공공시설망 도식을 병합했다. |
 | IMG-CK5083-CITY-DEM-001 | `assets/images/ck5083-city-population-species-composition-v1.svg` | 제작 필요 | 기준시대 5083 객관정보 4.3에 추가된 도시별 상주 인구, 상주·유동 비, 기능 인구비, 종족비를 권역별로 비교하는 도식이다. |
@@ -92,6 +94,7 @@
 | 지형·가도·국경 물리 구획도 | 3.10 지형·가도·국경 물리 구획 DB 앞에 삽입 |
 | 이름 있는 지역·마을 라벨 도식 | 3.11 이름 있는 지역·가도·마을·구조물 DB 앞에 삽입 |
 | 마을 인구·생업·시설 DB 도식 | 3.12 마을별 인구·생업·시설 DB 앞에 삽입 |
+| 마을 현장 변수 DB 도식 | 3.13 마을별 갈등·소문·권위·통행·물자 DB 앞에 삽입 |
 | 대륙권·국가·문화권 설정화 | 3장 대권역 표 앞, 도식 직후에 삽입 |
 | 권역별 지명·공공시설망 도식 | 4장 장소 표 앞에 삽입 |
 | 도시 인구·종족 구성 도식 | 4.3 도시별 인구·종족 구성 표 앞에 삽입 |
