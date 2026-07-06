@@ -48,8 +48,8 @@
 | 우선순위 | 이미지 ID | 상태 | 연결 단락 | 제안 파일명 | 핵심 내용 |
 |---:|---|---|---|---|---|
 | 1 | IMG-CK5083-PLC-002 | 문서 병합 완료 | 기준시대 5083 객관정보 4장 | `assets/images/ck5083-places-public-facilities-v2.svg` | 전 권역의 대표 지명, 도시망 설계, 행정·기록·물류·생존·통행 공공시설을 균등하게 보여주는 권역별 장소 백과 도식 |
-| 2 | IMG-CK5083-CITY-DEM-001 | 제작 필요 | 기준시대 5083 객관정보 4.3 | `assets/images/ck5083-city-population-species-composition-v1.svg` | 도시별 상주 인구, 상주·유동 비, 기능 인구비, 종족비를 권역별로 비교하는 도시 인구·종족 구성 도식 |
-| 3 | IMG-CK5083-CITY-DB-001 | 제작 필요 | 기준시대 5083 객관정보 4.4 | `assets/images/ck5083-city-district-hinterland-issues-v1.svg` | 96개 도시의 내부 구역, 배후 정착지·마을망, 도시 현안을 권역별로 묶어 보여주는 도시 세부 DB 도식 |
+| 2 | IMG-CK5083-CITY-DEM-001 | 문서 병합 완료 | 기준시대 5083 객관정보 4.3 | `assets/images/ck5083-city-population-species-composition-v1.svg` | 도시별 상주 인구, 상주·유동 비, 기능 인구비, 종족비를 권역별로 비교하는 도시 인구·종족 구성 도식 |
+| 3 | IMG-CK5083-CITY-DB-001 | 문서 병합 완료 | 기준시대 5083 객관정보 4.4 | `assets/images/ck5083-city-district-hinterland-issues-v1.svg` | 96개 도시의 내부 구역, 배후 정착지·마을망, 도시 현안을 권역별로 묶어 보여주는 도시 세부 DB 도식 |
 | 4 | IMG-CK5083-PLC-001 | 구버전 보조 | 기준시대 5083 객관정보 4장 | `assets/images/ck5083-cities-places-function-network-v1.svg` | 중심권과 레이븐스톤 하위 장소 비중이 커서 대표 도식에서는 제외하고 보조 참고로 둔다. |
 | 5 | IMG-ILL-CK5083-PLC-002 | 도식 확정 후 대기 | 기준시대 5083 객관정보 4장 | `assets/illustrations/ck5083-places-public-facilities-life-surfaces-v1.png` | 4장 권역별 지명·공공시설망을 바탕으로 각 권역의 관청, 시장, 창고, 신전, 항만, 산길, 학당을 균형 있게 보여주는 설정화 |
 
@@ -75,8 +75,8 @@
 | IMG-CK5083-ADM-006 | `assets/images/ck5083-village-issue-rumor-authority-flow-db-v1.svg` | 통과·병합 | 기준시대 5083 객관정보 3.13에 추가된 마을별 발발·해소 가능한 쟁점, 소문, 현장 권위자, 출입 조건, 물자 흐름을 정리하는 도식을 3.13 앞에 병합했다. |
 | IMG-CK5083-PLC-001 | `assets/images/ck5083-cities-places-function-network-v1.svg` | 수정 대체 | 4장 세부 장소를 반영했으나 티리스와 레이븐스톤 하위 장소 비중이 높아 전 권역 장소 총람으로 교체했다. |
 | IMG-CK5083-PLC-002 | `assets/images/ck5083-places-public-facilities-v2.svg` | 통과·병합 | 기준시대 5083 객관정보 4장 도시·장소 백과 아래에 권역별 지명·도시망 설계·공공시설망 도식을 병합했다. |
-| IMG-CK5083-CITY-DEM-001 | `assets/images/ck5083-city-population-species-composition-v1.svg` | 제작 필요 | 기준시대 5083 객관정보 4.3에 추가된 도시별 상주 인구, 상주·유동 비, 기능 인구비, 종족비를 권역별로 비교하는 도식이다. |
-| IMG-CK5083-CITY-DB-001 | `assets/images/ck5083-city-district-hinterland-issues-v1.svg` | 제작 필요 | 기준시대 5083 객관정보 4.4에 추가된 도시 내부 구역, 배후 정착지·마을망, 도시 현안을 권역별로 보여주는 도식이다. |
+| IMG-CK5083-CITY-DEM-001 | `assets/images/ck5083-city-population-species-composition-v1.svg` | 통과·병합 | 기준시대 5083 객관정보 4.3에 추가된 도시별 상주 인구, 상주·유동 비, 기능 인구비, 종족비를 권역별로 비교하는 도식을 4.3 앞에 병합했다. |
+| IMG-CK5083-CITY-DB-001 | `assets/images/ck5083-city-district-hinterland-issues-v1.svg` | 통과·병합 | 기준시대 5083 객관정보 4.4에 추가된 도시 내부 구역, 배후 정착지·마을망, 도시 현안을 권역별로 보여주는 도식을 4.4 앞에 병합했다. |
 | IMG-CK5083-TECH-001 | `assets/images/ck5083-civilization-technology-capability-matrix-v1.svg` | 제작 필요 | 기준시대 5083 객관정보 10.4~10.5에 추가된 국가·권역별 문명·기술 복합도와 도시 기능 분포 DB를 비교하는 도식이다. |
 | IMG-ILL-CK5083-LFZ-001 | `assets/illustrations/ck5083-natural-life-zones-environment-sheet-v1.png` | 통과·병합 | 기준시대 5083 객관정보 2장 자연권과 생활권 아래에 생활 환경 설정화를 병합했다. |
 

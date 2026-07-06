@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2560" height="1440" viewBox="0 0 2560 1440" role="img" aria-label="기준시대 5083 도시별 인구 종족 구성 도식">
+<defs>
+<style><![CDATA[
+      text { font-family: "Malgun Gothic", "Noto Sans CJK KR", Arial, sans-serif; dominant-baseline: hanging; letter-spacing: 0; }
+      .title { fill: #f4ecd7; font-size: 42px; font-weight: 800; }
+      .subtitle { fill: #9aabc0; font-size: 20px; }
+      .h { fill: #f4ecd7; font-size: 22px; font-weight: 800; }
+      .label { fill: #f4ecd7; font-size: 15px; font-weight: 800; }
+      .small { fill: #a8b6c8; font-size: 13.5px; }
+      .tiny { fill: #95a8bd; font-size: 12px; }
+      .micro { fill: #8fa1b4; font-size: 10.8px; }
+      .gold { fill: #d7bd73; }
+      .panel { fill: #0d1727; fill-opacity: .92; stroke: #293c55; stroke-width: 2; }
+      .card { fill: #0f1a2b; stroke: #26394f; stroke-width: 1.4; }
+      .cardAlt { fill: #101d2f; stroke: #2c425b; stroke-width: 1.4; }
+      .tableHead { fill: #d7bd73; font-size: 12.5px; font-weight: 800; }
+      .tableText { fill: #a8b6c8; font-size: 12px; }
+      .tableStrong { fill: #f4ecd7; font-size: 12px; font-weight: 800; }
+      .chip { fill-opacity: .16; stroke-width: 1.5; }
+      .chipText { fill: #f4ecd7; font-size: 11.5px; font-weight: 800; }
+      .barBack { fill: #142236; stroke: #2d3f56; stroke-width: 1.1; }
+      .splitLine { stroke: #2d3f56; stroke-width: 1; }
+      .flowLine { stroke: #6f8aa6; stroke-width: 2; stroke-opacity: .50; fill: none; marker-end: url(#arrowSoft); }
+    ]]></style>
+<radialGradient id="bg" cx="50%" cy="42%" r="74%"><stop offset="0%" stop-color="#142235"/><stop offset="100%" stop-color="#050913"/></radialGradient>
+<marker id="arrowSoft" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#8fa1b4"/></marker>
+</defs>
+<rect width="2560" height="1440" fill="url(#bg)"/>
+<circle cx="628" cy="1299" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1736" cy="1210" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="4" cy="842" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="310" cy="77" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="476" cy="1023" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1943" cy="834" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1480" cy="605" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1641" cy="716" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="824" cy="1207" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2327" cy="824" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1544" cy="522" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1882" cy="391" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="4" cy="1203" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1576" cy="264" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1305" cy="929" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="191" cy="1246" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="1742" cy="470" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1899" cy="661" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="123" cy="795" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="273" cy="381" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1686" cy="1430" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="182" cy="1124" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1506" cy="741" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="822" cy="969" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1306" cy="68" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="1339" cy="950" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="37" cy="562" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="118" cy="951" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="797" cy="917" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="830" cy="770" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1132" cy="1396" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="1792" cy="1014" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="89" cy="1210" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1780" cy="989" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="641" cy="3" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1710" cy="541" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1815" cy="258" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2143" cy="905" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="386" cy="435" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="583" cy="929" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="545" cy="1184" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="701" cy="824" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="746" cy="1030" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="493" cy="67" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2059" cy="1284" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2156" cy="1217" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1585" cy="7" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="513" cy="976" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1926" cy="812" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2255" cy="508" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2536" cy="1362" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2077" cy="405" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1722" cy="1239" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1047" cy="656" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1956" cy="262" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2158" cy="1270" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1114" cy="473" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="890" cy="1243" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2198" cy="918" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1573" cy="1033" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1906" cy="13" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="196" cy="599" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1308" cy="758" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="40" cy="651" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="1941" cy="544" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2241" cy="1217" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="561" cy="388" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1489" cy="1291" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="899" cy="262" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="118" cy="1280" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1547" cy="1228" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2526" cy="1050" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2259" cy="481" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1946" cy="526" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="449" cy="614" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1626" cy="1367" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1486" cy="423" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2396" cy="88" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="595" cy="289" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="682" cy="58" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2297" cy="877" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1740" cy="790" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="999" cy="1331" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1927" cy="134" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1149" cy="768" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="261" cy="415" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1181" cy="714" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1287" cy="508" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1016" cy="1289" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1391" cy="899" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1731" cy="733" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="382" cy="1360" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="979" cy="922" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1322" cy="782" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1236" cy="1114" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1130" cy="1069" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="946" cy="1033" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2314" cy="407" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1027" cy="159" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1313" cy="920" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="30" cy="337" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="545" cy="260" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1731" cy="1393" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="2423" cy="968" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1016" cy="69" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2387" cy="494" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1805" cy="948" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="796" cy="1109" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="718" cy="311" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="744" cy="19" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1231" cy="371" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="218" cy="119" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="434" cy="1418" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="2448" cy="1064" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1354" cy="673" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="391" cy="195" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2212" cy="321" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1241" cy="1009" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="206" cy="1416" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="700" cy="430" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="801" cy="707" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1423" cy="1169" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1168" cy="255" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="562" cy="426" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2309" cy="218" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="755" cy="647" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2313" cy="171" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1243" cy="1072" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1342" cy="289" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="590" cy="1323" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="941" cy="375" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1928" cy="1373" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="115" cy="1070" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1743" cy="38" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2385" cy="444" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1345" cy="683" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="66" cy="401" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1587" cy="506" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2326" cy="130" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1559" cy="187" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2071" cy="326" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="810" cy="128" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2109" cy="671" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="923" cy="737" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="839" cy="508" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="751" cy="821" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1963" cy="821" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2233" cy="248" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="634" cy="45" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1047" cy="1178" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2180" cy="1354" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1328" cy="11" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="778" cy="723" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="251" cy="1077" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1960" cy="473" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="1368" cy="803" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2393" cy="801" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="205" cy="1257" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1657" cy="340" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1400" cy="294" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1489" cy="447" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="184" cy="902" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1966" cy="684" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="599" cy="746" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="657" cy="7" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="791" cy="942" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1956" cy="435" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1362" cy="309" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="618" cy="1414" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2349" cy="993" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1004" cy="1321" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="152" cy="687" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="59" cy="405" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1121" cy="1264" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="128" cy="550" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1757" cy="885" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2129" cy="744" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="104" cy="925" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1389" cy="351" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1060" cy="428" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="982" cy="1368" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="617" cy="675" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2130" cy="613" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2542" cy="1224" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1777" cy="1372" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="378" cy="299" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1921" cy="238" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2417" cy="490" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="164" cy="368" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1420" cy="1089" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2344" cy="90" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2341" cy="644" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1547" cy="966" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1049" cy="335" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="843" cy="751" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1353" cy="489" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2322" cy="300" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1207" cy="1428" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1011" cy="204" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="425" cy="72" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1842" cy="1085" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="477" cy="157" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="871" cy="1224" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="851" cy="126" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1876" cy="1051" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="246" cy="249" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="704" cy="1191" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1401" cy="368" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2164" cy="604" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="800" cy="731" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="953" cy="743" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2358" cy="1341" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1300" cy="1243" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2209" cy="264" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2323" cy="382" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2152" cy="389" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="28" cy="736" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="2428" cy="604" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="343" cy="585" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1124" cy="122" r="1.3" fill="#8da6c2" opacity=".20"/>
+<circle cx="2117" cy="63" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1067" cy="350" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="613" cy="1158" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1968" cy="543" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="915" cy="64" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2539" cy="741" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2195" cy="267" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="2176" cy="1085" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="1814" cy="621" r="0.7" fill="#8da6c2" opacity=".20"/>
+<circle cx="150" cy="969" r="0.7" fill="#8da6c2" opacity=".20"/>
+<text x="58" y="42" class="title" >도시별 인구·종족 구성 DB</text>
+<text x="58" y="96" class="subtitle" >상주 인구, 유동 인구, 기능 인구비, 종족비를 권역별로 비교한 백과형 도식</text>
+<rect x="48" y="150" width="300" height="1000" rx="12" class="panel"/>
+<text x="66" y="166" class="h" >비교 축</text>
+<text x="66" y="198" class="tiny gold" >도시 규모와 구성</text>
+<text x="76" y="226" class="label" >상주 인구</text>
+<text x="76" y="276" class="label" >유동 인구</text>
+<text x="76" y="326" class="label" >기능 인구비</text>
+<text x="76" y="376" class="label" >종족비</text>
+<text x="76" y="426" class="label" >수도</text>
+<text x="76" y="476" class="label" >대표도시</text>
+<text x="76" y="526" class="label" >지역도시</text>
+<text x="76" y="576" class="label" >외곽 소도시</text>
+<rect x="382" y="150" width="2126" height="1000" rx="12" class="panel"/>
+<text x="400" y="166" class="h" >권역별 도시 인구·구성</text>
+<text x="400" y="198" class="tiny gold" >각 권역을 같은 크기로 배치</text>
+<rect x="410" y="225" width="485" height="138" rx="10" class="card"/>
+<text x="426" y="237" class="tableHead" >레오니아</text>
+<text x="426" y="263" class="tableStrong" >라드아르할 · 수도</text>
+<text x="426" y="288" class="tableText" >광역 내륙 대국</text>
+<rect x="426" y="316" width="155" height="10" rx="5" class="barBack"/>
+<rect x="426" y="316" width="136.4" height="10" rx="5" fill="#d7bd73" fill-opacity=".82"/>
+<text x="591" y="310" class="micro" >상주</text>
+<rect x="624" y="316" width="155" height="10" rx="5" class="barBack"/>
+<rect x="624" y="316" width="18.599999999999998" height="10" rx="5" fill="#73b8dc" fill-opacity=".82"/>
+<text x="789" y="310" class="micro" >유동</text>
+<text x="426" y="336" class="micro" >궁정·공방·시장</text>
+<text x="624" y="336" class="micro" >인간계 중심</text>
+<circle cx="864" cy="252" r="15" fill="#d7bd73" fill-opacity=".45" stroke="#d7bd73" stroke-width="1.6"/>
+<text x="827" y="279" class="micro" >상주 우세</text>
+<rect x="925" y="225" width="485" height="138" rx="10" class="cardAlt"/>
+<text x="941" y="237" class="tableHead" >노르가르드</text>
+<text x="941" y="263" class="tableStrong" >마르나브미르 · 수도</text>
+<text x="941" y="288" class="tableText" >해안 대국</text>
+<rect x="941" y="316" width="155" height="10" rx="5" class="barBack"/>
+<rect x="941" y="316" width="120.9" height="10" rx="5" fill="#78a9d0" fill-opacity=".82"/>
+<text x="1106" y="310" class="micro" >상주</text>
+<rect x="1139" y="316" width="155" height="10" rx="5" class="barBack"/>
+<rect x="1139" y="316" width="34.099999999999994" height="10" rx="5" fill="#73b8dc" fill-opacity=".82"/>
+<text x="1304" y="310" class="micro" >유동</text>
+<text x="941" y="336" class="micro" >해군·항만·창고</text>
+<text x="1139" y="336" class="micro" >혼합·철맥·외해</text>
+<circle cx="1379" cy="252" r="14" fill="#78a9d0" fill-opacity=".45" stroke="#78a9d0" stroke-width="1.6"/>
+<text x="1342" y="279" class="micro" >항만 유동 큼</text>
+<rect x="1440" y="225" width="485" height="138" rx="10" class="card"/>
+<text x="1456" y="237" class="tableHead" >티리스</text>
+<text x="1456" y="263" class="tableStrong" >라드바르할 · 수도</text>
+<text x="1456" y="288" class="tableText" >중견 농경 왕국</text>
+<rect x="1456" y="316" width="155" height="10" rx="5" class="barBack"/>
+<rect x="1456" y="316" width="139.5" height="10" rx="5" fill="#79a873" fill-opacity=".82"/>
+<text x="1621" y="310" class="micro" >상주</text>
+<rect x="1654" y="316" width="155" height="10" rx="5" class="barBack"/>
+<rect x="1654" y="316" width="15.499999999999996" height="10" rx="5" fill="#73b8dc" fill-opacity=".82"/>
+<text x="1819" y="310" class="micro" >유동</text>
+<text x="1456" y="336" class="micro" >왕실·영지·신전</text>
+<text x="1654" y="336" class="micro" >인간계·씨앗상단계</text>
+<circle cx="1894" cy="252" r="15" fill="#79a873" fill-opacity=".45" stroke="#79a873" stroke-width="1.6"/>
+<text x="1857" y="279" class="micro" >상주 우세</text>
+<rect x="1955" y="225" width="485" height="138" rx="10" class="cardAlt"/>
+<text x="1971" y="237" class="tableHead" >린레네트</text>
+<text x="1971" y="263" class="tableStrong" >레눔가 · 대표도시</text>
+<text x="1971" y="288" class="tableText" >조밀한 도시국가</text>
+<rect x="1971" y="316" width="155" height="10" rx="5" class="barBack"/>
+<rect x="1971" y="316" width="133.3" height="10" rx="5" fill="#b8a6d9" fill-opacity=".82"/>
+<text x="2136" y="310" class="micro" >상주</text>
+<rect x="2169" y="316" width="155" height="10" rx="5" class="barBack"/>
+<rect x="2169" y="316" width="21.700000000000003" height="10" rx="5" fill="#73b8dc" fill-opacity=".82"/>
+<text x="2334" y="310" class="micro" >유동</text>
+<text x="1971" y="336" class="micro" >기록·필사·후원</text>
+<text x="2169" y="336" class="micro" >숲기록계 비중</text>
+<circle cx="2409" cy="252" r="14" fill="#b8a6d9" fill-opacity=".45" stroke="#b8a6d9" stroke-width="1.6"/>
+<text x="2372" y="279" class="micro" >상주 우세</text>
+<rect x="410" y="395" width="485" height="138" rx="10" class="card"/>
+<text x="426" y="407" class="tableHead" >벡도레트</text>
+<text x="426" y="433" class="tableStrong" >도르카르 · 대표도시</text>
+<text x="426" y="458" class="tableText" >요새 도시국가</text>
+<rect x="426" y="486" width="155" height="10" rx="5" class="barBack"/>
+<rect x="426" y="486" width="133.3" height="10" rx="5" fill="#d5a065" fill-opacity=".82"/>
+<text x="591" y="480" class="micro" >상주</text>
+<rect x="624" y="486" width="155" height="10" rx="5" class="barBack"/>
+<rect x="624" y="486" width="21.700000000000003" height="10" rx="5" fill="#73b8dc" fill-opacity=".82"/>
+<text x="789" y="480" class="micro" >유동</text>
+<text x="426" y="506" class="micro" >병영·법정·공사</text>
+<text x="624" y="506" class="micro" >철맥계·북방 복합</text>
+<circle cx="864" cy="422" r="14" fill="#d5a065" fill-opacity=".45" stroke="#d5a065" stroke-width="1.6"/>
+<text x="827" y="449" class="micro" >상주 우세</text>
+<rect x="925" y="395" width="485" height="138" rx="10" class="cardAlt"/>
+<text x="941" y="407" class="tableHead" >센할레트</text>
+<text x="941" y="433" class="tableStrong" >센푸쿰 · 대표도시</text>
+<text x="941" y="458" class="tableText" >공동체 농업국</text>
+<rect x="941" y="486" width="155" height="10" rx="5" class="barBack"/>
+<rect x="941" y="486" width="139.5" height="10" rx="5" fill="#7aa38c" fill-opacity=".82"/>
+<text x="1106" y="480" class="micro" >상주</text>
+<rect x="1139" y="486" width="155" height="10" rx="5" class="barBack"/>
+<rect x="1139" y="486" width="15.499999999999996" height="10" rx="5" fill="#73b8dc" fill-opacity=".82"/>
+<text x="1304" y="480" class="micro" >유동</text>
+<text x="941" y="506" class="micro" >창고·배급·농업 장부</text>
+<text x="1139" y="506" class="micro" >씨앗상단계 비중</text>
+<circle cx="1379" cy="422" r="15" fill="#7aa38c" fill-opacity=".45" stroke="#7aa38c" stroke-width="1.6"/>
+<text x="1342" y="449" class="micro" >상주 우세</text>
+<rect x="1440" y="395" width="485" height="138" rx="10" class="card"/>
+<text x="1456" y="407" class="tableHead" >헤스페레트</text>
+<text x="1456" y="433" class="tableStrong" >헤스푸쿰 · 대표도시</text>
+<text x="1456" y="458" class="tableText" >북방 분산권</text>
+<rect x="1456" y="486" width="155" height="10" rx="5" class="barBack"/>
+<rect x="1456" y="486" width="136.4" height="10" rx="5" fill="#8da9ca" fill-opacity=".82"/>
+<text x="1621" y="480" class="micro" >상주</text>
+<rect x="1654" y="486" width="155" height="10" rx="5" class="barBack"/>
+<rect x="1654" y="486" width="18.599999999999998" height="10" rx="5" fill="#73b8dc" fill-opacity=".82"/>
+<text x="1819" y="480" class="micro" >유동</text>
+<text x="1456" y="506" class="micro" >저장고·전사 회의</text>
+<text x="1654" y="506" class="micro" >북방 복합·철맥계</text>
+<circle cx="1894" cy="422" r="12" fill="#8da9ca" fill-opacity=".45" stroke="#8da9ca" stroke-width="1.6"/>
+<text x="1857" y="449" class="micro" >겨울 유동</text>
+<rect x="1955" y="395" width="485" height="138" rx="10" class="cardAlt"/>
+<text x="1971" y="407" class="tableHead" >켈나베트</text>
+<text x="1971" y="433" class="tableStrong" >마르켈미르 · 수도</text>
+<text x="1971" y="458" class="tableText" >항해 연방</text>
+<rect x="1971" y="486" width="155" height="10" rx="5" class="barBack"/>
+<rect x="1971" y="486" width="108.5" height="10" rx="5" fill="#80b4d2" fill-opacity=".82"/>
+<text x="2136" y="480" class="micro" >상주</text>
+<rect x="2169" y="486" width="155" height="10" rx="5" class="barBack"/>
+<rect x="2169" y="486" width="46.50000000000001" height="10" rx="5" fill="#73b8dc" fill-opacity=".82"/>
+<text x="2334" y="480" class="micro" >유동</text>
+<text x="1971" y="506" class="micro" >자유항·해도·보험</text>
+<text x="2169" y="506" class="micro" >외해 해양·혼합</text>
+<circle cx="2409" cy="422" r="13" fill="#80b4d2" fill-opacity=".45" stroke="#80b4d2" stroke-width="1.6"/>
+<text x="2372" y="449" class="micro" >유동 큼</text>
+<rect x="410" y="565" width="485" height="138" rx="10" class="card"/>
+<text x="426" y="577" class="tableHead" >헤스베케트</text>
+<text x="426" y="603" class="tableStrong" >베크헤스푸쿰 · 대표도시</text>
+<text x="426" y="628" class="tableText" >혹한 중견 왕국</text>
+<rect x="426" y="656" width="155" height="10" rx="5" class="barBack"/>
+<rect x="426" y="656" width="142.6" height="10" rx="5" fill="#88a7c4" fill-opacity=".82"/>
+<text x="591" y="650" class="micro" >상주</text>
+<rect x="624" y="656" width="155" height="10" rx="5" class="barBack"/>
+<rect x="624" y="656" width="12.399999999999993" height="10" rx="5" fill="#73b8dc" fill-opacity=".82"/>
+<text x="789" y="650" class="micro" >유동</text>
+<text x="426" y="676" class="micro" >식량 저장·방한구</text>
+<text x="624" y="676" class="micro" >북방 복합</text>
+<circle cx="864" cy="592" r="12" fill="#88a7c4" fill-opacity=".45" stroke="#88a7c4" stroke-width="1.6"/>
+<text x="827" y="619" class="micro" >상주 매우 큼</text>
+<rect x="925" y="565" width="485" height="138" rx="10" class="cardAlt"/>
+<text x="941" y="577" class="tableHead" >옌메베트</text>
+<text x="941" y="603" class="tableStrong" >옌워켈 · 지역도시</text>
+<text x="941" y="628" class="tableText" >산악·숲 경계 동맹</text>
+<rect x="941" y="656" width="155" height="10" rx="5" class="barBack"/>
+<rect x="941" y="656" width="117.8" height="10" rx="5" fill="#79b495" fill-opacity=".82"/>
+<text x="1106" y="650" class="micro" >상주</text>
+<rect x="1139" y="656" width="155" height="10" rx="5" class="barBack"/>
+<rect x="1139" y="656" width="37.199999999999996" height="10" rx="5" fill="#73b8dc" fill-opacity=".82"/>
+<text x="1304" y="650" class="micro" >유동</text>
+<text x="941" y="676" class="micro" >기상·장비·표식</text>
+<text x="1139" y="676" class="micro" >정령혈통계·숲기록계</text>
+<circle cx="1379" cy="592" r="13" fill="#79b495" fill-opacity=".45" stroke="#79b495" stroke-width="1.6"/>
+<text x="1342" y="619" class="micro" >고공 통행 유동</text>
+<rect x="1440" y="565" width="485" height="138" rx="10" class="card"/>
+<text x="1456" y="577" class="tableHead" >님나레트</text>
+<text x="1456" y="603" class="tableStrong" >얄베크움 · 대표도시</text>
+<text x="1456" y="628" class="tableText" >폐쇄 학술국</text>
+<rect x="1456" y="656" width="155" height="10" rx="5" class="barBack"/>
+<rect x="1456" y="656" width="136.4" height="10" rx="5" fill="#b8a6d9" fill-opacity=".82"/>
+<text x="1621" y="650" class="micro" >상주</text>
+<rect x="1654" y="656" width="155" height="10" rx="5" class="barBack"/>
+<rect x="1654" y="656" width="18.599999999999998" height="10" rx="5" fill="#73b8dc" fill-opacity=".82"/>
+<text x="1819" y="650" class="micro" >유동</text>
+<text x="1456" y="676" class="micro" >감찰·봉인·허가</text>
+<text x="1654" y="676" class="micro" >인간계 중심</text>
+<circle cx="1894" cy="592" r="13" fill="#b8a6d9" fill-opacity=".45" stroke="#b8a6d9" stroke-width="1.6"/>
+<text x="1857" y="619" class="micro" >상주 통제</text>
+<rect x="1955" y="565" width="485" height="138" rx="10" class="cardAlt"/>
+<text x="1971" y="577" class="tableHead" >실니메트</text>
+<text x="1971" y="603" class="tableStrong" >도르소르산 · 대표도시</text>
+<text x="1971" y="628" class="tableText" >남방 복합 문화권</text>
+<rect x="1971" y="656" width="155" height="10" rx="5" class="barBack"/>
+<rect x="1971" y="656" width="120.9" height="10" rx="5" fill="#a0a45f" fill-opacity=".82"/>
+<text x="2136" y="650" class="micro" >상주</text>
+<rect x="2169" y="656" width="155" height="10" rx="5" class="barBack"/>
+<rect x="2169" y="656" width="34.099999999999994" height="10" rx="5" fill="#73b8dc" fill-opacity=".82"/>
+<text x="2334" y="650" class="micro" >유동</text>
+<text x="1971" y="676" class="micro" >사원·약초·강하</text>
+<text x="2169" y="676" class="micro" >정령혈통계·숲기록계</text>
+<circle cx="2409" cy="592" r="12" fill="#a0a45f" fill-opacity=".45" stroke="#a0a45f" stroke-width="1.6"/>
+<text x="2372" y="619" class="micro" >순례·상단 유동</text>
+<rect x="410" y="735" width="485" height="138" rx="10" class="card"/>
+<text x="426" y="747" class="tableHead" >아르도레트</text>
+<text x="426" y="773" class="tableStrong" >도르소르할 · 대표도시</text>
+<text x="426" y="798" class="tableText" >산악 신정 왕국</text>
+<rect x="426" y="826" width="155" height="10" rx="5" class="barBack"/>
+<rect x="426" y="826" width="130.2" height="10" rx="5" fill="#d5a065" fill-opacity=".82"/>
+<text x="591" y="820" class="micro" >상주</text>
+<rect x="624" y="826" width="155" height="10" rx="5" class="barBack"/>
+<rect x="624" y="826" width="24.800000000000004" height="10" rx="5" fill="#73b8dc" fill-opacity=".82"/>
+<text x="789" y="820" class="micro" >유동</text>
+<text x="426" y="846" class="micro" >수도원·관측·등정</text>
+<text x="624" y="846" class="micro" >정령혈통계</text>
+<circle cx="864" cy="762" r="13" fill="#d5a065" fill-opacity=".45" stroke="#d5a065" stroke-width="1.6"/>
+<text x="827" y="789" class="micro" >상주 우세</text>
+<rect x="925" y="735" width="485" height="138" rx="10" class="cardAlt"/>
+<text x="941" y="747" class="tableHead" >가르메베트</text>
+<text x="941" y="773" class="tableStrong" >틱메브할 · 외곽 소도시</text>
+<text x="941" y="798" class="tableText" >유목 초지권</text>
+<rect x="941" y="826" width="155" height="10" rx="5" class="barBack"/>
+<rect x="941" y="826" width="62" height="10" rx="5" fill="#c5b15f" fill-opacity=".82"/>
+<text x="1106" y="820" class="micro" >상주</text>
+<rect x="1139" y="826" width="155" height="10" rx="5" class="barBack"/>
+<rect x="1139" y="826" width="93" height="10" rx="5" fill="#73b8dc" fill-opacity=".82"/>
+<text x="1304" y="820" class="micro" >유동</text>
+<text x="941" y="846" class="micro" >족장 회의·초지 교역</text>
+<text x="1139" y="846" class="micro" >혼합·씨앗상단계</text>
+<circle cx="1379" cy="762" r="13" fill="#c5b15f" fill-opacity=".45" stroke="#c5b15f" stroke-width="1.6"/>
+<text x="1342" y="789" class="micro" >유동 매우 큼</text>
+<rect x="1440" y="735" width="485" height="138" rx="10" class="card"/>
+<text x="1456" y="747" class="tableHead" >실할레트</text>
+<text x="1456" y="773" class="tableStrong" >실소르산 · 대표도시</text>
+<text x="1456" y="798" class="tableText" >숲 신정 중견국</text>
+<rect x="1456" y="826" width="155" height="10" rx="5" class="barBack"/>
+<rect x="1456" y="826" width="133.3" height="10" rx="5" fill="#79a873" fill-opacity=".82"/>
+<text x="1621" y="820" class="micro" >상주</text>
+<rect x="1654" y="826" width="155" height="10" rx="5" class="barBack"/>
+<rect x="1654" y="826" width="21.700000000000003" height="10" rx="5" fill="#73b8dc" fill-opacity=".82"/>
+<text x="1819" y="820" class="micro" >유동</text>
+<text x="1456" y="846" class="micro" >성림·정원·감시</text>
+<text x="1654" y="846" class="micro" >숲기록계 중심</text>
+<circle cx="1894" cy="762" r="11" fill="#79a873" fill-opacity=".45" stroke="#79a873" stroke-width="1.6"/>
+<text x="1857" y="789" class="micro" >상주 우세</text>
+<rect x="1955" y="735" width="485" height="138" rx="10" class="cardAlt"/>
+<text x="1971" y="747" class="tableHead" >메르할레트</text>
+<text x="1971" y="773" class="tableStrong" >메르벨마르 · 수도</text>
+<text x="1971" y="798" class="tableText" >강하 상업 공화국</text>
+<rect x="1971" y="826" width="155" height="10" rx="5" class="barBack"/>
+<rect x="1971" y="826" width="99.2" height="10" rx="5" fill="#7aa38c" fill-opacity=".82"/>
+<text x="2136" y="820" class="micro" >상주</text>
+<rect x="2169" y="826" width="155" height="10" rx="5" class="barBack"/>
+<rect x="2169" y="826" width="55.8" height="10" rx="5" fill="#73b8dc" fill-opacity=".82"/>
+<text x="2334" y="820" class="micro" >유동</text>
+<text x="1971" y="846" class="micro" >하역·통행세·상단</text>
+<text x="2169" y="846" class="micro" >혼합·씨앗상단계</text>
+<circle cx="2409" cy="762" r="13" fill="#7aa38c" fill-opacity=".45" stroke="#7aa38c" stroke-width="1.6"/>
+<text x="2372" y="789" class="micro" >유동 큼</text>
+<rect x="410" y="905" width="485" height="138" rx="10" class="card"/>
+<text x="426" y="917" class="tableHead" >님소레트</text>
+<text x="426" y="943" class="tableStrong" >님할 · 대표도시</text>
+<text x="426" y="968" class="tableText" >학술·종교 중견국</text>
+<rect x="426" y="996" width="155" height="10" rx="5" class="barBack"/>
+<rect x="426" y="996" width="130.2" height="10" rx="5" fill="#b8a6d9" fill-opacity=".82"/>
+<text x="591" y="990" class="micro" >상주</text>
+<rect x="624" y="996" width="155" height="10" rx="5" class="barBack"/>
+<rect x="624" y="996" width="24.800000000000004" height="10" rx="5" fill="#73b8dc" fill-opacity=".82"/>
+<text x="789" y="990" class="micro" >유동</text>
+<text x="426" y="1016" class="micro" >학당·후원·논쟁</text>
+<text x="624" y="1016" class="micro" >숲기록계·정령혈통계</text>
+<circle cx="864" cy="932" r="13" fill="#b8a6d9" fill-opacity=".45" stroke="#b8a6d9" stroke-width="1.6"/>
+<text x="827" y="959" class="micro" >상주 우세</text>
+<rect x="925" y="905" width="485" height="138" rx="10" class="cardAlt"/>
+<text x="941" y="917" class="tableHead" >실바니아</text>
+<text x="941" y="943" class="tableStrong" >실렌산 · 지역도시</text>
+<text x="941" y="968" class="tableText" >주변 대륙 전승권</text>
+<rect x="941" y="996" width="155" height="10" rx="5" class="barBack"/>
+<rect x="941" y="996" width="136.4" height="10" rx="5" fill="#9f8f67" fill-opacity=".82"/>
+<text x="1106" y="990" class="micro" >상주</text>
+<rect x="1139" y="996" width="155" height="10" rx="5" class="barBack"/>
+<rect x="1139" y="996" width="18.599999999999998" height="10" rx="5" fill="#73b8dc" fill-opacity=".82"/>
+<text x="1304" y="990" class="micro" >유동</text>
+<text x="941" y="1016" class="micro" >계보·전승·탐사</text>
+<text x="1139" y="1016" class="micro" >숲기록계·계보 집단</text>
+<circle cx="1379" cy="932" r="12" fill="#9f8f67" fill-opacity=".45" stroke="#9f8f67" stroke-width="1.6"/>
+<text x="1342" y="959" class="micro" >상주 우세</text>
+<rect x="1440" y="905" width="485" height="138" rx="10" class="card"/>
+<text x="1456" y="917" class="tableHead" >드래곤스파이어</text>
+<text x="1456" y="943" class="tableStrong" >나르마르켈 · 지역도시</text>
+<text x="1456" y="968" class="tableText" >화산 군도권</text>
+<rect x="1456" y="996" width="155" height="10" rx="5" class="barBack"/>
+<rect x="1456" y="996" width="96.1" height="10" rx="5" fill="#bd7266" fill-opacity=".82"/>
+<text x="1621" y="990" class="micro" >상주</text>
+<rect x="1654" y="996" width="155" height="10" rx="5" class="barBack"/>
+<rect x="1654" y="996" width="58.9" height="10" rx="5" fill="#73b8dc" fill-opacity=".82"/>
+<text x="1819" y="990" class="micro" >유동</text>
+<text x="1456" y="1016" class="micro" >화산 항로·피난</text>
+<text x="1654" y="1016" class="micro" >화산 용혈·외해</text>
+<circle cx="1894" cy="932" r="12" fill="#bd7266" fill-opacity=".45" stroke="#bd7266" stroke-width="1.6"/>
+<text x="1857" y="959" class="micro" >유동 큼</text>
+<rect x="1955" y="905" width="485" height="138" rx="10" class="cardAlt"/>
+<text x="1971" y="917" class="tableHead" >펜리르의 눈</text>
+<text x="1971" y="943" class="tableStrong" >둔아르토르 · 외곽 소도시</text>
+<text x="1971" y="968" class="tableText" >외해 금기권</text>
+<rect x="1971" y="996" width="155" height="10" rx="5" class="barBack"/>
+<rect x="1971" y="996" width="99.2" height="10" rx="5" fill="#7192b2" fill-opacity=".82"/>
+<text x="2136" y="990" class="micro" >상주</text>
+<rect x="2169" y="996" width="155" height="10" rx="5" class="barBack"/>
+<rect x="2169" y="996" width="55.8" height="10" rx="5" fill="#73b8dc" fill-opacity=".82"/>
+<text x="2334" y="990" class="micro" >유동</text>
+<text x="1971" y="1016" class="micro" >등대·난파·구조</text>
+<text x="2169" y="1016" class="micro" >외해 해양·외해 노래</text>
+<circle cx="2409" cy="932" r="12" fill="#7192b2" fill-opacity=".45" stroke="#7192b2" stroke-width="1.6"/>
+<text x="2372" y="959" class="micro" >유동 큼</text>
+<rect x="48" y="1185" width="2460" height="160" rx="12" class="panel"/>
+<text x="66" y="1201" class="h" >도시층과 인구 해석</text>
+<text x="66" y="1233" class="tiny gold" >큰 도시는 수도·대표도시·지역도시·외곽 소도시가 함께 만드는 생활권으로 읽는다.</text>
+<text x="80" y="1250" class="small" >수도: 라드아르할, 마르나브미르, 라드바르할, 마르켈미르, 메르벨마르처럼 광역 행정·교역 중심을 겸한다.</text>
+<text x="80" y="1280" class="small" >대표도시: 도르카르, 센푸쿰, 얄베크움, 도르소르산, 실소르산, 님할처럼 권역 기능을 압축한다.</text>
+<text x="80" y="1310" class="small" >지역도시와 외곽 소도시: 옌워켈, 실렌산, 나르마르켈, 둔아르토르처럼 통행·전승·위험 경계의 기준점이 된다.</text>
+</svg>
