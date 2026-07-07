@@ -2764,6 +2764,33 @@
 | 성림·전승도시 | 숲길, 계보, 장례, 금기 장소, 자연 권위가 붙은 도시 | 성림 의례장, 숲 감시소, 사본 열람소, 길잡이 숙소 | 실할레트, 실바니아 |
 | 외곽 소도시 | 지역 장터와 숙박, 세금, 초소 기능만 갖춘 낮은 도시 | 여관, 장터, 세무소, 마구간, 우물, 목패 게시판, 작은 신전 | 모든 권역 |
 
+![5083년 도시·거점 라벨 전경 설정화 묶음](assets/illustrations/generated_outputs/ck5083-city-vistas-labeled-contactsheet-v1.jpg)
+
+그림: 5083년 주요 도시·거점 라벨 전경 설정화 묶음. 도시·거점 라벨본 20장이 같은 판형으로 정리되어 있다. 이 묶음은 국가·권역별 대표 도시의 입지, 도시 기능, 생활 표면을 시각적으로 대조하기 위한 DB 적용본이다. DB에 연결되는 이미지는 지명 라벨이 붙은 `2560-labeled` 파일을 기준으로 한다.
+
+| 설정화 대상 | 연결 권역 | 파일 | 판정 |
+|---|---|---|---|
+| 라드아르할 | 레오니아 | `assets/illustrations/generated_outputs/city_vistas/ck5083-city-leonia-radarhal-imagegen-v1-2560-labeled.png` | 통과 |
+| 마르나브미르 | 노르가르드 | `assets/illustrations/generated_outputs/city_vistas/ck5083-city-norghard-marnabmir-imagegen-v1-2560-labeled.png` | 통과 |
+| 라드바르할 | 티리스 | `assets/illustrations/generated_outputs/city_vistas/ck5083-city-tiris-radbarhal-imagegen-v1-2560-labeled.png` | 통과 |
+| 레눔가 | 린레네트 | `assets/illustrations/generated_outputs/city_vistas/ck5083-city-linrenet-renumga-imagegen-v1-2560-labeled.png` | 통과 |
+| 도르카르 | 벡도레트 | `assets/illustrations/generated_outputs/city_vistas/ck5083-city-bekdoret-dorkar-imagegen-v1-2560-labeled.png` | 통과 |
+| 센푸쿰 | 센할레트 | `assets/illustrations/generated_outputs/city_vistas/ck5083-city-senhalet-senpukum-imagegen-v1-2560-labeled.png` | 통과 |
+| 헤스푸쿰 | 헤스페레트 | `assets/illustrations/generated_outputs/city_vistas/ck5083-city-hesferet-hespukum-imagegen-v1-2560-labeled.png` | 조건부 통과 |
+| 마르켈미르 | 켈나베트 | `assets/illustrations/generated_outputs/city_vistas/ck5083-city-kelnabet-markelmir-imagegen-v1-2560-labeled.png` | 통과 |
+| 베크헤스푸쿰 | 헤스베케트 | `assets/illustrations/generated_outputs/city_vistas/ck5083-city-hesbeket-bekhespukum-imagegen-v1-2560-labeled.png` | 조건부 통과 |
+| 실메르마르 | 실니메트 | `assets/illustrations/generated_outputs/city_vistas/ck5083-city-silnimet-silmermar-imagegen-v1-2560-labeled.png` | 통과 |
+| 도르소르할 | 아르도레트 | `assets/illustrations/generated_outputs/city_vistas/ck5083-city-ardolet-dorsorhal-imagegen-v1-2560-labeled.png` | 통과 |
+| 틱메브할 | 가르메베트 | `assets/illustrations/generated_outputs/city_vistas/ck5083-city-garmebet-tikmebhal-imagegen-v1-2560-labeled.png` | 조건부 통과 |
+| 메르벨마르 | 메르할레트 | `assets/illustrations/generated_outputs/city_vistas/ck5083-city-merhalet-merbelmar-imagegen-v1-2560-labeled.png` | 통과 |
+| 실소르산 | 실할레트 | `assets/illustrations/generated_outputs/city_vistas/ck5083-city-silhalet-silsorsan-imagegen-v1-2560-labeled.png` | 통과 |
+| 님할 | 님소레트 | `assets/illustrations/generated_outputs/city_vistas/ck5083-city-nimsolet-nimhal-imagegen-v1-2560-labeled.png` | 통과 |
+| 실렌산 | 실바니아 | `assets/illustrations/generated_outputs/city_vistas/ck5083-city-sylvania-silensan-imagegen-v1-2560-labeled.png` | 통과 |
+| 나르마르켈 | 드래곤스파이어 | `assets/illustrations/generated_outputs/city_vistas/ck5083-city-dragonspire-narmarkel-imagegen-v1-2560-labeled.png` | 통과 |
+| 둔아르토르 | 펜리르의 눈 | `assets/illustrations/generated_outputs/city_vistas/ck5083-city-fenrir-eye-dunartore-imagegen-v1-2560-labeled.png` | 통과 |
+| 옌워켈 | 옌메베트 | `assets/illustrations/generated_outputs/city_vistas/ck5083-city-yenmebet-yenwokel-imagegen-v1-2560-labeled.png` | 통과 |
+| 얄베크움 | 님나레트 | `assets/illustrations/generated_outputs/city_vistas/ck5083-city-nimnaret-yalbekum-imagegen-v1-2560-labeled.png` | 통과 |
+
 | 국가·권역 | 도시 | 입지·도시 성격 | 주요 기능 | 외부자가 먼저 마주치는 표면 |
 |---|---|---|---|---|
 | 레오니아 | 라드아르할 | 온대 내륙 왕도, 궁정 언덕과 장인 거리로 이루어진 궁정도시 | 왕실 재판, 기사 서임, 고급 공예, 외교 접견 | 추천장 확인, 납품 대기, 말투와 복장 예법 |
