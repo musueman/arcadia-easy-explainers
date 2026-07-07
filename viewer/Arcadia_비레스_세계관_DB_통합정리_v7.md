@@ -2791,6 +2791,22 @@
 | 옌워켈 | 옌메베트 | `assets/illustrations/generated_outputs/city_vistas/ck5083-city-yenmebet-yenwokel-imagegen-v1-2560-labeled.png` | 통과 |
 | 얄베크움 | 님나레트 | `assets/illustrations/generated_outputs/city_vistas/ck5083-city-nimnaret-yalbekum-imagegen-v1-2560-labeled.png` | 통과 |
 
+![5083년 마을·초소 라벨 전경 설정화 묶음](assets/illustrations/generated_outputs/village_outposts/ck5083-village-outposts-labeled-contactsheet-v1.jpg)
+
+그림: 5083년 이름 있는 마을·초소·야영지·어항 라벨 전경 설정화 묶음. 마을·초소 라벨본 9장이 같은 판형으로 정리되어 있다. 이 묶음은 도시 아래 생활권에서 사용자가 먼저 마주치는 수문, 고갯길 숙소, 숲문, 감시 초소, 공동 창고, 계절 천막, 피난 표식, 어항 시설을 대조하기 위한 DB 적용본이다. DB에 연결되는 이미지는 지명 라벨이 붙은 `2560-labeled` 파일을 기준으로 한다.
+
+| 설정화 대상 | 연결 권역 | 파일 | 적용 표면 |
+|---|---|---|---|
+| 수문 마을 | 내해·하구·습지권, 센할레트 수로권 | `assets/illustrations/generated_outputs/village_outposts/ck5083-village-sumun-watergate-outpost-imagegen-v1-2560-labeled.png` | 수문, 창고, 감시 초소, 수로 생활권 |
+| 산길 숙소촌 | 북방 혹한·고산권, 아르도레트·헤스페레트 산길 | `assets/illustrations/generated_outputs/village_outposts/ck5083-village-mountain-pass-lodging-outpost-imagegen-v1-2560-labeled.png` | 고갯길 숙박, 초소, 비상 창고, 산길 통행 |
+| 숲문 마을 | 숲·성림·목재권, 실할레트·실바니아 접점 | `assets/illustrations/generated_outputs/village_outposts/ck5083-village-forest-gate-supmun-imagegen-v1-2560-labeled.png` | 채집 허가, 숲길 감시, 길잡이 숙소, 숲 경계 |
+| 감시 초소촌 | 접경·감찰 경계권, 검문·허가 대기권 | `assets/illustrations/generated_outputs/village_outposts/ck5083-village-watch-checkpoint-gamsi-choso-imagegen-v1-2560-labeled.png` | 관문, 허가 대기, 봉인 창고, 검문로 |
+| 봉토 마을 | 온대 농경·영지권, 레오니아·티리스 농촌 | `assets/illustrations/generated_outputs/village_outposts/ck5083-village-feudal-farming-bongto-imagegen-v1-2560-labeled.png` | 곡물세, 공동 창고, 영지 장부, 농경 배후지 |
+| 영지 장터촌 | 온대 농경·영지권, 장터·세금권 | `assets/illustrations/generated_outputs/village_outposts/ck5083-village-estate-market-yeongji-jangteo-imagegen-v1-2560-labeled.png` | 장터, 곡물세, 영지 물류, 수레길 |
+| 계절 야영지 | 초지·유목권, 가르메베트 이동권 | `assets/illustrations/generated_outputs/village_outposts/ck5083-village-seasonal-camp-gyejeol-yayeongji-imagegen-v1-2560-labeled.png` | 천막, 가축 표식, 이동 장부, 계절 장터 |
+| 피난 표식촌 | 화산·해안 재해권, 드래곤스파이어 피난권 | `assets/illustrations/generated_outputs/village_outposts/ck5083-village-refuge-marker-pinan-pyosik-imagegen-v1-2560-labeled.png` | 피난 표식, 대기 창고, 구조 신호, 화산·해안 재해권 |
+| 해안 어항 | 항만·해양권, 북방·외해 해안권 | `assets/illustrations/generated_outputs/village_outposts/ck5083-village-coastal-fishing-harbor-imagegen-v1-2560-labeled.png` | 어선, 그물, 조석 표식, 어시장 |
+
 | 국가·권역 | 도시 | 입지·도시 성격 | 주요 기능 | 외부자가 먼저 마주치는 표면 |
 |---|---|---|---|---|
 | 레오니아 | 라드아르할 | 온대 내륙 왕도, 궁정 언덕과 장인 거리로 이루어진 궁정도시 | 왕실 재판, 기사 서임, 고급 공예, 외교 접견 | 추천장 확인, 납품 대기, 말투와 복장 예법 |
