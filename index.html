@@ -3,114 +3,902 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="비레스 세계관 공개 자료실">
-  <title>비레스 세계관 공개 자료실</title>
+  <meta name="description" content="비레스 세계 시뮬레이션 공개 안내 페이지">
+  <title>비레스에서 어디로 갈까요?</title>
   <style>
     :root {
-      --ink: #17211d;
-      --muted: #65706a;
+      --bg: #f4efe5;
       --paper: #fffdf7;
-      --line: #d7cbb8;
-      --green: #275b43;
-      --gold: #b4833d;
+      --paper-2: #f8f2e8;
+      --ink: #17211d;
+      --muted: #607069;
+      --line: #d8cbb7;
+      --green: #255d43;
+      --green-dark: #163d31;
+      --gold: #b48037;
+      --blue: #244f6e;
+      --red: #8e4f40;
+      --shadow: 0 18px 56px rgba(21, 28, 24, 0.14);
     }
+
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      min-height: 100vh;
       color: var(--ink);
       background:
-        linear-gradient(90deg, rgba(20, 30, 24, 0.72), rgba(20, 30, 24, 0.18)),
-        url("./viewer/assets/illustrations/ck5083-regions-nations-culture-zones-environment-sheet-v1.png") center/cover fixed,
-        #ebe3d4;
+        radial-gradient(circle at top left, rgba(180, 128, 55, 0.2), transparent 28rem),
+        linear-gradient(180deg, #efe5d4 0%, var(--bg) 52%, #ece2d1 100%);
       font-family: "Segoe UI", "Noto Sans KR", "Apple SD Gothic Neo", Arial, sans-serif;
-      line-height: 1.68;
+      line-height: 1.65;
       word-break: keep-all;
     }
-    main {
-      width: min(1040px, calc(100% - 32px));
+
+    a { color: inherit; }
+    img { display: block; width: 100%; height: auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px clamp(16px, 4vw, 54px);
+      border-bottom: 1px solid rgba(35, 53, 43, 0.16);
+      background: rgba(255, 253, 247, 0.88);
+      backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      color: var(--green-dark);
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      padding: 7px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+      background: rgba(255, 253, 247, 0.82);
+    }
+
+    .hero {
+      min-height: 92vh;
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+      gap: clamp(20px, 4vw, 54px);
+      align-items: center;
+      width: min(1240px, calc(100% - 32px));
       margin: 0 auto;
-      padding: min(12vh, 96px) 0 56px;
+      padding: clamp(36px, 7vw, 86px) 0 42px;
     }
-    .panel {
-      max-width: 760px;
-      padding: clamp(24px, 5vw, 48px);
-      border: 1px solid rgba(255, 255, 255, 0.45);
-      border-radius: 10px;
-      background: rgba(255, 253, 247, 0.93);
-      box-shadow: 0 22px 70px rgba(14, 22, 17, 0.28);
-      backdrop-filter: blur(16px);
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
     }
+
     .eyebrow {
       margin: 0 0 10px;
       color: var(--gold);
       font-size: 14px;
       font-weight: 900;
     }
+
     h1 {
       margin: 0;
-      font-size: clamp(38px, 7vw, 78px);
-      line-height: 1.05;
+      color: var(--green-dark);
+      font-size: clamp(44px, 8vw, 96px);
+      line-height: 1.02;
       letter-spacing: 0;
     }
-    p {
-      margin: 18px 0 0;
-      color: #29342f;
-      font-size: 18px;
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: clamp(28px, 4.2vw, 48px);
+      line-height: 1.16;
+      letter-spacing: 0;
     }
-    .links {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 30px;
+
+    h3 { margin: 0; font-size: 21px; line-height: 1.28; }
+    p { margin: 0; }
+
+    .lead {
+      max-width: 620px;
+      margin-top: 22px;
+      color: #34413b;
+      font-size: clamp(17px, 2.2vw, 21px);
     }
-    a {
-      display: block;
-      min-height: 64px;
-      padding: 14px 16px;
-      border: 1px solid var(--line);
+
+    .hero-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 10px 16px;
+      border: 1px solid var(--green);
       border-radius: 8px;
-      color: var(--ink);
-      background: var(--paper);
       text-decoration: none;
       font-weight: 900;
     }
-    a.primary {
-      color: #fffdf7;
-      background: var(--green);
-      border-color: var(--green);
+
+    .button.primary { color: #fffdf7; background: var(--green); }
+    .button.secondary { color: var(--green-dark); background: rgba(255, 253, 247, 0.8); }
+
+    .hero-panel {
+      min-height: 560px;
+      display: grid;
+      align-content: end;
+      padding: 18px;
+      border-radius: 10px;
+      background:
+        linear-gradient(0deg, rgba(12, 18, 15, 0.8), rgba(12, 18, 15, 0.12) 62%),
+        url("./viewer/assets/illustrations/ck5083-regions-nations-culture-zones-environment-sheet-v1.png") center/cover;
+      box-shadow: var(--shadow);
+      overflow: hidden;
     }
-    a span {
+
+    .scene-tags {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .scene-tags span {
+      min-height: 62px;
+      padding: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      border-radius: 8px;
+      color: #fffdf7;
+      background: rgba(18, 28, 22, 0.5);
+      font-weight: 900;
+    }
+
+    .scene-tags small {
       display: block;
-      margin-top: 3px;
-      color: var(--muted);
+      margin-top: 2px;
+      color: rgba(255, 253, 247, 0.74);
       font-size: 13px;
       font-weight: 600;
     }
-    a.primary span { color: rgba(255, 253, 247, 0.78); }
-    @media (max-width: 700px) {
-      body { background-attachment: scroll; }
-      .links { grid-template-columns: 1fr; }
-      p { font-size: 16px; }
+
+    main {
+      width: min(1240px, calc(100% - 32px));
+      margin: 0 auto 56px;
+    }
+
+    .section {
+      margin: 34px 0;
+      padding: clamp(22px, 4vw, 42px);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(255, 253, 247, 0.94);
+      box-shadow: var(--shadow);
+    }
+
+    .section-head {
+      max-width: 860px;
+      margin-bottom: 24px;
+    }
+
+    .region-layout {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.82fr) minmax(0, 1.18fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .region-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .region-button {
+      width: 100%;
+      min-height: 110px;
+      padding: 13px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--ink);
+      background: var(--paper-2);
+      text-align: left;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .region-button strong {
+      display: block;
+      color: var(--green-dark);
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .region-button span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .region-button[aria-pressed="true"] {
+      border-color: var(--green);
+      color: #fffdf7;
+      background: var(--green);
+    }
+
+    .region-button[aria-pressed="true"] strong,
+    .region-button[aria-pressed="true"] span {
+      color: #fffdf7;
+    }
+
+    .detail-panel {
+      position: sticky;
+      top: 76px;
+      padding: 24px;
+      border: 1px solid #c9bca8;
+      border-radius: 10px;
+      background: linear-gradient(180deg, #fffdf7, #f7efe3);
+    }
+
+    .detail-panel .type {
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .detail-panel h3 {
+      margin-top: 6px;
+      color: var(--green-dark);
+      font-size: clamp(27px, 3.5vw, 42px);
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .detail-item {
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fffaf1;
+    }
+
+    .detail-item b {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--green-dark);
+    }
+
+    .detail-item span {
+      color: #34413b;
+      font-size: 15px;
+    }
+
+    .reader-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    details.reader-card {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fffaf1;
+      overflow: hidden;
+    }
+
+    details.reader-card[open] {
+      background: #fffdf7;
+      box-shadow: 0 12px 30px rgba(21, 28, 24, 0.08);
+    }
+
+    summary {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 32px;
+      gap: 10px;
+      align-items: center;
+      padding: 18px;
+      cursor: pointer;
+      list-style: none;
+      font-weight: 900;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::after {
+      content: "+";
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--green-dark);
+      background: var(--paper);
+    }
+
+    details[open] summary::after { content: "−"; }
+
+    .reader-body {
+      padding: 0 18px 18px;
+      color: #324039;
+    }
+
+    .reader-body ul {
+      display: grid;
+      gap: 8px;
+      margin: 12px 0 0;
+      padding-left: 18px;
+    }
+
+    .quick-paths {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .path-card {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fffaf1;
+    }
+
+    .path-card b {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--green-dark);
+    }
+
+    .image-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    figure { margin: 0; }
+
+    figure img {
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #eee4d6;
+    }
+
+    figcaption {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer {
+      width: min(1240px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 48px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+    }
+
+    .footer a {
+      color: var(--green-dark);
+      font-weight: 900;
+    }
+
+    @media (max-width: 1000px) {
+      .hero,
+      .region-layout {
+        grid-template-columns: 1fr;
+      }
+      .hero-panel { min-height: 420px; }
+      .detail-panel { position: static; }
+      .quick-paths { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .image-row { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 680px) {
+      .topbar {
+        position: static;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      .nav-links { justify-content: flex-start; }
+      .hero {
+        min-height: 0;
+        padding-top: 34px;
+      }
+      .hero-panel { min-height: 360px; }
+      .scene-tags,
+      .region-grid,
+      .detail-grid,
+      .reader-grid,
+      .quick-paths {
+        grid-template-columns: 1fr;
+      }
+      .section { padding: 20px; }
+      .region-button { min-height: 0; }
     }
   </style>
 </head>
 <body>
-  <main>
-    <section class="panel">
-      <p class="eyebrow">비레스 5083 공개 자료</p>
-      <h1>비레스에 들어가기 전, 먼저 세계의 표면을 읽어보세요.</h1>
-      <p>
-        이곳은 챗봇 유저가 확인할 수 있는 공개 안내 페이지입니다.
-        숨은 정답을 모두 공개하는 백과가 아니라, 각 권역에서 무엇을 보고 듣고 겪게 되는지 보여주는 입구입니다.
+  <nav class="topbar" aria-label="주요 이동">
+    <a class="brand" href="#top">비레스 5083</a>
+    <div class="nav-links">
+      <a href="#regions">권역 고르기</a>
+      <a href="#read">세계 읽기</a>
+      <a href="#start">시작 방식</a>
+      <a href="#images">그림 보기</a>
+    </div>
+  </nav>
+
+  <header id="top" class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">챗봇 여행자를 위한 첫 안내</p>
+      <h1>비레스에서 어디로 갈까요?</h1>
+      <p class="lead">
+        비레스는 왕과 전쟁만 있는 세계가 아닙니다. 성문 앞 줄, 항만세 창구, 공동 창고, 산길 숙소, 신전 종소리 속에서 하루가 흘러갑니다.
+        먼저 가고 싶은 곳을 고르면, 그곳에서 무엇을 보고 듣고 조심해야 하는지 바로 확인할 수 있습니다.
       </p>
-      <div class="links">
-        <a class="primary" href="./vireth-guide/">비레스 여행 안내서<span>권역, 생활, 역사 기억, 플레이 표면</span></a>
-        <a href="./viewer/Arcadia_Markdown_Viewer.html">마크다운 자료실<span>정본, 해설본, 도식 자료 열람</span></a>
-        <a href="./viewer/Arcadia_Markdown_Viewer.html?file=Arcadia_%EC%89%AC%EC%9A%B4%ED%95%B4%EC%84%A4%EB%B3%B8_v4.md">쉬운 해설본<span>정본 내용을 생활어로 풀어 쓴 문서</span></a>
-        <a href="./viewer/Arcadia_Markdown_Viewer.html?file=Arcadia_%EB%A3%A8%EB%82%98%ED%86%A1_%EC%84%B8%EA%B3%84%EA%B4%80DB_%EC%8B%A4%ED%88%AC%EC%9E%85_v11.md">루나톡 세계관본<span>챗봇 투입용 세계관 문서</span></a>
+      <div class="hero-actions">
+        <a class="button primary" href="#regions">권역부터 고르기</a>
+        <a class="button secondary" href="#read">세계관 바로 읽기</a>
+      </div>
+    </div>
+
+    <div class="hero-panel" aria-label="비레스 생활 장면">
+      <div class="scene-tags">
+        <span>성문<small>검문, 보증인, 통행 허가</small></span>
+        <span>항만<small>장부, 선적, 항만세</small></span>
+        <span>장터<small>물가, 소문, 계약</small></span>
+        <span>산길<small>숙소, 길잡이, 날씨</small></span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="regions" class="section">
+      <div class="section-head">
+        <p class="eyebrow">권역 선택</p>
+        <h2>먼저 출발할 곳을 고르세요.</h2>
+        <p>
+          권역마다 말투, 검문, 장터, 돈 계산, 소문이 다릅니다.
+          카드를 누르면 그 지역에서 바로 마주칠 생활과 갈등을 볼 수 있습니다.
+        </p>
+      </div>
+
+      <div class="region-layout">
+        <div id="regionGrid" class="region-grid" aria-label="권역 목록"></div>
+        <article id="regionDetail" class="detail-panel" aria-live="polite"></article>
+      </div>
+    </section>
+
+    <section id="read" class="section">
+      <div class="section-head">
+        <p class="eyebrow">세계관 쉽게 읽기</p>
+        <h2>긴 원문 대신, 먼저 알아야 할 것만 펼쳐보세요.</h2>
+        <p>
+          아래 내용은 챗봇 안에서 자주 마주칠 정보입니다.
+          모든 진실을 다 알려주는 글이 아니라, 비레스 사람들이 실제로 말하고 기록하고 기억하는 방식에 가깝게 정리했습니다.
+        </p>
+      </div>
+      <div id="readerGrid" class="reader-grid"></div>
+    </section>
+
+    <section id="start" class="section">
+      <div class="section-head">
+        <p class="eyebrow">플레이 시작점</p>
+        <h2>이런 사람으로 들어가면 바로 장면이 열립니다.</h2>
+      </div>
+      <div class="quick-paths">
+        <div class="path-card"><b>길 위의 여행자</b><span>여관, 검문소, 통행세, 길잡이 소문을 먼저 만납니다.</span></div>
+        <div class="path-card"><b>상인이나 서기</b><span>장부, 봉인 끈, 환전, 납품 분쟁에 쉽게 접근합니다.</span></div>
+        <div class="path-card"><b>호위나 용병</b><span>성문, 병영, 무기 보관, 징발 소문을 자주 듣습니다.</span></div>
+        <div class="path-card"><b>피난민이나 정착민</b><span>이름패, 배급 순서, 공동 창고, 귀향 논쟁에 얽힙니다.</span></div>
+      </div>
+    </section>
+
+    <section id="images" class="section">
+      <div class="section-head">
+        <p class="eyebrow">그림으로 보기</p>
+        <h2>세계의 분위기를 먼저 잡는 자료입니다.</h2>
+      </div>
+      <div class="image-row">
+        <figure>
+          <img loading="lazy" src="./viewer/assets/illustrations/ck5083-regions-nations-culture-zones-environment-sheet-v1.png" alt="비레스 여러 국가와 문화권의 생활 환경">
+          <figcaption>나라와 문화권. 어디에서 시작하느냐에 따라 보이는 세계가 달라집니다.</figcaption>
+        </figure>
+        <figure>
+          <img loading="lazy" src="./viewer/assets/illustrations/ck5083-settlements-routes-village-life-sheet-v1.png" alt="도시, 마을, 가도, 수로가 연결된 생활 장면">
+          <figcaption>도시와 마을. 이동로, 창고, 선착장, 숙소가 장면을 만듭니다.</figcaption>
+        </figure>
+        <figure>
+          <img loading="lazy" src="./viewer/assets/illustrations/ck5083-places-public-facilities-life-surfaces-v1.png" alt="성문, 장터, 신전, 창고 등 공공 장소">
+          <figcaption>공공 장소. 성문과 장터, 신전과 창고는 정보가 모이는 곳입니다.</figcaption>
+        </figure>
       </div>
     </section>
   </main>
+
+  <footer class="footer">
+    <p>
+      더 긴 원문이 필요하면
+      <a id="sourceLink" href="./viewer/Arcadia_Markdown_Viewer.html?file=Arcadia_%EB%A3%A8%EB%82%98%ED%86%A1_%EC%84%B8%EA%B3%84%EA%B4%80%44%42_%EC%8B%A4%ED%88%AC%EC%9E%85_v11.md">루나톡 세계관본 원문 보기</a>
+      에서 확인할 수 있습니다.
+    </p>
+  </footer>
+
+  <script>
+    const regions = [
+      {
+        name: "레오니아",
+        type: "왕실과 기사 봉토의 나라",
+        short: "궁정, 기사, 납품 장부가 길을 여닫습니다.",
+        first: "궁정 납품 대기열, 기사단 회랑, 왕실 법정",
+        places: "라드아르할, 지르바르에트, 팔테쿰가, 렘다트움",
+        life: "추천장과 문장 반지가 힘을 가집니다. 말투와 예법을 지키면 문이 열리지만, 봉인문서를 함부로 다루면 바로 의심을 받습니다.",
+        pressure: "납품 품질, 서임 순서, 왕실 물자 횡령, 봉토 충성 서약",
+        memory: "오래된 왕권과 빈 왕좌 이야기가 왕실의 정당성을 지탱합니다.",
+        persona: "궁정 납품인, 견습 기사, 사절 보조, 장인 조합원"
+      },
+      {
+        name: "노르가르드",
+        type: "군항과 철강의 해군 왕국",
+        short: "군항, 철강 부두, 해상 법정이 일상을 만듭니다.",
+        first: "군항 검문, 철강 부두, 등대, 선원 숙박가",
+        places: "마르나브미르, 페르나브부두, 아르마르토르, 나브할가",
+        life: "배와 철, 보험과 항만세가 중요합니다. 선적 장부가 없으면 물건도 사람도 쉽게 움직이지 못합니다.",
+        pressure: "항만세 과다, 선박 징발, 난파 책임, 해도 은닉",
+        memory: "침몰한 배의 장부 이야기는 탐욕과 책임을 경고하는 말로 남았습니다.",
+        persona: "선원, 항만 서기, 철강 운반인, 해상 법정 증인"
+      },
+      {
+        name: "티리스",
+        type: "농경 영지와 서부 접경의 왕국",
+        short: "영지 장터, 숲 경계, 피난민 정착지가 맞물립니다.",
+        first: "레이븐스톤 성문, 뉴할로우 배급소, 영지 장터",
+        places: "실버킵, 레이븐스톤, 하이가든, 그린할로우, 뉴할로우",
+        life: "이름패와 보증인이 중요합니다. 피난민 배급, 숲길 소유권, 곡물 장부가 자주 다툼이 됩니다.",
+        pressure: "접경 방어, 피난민 구휼, 낮은 율례 해석, 목재·수로 분쟁",
+        memory: "그린할로우 상실과 뉴할로우 재정착은 5083년 티리스 서부의 가장 큰 상처입니다.",
+        persona: "피난민, 접경 병사, 영지 서리, 약초 처방소 조수"
+      },
+      {
+        name: "린레네트",
+        type: "기록원과 극장의 학예 도시국가",
+        short: "기록, 공연, 후원 계약이 힘을 가집니다.",
+        first: "기록원 접수대, 극장 뒤편, 사본 장터",
+        places: "레눔가, 린산가, 님렌할, 다트킨할, 렘렌가",
+        life: "말과 글이 돈이 됩니다. 후원자가 누구인지, 어떤 기록을 인용했는지가 사람의 평판을 바꿉니다.",
+        pressure: "표절, 후원 검열, 증언 상품화, 사본 위조",
+        memory: "공개 논쟁과 공연 기록이 정치 기억을 오래 붙잡습니다.",
+        persona: "필사 보조, 극장 심부름꾼, 후원가 하인, 학생"
+      },
+      {
+        name: "벡도레트",
+        type: "방벽과 병영의 요새 도시국가",
+        short: "성문에서 목적과 보증인을 먼저 묻습니다.",
+        first: "성문 검문소, 병영, 무기고, 성벽 공사장",
+        places: "도르카르, 켈카르, 베크할, 도르테쿰, 엔할가",
+        life: "무기 반입과 야간 이동이 엄격합니다. 공사 동원은 벌이자 의무이자 정치 참여입니다.",
+        pressure: "무단 무장, 공사 동원 회피, 군법과 민간법 충돌, 피난 순서",
+        memory: "오래된 방어선 위에 도시가 자라났다는 기억이 시민 의무의 근거가 됩니다.",
+        persona: "성문 통역, 공사 노동자, 무기 수리공, 피난 대기자"
+      },
+      {
+        name: "센할레트",
+        type: "공동 창고와 수문의 강하 교역권",
+        short: "곡물, 종자, 배급 순서가 사람의 삶을 가릅니다.",
+        first: "공동 창고, 종자 회의장, 배급소, 수문",
+        places: "센푸쿰, 벨바르, 센푸크에트, 가르센에트, 벱렌할",
+        life: "공동 창고 장부가 강합니다. 누구에게 먼저 배급할지, 어떤 종자를 섞을지가 마을의 큰 문제입니다.",
+        pressure: "종자 혼입, 배급 순서, 재정착 경작권, 수문 개폐",
+        memory: "관개로와 공동 창고가 흉년을 버티게 했다는 기억이 법처럼 남아 있습니다.",
+        persona: "창고지기 보조, 수문 감시인, 종자 운반인, 재정착 농민"
+      },
+      {
+        name: "헤스페레트",
+        type: "저장고와 맹세석의 북방 산악권",
+        short: "추위, 저장품, 무기 납품, 맹세가 중요합니다.",
+        first: "저장고, 고개 초소, 무기 중개소, 맹세석",
+        places: "헤스푸쿰, 헤스켈카르, 페르바르, 람지르바르, 메브켈에트",
+        life: "겨울을 넘길 물자와 무기 품질이 평판을 결정합니다. 맹세를 어기면 거래보다 오래 기억됩니다.",
+        pressure: "용병 보수, 장례 표식 훼손, 무기 품질, 저장품 배분",
+        memory: "갈라진 검은 종 이야기는 재난과 맹세 파기를 함께 떠올리게 합니다.",
+        persona: "무기 중개인, 고개 숙소 일꾼, 용병, 저장고 기록원"
+      },
+      {
+        name: "켈나베트",
+        type: "자유항과 해도의 연방 항만권",
+        short: "선장 보증, 해도, 보험이 길을 엽니다.",
+        first: "자유항, 원정 허가소, 해도 창고, 선원 숙박가",
+        places: "마르켈미르, 워크바르, 마르렌움, 나브할, 움마르켈",
+        life: "먼 바다의 이야기는 노래보다 장부와 해도에 오래 남습니다. 원정 실패는 돈과 명예를 함께 무너뜨립니다.",
+        pressure: "해도 독점, 원정 실패 책임, 보험 사기, 외해 물품 소유권",
+        memory: "세 번 접힌 해도 이야기는 미지 항로의 상징입니다.",
+        persona: "항해자, 해도 필사자, 보험 중개인, 항구 짐꾼"
+      },
+      {
+        name: "헤스베케트",
+        type: "혹한 저장고와 겨울 통행권",
+        short: "식량과 불씨, 방한구가 곧 생존입니다.",
+        first: "저장고, 공동 불씨집, 방한구 수리막, 눈길 초소",
+        places: "베크헤스푸쿰, 헤스워켈, 나르할, 메브헤스베크",
+        life: "겨울에는 돈보다 식량 배분과 잠잘 자리가 먼저입니다. 통행 폐쇄는 법보다 날씨에 가깝습니다.",
+        pressure: "식량 배분, 불씨 자리, 통행 폐쇄, 사냥권",
+        memory: "불씨와 저장품은 왕권보다 오래된 공동체 기억으로 여겨집니다.",
+        persona: "눈길 안내인, 저장고 일꾼, 방한구 수리공, 사냥꾼"
+      },
+      {
+        name: "옌메베트",
+        type: "고공 통행과 숲 경계의 동맹권",
+        short: "산길 표식과 숲의 허락이 중요합니다.",
+        first: "고공 통행소, 기수단 둥지, 숲문 도시, 자연 동맹 기록소",
+        places: "옌워켈, 옌베크할, 실베크에트, 실람렌움",
+        life: "길은 있지만 모두에게 열린 길은 아닙니다. 안내 실패와 표식 훼손은 단순한 실수가 아닙니다.",
+        pressure: "채집권, 안내 실패, 생태 의무 위반, 길 표식 훼손",
+        memory: "산악 통행권과 숲 경계 공동체가 서로 길을 보증하며 동맹을 만들었습니다.",
+        persona: "산길 짐꾼, 숲문 통역, 기수단 장비공, 기록소 보조"
+      },
+      {
+        name: "님나레트",
+        type: "봉인 창고와 제한 학술의 폐쇄권",
+        short: "허가받은 지식과 금지된 재료가 나뉩니다.",
+        first: "감찰실, 봉인 창고, 재료 검사소, 외부자 대기소",
+        places: "얄베크움, 님나할, 푸크나움, 헤드렌움, 엔켈할",
+        life: "무엇을 알고 있는지보다 무엇을 허가받았는지가 더 중요합니다. 외부자는 오래 기다리고 적게 봅니다.",
+        pressure: "학술 망명, 재료 은닉, 봉인 파손, 외부자 감금 논란",
+        memory: "위험 재료와 금기 학술을 통제하려고 감찰권이 강해졌습니다.",
+        persona: "외부 학자, 감찰 보조, 재료 운반인, 봉인 창고 견습"
+      },
+      {
+        name: "실니메트",
+        type: "약초 장터와 산악 사원길의 남방 복합권",
+        short: "통역, 처방, 산길 허가가 자주 얽힙니다.",
+        first: "약초 장터, 강하 항구, 산악 사원길, 성림 접촉문",
+        places: "도르소르산, 실메르미르, 벨마르미르, 실소르켈, 메브메르켈",
+        life: "한 권역 안에서도 말과 관습이 크게 다릅니다. 약초 가격과 처방 책임은 쉽게 다툼이 됩니다.",
+        pressure: "통역 오류, 약초 가격, 성림 금기, 처방 책임",
+        memory: "여러 산악 사원, 약초 장터, 강하 항구가 오래 얽혀 생긴 문화권입니다.",
+        persona: "약초꾼, 통역, 사원길 안내인, 강하 항구 짐꾼"
+      },
+      {
+        name: "아르도레트",
+        type: "산악 수도원과 관측대의 신정권",
+        short: "하늘 기록과 순례 질서가 권위입니다.",
+        first: "산악 수도원, 관측대, 등정 허가소, 순례 숙소",
+        places: "도르소르할, 옌이엘토르, 아르소르산, 도르켈바르, 소르할",
+        life: "관측표는 학문이면서 세금과 의례의 근거입니다. 산을 오르는 일에도 허가와 순서가 필요합니다.",
+        pressure: "등정 사고, 관측표 해석, 봉납 부담, 순례 순서",
+        memory: "하늘을 접는 매듭 이야기는 폭풍과 관측의 상징입니다.",
+        persona: "순례자, 관측 보조, 등정 허가소 심부름꾼, 수도원 서기"
+      },
+      {
+        name: "가르메베트",
+        type: "초지 물권과 계절 야영의 유목권",
+        short: "우물 순번과 동행료가 삶을 움직입니다.",
+        first: "계절 야영지, 물가 약속 장소, 가축 분쟁장, 이동 장부소",
+        places: "틱메브할, 벨람바르, 메브바르, 벨베크엘, 워크렌움",
+        life: "정착지보다 우물과 이동로가 더 오래 기억됩니다. 누구와 함께 움직이는지가 신분증보다 중요할 때가 많습니다.",
+        pressure: "우물 순번, 가축 질병, 혼인 약속, 초지 경계",
+        memory: "물가 증언과 혼인 계약이 정치 문서 역할을 합니다.",
+        persona: "길잡이, 가축 돌봄꾼, 야영지 손님, 물권 증인"
+      },
+      {
+        name: "실할레트",
+        type: "성림과 왕실 정원의 숲 신정권",
+        short: "숲길, 채집 허가, 기억의 진위가 중요합니다.",
+        first: "성림, 왕실 정원, 숲 감시소, 채집 허가소",
+        places: "실소르산, 라드실할, 실베크엘, 실테크엘, 실다트바르",
+        life: "나무를 베거나 길을 묻는 일도 허가와 증언이 필요합니다. 장례 기억과 숲 표식은 법정에서 힘을 가집니다.",
+        pressure: "벌목 위반, 사냥권, 숲길 실종, 장례 기억 훼손",
+        memory: "거울 없는 잎 이야기는 기억의 진위를 가르는 상징으로 남았습니다.",
+        persona: "채집 허가 보조, 숲 감시인, 장례 증언자, 왕실 정원 일꾼"
+      },
+      {
+        name: "메르할레트",
+        type: "강하 항구와 상인 의회의 교역권",
+        short: "통행세, 봉인, 창고 보관이 핵심입니다.",
+        first: "강하 항구, 통행세 관청, 창고 거리, 상업 법정",
+        places: "메르벨마르, 메르바르, 헤드켈바르, 푸크테쿰, 메르님바르",
+        life: "물건은 강을 따라 움직이고, 말보다 봉인 끈과 증인의 이름이 오래 남습니다.",
+        pressure: "통행세 이의, 보관 손실, 계약 파기, 하역 사고",
+        memory: "하구와 강하 운송로의 통행세를 조정하며 상인 의회가 커졌습니다.",
+        persona: "상단 짐꾼, 창고지기, 통행세 서기, 강하 선원"
+      },
+      {
+        name: "님소레트",
+        type: "학당과 후원소의 학술·종교권",
+        short: "후원, 강의, 사본 가격이 도시를 흔듭니다.",
+        first: "학당, 철학 회합장, 후원청, 사본 교환장",
+        places: "님할, 님렘할, 소르다트움, 렌테쿰, 렌메르미르",
+        life: "논쟁은 지식만이 아니라 돈과 명예의 문제입니다. 후원자가 바뀌면 금지되는 말도 바뀔 수 있습니다.",
+        pressure: "후원 경쟁, 검열, 교리 논쟁, 사본 가격",
+        memory: "공개 논쟁은 정치 위신과 학문 권위를 함께 만듭니다.",
+        persona: "학생, 필경사, 후원소 심부름꾼, 종교 강의 청중"
+      },
+      {
+        name: "실바니아",
+        type: "숲 전승과 탐사 기록의 외곽권",
+        short: "숲의 계보와 탐사 기록이 서로 다릅니다.",
+        first: "숲 전승지, 탐사 거점, 사본 열람소, 안개길 숙소",
+        places: "실렌산, 워크켈할, 렌얄움, 움켈산",
+        life: "외부인은 기록과 길잡이에 기대야 합니다. 같은 장소도 전승지와 탐사 보고서에서 다르게 불립니다.",
+        pressure: "실종 책임, 계보 해석, 사본 반출, 길 표식 조작",
+        memory: "현행 행정권보다 고문서와 탐사 기록으로 더 많이 알려져 있습니다.",
+        persona: "탐사자, 길잡이 보조, 사본 열람인, 숲 경계 손님"
+      },
+      {
+        name: "드래곤스파이어",
+        type: "화산 항로와 용 신화의 섬권",
+        short: "분화 감시와 피난 표식이 항로를 좌우합니다.",
+        first: "화산 항로 부두, 분화 감시소, 해도 주석소, 피난 표식촌",
+        places: "나르마르켈, 나르베크토르, 나르마르렌움, 마르모스할",
+        life: "항로가 열려 있어도 안전하다는 뜻은 아닙니다. 보험료와 피난 순서가 사람들의 기분을 날카롭게 만듭니다.",
+        pressure: "보험료, 피난 순서, 화산석 소유권, 용혈 전승 사칭",
+        memory: "화산 항로와 용 신화는 왕실 신화와 항해 보고 양쪽에 남아 있습니다.",
+        persona: "항해 보고원, 분화 감시인, 피난 표식촌 주민, 화산석 거래인"
+      },
+      {
+        name: "펜리르의 눈",
+        type: "등대와 난파 기록의 외해 금기권",
+        short: "실종 명부와 금기 표식이 항해자를 붙잡습니다.",
+        first: "등대권, 난파 기록소, 해도 필사대, 금기 표식소",
+        places: "둔아르토르, 둔나브렌움, 움마르소르, 벱나브할",
+        life: "지도에 길이 있어도 갈 수 있다는 뜻은 아닙니다. 구조 신호와 난파 물품은 늘 다툼을 부릅니다.",
+        pressure: "구조 신호 악용, 난파 물품 소유권, 금기 해역 통행, 실종자 이름",
+        memory: "등대 소실과 난파 기록이 쌓이며 항해 금기의 중심이 되었습니다.",
+        persona: "등대 보조, 해도 필사자, 구조 대기자, 실종자 가족"
+      }
+    ];
+
+    const readerSections = [
+      {
+        title: "나라와 권역",
+        summary: "비레스에는 왕국, 도시국가, 항만 연방, 산악 수도원권, 숲 경계권이 함께 있습니다.",
+        bullets: [
+          "레오니아는 궁정과 기사 봉토가 강한 왕국입니다.",
+          "노르가르드는 군항과 철강 부두를 중심으로 움직입니다.",
+          "티리스는 농경 영지와 서부 접경, 피난민 정착지가 맞물립니다.",
+          "남방과 북방, 숲과 외해의 권역은 각자 다른 규칙으로 사람을 맞습니다."
+        ]
+      },
+      {
+        title: "도시와 마을",
+        summary: "도시는 배경 이름이 아니라, 검문·장터·창고·수로·숙소가 있는 실제 장소입니다.",
+        bullets: [
+          "큰 도시는 법정, 관청, 장터, 창고, 숙소, 병영 같은 기능을 나눠 가집니다.",
+          "마을은 공동 창고, 수문, 피난 표식, 산길 숙소, 선착장처럼 작지만 중요한 역할을 합니다.",
+          "어떤 마을은 평범한 외곽 마을이고, 어떤 마을은 특정 사건과 소문 때문에 기억됩니다."
+        ]
+      },
+      {
+        title: "생활과 돈",
+        summary: "은화만으로 모든 것을 살 수 없습니다. 보증인, 장부, 곡물, 노동일도 가격이 됩니다.",
+        bullets: [
+          "중심권은 은화와 동전이 잘 쓰이지만, 농촌은 곡물과 노동일 계산도 강합니다.",
+          "항만에서는 외래 주화, 보험, 선장 보증, 봉인된 물품이 함께 계산됩니다.",
+          "산악과 혹한권에서는 식량, 숙소, 방한구, 동행 허가가 돈보다 더 급할 수 있습니다."
+        ]
+      },
+      {
+        title: "달력과 시간",
+        summary: "한 해와 한 주기를 모두가 같은 느낌으로 쓰지 않습니다. 지역마다 달력 이름과 쓰임이 다릅니다.",
+        bullets: [
+          "레오니아는 궁정 의례와 서임에 맞춘 달력을 씁니다.",
+          "노르가르드와 켈나베트는 조류와 항해 일정에 민감합니다.",
+          "티리스와 센할레트는 농사, 배급, 저장, 공동 노동의 리듬을 중요하게 봅니다.",
+          "북방권은 겨울 폐쇄와 저장 기간이 생활 시간을 가릅니다."
+        ]
+      },
+      {
+        title: "역사와 소문",
+        summary: "큰 사건은 남지만, 원인과 책임은 지역마다 다르게 말해집니다.",
+        bullets: [
+          "티리스 서부에서는 그린할로우 상실과 뉴할로우 재정착이 아직 현재의 문제입니다.",
+          "항만권에서는 난파 장부와 해도 전승이 책임과 탐욕의 경고로 쓰입니다.",
+          "학술권에서는 사본의 누락, 봉인된 주석, 후원자의 검열이 역사를 바꿔 보이게 합니다."
+        ]
+      },
+      {
+        title: "종족과 문화",
+        summary: "여러 종족과 문화가 섞여 살지만, 모두가 같은 방식으로 섞이는 것은 아닙니다.",
+        bullets: [
+          "대도시와 항만에서는 여러 집단이 직업과 장부를 통해 섞입니다.",
+          "숲, 산악, 혹한, 외해의 집단은 자기 경계와 금기를 더 강하게 지킵니다.",
+          "사용자는 어느 집단의 말을 듣느냐에 따라 같은 사건도 다르게 이해할 수 있습니다."
+        ]
+      },
+      {
+        title: "플레이 시작점",
+        summary: "작은 인물로 시작할수록 장면은 더 빨리 열립니다.",
+        bullets: [
+          "여행자는 검문, 여관, 통행세, 길잡이 소문을 먼저 만납니다.",
+          "상인과 서기는 장부, 봉인, 환전, 납품 분쟁에 접근합니다.",
+          "피난민과 정착민은 배급, 이름패, 공동 창고, 귀향 논쟁에 얽힙니다.",
+          "호위와 용병은 성문, 병영, 무기 보관, 징발 소문을 자주 듣습니다."
+        ]
+      }
+    ];
+
+    const regionGrid = document.getElementById("regionGrid");
+    const regionDetail = document.getElementById("regionDetail");
+    const readerGrid = document.getElementById("readerGrid");
+
+    function renderRegionButtons() {
+      regionGrid.innerHTML = regions.map((region, index) => `
+        <button class="region-button" type="button" data-index="${index}" aria-pressed="${index === 0 ? "true" : "false"}">
+          <strong>${region.name}</strong>
+          <span>${region.short}</span>
+        </button>
+      `).join("");
+
+      regionGrid.querySelectorAll(".region-button").forEach(button => {
+        button.addEventListener("click", () => {
+          const index = Number(button.dataset.index);
+          regionGrid.querySelectorAll(".region-button").forEach(item => item.setAttribute("aria-pressed", "false"));
+          button.setAttribute("aria-pressed", "true");
+          renderRegionDetail(index);
+        });
+      });
+    }
+
+    function renderRegionDetail(index) {
+      const region = regions[index];
+      regionDetail.innerHTML = `
+        <div class="type">${region.type}</div>
+        <h3>${region.name}</h3>
+        <p>${region.short}</p>
+        <div class="detail-grid">
+          <div class="detail-item"><b>첫 장면</b><span>${region.first}</span></div>
+          <div class="detail-item"><b>주요 장소</b><span>${region.places}</span></div>
+          <div class="detail-item"><b>사는 모습</b><span>${region.life}</span></div>
+          <div class="detail-item"><b>지금 문제</b><span>${region.pressure}</span></div>
+          <div class="detail-item"><b>남은 기억</b><span>${region.memory}</span></div>
+          <div class="detail-item"><b>어울리는 시작</b><span>${region.persona}</span></div>
+        </div>
+      `;
+    }
+
+    function renderReader() {
+      readerGrid.innerHTML = readerSections.map((section, index) => `
+        <details class="reader-card" ${index < 2 ? "open" : ""}>
+          <summary>${section.title}</summary>
+          <div class="reader-body">
+            <p>${section.summary}</p>
+            <ul>${section.bullets.map(item => `<li>${item}</li>`).join("")}</ul>
+          </div>
+        </details>
+      `).join("");
+    }
+
+    renderRegionButtons();
+    renderRegionDetail(0);
+    renderReader();
+  </script>
 </body>
 </html>
