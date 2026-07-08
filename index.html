@@ -153,7 +153,7 @@
       border-radius: 10px;
       background:
         linear-gradient(0deg, rgba(12, 18, 15, 0.8), rgba(12, 18, 15, 0.12) 62%),
-        url("./viewer/assets/illustrations/generated_outputs/ck5083-city-village-batch-contactsheet-v2.jpg") center/cover;
+        url("./viewer/assets/illustrations/single_slides/leonia-radarhal.jpg") center/cover;
       box-shadow: var(--shadow);
       overflow: hidden;
     }
@@ -760,7 +760,7 @@
         <h2>지도를 보고, 그다음 풍경을 봅니다.</h2>
         <p>
           도식은 길과 경계를 잡아주고, 설정화는 그 길 위에서 만나는 빛과 공기를 보여줍니다.
-          아래 이미지는 공개 안내에 바로 필요한 것만 먼저 모았습니다.
+          큰 묶음 그림은 흐름을 볼 때 쓰고, 도시와 마을은 한 장씩 넘겨 보도록 따로 정리했습니다.
         </p>
       </div>
       <div class="gallery-block">
@@ -775,7 +775,7 @@
         </div>
 
         <details class="gallery-group">
-          <summary>도시와 마을 묶음 더 보기</summary>
+          <summary>도시와 마을 한 장씩 보기</summary>
           <div id="extraSlider" class="image-slider"></div>
         </details>
       </div>
@@ -1109,16 +1109,16 @@
         caption: "어디에는 수문과 장부가 있고, 어디에는 숙소의 불씨와 말린 식량이 더 중요합니다."
       },
       {
-        title: "대표 도시 전경",
-        src: "./viewer/assets/illustrations/generated_outputs/ck5083-city-vistas-labeled-contactsheet-v1.jpg",
-        alt: "대표 도시 전경 묶음",
-        caption: "각 권역의 중심 도시는 지붕 색, 성벽, 항구, 광장의 모양부터 서로 다릅니다."
+        title: "라드아르할",
+        src: "./viewer/assets/illustrations/single_slides/leonia-radarhal.jpg",
+        alt: "레오니아 중심 도시 라드아르할 전경",
+        caption: "레오니아의 중심 도시입니다. 너른 길과 성문, 궁정으로 이어지는 질서가 먼저 보입니다."
       },
       {
-        title: "대표 마을과 초소",
-        src: "./viewer/assets/illustrations/generated_outputs/village_outposts/ck5083-village-outposts-labeled-contactsheet-v1.jpg",
-        alt: "대표 마을과 초소 묶음",
-        caption: "작은 정착지에서도 창고, 수문, 숙소, 피난 표식 하나가 삶을 움직입니다."
+        title: "가르푸크가",
+        src: "./viewer/assets/illustrations/single_slides/village-tiris-garpukga.jpg",
+        alt: "티리스 영지 장터 마을 가르푸크가",
+        caption: "티리스의 작은 장터 마을입니다. 곡물과 보증인, 공동 창고의 말이 하루를 움직입니다."
       }
     ];
 
@@ -1175,28 +1175,112 @@
 
     const extraSlides = [
       {
-        title: "레오니아와 노르가르드",
-        src: "./viewer/assets/illustrations/generated_outputs/ck5083-secondary-city-vistas-leonia-norghard-contactsheet-v1.jpg",
-        alt: "레오니아와 노르가르드 도시 전경 묶음",
-        caption: "궁정권과 군항권의 도시 분위기를 나란히 봅니다."
+        title: "라드아르할",
+        src: "./viewer/assets/illustrations/single_slides/leonia-radarhal.jpg",
+        alt: "레오니아 라드아르할 전경",
+        caption: "궁정과 기사 봉토가 이어지는 레오니아의 중심 도시입니다."
       },
       {
-        title: "뉴할로우와 린레네트",
-        src: "./viewer/assets/illustrations/generated_outputs/ck5083-secondary-city-vistas-newhollow-linrenet-contactsheet-v1.jpg",
-        alt: "뉴할로우와 린레네트 도시 전경 묶음",
-        caption: "피난 정착지와 기록 도시가 서로 다른 표정을 갖습니다."
+        title: "마르나브미르",
+        src: "./viewer/assets/illustrations/single_slides/norghard-marnabmir.jpg",
+        alt: "노르가르드 마르나브미르 항구 도시",
+        caption: "군항과 철강 부두가 맞물린 노르가르드의 큰 항구입니다."
       },
       {
-        title: "티리스의 이름 있는 마을",
-        src: "./viewer/assets/illustrations/generated_outputs/ck5083-tiris-named-villages-contactsheet-v1.jpg",
-        alt: "티리스 이름 있는 마을 묶음",
-        caption: "서부 접경과 농경 영지의 작은 장소를 크게 묶어 봅니다."
+        title: "뉴할로우",
+        src: "./viewer/assets/illustrations/single_slides/tiris-newhollow.jpg",
+        alt: "티리스 뉴할로우 피난 정착 도시",
+        caption: "그린할로우 상실 뒤 피난민과 새 정착민이 모인 티리스 서부의 도시입니다."
       },
       {
-        title: "드래곤스파이어와 펜리르의 눈",
-        src: "./viewer/assets/illustrations/generated_outputs/ck5083-dragonspire-fenrir-eye-named-villages-contactsheet-v1.jpg",
-        alt: "드래곤스파이어와 펜리르의 눈 마을 묶음",
-        caption: "화산 항로와 외해 등대권, 바다와 금기가 닿은 정착지를 봅니다."
+        title: "레이븐스톤",
+        src: "./viewer/assets/illustrations/single_slides/tiris-ravenstone.jpg",
+        alt: "티리스 레이븐스톤 성문 도시",
+        caption: "서부 접경으로 들어가는 성문과 검문이 강한 티리스의 주요 거점입니다."
+      },
+      {
+        title: "레눔가",
+        src: "./viewer/assets/illustrations/single_slides/linrenet-renumga.jpg",
+        alt: "린레네트 레눔가 기록 도시",
+        caption: "기록원과 사본 장터가 모이는 린레네트의 학예 도시입니다."
+      },
+      {
+        title: "도르카르",
+        src: "./viewer/assets/illustrations/single_slides/bekdoret-dorkar.jpg",
+        alt: "벡도레트 도르카르 성문 도시",
+        caption: "보증인과 성문 절차가 중요한 벡도레트의 교통 거점입니다."
+      },
+      {
+        title: "센푸쿰",
+        src: "./viewer/assets/illustrations/single_slides/senhalet-senpukum.jpg",
+        alt: "센할레트 센푸쿰 농경 도시",
+        caption: "곡물과 공동 창고, 배급 순서가 삶을 가르는 센할레트의 중심지입니다."
+      },
+      {
+        title: "마르켈미르",
+        src: "./viewer/assets/illustrations/single_slides/kelnabet-markelmir.jpg",
+        alt: "켈나베트 마르켈미르 항만 도시",
+        caption: "선장 보증과 해도, 항만 장부가 힘을 갖는 켈나베트의 항구입니다."
+      },
+      {
+        title: "베크헤스푸쿰",
+        src: "./viewer/assets/illustrations/single_slides/hesbeket-bekhespukum.jpg",
+        alt: "헤스베케트 베크헤스푸쿰 혹한 도시",
+        caption: "식량과 불씨, 방한구가 곧 생존인 혹한권 도시입니다."
+      },
+      {
+        title: "실렌산",
+        src: "./viewer/assets/illustrations/single_slides/sylvania-silensan.jpg",
+        alt: "실바니아 실렌산 성림 도시",
+        caption: "숲의 허락과 산길 표식이 사람의 움직임을 정하는 성림권 도시입니다."
+      },
+      {
+        title: "나르마르켈",
+        src: "./viewer/assets/illustrations/single_slides/dragonspire-narmarkel.jpg",
+        alt: "드래곤스파이어 나르마르켈 화산 항로 도시",
+        caption: "화산 항로와 섬의 창고가 맞물린 드래곤스파이어의 도시입니다."
+      },
+      {
+        title: "둔아르토르",
+        src: "./viewer/assets/illustrations/single_slides/fenrir-eye-dunartore.jpg",
+        alt: "펜리르의 눈 둔아르토르 외해 거점",
+        caption: "외해 등대와 난파 기록이 모이는 금기 해역의 거점입니다."
+      },
+      {
+        title: "라드가르가",
+        src: "./viewer/assets/illustrations/single_slides/village-leonia-radgarga.jpg",
+        alt: "레오니아 라드가르가 봉토 마을",
+        caption: "레오니아 봉토 주변의 마을입니다. 추천장과 문장, 납품 순서가 중요합니다."
+      },
+      {
+        title: "가르푸크가",
+        src: "./viewer/assets/illustrations/single_slides/village-tiris-garpukga.jpg",
+        alt: "티리스 가르푸크가 영지 장터 마을",
+        caption: "티리스 영지 장터 마을입니다. 곡물, 보증인, 공동 창고가 장면의 중심입니다."
+      },
+      {
+        title: "마르토르가",
+        src: "./viewer/assets/illustrations/single_slides/village-norghard-martorga.jpg",
+        alt: "노르가르드 마르토르가 해안 마을",
+        caption: "군항 뒤편의 해안 마을입니다. 선박 보급과 겨울 준비가 빠르게 오갑니다."
+      },
+      {
+        title: "해안 어항",
+        src: "./viewer/assets/illustrations/single_slides/village-coastal-fishing-harbor.jpg",
+        alt: "비레스 해안 어항",
+        caption: "고기와 소금, 작은 선착장이 하루의 값을 정하는 해안 정착지입니다."
+      },
+      {
+        title: "산길 숙소촌",
+        src: "./viewer/assets/illustrations/single_slides/village-mountain-pass-lodging-outpost.jpg",
+        alt: "비레스 산길 숙소촌",
+        caption: "고개를 넘는 사람에게 하룻밤의 불빛과 방한구가 은화보다 먼저 필요한 곳입니다."
+      },
+      {
+        title: "감시 초소촌",
+        src: "./viewer/assets/illustrations/single_slides/village-watch-checkpoint.jpg",
+        alt: "비레스 감시 초소촌",
+        caption: "검문과 허가, 지나가는 짐의 기록이 매일 쌓이는 작은 초소 마을입니다."
       }
     ];
 
