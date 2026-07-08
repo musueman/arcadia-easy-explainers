@@ -216,9 +216,13 @@
 
     .region-button {
       position: relative;
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1fr);
+      gap: 14px;
+      align-items: center;
       width: 100%;
-      min-height: 110px;
-      padding: 13px;
+      min-height: 128px;
+      padding: 14px;
       border: 1px solid var(--line);
       border-radius: 8px;
       color: var(--ink);
@@ -229,20 +233,21 @@
     }
 
     .region-card-head {
-      display: flex;
-      gap: 10px;
-      align-items: center;
+      display: block;
     }
 
     .region-card-crest {
-      flex: 0 0 auto;
-      width: 38px;
-      height: 38px;
-      padding: 4px;
+      width: 72px;
+      height: 72px;
+      padding: 6px;
       border: 1px solid rgba(20, 59, 47, 0.22);
-      border-radius: 8px;
+      border-radius: 12px;
       object-fit: contain;
       background: #17231f;
+    }
+
+    .region-card-text {
+      min-width: 0;
     }
 
     .region-button strong {
@@ -254,10 +259,14 @@
 
     .region-button span {
       display: block;
-      margin-top: 5px;
+      margin-top: 6px;
       color: var(--muted);
       font-size: 14px;
       line-height: 1.45;
+    }
+
+    .region-card-text {
+      margin-top: 0;
     }
 
     .region-button[aria-pressed="true"] {
@@ -299,14 +308,16 @@
 
     .detail-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(240px, 0.95fr);
-      gap: 18px;
+      grid-template-columns: 1fr;
+      gap: 14px;
       align-items: start;
     }
 
     .region-hero-visual {
       position: relative;
-      min-height: 460px;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      min-height: 0;
       overflow: hidden;
       border: 1px solid var(--line);
       border-radius: 12px;
@@ -332,10 +343,10 @@
       bottom: 14px;
       z-index: 2;
       display: grid;
-      grid-template-columns: 74px minmax(0, 1fr);
-      gap: 12px;
+      grid-template-columns: 96px minmax(0, 1fr);
+      gap: 14px;
       align-items: end;
-      padding: 12px;
+      padding: 14px;
       border: 1px solid rgba(255, 253, 247, 0.24);
       border-radius: 10px;
       color: #fffdf7;
@@ -344,8 +355,8 @@
     }
 
     .region-crest-badge {
-      width: 74px;
-      height: 74px;
+      width: 96px;
+      height: 96px;
       padding: 6px;
       border: 1px solid rgba(255, 253, 247, 0.28);
       border-radius: 10px;
@@ -363,13 +374,13 @@
     .region-hero-overlay b {
       display: block;
       margin-bottom: 5px;
-      font-size: 18px;
+      font-size: 22px;
     }
 
     .region-hero-overlay span {
       display: block;
       color: rgba(255, 253, 247, 0.84);
-      font-size: 14px;
+      font-size: 15px;
       line-height: 1.5;
     }
 
@@ -860,18 +871,29 @@
         grid-template-columns: 1fr;
       }
       .section { padding: 20px; }
-      .region-button { min-height: 0; }
-      .region-hero-visual { min-height: 320px; }
+      .region-button {
+        grid-template-columns: 58px minmax(0, 1fr);
+        min-height: 0;
+        padding: 12px;
+      }
+      .region-card-crest {
+        width: 58px;
+        height: 58px;
+        border-radius: 10px;
+      }
+      .region-hero-visual { aspect-ratio: 1 / 1; }
       .region-hero-overlay {
-        grid-template-columns: 56px minmax(0, 1fr);
+        grid-template-columns: 64px minmax(0, 1fr);
         left: 10px;
         right: 10px;
         bottom: 10px;
+        padding: 10px;
       }
       .region-crest-badge {
-        width: 56px;
-        height: 56px;
+        width: 64px;
+        height: 64px;
       }
+      .region-hero-overlay b { font-size: 18px; }
       .slide-stage img { min-height: 210px; }
       .slide-control {
         width: 38px;
@@ -2228,8 +2250,8 @@
             const crest = visuals ? `<img class="region-card-crest" loading="lazy" src="${visuals.crest}" alt="${region.name} 문장">` : "";
             return `
               <button class="region-button" type="button" data-index="${index}" aria-pressed="${index === 0 ? "true" : "false"}">
-                <span class="region-card-head">${crest}<strong>${region.name}</strong></span>
-                <span>${region.short}</span>
+                ${crest}
+                <span class="region-card-text"><strong>${region.name}</strong><span>${region.short}</span></span>
               </button>
             `;
           }).join("");
@@ -2269,16 +2291,16 @@
                 <div class="type">${region.type}</div>
                 <h3>${region.name}</h3>
                 <p>${region.short}</p>
-                <div class="detail-grid">
-                  <div class="detail-item"><b>첫 장면</b><span>${region.first}</span></div>
-                  <div class="detail-item"><b>주요 장소</b><span>${region.places}</span></div>
-                  <div class="detail-item"><b>사는 모습</b><span>${region.life}</span></div>
-                  <div class="detail-item"><b>지금 문제</b><span>${region.pressure}</span></div>
-                  <div class="detail-item"><b>남은 기억</b><span>${region.memory}</span></div>
-                  <div class="detail-item"><b>어울리는 시작</b><span>${region.persona}</span></div>
-                </div>
               </div>
               ${visualHtml}
+              <div class="detail-grid">
+                <div class="detail-item"><b>첫 장면</b><span>${region.first}</span></div>
+                <div class="detail-item"><b>주요 장소</b><span>${region.places}</span></div>
+                <div class="detail-item"><b>사는 모습</b><span>${region.life}</span></div>
+                <div class="detail-item"><b>지금 문제</b><span>${region.pressure}</span></div>
+                <div class="detail-item"><b>남은 기억</b><span>${region.memory}</span></div>
+                <div class="detail-item"><b>어울리는 시작</b><span>${region.persona}</span></div>
+              </div>
             </div>
           `;
     

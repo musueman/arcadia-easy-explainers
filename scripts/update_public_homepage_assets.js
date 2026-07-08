@@ -105,8 +105,8 @@ function injectedRenderRegionButtons() {
         const crest = visuals ? `<img class="region-card-crest" loading="lazy" src="${visuals.crest}" alt="${region.name} 문장">` : "";
         return `
           <button class="region-button" type="button" data-index="${index}" aria-pressed="${index === 0 ? "true" : "false"}">
-            <span class="region-card-head">${crest}<strong>${region.name}</strong></span>
-            <span>${region.short}</span>
+            ${crest}
+            <span class="region-card-text"><strong>${region.name}</strong><span>${region.short}</span></span>
           </button>
         `;
       }).join("");
@@ -146,16 +146,16 @@ function injectedRenderRegionDetail(index) {
             <div class="type">${region.type}</div>
             <h3>${region.name}</h3>
             <p>${region.short}</p>
-            <div class="detail-grid">
-              <div class="detail-item"><b>첫 장면</b><span>${region.first}</span></div>
-              <div class="detail-item"><b>주요 장소</b><span>${region.places}</span></div>
-              <div class="detail-item"><b>사는 모습</b><span>${region.life}</span></div>
-              <div class="detail-item"><b>지금 문제</b><span>${region.pressure}</span></div>
-              <div class="detail-item"><b>남은 기억</b><span>${region.memory}</span></div>
-              <div class="detail-item"><b>어울리는 시작</b><span>${region.persona}</span></div>
-            </div>
           </div>
           ${visualHtml}
+          <div class="detail-grid">
+            <div class="detail-item"><b>첫 장면</b><span>${region.first}</span></div>
+            <div class="detail-item"><b>주요 장소</b><span>${region.places}</span></div>
+            <div class="detail-item"><b>사는 모습</b><span>${region.life}</span></div>
+            <div class="detail-item"><b>지금 문제</b><span>${region.pressure}</span></div>
+            <div class="detail-item"><b>남은 기억</b><span>${region.memory}</span></div>
+            <div class="detail-item"><b>어울리는 시작</b><span>${region.persona}</span></div>
+          </div>
         </div>
       `;
 
