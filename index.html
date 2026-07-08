@@ -153,7 +153,7 @@
       border-radius: 10px;
       background:
         linear-gradient(0deg, rgba(12, 18, 15, 0.8), rgba(12, 18, 15, 0.12) 62%),
-        url("./viewer/assets/illustrations/ck5083-regions-nations-culture-zones-environment-sheet-v1.png") center/cover;
+        url("./viewer/assets/illustrations/generated_outputs/ck5083-city-village-batch-contactsheet-v2.jpg") center/cover;
       box-shadow: var(--shadow);
       overflow: hidden;
     }
@@ -357,6 +357,35 @@
       padding-left: 18px;
     }
 
+    .visual-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin: 18px 0 24px;
+    }
+
+    .visual-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fffaf1;
+    }
+
+    .visual-card img {
+      aspect-ratio: 16 / 9;
+      object-fit: contain;
+      background: #f1e7d9;
+    }
+
+    .visual-card.scene img {
+      object-fit: cover;
+    }
+
+    .visual-card figcaption {
+      padding: 10px 12px 12px;
+      margin: 0;
+    }
+
     .quick-paths {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -380,6 +409,33 @@
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 14px;
+    }
+
+    .gallery-block {
+      display: grid;
+      gap: 26px;
+    }
+
+    .gallery-block h3 {
+      color: var(--green-dark);
+      margin-bottom: 12px;
+    }
+
+    .diagram-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    details.gallery-group {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fffaf1;
+      overflow: hidden;
+    }
+
+    .gallery-group .image-row {
+      padding: 0 16px 16px;
     }
 
     figure { margin: 0; }
@@ -419,7 +475,9 @@
       .hero-panel { min-height: 420px; }
       .detail-panel { position: static; }
       .quick-paths { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .image-row { grid-template-columns: 1fr; }
+      .image-row,
+      .visual-strip,
+      .diagram-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 680px) {
@@ -438,6 +496,8 @@
       .region-grid,
       .detail-grid,
       .reader-grid,
+      .visual-strip,
+      .diagram-grid,
       .quick-paths {
         grid-template-columns: 1fr;
       }
@@ -497,6 +557,21 @@
         <div id="regionGrid" class="region-grid" aria-label="권역 목록"></div>
         <article id="regionDetail" class="detail-panel" aria-live="polite"></article>
       </div>
+
+      <div class="visual-strip" aria-label="권역과 지명 도식">
+        <figure class="visual-card">
+          <img loading="lazy" src="./viewer/assets/images/ck5083-regions-nations-culture-zones-v1.svg" alt="비레스 5083년 권역과 문화권 도식">
+          <figcaption>어느 권역이 어떤 생활권과 맞닿는지 먼저 보는 그림입니다.</figcaption>
+        </figure>
+        <figure class="visual-card">
+          <img loading="lazy" src="./viewer/assets/images/ck5083-internal-regions-settlements-hierarchy-v1.svg" alt="권역, 국가, 내부 지역, 도시와 마을의 계층 도식">
+          <figcaption>나라 안쪽의 지역, 도시, 마을이 어떤 층으로 이어지는지 보여줍니다.</figcaption>
+        </figure>
+        <figure class="visual-card">
+          <img loading="lazy" src="./viewer/assets/images/ck5083-named-regions-routes-villages-label-layer-v1.svg" alt="이름 있는 지역, 가도, 마을 라벨 도식">
+          <figcaption>지도에서 보이는 이름과 사람들이 생활 속에서 부르는 이름을 함께 읽는 자료입니다.</figcaption>
+        </figure>
+      </div>
     </section>
 
     <section id="read" class="section">
@@ -507,6 +582,20 @@
           아래 내용은 비레스의 길 위에서 자주 마주칠 이야기입니다.
           왕궁 문서처럼 차갑게 정리한 글이 아니라, 여관 탁자와 항구 창구와 신전 계단에서 들을 법한 말로 묶었습니다.
         </p>
+      </div>
+      <div class="visual-strip" aria-label="세계 읽기 보조 도식">
+        <figure class="visual-card">
+          <img loading="lazy" src="./viewer/assets/images/ck5083-world-overview-life-zones-v1.svg" alt="비레스 5083년 세계 총람과 생활권 도식">
+          <figcaption>왕도, 항구, 산길, 숲 경계가 어디서부터 다르게 보이는지 잡아주는 첫 지도입니다.</figcaption>
+        </figure>
+        <figure class="visual-card">
+          <img loading="lazy" src="./viewer/assets/images/ck5083-terrain-routes-borders-village-anchors-v1.svg" alt="지형, 가도, 국경, 마을 기준점 도식">
+          <figcaption>길과 강, 고개와 국경이 마을의 생활을 어떻게 나누는지 보여줍니다.</figcaption>
+        </figure>
+        <figure class="visual-card">
+          <img loading="lazy" src="./viewer/assets/images/ck5083-places-public-facilities-v2.svg" alt="성문, 장터, 창고, 신전 등 공공시설 도식">
+          <figcaption>성문과 창고, 장터와 신전처럼 정보가 모이는 장소를 먼저 볼 수 있습니다.</figcaption>
+        </figure>
       </div>
       <div id="readerGrid" class="reader-grid"></div>
     </section>
@@ -527,21 +616,102 @@
     <section id="images" class="section">
       <div class="section-head">
         <p class="eyebrow">그림으로 보기</p>
-        <h2>세계의 분위기를 먼저 잡는 자료입니다.</h2>
+        <h2>지도를 보고, 그다음 풍경을 봅니다.</h2>
+        <p>
+          도식은 길과 경계를 잡아주고, 설정화는 그 길 위에서 만나는 빛과 공기를 보여줍니다.
+          아래 이미지는 공개 안내에 바로 필요한 것만 먼저 모았습니다.
+        </p>
       </div>
-      <div class="image-row">
-        <figure>
-          <img loading="lazy" src="./viewer/assets/illustrations/ck5083-regions-nations-culture-zones-environment-sheet-v1.png" alt="비레스 여러 국가와 문화권의 생활 환경">
-          <figcaption>나라와 문화권. 어디에서 시작하느냐에 따라 보이는 세계가 달라집니다.</figcaption>
-        </figure>
-        <figure>
-          <img loading="lazy" src="./viewer/assets/illustrations/ck5083-settlements-routes-village-life-sheet-v1.png" alt="도시, 마을, 가도, 수로가 연결된 생활 장면">
-          <figcaption>도시와 마을. 이동로, 창고, 선착장, 숙소가 장면을 만듭니다.</figcaption>
-        </figure>
-        <figure>
-          <img loading="lazy" src="./viewer/assets/illustrations/ck5083-places-public-facilities-life-surfaces-v1.png" alt="성문, 장터, 신전, 창고 등 공공 장소">
-          <figcaption>공공 장소. 성문과 장터, 신전과 창고는 정보가 모이는 곳입니다.</figcaption>
-        </figure>
+      <div class="gallery-block">
+        <div>
+          <h3>장면으로 보는 비레스</h3>
+          <div class="image-row">
+            <figure class="visual-card scene">
+              <img loading="lazy" src="./viewer/assets/illustrations/ck5083-regions-nations-culture-zones-environment-sheet-v1.png" alt="비레스 여러 국가와 문화권의 생활 환경">
+              <figcaption>나라와 문화권. 어디에서 시작하느냐에 따라 보이는 세계가 달라집니다.</figcaption>
+            </figure>
+            <figure class="visual-card scene">
+              <img loading="lazy" src="./viewer/assets/illustrations/ck5083-settlements-routes-village-life-sheet-v1.png" alt="도시, 마을, 가도, 수로가 연결된 생활 장면">
+              <figcaption>도시와 마을. 이동로, 창고, 선착장, 숙소가 장면을 만듭니다.</figcaption>
+            </figure>
+            <figure class="visual-card scene">
+              <img loading="lazy" src="./viewer/assets/illustrations/ck5083-places-public-facilities-life-surfaces-v1.png" alt="성문, 장터, 신전, 창고 등 공공 장소">
+              <figcaption>공공 장소. 성문과 장터, 신전과 창고는 정보가 모이는 곳입니다.</figcaption>
+            </figure>
+            <figure class="visual-card scene">
+              <img loading="lazy" src="./viewer/assets/illustrations/ck5083-civilization-technology-capability-life-sheet-v1.png" alt="문명과 기술 수준이 생활에 닿는 장면">
+              <figcaption>문명과 기술. 어디에는 수문과 장부가 있고, 어디에는 숙소와 불씨가 더 중요합니다.</figcaption>
+            </figure>
+            <figure class="visual-card scene">
+              <img loading="lazy" src="./viewer/assets/illustrations/generated_outputs/ck5083-city-vistas-labeled-contactsheet-v1.jpg" alt="대표 도시 전경 접촉시트">
+              <figcaption>도시 전경 묶음. 각 권역의 중심 도시가 서로 다른 얼굴을 갖습니다.</figcaption>
+            </figure>
+            <figure class="visual-card scene">
+              <img loading="lazy" src="./viewer/assets/illustrations/generated_outputs/village_outposts/ck5083-village-outposts-labeled-contactsheet-v1.jpg" alt="대표 마을과 초소 접촉시트">
+              <figcaption>마을과 초소 묶음. 작은 정착지에서도 창고, 수문, 숙소, 피난 표식이 삶을 움직입니다.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div>
+          <h3>길과 이름을 읽는 도식</h3>
+          <div class="diagram-grid">
+            <figure class="visual-card">
+              <img loading="lazy" src="./viewer/assets/images/ck5083-settlement-coordinate-scale-grid-v1.svg" alt="정착지 좌표와 규모 기준 도식">
+              <figcaption>도시와 마을의 위치·규모를 읽는 기준판입니다.</figcaption>
+            </figure>
+            <figure class="visual-card">
+              <img loading="lazy" src="./viewer/assets/images/ck5083-city-population-species-composition-v1.svg" alt="도시별 인구와 종족 구성 도식">
+              <figcaption>도시마다 누가 많이 살고 어떤 사람이 드나드는지 비교합니다.</figcaption>
+            </figure>
+            <figure class="visual-card">
+              <img loading="lazy" src="./viewer/assets/images/ck5083-city-district-hinterland-issues-v1.svg" alt="도시 내부 구역과 배후 정착지 도식">
+              <figcaption>성문, 장터, 항만, 배후 마을이 어떻게 이어지는지 보여줍니다.</figcaption>
+            </figure>
+            <figure class="visual-card">
+              <img loading="lazy" src="./viewer/assets/images/ck5083-village-population-livelihood-facility-db-v1.svg" alt="마을별 인구, 생업, 시설 도식">
+              <figcaption>마을마다 인구, 생업, 시설, 가까운 도시가 다릅니다.</figcaption>
+            </figure>
+            <figure class="visual-card">
+              <img loading="lazy" src="./viewer/assets/images/ck5083-village-issue-rumor-authority-flow-db-v1.svg" alt="마을별 쟁점, 소문, 권위자, 물자 흐름 도식">
+              <figcaption>소문과 권위자, 출입 조건이 작은 마을의 장면을 만듭니다.</figcaption>
+            </figure>
+            <figure class="visual-card">
+              <img loading="lazy" src="./viewer/assets/images/ck5083-civilization-technology-capability-matrix-v1.svg" alt="문명과 기술 기능 매트릭스">
+              <figcaption>어느 권역에 어떤 기능이 강하고 약한지 한눈에 보는 표입니다.</figcaption>
+            </figure>
+            <figure class="visual-card">
+              <img loading="lazy" src="./viewer/assets/images/ck5083-natural-life-zones-v1.svg" alt="자연권과 생활권 도식">
+              <figcaption>기후와 지형이 사람들의 이동과 생업을 어떻게 나누는지 봅니다.</figcaption>
+            </figure>
+            <figure class="visual-card">
+              <img loading="lazy" src="./viewer/assets/images/ck5083-cities-places-function-network-v1.svg" alt="도시와 장소 기능망 도식">
+              <figcaption>도시 기능과 장소가 서로 어떤 역할로 이어지는지 보여줍니다.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <details class="gallery-group">
+          <summary>도시와 마을 묶음 더 보기</summary>
+          <div class="image-row">
+            <figure class="visual-card scene">
+              <img loading="lazy" src="./viewer/assets/illustrations/generated_outputs/ck5083-secondary-city-vistas-leonia-norghard-contactsheet-v1.jpg" alt="레오니아와 노르가르드 도시 전경 접촉시트">
+              <figcaption>레오니아와 노르가르드. 궁정권과 군항권의 도시 분위기를 나란히 봅니다.</figcaption>
+            </figure>
+            <figure class="visual-card scene">
+              <img loading="lazy" src="./viewer/assets/illustrations/generated_outputs/ck5083-secondary-city-vistas-newhollow-linrenet-contactsheet-v1.jpg" alt="뉴할로우와 린레네트 도시 전경 접촉시트">
+              <figcaption>뉴할로우와 린레네트. 피난 정착지와 기록 도시의 얼굴이 다릅니다.</figcaption>
+            </figure>
+            <figure class="visual-card scene">
+              <img loading="lazy" src="./viewer/assets/illustrations/generated_outputs/ck5083-tiris-named-villages-contactsheet-v1.jpg" alt="티리스 이름 있는 마을 접촉시트">
+              <figcaption>티리스 마을들. 서부 접경과 농경 영지의 작은 장소를 묶어 봅니다.</figcaption>
+            </figure>
+            <figure class="visual-card scene">
+              <img loading="lazy" src="./viewer/assets/illustrations/generated_outputs/ck5083-dragonspire-fenrir-eye-named-villages-contactsheet-v1.jpg" alt="드래곤스파이어와 펜리르의 눈 마을 접촉시트">
+              <figcaption>화산 항로와 외해 등대권. 바다와 금기가 닿은 정착지를 봅니다.</figcaption>
+            </figure>
+          </div>
+        </details>
       </div>
     </section>
   </main>
