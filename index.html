@@ -405,12 +405,6 @@
       color: var(--green-dark);
     }
 
-    .image-row {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-
     .gallery-block {
       display: grid;
       gap: 26px;
@@ -421,10 +415,102 @@
       margin-bottom: 12px;
     }
 
-    .diagram-grid {
+    .image-slider {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fffaf1;
+      overflow: hidden;
+    }
+
+    .slide-stage {
+      position: relative;
+      background: #111b17;
+    }
+
+    .slide-stage img {
+      width: 100%;
+      min-height: 260px;
+      max-height: min(72vh, 760px);
+      aspect-ratio: 16 / 9;
+      object-fit: contain;
+      border: 0;
+      border-radius: 0;
+      background: #111b17;
+      cursor: zoom-in;
+    }
+
+    .slide-control {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
+      place-items: center;
+      width: 44px;
+      height: 58px;
+      border: 1px solid rgba(255, 253, 247, 0.34);
+      border-radius: 8px;
+      color: #fffdf7;
+      background: rgba(17, 27, 23, 0.72);
+      font-size: 28px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .slide-control.prev { left: 12px; }
+    .slide-control.next { right: 12px; }
+
+    .slide-meta {
+      display: grid;
+      gap: 8px;
+      padding: 14px 16px 16px;
+    }
+
+    .slide-meta strong {
+      color: var(--green-dark);
+      font-size: 20px;
+    }
+
+    .slide-meta p {
+      color: #3b4a43;
+    }
+
+    .slide-open {
+      justify-self: start;
+      color: var(--green-dark);
+      font-weight: 900;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .slide-thumbs {
+      display: flex;
+      gap: 8px;
+      padding: 0 16px 16px;
+      overflow-x: auto;
+      scrollbar-width: thin;
+    }
+
+    .slide-thumb {
+      flex: 0 0 98px;
+      padding: 0;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      background: transparent;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .slide-thumb[aria-selected="true"] {
+      border-color: var(--green);
+    }
+
+    .slide-thumb img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      border: 0;
+      border-radius: 6px;
+      background: #eee4d6;
     }
 
     details.gallery-group {
@@ -434,8 +520,59 @@
       overflow: hidden;
     }
 
-    .gallery-group .image-row {
-      padding: 0 16px 16px;
+    .gallery-group .image-slider {
+      border: 0;
+      border-top: 1px solid var(--line);
+      border-radius: 0;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(11, 16, 14, 0.9);
+    }
+
+    .lightbox[aria-hidden="false"] {
+      display: flex;
+    }
+
+    .lightbox figure {
+      width: min(1500px, 100%);
+      max-height: 94vh;
+      display: grid;
+      gap: 10px;
+    }
+
+    .lightbox img {
+      max-height: 82vh;
+      object-fit: contain;
+      border: 1px solid rgba(255, 253, 247, 0.26);
+      border-radius: 8px;
+      background: #111b17;
+    }
+
+    .lightbox figcaption {
+      color: #fffdf7;
+      font-size: 15px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(255, 253, 247, 0.42);
+      border-radius: 50%;
+      color: #fffdf7;
+      background: rgba(17, 27, 23, 0.8);
+      font-size: 26px;
+      cursor: pointer;
     }
 
     figure { margin: 0; }
@@ -475,9 +612,7 @@
       .hero-panel { min-height: 420px; }
       .detail-panel { position: static; }
       .quick-paths { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .image-row,
-      .visual-strip,
-      .diagram-grid { grid-template-columns: 1fr; }
+      .visual-strip { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 680px) {
@@ -497,12 +632,18 @@
       .detail-grid,
       .reader-grid,
       .visual-strip,
-      .diagram-grid,
       .quick-paths {
         grid-template-columns: 1fr;
       }
       .section { padding: 20px; }
       .region-button { min-height: 0; }
+      .slide-stage img { min-height: 210px; }
+      .slide-control {
+        width: 38px;
+        height: 50px;
+        font-size: 24px;
+      }
+      .slide-thumb { flex-basis: 82px; }
     }
   </style>
 </head>
@@ -625,96 +766,29 @@
       <div class="gallery-block">
         <div>
           <h3>장면으로 보는 비레스</h3>
-          <div class="image-row">
-            <figure class="visual-card scene">
-              <img loading="lazy" src="./viewer/assets/illustrations/ck5083-regions-nations-culture-zones-environment-sheet-v1.png" alt="비레스 여러 국가와 문화권의 생활 환경">
-              <figcaption>나라와 문화권. 어디에서 시작하느냐에 따라 보이는 세계가 달라집니다.</figcaption>
-            </figure>
-            <figure class="visual-card scene">
-              <img loading="lazy" src="./viewer/assets/illustrations/ck5083-settlements-routes-village-life-sheet-v1.png" alt="도시, 마을, 가도, 수로가 연결된 생활 장면">
-              <figcaption>도시와 마을. 이동로, 창고, 선착장, 숙소가 장면을 만듭니다.</figcaption>
-            </figure>
-            <figure class="visual-card scene">
-              <img loading="lazy" src="./viewer/assets/illustrations/ck5083-places-public-facilities-life-surfaces-v1.png" alt="성문, 장터, 신전, 창고 등 공공 장소">
-              <figcaption>공공 장소. 성문과 장터, 신전과 창고는 정보가 모이는 곳입니다.</figcaption>
-            </figure>
-            <figure class="visual-card scene">
-              <img loading="lazy" src="./viewer/assets/illustrations/ck5083-civilization-technology-capability-life-sheet-v1.png" alt="문명과 기술 수준이 생활에 닿는 장면">
-              <figcaption>문명과 기술. 어디에는 수문과 장부가 있고, 어디에는 숙소와 불씨가 더 중요합니다.</figcaption>
-            </figure>
-            <figure class="visual-card scene">
-              <img loading="lazy" src="./viewer/assets/illustrations/generated_outputs/ck5083-city-vistas-labeled-contactsheet-v1.jpg" alt="대표 도시 전경 접촉시트">
-              <figcaption>도시 전경 묶음. 각 권역의 중심 도시가 서로 다른 얼굴을 갖습니다.</figcaption>
-            </figure>
-            <figure class="visual-card scene">
-              <img loading="lazy" src="./viewer/assets/illustrations/generated_outputs/village_outposts/ck5083-village-outposts-labeled-contactsheet-v1.jpg" alt="대표 마을과 초소 접촉시트">
-              <figcaption>마을과 초소 묶음. 작은 정착지에서도 창고, 수문, 숙소, 피난 표식이 삶을 움직입니다.</figcaption>
-            </figure>
-          </div>
+          <div id="sceneSlider" class="image-slider"></div>
         </div>
 
         <div>
           <h3>길과 이름을 읽는 도식</h3>
-          <div class="diagram-grid">
-            <figure class="visual-card">
-              <img loading="lazy" src="./viewer/assets/images/ck5083-settlement-coordinate-scale-grid-v1.svg" alt="정착지 좌표와 규모 기준 도식">
-              <figcaption>도시와 마을의 위치·규모를 읽는 기준판입니다.</figcaption>
-            </figure>
-            <figure class="visual-card">
-              <img loading="lazy" src="./viewer/assets/images/ck5083-city-population-species-composition-v1.svg" alt="도시별 인구와 종족 구성 도식">
-              <figcaption>도시마다 누가 많이 살고 어떤 사람이 드나드는지 비교합니다.</figcaption>
-            </figure>
-            <figure class="visual-card">
-              <img loading="lazy" src="./viewer/assets/images/ck5083-city-district-hinterland-issues-v1.svg" alt="도시 내부 구역과 배후 정착지 도식">
-              <figcaption>성문, 장터, 항만, 배후 마을이 어떻게 이어지는지 보여줍니다.</figcaption>
-            </figure>
-            <figure class="visual-card">
-              <img loading="lazy" src="./viewer/assets/images/ck5083-village-population-livelihood-facility-db-v1.svg" alt="마을별 인구, 생업, 시설 도식">
-              <figcaption>마을마다 인구, 생업, 시설, 가까운 도시가 다릅니다.</figcaption>
-            </figure>
-            <figure class="visual-card">
-              <img loading="lazy" src="./viewer/assets/images/ck5083-village-issue-rumor-authority-flow-db-v1.svg" alt="마을별 쟁점, 소문, 권위자, 물자 흐름 도식">
-              <figcaption>소문과 권위자, 출입 조건이 작은 마을의 장면을 만듭니다.</figcaption>
-            </figure>
-            <figure class="visual-card">
-              <img loading="lazy" src="./viewer/assets/images/ck5083-civilization-technology-capability-matrix-v1.svg" alt="문명과 기술 기능 매트릭스">
-              <figcaption>어느 권역에 어떤 기능이 강하고 약한지 한눈에 보는 표입니다.</figcaption>
-            </figure>
-            <figure class="visual-card">
-              <img loading="lazy" src="./viewer/assets/images/ck5083-natural-life-zones-v1.svg" alt="자연권과 생활권 도식">
-              <figcaption>기후와 지형이 사람들의 이동과 생업을 어떻게 나누는지 봅니다.</figcaption>
-            </figure>
-            <figure class="visual-card">
-              <img loading="lazy" src="./viewer/assets/images/ck5083-cities-places-function-network-v1.svg" alt="도시와 장소 기능망 도식">
-              <figcaption>도시 기능과 장소가 서로 어떤 역할로 이어지는지 보여줍니다.</figcaption>
-            </figure>
-          </div>
+          <div id="diagramSlider" class="image-slider"></div>
         </div>
 
         <details class="gallery-group">
           <summary>도시와 마을 묶음 더 보기</summary>
-          <div class="image-row">
-            <figure class="visual-card scene">
-              <img loading="lazy" src="./viewer/assets/illustrations/generated_outputs/ck5083-secondary-city-vistas-leonia-norghard-contactsheet-v1.jpg" alt="레오니아와 노르가르드 도시 전경 접촉시트">
-              <figcaption>레오니아와 노르가르드. 궁정권과 군항권의 도시 분위기를 나란히 봅니다.</figcaption>
-            </figure>
-            <figure class="visual-card scene">
-              <img loading="lazy" src="./viewer/assets/illustrations/generated_outputs/ck5083-secondary-city-vistas-newhollow-linrenet-contactsheet-v1.jpg" alt="뉴할로우와 린레네트 도시 전경 접촉시트">
-              <figcaption>뉴할로우와 린레네트. 피난 정착지와 기록 도시의 얼굴이 다릅니다.</figcaption>
-            </figure>
-            <figure class="visual-card scene">
-              <img loading="lazy" src="./viewer/assets/illustrations/generated_outputs/ck5083-tiris-named-villages-contactsheet-v1.jpg" alt="티리스 이름 있는 마을 접촉시트">
-              <figcaption>티리스 마을들. 서부 접경과 농경 영지의 작은 장소를 묶어 봅니다.</figcaption>
-            </figure>
-            <figure class="visual-card scene">
-              <img loading="lazy" src="./viewer/assets/illustrations/generated_outputs/ck5083-dragonspire-fenrir-eye-named-villages-contactsheet-v1.jpg" alt="드래곤스파이어와 펜리르의 눈 마을 접촉시트">
-              <figcaption>화산 항로와 외해 등대권. 바다와 금기가 닿은 정착지를 봅니다.</figcaption>
-            </figure>
-          </div>
+          <div id="extraSlider" class="image-slider"></div>
         </details>
       </div>
     </section>
   </main>
+
+  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="이미지 크게 보기">
+    <button class="lightbox-close" type="button" aria-label="닫기">×</button>
+    <figure>
+      <img id="lightboxImage" src="" alt="">
+      <figcaption id="lightboxCaption"></figcaption>
+    </figure>
+  </div>
 
   <script>
     const regions = [
@@ -1009,9 +1083,129 @@
       }
     ];
 
+    const sceneSlides = [
+      {
+        title: "나라와 문화권",
+        src: "./viewer/assets/illustrations/ck5083-regions-nations-culture-zones-environment-sheet-v1.png",
+        alt: "비레스 여러 국가와 문화권의 생활 환경",
+        caption: "어디에서 시작하느냐에 따라 보이는 하늘, 길, 장터의 냄새가 달라집니다."
+      },
+      {
+        title: "도시와 마을",
+        src: "./viewer/assets/illustrations/ck5083-settlements-routes-village-life-sheet-v1.png",
+        alt: "도시, 마을, 가도, 수로가 연결된 생활 장면",
+        caption: "이동로, 창고, 선착장, 숙소가 사람들의 하루와 소문을 이어 줍니다."
+      },
+      {
+        title: "공공 장소",
+        src: "./viewer/assets/illustrations/ck5083-places-public-facilities-life-surfaces-v1.png",
+        alt: "성문, 장터, 신전, 창고 등 공공 장소",
+        caption: "성문과 장터, 신전과 창고는 비레스에서 정보가 가장 먼저 모이는 곳입니다."
+      },
+      {
+        title: "문명과 기술",
+        src: "./viewer/assets/illustrations/ck5083-civilization-technology-capability-life-sheet-v1.png",
+        alt: "문명과 기술 수준이 생활에 닿는 장면",
+        caption: "어디에는 수문과 장부가 있고, 어디에는 숙소의 불씨와 말린 식량이 더 중요합니다."
+      },
+      {
+        title: "대표 도시 전경",
+        src: "./viewer/assets/illustrations/generated_outputs/ck5083-city-vistas-labeled-contactsheet-v1.jpg",
+        alt: "대표 도시 전경 묶음",
+        caption: "각 권역의 중심 도시는 지붕 색, 성벽, 항구, 광장의 모양부터 서로 다릅니다."
+      },
+      {
+        title: "대표 마을과 초소",
+        src: "./viewer/assets/illustrations/generated_outputs/village_outposts/ck5083-village-outposts-labeled-contactsheet-v1.jpg",
+        alt: "대표 마을과 초소 묶음",
+        caption: "작은 정착지에서도 창고, 수문, 숙소, 피난 표식 하나가 삶을 움직입니다."
+      }
+    ];
+
+    const diagramSlides = [
+      {
+        title: "정착지 좌표와 규모",
+        src: "./viewer/assets/images/ck5083-settlement-coordinate-scale-grid-v1.svg",
+        alt: "정착지 좌표와 규모 기준 도식",
+        caption: "도시와 마을이 지도 위 어디에 놓이고, 어느 정도 크기로 읽히는지 잡아 주는 기준판입니다."
+      },
+      {
+        title: "도시별 인구와 종족 구성",
+        src: "./viewer/assets/images/ck5083-city-population-species-composition-v1.svg",
+        alt: "도시별 인구와 종족 구성 도식",
+        caption: "도시마다 누가 많이 살고, 어떤 사람들이 장터와 항구를 드나드는지 비교합니다."
+      },
+      {
+        title: "도시 내부 구역과 배후지",
+        src: "./viewer/assets/images/ck5083-city-district-hinterland-issues-v1.svg",
+        alt: "도시 내부 구역과 배후 정착지 도식",
+        caption: "성문, 장터, 항만, 배후 마을이 어떤 문제와 함께 이어지는지 보여줍니다."
+      },
+      {
+        title: "마을별 인구와 시설",
+        src: "./viewer/assets/images/ck5083-village-population-livelihood-facility-db-v1.svg",
+        alt: "마을별 인구, 생업, 시설 도식",
+        caption: "마을마다 인구, 생업, 시설, 가까운 도시와 길 소속이 다릅니다."
+      },
+      {
+        title: "마을의 소문과 물자 흐름",
+        src: "./viewer/assets/images/ck5083-village-issue-rumor-authority-flow-db-v1.svg",
+        alt: "마을별 쟁점, 소문, 권위자, 물자 흐름 도식",
+        caption: "소문, 권위자, 출입 조건, 물자 흐름이 작은 마을의 장면을 만듭니다."
+      },
+      {
+        title: "문명과 기술 기능",
+        src: "./viewer/assets/images/ck5083-civilization-technology-capability-matrix-v1.svg",
+        alt: "문명과 기술 기능 매트릭스",
+        caption: "어느 권역에 어떤 기능이 강하고 약한지 한 장에서 비교합니다."
+      },
+      {
+        title: "자연권과 생활권",
+        src: "./viewer/assets/images/ck5083-natural-life-zones-v1.svg",
+        alt: "자연권과 생활권 도식",
+        caption: "기후와 지형이 사람들의 이동, 생업, 정착지를 어떻게 나누는지 보여줍니다."
+      },
+      {
+        title: "도시와 장소 기능망",
+        src: "./viewer/assets/images/ck5083-cities-places-function-network-v1.svg",
+        alt: "도시와 장소 기능망 도식",
+        caption: "도시 기능과 공공 장소가 어떤 역할로 서로 이어지는지 보여줍니다."
+      }
+    ];
+
+    const extraSlides = [
+      {
+        title: "레오니아와 노르가르드",
+        src: "./viewer/assets/illustrations/generated_outputs/ck5083-secondary-city-vistas-leonia-norghard-contactsheet-v1.jpg",
+        alt: "레오니아와 노르가르드 도시 전경 묶음",
+        caption: "궁정권과 군항권의 도시 분위기를 나란히 봅니다."
+      },
+      {
+        title: "뉴할로우와 린레네트",
+        src: "./viewer/assets/illustrations/generated_outputs/ck5083-secondary-city-vistas-newhollow-linrenet-contactsheet-v1.jpg",
+        alt: "뉴할로우와 린레네트 도시 전경 묶음",
+        caption: "피난 정착지와 기록 도시가 서로 다른 표정을 갖습니다."
+      },
+      {
+        title: "티리스의 이름 있는 마을",
+        src: "./viewer/assets/illustrations/generated_outputs/ck5083-tiris-named-villages-contactsheet-v1.jpg",
+        alt: "티리스 이름 있는 마을 묶음",
+        caption: "서부 접경과 농경 영지의 작은 장소를 크게 묶어 봅니다."
+      },
+      {
+        title: "드래곤스파이어와 펜리르의 눈",
+        src: "./viewer/assets/illustrations/generated_outputs/ck5083-dragonspire-fenrir-eye-named-villages-contactsheet-v1.jpg",
+        alt: "드래곤스파이어와 펜리르의 눈 마을 묶음",
+        caption: "화산 항로와 외해 등대권, 바다와 금기가 닿은 정착지를 봅니다."
+      }
+    ];
+
     const regionGrid = document.getElementById("regionGrid");
     const regionDetail = document.getElementById("regionDetail");
     const readerGrid = document.getElementById("readerGrid");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxCaption = document.getElementById("lightboxCaption");
 
     function renderRegionButtons() {
       regionGrid.innerHTML = regions.map((region, index) => `
@@ -1060,9 +1254,85 @@
       `).join("");
     }
 
+    function renderImageSlider(containerId, slides) {
+      const container = document.getElementById(containerId);
+      if (!container || !slides.length) return;
+
+      let current = 0;
+
+      const draw = () => {
+        const slide = slides[current];
+        container.innerHTML = `
+          <div class="slide-stage">
+            <button class="slide-control prev" type="button" aria-label="이전 이미지">‹</button>
+            <img loading="lazy" src="${slide.src}" alt="${slide.alt}">
+            <button class="slide-control next" type="button" aria-label="다음 이미지">›</button>
+          </div>
+          <div class="slide-meta">
+            <strong>${slide.title}</strong>
+            <p>${slide.caption}</p>
+            <a class="slide-open" href="${slide.src}" target="_blank" rel="noopener">새 탭에서 원본 크게 보기</a>
+          </div>
+          <div class="slide-thumbs" role="tablist" aria-label="${slide.title} 이미지 선택">
+            ${slides.map((item, index) => `
+              <button class="slide-thumb" type="button" data-index="${index}" aria-label="${item.title}" aria-selected="${index === current ? "true" : "false"}">
+                <img loading="lazy" src="${item.src}" alt="">
+              </button>
+            `).join("")}
+          </div>
+        `;
+
+        container.querySelector(".prev").addEventListener("click", () => {
+          current = (current - 1 + slides.length) % slides.length;
+          draw();
+        });
+
+        container.querySelector(".next").addEventListener("click", () => {
+          current = (current + 1) % slides.length;
+          draw();
+        });
+
+        container.querySelector(".slide-stage img").addEventListener("click", () => openLightbox(slide));
+
+        container.querySelectorAll(".slide-thumb").forEach(button => {
+          button.addEventListener("click", () => {
+            current = Number(button.dataset.index);
+            draw();
+          });
+        });
+      };
+
+      draw();
+    }
+
+    function openLightbox(slide) {
+      lightboxImage.src = slide.src;
+      lightboxImage.alt = slide.alt;
+      lightboxCaption.textContent = `${slide.title} — ${slide.caption}`;
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImage.src = "";
+      document.body.style.overflow = "";
+    }
+
+    lightbox.querySelector(".lightbox-close").addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", event => {
+      if (event.target === lightbox) closeLightbox();
+    });
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape" && lightbox.getAttribute("aria-hidden") === "false") closeLightbox();
+    });
+
     renderRegionButtons();
     renderRegionDetail(0);
     renderReader();
+    renderImageSlider("sceneSlider", sceneSlides);
+    renderImageSlider("diagramSlider", diagramSlides);
+    renderImageSlider("extraSlider", extraSlides);
   </script>
 </body>
 </html>
