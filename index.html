@@ -215,6 +215,7 @@
     }
 
     .region-button {
+      position: relative;
       width: 100%;
       min-height: 110px;
       padding: 13px;
@@ -225,6 +226,23 @@
       text-align: left;
       font: inherit;
       cursor: pointer;
+    }
+
+    .region-card-head {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .region-card-crest {
+      flex: 0 0 auto;
+      width: 38px;
+      height: 38px;
+      padding: 4px;
+      border: 1px solid rgba(20, 59, 47, 0.22);
+      border-radius: 8px;
+      object-fit: contain;
+      background: #17231f;
     }
 
     .region-button strong {
@@ -253,6 +271,11 @@
       color: #fffdf7;
     }
 
+    .region-button[aria-pressed="true"] .region-card-crest {
+      border-color: rgba(255, 253, 247, 0.58);
+      background: rgba(12, 30, 24, 0.35);
+    }
+
     .detail-panel {
       position: sticky;
       top: 76px;
@@ -272,6 +295,82 @@
       margin-top: 6px;
       color: var(--green-dark);
       font-size: clamp(27px, 3.5vw, 42px);
+    }
+
+    .detail-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(240px, 0.95fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .region-hero-visual {
+      position: relative;
+      min-height: 460px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background:
+        linear-gradient(180deg, rgba(10, 28, 23, 0.04), rgba(10, 28, 23, 0.78)),
+        var(--region-bg) center / cover;
+    }
+
+    .region-bg-button {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      width: 100%;
+      border: 0;
+      background: transparent;
+      cursor: zoom-in;
+    }
+
+    .region-hero-overlay {
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 74px minmax(0, 1fr);
+      gap: 12px;
+      align-items: end;
+      padding: 12px;
+      border: 1px solid rgba(255, 253, 247, 0.24);
+      border-radius: 10px;
+      color: #fffdf7;
+      background: rgba(11, 27, 23, 0.72);
+      backdrop-filter: blur(5px);
+    }
+
+    .region-crest-badge {
+      width: 74px;
+      height: 74px;
+      padding: 6px;
+      border: 1px solid rgba(255, 253, 247, 0.28);
+      border-radius: 10px;
+      background: rgba(10, 19, 17, 0.82);
+      cursor: zoom-in;
+    }
+
+    .region-crest-badge img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .region-hero-overlay b {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 18px;
+    }
+
+    .region-hero-overlay span {
+      display: block;
+      color: rgba(255, 253, 247, 0.84);
+      font-size: 14px;
+      line-height: 1.5;
     }
 
     .detail-grid {
@@ -547,6 +646,13 @@
       border-radius: 0;
     }
 
+    .gallery-note {
+      margin: 0 0 12px;
+      color: #4d5a51;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
     .lightbox {
       position: fixed;
       inset: 0;
@@ -728,6 +834,7 @@
       }
       .hero-panel { min-height: 420px; }
       .detail-panel { position: static; }
+      .detail-layout { grid-template-columns: 1fr; }
       .quick-paths { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .visual-strip { grid-template-columns: 1fr; }
     }
@@ -754,6 +861,17 @@
       }
       .section { padding: 20px; }
       .region-button { min-height: 0; }
+      .region-hero-visual { min-height: 320px; }
+      .region-hero-overlay {
+        grid-template-columns: 56px minmax(0, 1fr);
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+      }
+      .region-crest-badge {
+        width: 56px;
+        height: 56px;
+      }
       .slide-stage img { min-height: 210px; }
       .slide-control {
         width: 38px;
@@ -891,9 +1009,20 @@
           <div id="diagramSlider" class="image-slider"></div>
         </div>
 
+        <details class="gallery-group" open>
+          <summary>도시 전경 97장 보기</summary>
+          <div class="image-slider">
+            <p class="gallery-note">각 권역의 수도, 대표도시, 지역도시를 한 장씩 넘겨볼 수 있습니다. 처음 보는 사람도 도시의 성벽, 항구, 장터, 산길, 신전과 창고가 어디에 붙어 있는지 바로 감을 잡게 하는 자료입니다.</p>
+          </div>
+          <div id="citySlider" class="image-slider"></div>
+        </details>
+
         <details class="gallery-group">
-          <summary>도시와 마을 한 장씩 보기</summary>
-          <div id="extraSlider" class="image-slider"></div>
+          <summary>마을과 초소 보기</summary>
+          <div class="image-slider">
+            <p class="gallery-note">도시 밖의 숙소촌, 어항, 감시 초소, 피난 표식촌처럼 장면을 작게 시작하기 좋은 곳들입니다.</p>
+          </div>
+          <div id="villageSlider" class="image-slider"></div>
         </details>
       </div>
     </section>
@@ -1142,6 +1271,149 @@
       }
     ];
 
+    const regionVisuals = {
+      "레오니아": {
+            "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-leonia-imagegen-v3-dragon-crest-2048-labeled.webp",
+            "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-leonia-radarhal-imagegen-v1-2560-labeled.webp",
+            "capitalName": "라드아르할",
+            "capitalCaption": "궁정과 기사 봉토가 이어지는 레오니아의 중심 도시입니다.",
+            "crestCaption": "레오니아의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+      },
+      "노르가르드": {
+            "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-norghard-imagegen-v1-2048-labeled.webp",
+            "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-norghard-marnabmir-imagegen-v1-2560-labeled.webp",
+            "capitalName": "마르나브미르",
+            "capitalCaption": "군항과 철강 부두, 겨울 보급 장부가 모이는 노르가르드의 큰 항구입니다.",
+            "crestCaption": "노르가르드의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+      },
+      "티리스": {
+            "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-tiris-imagegen-v1-2048-labeled.webp",
+            "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-tiris-radbarhal-imagegen-v1-2560-labeled.webp",
+            "capitalName": "라드바르할",
+            "capitalCaption": "영지 장터와 서부 접경 소식이 왕국 안쪽으로 모이는 티리스의 중심 도시입니다.",
+            "crestCaption": "티리스의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+      },
+      "린레네트": {
+            "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-linrenet-imagegen-v1-2048-labeled.webp",
+            "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-linrenet-renumga-imagegen-v1-2560-labeled.webp",
+            "capitalName": "레눔가",
+            "capitalCaption": "기록원, 사본 장터, 후원 계약이 길을 여는 린레네트의 학예 도시입니다.",
+            "crestCaption": "린레네트의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+      },
+      "벡도레트": {
+            "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-bekdoret-imagegen-v1-2048-labeled.webp",
+            "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-bekdoret-dorkar-imagegen-v1-2560-labeled.webp",
+            "capitalName": "도르카르",
+            "capitalCaption": "성문 보증과 통행 절차가 촘촘한 벡도레트의 교통 거점입니다.",
+            "crestCaption": "벡도레트의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+      },
+      "센할레트": {
+            "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-senhalet-imagegen-v1-2048-labeled.webp",
+            "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-senhalet-senpukum-imagegen-v1-2560-labeled.webp",
+            "capitalName": "센푸쿰",
+            "capitalCaption": "곡물 창고와 배급 순서가 사람들의 하루를 가르는 센할레트의 중심지입니다.",
+            "crestCaption": "센할레트의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+      },
+      "헤스페레트": {
+            "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-hesferet-imagegen-v2-no-runes-2048-labeled.webp",
+            "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-hesferet-hespukum-imagegen-v1-2560-labeled.webp",
+            "capitalName": "헤스푸쿰",
+            "capitalCaption": "추위, 저장품, 통행 허가가 함께 계산되는 헤스페레트의 북방 거점입니다.",
+            "crestCaption": "헤스페레트의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+      },
+      "켈나베트": {
+            "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-kelnabet-imagegen-v1-2048-labeled.webp",
+            "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-kelnabet-markelmir-imagegen-v1-2560-labeled.webp",
+            "capitalName": "마르켈미르",
+            "capitalCaption": "선장 보증과 해도, 항만 장부가 힘을 갖는 켈나베트의 항구입니다.",
+            "crestCaption": "켈나베트의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+      },
+      "헤스베케트": {
+            "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-hesbeket-imagegen-v1-2048-labeled.webp",
+            "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-hesbeket-bekhespukum-imagegen-v1-2560-labeled.webp",
+            "capitalName": "베크헤스푸쿰",
+            "capitalCaption": "식량과 불씨, 방한구가 곧 생존인 혹한권 도시입니다.",
+            "crestCaption": "헤스베케트의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+      },
+      "옌메베트": {
+            "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-yenmebet-imagegen-v1-2048-labeled.webp",
+            "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-yenmebet-yenwokel-imagegen-v1-2560-labeled.webp",
+            "capitalName": "옌워켈",
+            "capitalCaption": "숲 경계와 표식권, 벌목 허락이 맞물리는 옌메베트의 거점입니다.",
+            "crestCaption": "옌메베트의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+      },
+      "님나레트": {
+            "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-nimnaret-imagegen-v1-2048-labeled.webp",
+            "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-nimnaret-yalbekum-imagegen-v1-2560-labeled.webp",
+            "capitalName": "얄베크움",
+            "capitalCaption": "강가 문서와 학술 후원이 장터의 신용까지 움직이는 님나레트의 중심지입니다.",
+            "crestCaption": "님나레트의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+      },
+      "실니메트": {
+            "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-silnimet-imagegen-v1-2048-labeled.webp",
+            "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-silnimet-dorsorsan-imagegen-v1-2560-labeled.webp",
+            "capitalName": "도르소르산",
+            "capitalCaption": "산악 길과 수도원, 약초 장부가 생활을 지탱하는 실니메트의 산지 도시입니다.",
+            "crestCaption": "실니메트의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+      },
+      "아르도레트": {
+            "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-ardolet-imagegen-v1-2048-labeled.webp",
+            "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-ardolet-dorsorhal-imagegen-v1-2560-labeled.webp",
+            "capitalName": "도르소르할",
+            "capitalCaption": "강하 수로와 남방 교역이 만나는 아르도레트의 대표 거점입니다.",
+            "crestCaption": "아르도레트의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+      },
+      "가르메베트": {
+            "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-garmebet-imagegen-v1-2048-labeled.webp",
+            "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-garmebet-tikmebhal-imagegen-v1-2560-labeled.webp",
+            "capitalName": "틱메브할",
+            "capitalCaption": "초지의 물권, 동행료, 가축 장부가 도시 기능을 대신하는 가르메베트의 거점입니다.",
+            "crestCaption": "가르메베트의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+      },
+      "실할레트": {
+            "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-silhalet-imagegen-v1-2048-labeled.webp",
+            "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-silhalet-silsorsan-imagegen-v1-2560-labeled.webp",
+            "capitalName": "실소르산",
+            "capitalCaption": "남방 산로와 항로의 물자가 쉬어 가는 실할레트의 산악 거점입니다.",
+            "crestCaption": "실할레트의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+      },
+      "메르할레트": {
+            "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-merhalet-imagegen-v1-2048-labeled.webp",
+            "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-merhalet-merbelmar-imagegen-v1-2560-labeled.webp",
+            "capitalName": "메르벨마르",
+            "capitalCaption": "항만세와 장부 신용, 수로 물자가 모이는 메르할레트의 물길 도시입니다.",
+            "crestCaption": "메르할레트의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+      },
+      "님소레트": {
+            "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-nimsolet-imagegen-v1-2048-labeled.webp",
+            "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-nimsolet-nimhal-imagegen-v1-2560-labeled.webp",
+            "capitalName": "님할",
+            "capitalCaption": "강하 교역과 습지 장터가 이어지는 님소레트의 중심 거점입니다.",
+            "crestCaption": "님소레트의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+      },
+      "실바니아": {
+            "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-sylvania-imagegen-v1-2048-labeled.webp",
+            "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-sylvania-silensan-imagegen-v1-2560-labeled.webp",
+            "capitalName": "실렌산",
+            "capitalCaption": "숲의 허락과 산길 표식이 사람의 움직임을 정하는 실바니아의 성림 도시입니다.",
+            "crestCaption": "실바니아의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+      },
+      "드래곤스파이어": {
+            "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-dragonspire-imagegen-v1-2048-labeled.webp",
+            "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-dragonspire-narmarkel-imagegen-v1-2560-labeled.webp",
+            "capitalName": "나르마르켈",
+            "capitalCaption": "화산 항로와 섬의 창고가 맞물린 드래곤스파이어의 도시입니다.",
+            "crestCaption": "드래곤스파이어의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+      },
+      "펜리르의 눈": {
+            "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-fenrir-eye-imagegen-v1-2048-labeled.webp",
+            "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-fenrir-eye-dunartore-imagegen-v1-2560-labeled.webp",
+            "capitalName": "둔아르토르",
+            "capitalCaption": "외해 등대와 난파 기록이 모이는 금기 해역의 거점입니다.",
+            "crestCaption": "펜리르의 눈의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+      }
+};
+
     const readerSections = [
       {
         title: "나라와 권역",
@@ -1301,116 +1573,629 @@
       }
     ];
 
-    const extraSlides = [
+    const citySlides = [
       {
-        title: "라드아르할",
-        src: "./viewer/assets/illustrations/single_slides/leonia-radarhal.jpg",
-        alt: "레오니아 라드아르할 전경",
-        caption: "궁정과 기사 봉토가 이어지는 레오니아의 중심 도시입니다."
+            "title": "아르도레트 도시 전경 1",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-ardolet-arsorsan-imagegen-v1-2560-labeled.webp",
+            "alt": "아르도레트 도시 전경 1",
+            "caption": "아르도레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
       },
       {
-        title: "마르나브미르",
-        src: "./viewer/assets/illustrations/single_slides/norghard-marnabmir.jpg",
-        alt: "노르가르드 마르나브미르 항구 도시",
-        caption: "군항과 철강 부두가 맞물린 노르가르드의 큰 항구입니다."
+            "title": "아르도레트 도시 전경 2",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-ardolet-dorkelbar-imagegen-v1-2560-labeled.webp",
+            "alt": "아르도레트 도시 전경 2",
+            "caption": "아르도레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
       },
       {
-        title: "뉴할로우",
-        src: "./viewer/assets/illustrations/single_slides/tiris-newhollow.jpg",
-        alt: "티리스 뉴할로우 피난 정착 도시",
-        caption: "그린할로우 상실 뒤 피난민과 새 정착민이 모인 티리스 서부의 도시입니다."
+            "title": "아르도레트 도시 전경 3",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-ardolet-dorsorhal-imagegen-v1-2560-labeled.webp",
+            "alt": "아르도레트 도시 전경 3",
+            "caption": "아르도레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
       },
       {
-        title: "레이븐스톤",
-        src: "./viewer/assets/illustrations/single_slides/tiris-ravenstone.jpg",
-        alt: "티리스 레이븐스톤 성문 도시",
-        caption: "서부 접경으로 들어가는 성문과 검문이 강한 티리스의 주요 거점입니다."
+            "title": "아르도레트 도시 전경 4",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-ardolet-sorhal-imagegen-v1-2560-labeled.webp",
+            "alt": "아르도레트 도시 전경 4",
+            "caption": "아르도레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
       },
       {
-        title: "레눔가",
-        src: "./viewer/assets/illustrations/single_slides/linrenet-renumga.jpg",
-        alt: "린레네트 레눔가 기록 도시",
-        caption: "기록원과 사본 장터가 모이는 린레네트의 학예 도시입니다."
+            "title": "아르도레트 도시 전경 5",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-ardolet-yenieltor-imagegen-v1-2560-labeled.webp",
+            "alt": "아르도레트 도시 전경 5",
+            "caption": "아르도레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
       },
       {
-        title: "도르카르",
-        src: "./viewer/assets/illustrations/single_slides/bekdoret-dorkar.jpg",
-        alt: "벡도레트 도르카르 성문 도시",
-        caption: "보증인과 성문 절차가 중요한 벡도레트의 교통 거점입니다."
+            "title": "벡도레트 도시 전경 1",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-bekdoret-bekhal-imagegen-v1-2560-labeled.webp",
+            "alt": "벡도레트 도시 전경 1",
+            "caption": "벡도레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
       },
       {
-        title: "센푸쿰",
-        src: "./viewer/assets/illustrations/single_slides/senhalet-senpukum.jpg",
-        alt: "센할레트 센푸쿰 농경 도시",
-        caption: "곡물과 공동 창고, 배급 순서가 삶을 가르는 센할레트의 중심지입니다."
+            "title": "벡도레트 도시 전경 2",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-bekdoret-dorkar-imagegen-v1-2560-labeled.webp",
+            "alt": "벡도레트 도시 전경 2",
+            "caption": "벡도레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
       },
       {
-        title: "마르켈미르",
-        src: "./viewer/assets/illustrations/single_slides/kelnabet-markelmir.jpg",
-        alt: "켈나베트 마르켈미르 항만 도시",
-        caption: "선장 보증과 해도, 항만 장부가 힘을 갖는 켈나베트의 항구입니다."
+            "title": "벡도레트 도시 전경 3",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-bekdoret-dortekum-imagegen-v1-2560-labeled.webp",
+            "alt": "벡도레트 도시 전경 3",
+            "caption": "벡도레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
       },
       {
-        title: "베크헤스푸쿰",
-        src: "./viewer/assets/illustrations/single_slides/hesbeket-bekhespukum.jpg",
-        alt: "헤스베케트 베크헤스푸쿰 혹한 도시",
-        caption: "식량과 불씨, 방한구가 곧 생존인 혹한권 도시입니다."
+            "title": "벡도레트 도시 전경 4",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-bekdoret-enhalga-imagegen-v1-2560-labeled.webp",
+            "alt": "벡도레트 도시 전경 4",
+            "caption": "벡도레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
       },
       {
-        title: "실렌산",
-        src: "./viewer/assets/illustrations/single_slides/sylvania-silensan.jpg",
-        alt: "실바니아 실렌산 성림 도시",
-        caption: "숲의 허락과 산길 표식이 사람의 움직임을 정하는 성림권 도시입니다."
+            "title": "벡도레트 도시 전경 5",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-bekdoret-kelkar-imagegen-v1-2560-labeled.webp",
+            "alt": "벡도레트 도시 전경 5",
+            "caption": "벡도레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
       },
       {
-        title: "나르마르켈",
-        src: "./viewer/assets/illustrations/single_slides/dragonspire-narmarkel.jpg",
-        alt: "드래곤스파이어 나르마르켈 화산 항로 도시",
-        caption: "화산 항로와 섬의 창고가 맞물린 드래곤스파이어의 도시입니다."
+            "title": "드래곤스파이어 도시 전경 1",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-dragonspire-marmoshal-imagegen-v1-2560-labeled.webp",
+            "alt": "드래곤스파이어 도시 전경 1",
+            "caption": "드래곤스파이어 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
       },
       {
-        title: "둔아르토르",
-        src: "./viewer/assets/illustrations/single_slides/fenrir-eye-dunartore.jpg",
-        alt: "펜리르의 눈 둔아르토르 외해 거점",
-        caption: "외해 등대와 난파 기록이 모이는 금기 해역의 거점입니다."
+            "title": "드래곤스파이어 도시 전경 2",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-dragonspire-narmarkel-imagegen-v1-2560-labeled.webp",
+            "alt": "드래곤스파이어 도시 전경 2",
+            "caption": "드래곤스파이어 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
       },
       {
-        title: "라드가르가",
-        src: "./viewer/assets/illustrations/single_slides/village-leonia-radgarga.jpg",
-        alt: "레오니아 라드가르가 봉토 마을",
-        caption: "레오니아 봉토 주변의 마을입니다. 추천장과 문장, 납품 순서가 중요합니다."
+            "title": "드래곤스파이어 도시 전경 3",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-dragonspire-narmarrenum-imagegen-v1-2560-labeled.webp",
+            "alt": "드래곤스파이어 도시 전경 3",
+            "caption": "드래곤스파이어 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
       },
       {
-        title: "가르푸크가",
-        src: "./viewer/assets/illustrations/single_slides/village-tiris-garpukga.jpg",
-        alt: "티리스 가르푸크가 영지 장터 마을",
-        caption: "티리스 영지 장터 마을입니다. 곡물, 보증인, 공동 창고가 장면의 중심입니다."
+            "title": "드래곤스파이어 도시 전경 4",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-dragonspire-narvektor-imagegen-v1-2560-labeled.webp",
+            "alt": "드래곤스파이어 도시 전경 4",
+            "caption": "드래곤스파이어 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
       },
       {
-        title: "마르토르가",
-        src: "./viewer/assets/illustrations/single_slides/village-norghard-martorga.jpg",
-        alt: "노르가르드 마르토르가 해안 마을",
-        caption: "군항 뒤편의 해안 마을입니다. 선박 보급과 겨울 준비가 빠르게 오갑니다."
+            "title": "펜리르의 눈 도시 전경 1",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-fenrir-eye-dunartore-imagegen-v1-2560-labeled.webp",
+            "alt": "펜리르의 눈 도시 전경 1",
+            "caption": "펜리르의 눈 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
       },
       {
-        title: "해안 어항",
-        src: "./viewer/assets/illustrations/single_slides/village-coastal-fishing-harbor.jpg",
-        alt: "비레스 해안 어항",
-        caption: "고기와 소금, 작은 선착장이 하루의 값을 정하는 해안 정착지입니다."
+            "title": "펜리르의 눈 도시 전경 2",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-fenrir-eye-dunnabrenum-imagegen-v1-2560-labeled.webp",
+            "alt": "펜리르의 눈 도시 전경 2",
+            "caption": "펜리르의 눈 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
       },
       {
-        title: "산길 숙소촌",
-        src: "./viewer/assets/illustrations/single_slides/village-mountain-pass-lodging-outpost.jpg",
-        alt: "비레스 산길 숙소촌",
-        caption: "고개를 넘는 사람에게 하룻밤의 불빛과 방한구가 은화보다 먼저 필요한 곳입니다."
+            "title": "펜리르의 눈 도시 전경 3",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-fenrir-eye-ummarsor-imagegen-v1-2560-labeled.webp",
+            "alt": "펜리르의 눈 도시 전경 3",
+            "caption": "펜리르의 눈 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
       },
       {
-        title: "감시 초소촌",
-        src: "./viewer/assets/illustrations/single_slides/village-watch-checkpoint.jpg",
-        alt: "비레스 감시 초소촌",
-        caption: "검문과 허가, 지나가는 짐의 기록이 매일 쌓이는 작은 초소 마을입니다."
+            "title": "펜리르의 눈 도시 전경 4",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-fenrir-eye-vepnabhal-imagegen-v1-2560-labeled.webp",
+            "alt": "펜리르의 눈 도시 전경 4",
+            "caption": "펜리르의 눈 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "가르메베트 도시 전경 1",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-garmebet-belbekel-imagegen-v1-2560-labeled.webp",
+            "alt": "가르메베트 도시 전경 1",
+            "caption": "가르메베트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "가르메베트 도시 전경 2",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-garmebet-bellambar-imagegen-v1-2560-labeled.webp",
+            "alt": "가르메베트 도시 전경 2",
+            "caption": "가르메베트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "가르메베트 도시 전경 3",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-garmebet-mevbar-imagegen-v1-2560-labeled.webp",
+            "alt": "가르메베트 도시 전경 3",
+            "caption": "가르메베트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "가르메베트 도시 전경 4",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-garmebet-tikmebhal-imagegen-v1-2560-labeled.webp",
+            "alt": "가르메베트 도시 전경 4",
+            "caption": "가르메베트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "가르메베트 도시 전경 5",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-garmebet-workrenum-imagegen-v1-2560-labeled.webp",
+            "alt": "가르메베트 도시 전경 5",
+            "caption": "가르메베트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "헤스베케트 도시 전경 1",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-hesbeket-bekhespukum-imagegen-v1-2560-labeled.webp",
+            "alt": "헤스베케트 도시 전경 1",
+            "caption": "헤스베케트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "헤스베케트 도시 전경 2",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-hesbeket-heswokel-imagegen-v1-2560-labeled.webp",
+            "alt": "헤스베케트 도시 전경 2",
+            "caption": "헤스베케트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "헤스베케트 도시 전경 3",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-hesbeket-mevhesbek-imagegen-v1-2560-labeled.webp",
+            "alt": "헤스베케트 도시 전경 3",
+            "caption": "헤스베케트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "헤스베케트 도시 전경 4",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-hesbeket-narhal-imagegen-v1-2560-labeled.webp",
+            "alt": "헤스베케트 도시 전경 4",
+            "caption": "헤스베케트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "헤스페레트 도시 전경 1",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-hesferet-heskelkar-imagegen-v1-2560-labeled.webp",
+            "alt": "헤스페레트 도시 전경 1",
+            "caption": "헤스페레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "헤스페레트 도시 전경 2",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-hesferet-hespukum-imagegen-v1-2560-labeled.webp",
+            "alt": "헤스페레트 도시 전경 2",
+            "caption": "헤스페레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "헤스페레트 도시 전경 3",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-hesferet-mevkelet-imagegen-v1-2560-labeled.webp",
+            "alt": "헤스페레트 도시 전경 3",
+            "caption": "헤스페레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "헤스페레트 도시 전경 4",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-hesferet-perbar-imagegen-v1-2560-labeled.webp",
+            "alt": "헤스페레트 도시 전경 4",
+            "caption": "헤스페레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "헤스페레트 도시 전경 5",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-hesferet-ramjirbar-imagegen-v1-2560-labeled.webp",
+            "alt": "헤스페레트 도시 전경 5",
+            "caption": "헤스페레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "켈나베트 도시 전경 1",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-kelnabet-markelmir-imagegen-v1-2560-labeled.webp",
+            "alt": "켈나베트 도시 전경 1",
+            "caption": "켈나베트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "켈나베트 도시 전경 2",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-kelnabet-marrenum-imagegen-v1-2560-labeled.webp",
+            "alt": "켈나베트 도시 전경 2",
+            "caption": "켈나베트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "켈나베트 도시 전경 3",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-kelnabet-nabhal-imagegen-v1-2560-labeled.webp",
+            "alt": "켈나베트 도시 전경 3",
+            "caption": "켈나베트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "켈나베트 도시 전경 4",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-kelnabet-ummarkel-imagegen-v1-2560-labeled.webp",
+            "alt": "켈나베트 도시 전경 4",
+            "caption": "켈나베트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "켈나베트 도시 전경 5",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-kelnabet-workbar-imagegen-v1-2560-labeled.webp",
+            "alt": "켈나베트 도시 전경 5",
+            "caption": "켈나베트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "레오니아 도시 전경 1",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-leonia-jirbar-et-imagegen-v1-2560-labeled.webp",
+            "alt": "레오니아 도시 전경 1",
+            "caption": "레오니아 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "레오니아 도시 전경 2",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-leonia-paltekumga-imagegen-v1-2560-labeled.webp",
+            "alt": "레오니아 도시 전경 2",
+            "caption": "레오니아 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "레오니아 도시 전경 3",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-leonia-radarhal-imagegen-v1-2560-labeled.webp",
+            "alt": "레오니아 도시 전경 3",
+            "caption": "레오니아 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "레오니아 도시 전경 4",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-leonia-remdatum-imagegen-v1-2560-labeled.webp",
+            "alt": "레오니아 도시 전경 4",
+            "caption": "레오니아 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "린레네트 도시 전경 1",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-linrenet-datkinhal-imagegen-v1-2560-labeled.webp",
+            "alt": "린레네트 도시 전경 1",
+            "caption": "린레네트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "린레네트 도시 전경 2",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-linrenet-linsanga-imagegen-v1-2560-labeled.webp",
+            "alt": "린레네트 도시 전경 2",
+            "caption": "린레네트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "린레네트 도시 전경 3",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-linrenet-nimrenhal-imagegen-v1-2560-labeled.webp",
+            "alt": "린레네트 도시 전경 3",
+            "caption": "린레네트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "린레네트 도시 전경 4",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-linrenet-remrenga-imagegen-v1-2560-labeled.webp",
+            "alt": "린레네트 도시 전경 4",
+            "caption": "린레네트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "린레네트 도시 전경 5",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-linrenet-renumga-imagegen-v1-2560-labeled.webp",
+            "alt": "린레네트 도시 전경 5",
+            "caption": "린레네트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "메르할레트 도시 전경 1",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-merhalet-hedkelbar-imagegen-v1-2560-labeled.webp",
+            "alt": "메르할레트 도시 전경 1",
+            "caption": "메르할레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "메르할레트 도시 전경 2",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-merhalet-merbelmar-imagegen-v1-2560-labeled.webp",
+            "alt": "메르할레트 도시 전경 2",
+            "caption": "메르할레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "메르할레트 도시 전경 3",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-merhalet-mernimbar-imagegen-v1-2560-labeled.webp",
+            "alt": "메르할레트 도시 전경 3",
+            "caption": "메르할레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "메르할레트 도시 전경 4",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-merhalet-mervar-imagegen-v1-2560-labeled.webp",
+            "alt": "메르할레트 도시 전경 4",
+            "caption": "메르할레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "메르할레트 도시 전경 5",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-merhalet-puktekum-imagegen-v1-2560-labeled.webp",
+            "alt": "메르할레트 도시 전경 5",
+            "caption": "메르할레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "님나레트 도시 전경 1",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-nimnaret-enkelhal-imagegen-v1-2560-labeled.webp",
+            "alt": "님나레트 도시 전경 1",
+            "caption": "님나레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "님나레트 도시 전경 2",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-nimnaret-hedrenum-imagegen-v1-2560-labeled.webp",
+            "alt": "님나레트 도시 전경 2",
+            "caption": "님나레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "님나레트 도시 전경 3",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-nimnaret-nimnahal-imagegen-v1-2560-labeled.webp",
+            "alt": "님나레트 도시 전경 3",
+            "caption": "님나레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "님나레트 도시 전경 4",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-nimnaret-puknaum-imagegen-v1-2560-labeled.webp",
+            "alt": "님나레트 도시 전경 4",
+            "caption": "님나레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "님나레트 도시 전경 5",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-nimnaret-yalbekum-imagegen-v1-2560-labeled.webp",
+            "alt": "님나레트 도시 전경 5",
+            "caption": "님나레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "님소레트 도시 전경 1",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-nimsolet-nimhal-imagegen-v1-2560-labeled.webp",
+            "alt": "님소레트 도시 전경 1",
+            "caption": "님소레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "님소레트 도시 전경 2",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-nimsolet-nimremhal-imagegen-v1-2560-labeled.webp",
+            "alt": "님소레트 도시 전경 2",
+            "caption": "님소레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "님소레트 도시 전경 3",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-nimsolet-renmermir-imagegen-v1-2560-labeled.webp",
+            "alt": "님소레트 도시 전경 3",
+            "caption": "님소레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "님소레트 도시 전경 4",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-nimsolet-rentekum-imagegen-v1-2560-labeled.webp",
+            "alt": "님소레트 도시 전경 4",
+            "caption": "님소레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "님소레트 도시 전경 5",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-nimsolet-sordatum-imagegen-v1-2560-labeled.webp",
+            "alt": "님소레트 도시 전경 5",
+            "caption": "님소레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "노르가르드 도시 전경 1",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-norghard-armartor-imagegen-v1-2560-labeled.webp",
+            "alt": "노르가르드 도시 전경 1",
+            "caption": "노르가르드 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "노르가르드 도시 전경 2",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-norghard-marnabmir-imagegen-v1-2560-labeled.webp",
+            "alt": "노르가르드 도시 전경 2",
+            "caption": "노르가르드 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "노르가르드 도시 전경 3",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-norghard-nabhalga-imagegen-v1-2560-labeled.webp",
+            "alt": "노르가르드 도시 전경 3",
+            "caption": "노르가르드 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "노르가르드 도시 전경 4",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-norghard-pernav-pier-imagegen-v1-2560-labeled.webp",
+            "alt": "노르가르드 도시 전경 4",
+            "caption": "노르가르드 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "센할레트 도시 전경 1",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-senhalet-belbar-imagegen-v1-2560-labeled.webp",
+            "alt": "센할레트 도시 전경 1",
+            "caption": "센할레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "센할레트 도시 전경 2",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-senhalet-garsen-et-imagegen-v1-2560-labeled.webp",
+            "alt": "센할레트 도시 전경 2",
+            "caption": "센할레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "센할레트 도시 전경 3",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-senhalet-senpuk-et-imagegen-v1-2560-labeled.webp",
+            "alt": "센할레트 도시 전경 3",
+            "caption": "센할레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "센할레트 도시 전경 4",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-senhalet-senpukum-imagegen-v1-2560-labeled.webp",
+            "alt": "센할레트 도시 전경 4",
+            "caption": "센할레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "센할레트 도시 전경 5",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-senhalet-veprenhal-imagegen-v1-2560-labeled.webp",
+            "alt": "센할레트 도시 전경 5",
+            "caption": "센할레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "실할레트 도시 전경 1",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-silhalet-radsilhal-imagegen-v1-2560-labeled.webp",
+            "alt": "실할레트 도시 전경 1",
+            "caption": "실할레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "실할레트 도시 전경 2",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-silhalet-silbekel-imagegen-v1-2560-labeled.webp",
+            "alt": "실할레트 도시 전경 2",
+            "caption": "실할레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "실할레트 도시 전경 3",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-silhalet-sildatbar-imagegen-v1-2560-labeled.webp",
+            "alt": "실할레트 도시 전경 3",
+            "caption": "실할레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "실할레트 도시 전경 4",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-silhalet-silsorsan-imagegen-v1-2560-labeled.webp",
+            "alt": "실할레트 도시 전경 4",
+            "caption": "실할레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "실할레트 도시 전경 5",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-silhalet-siltekel-imagegen-v1-2560-labeled.webp",
+            "alt": "실할레트 도시 전경 5",
+            "caption": "실할레트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "실니메트 도시 전경 1",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-silnimet-belmarmir-imagegen-v1-2560-labeled.webp",
+            "alt": "실니메트 도시 전경 1",
+            "caption": "실니메트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "실니메트 도시 전경 2",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-silnimet-dorsorsan-imagegen-v1-2560-labeled.webp",
+            "alt": "실니메트 도시 전경 2",
+            "caption": "실니메트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "실니메트 도시 전경 3",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-silnimet-mevmerkel-imagegen-v1-2560-labeled.webp",
+            "alt": "실니메트 도시 전경 3",
+            "caption": "실니메트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "실니메트 도시 전경 4",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-silnimet-silmermar-imagegen-v1-2560-labeled.webp",
+            "alt": "실니메트 도시 전경 4",
+            "caption": "실니메트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "실니메트 도시 전경 5",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-silnimet-silmermir-imagegen-v1-2560-labeled.webp",
+            "alt": "실니메트 도시 전경 5",
+            "caption": "실니메트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "실니메트 도시 전경 6",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-silnimet-silsorkel-imagegen-v1-2560-labeled.webp",
+            "alt": "실니메트 도시 전경 6",
+            "caption": "실니메트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "실바니아 도시 전경 1",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-sylvania-renyalum-imagegen-v1-2560-labeled.webp",
+            "alt": "실바니아 도시 전경 1",
+            "caption": "실바니아 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "실바니아 도시 전경 2",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-sylvania-silensan-imagegen-v1-2560-labeled.webp",
+            "alt": "실바니아 도시 전경 2",
+            "caption": "실바니아 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "실바니아 도시 전경 3",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-sylvania-umkelsan-imagegen-v1-2560-labeled.webp",
+            "alt": "실바니아 도시 전경 3",
+            "caption": "실바니아 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "실바니아 도시 전경 4",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-sylvania-workkelhal-imagegen-v1-2560-labeled.webp",
+            "alt": "실바니아 도시 전경 4",
+            "caption": "실바니아 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "티리스 도시 전경 1",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-tiris-bekkellkar-ravenstone-imagegen-v1-2560-labeled.webp",
+            "alt": "티리스 도시 전경 1",
+            "caption": "티리스 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "티리스 도시 전경 2",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-tiris-belsor-el-imagegen-v1-2560-labeled.webp",
+            "alt": "티리스 도시 전경 2",
+            "caption": "티리스 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "티리스 도시 전경 3",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-tiris-garmev-et-imagegen-v1-2560-labeled.webp",
+            "alt": "티리스 도시 전경 3",
+            "caption": "티리스 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "티리스 도시 전경 4",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-tiris-greenhollow-imagegen-v1-2560-labeled.webp",
+            "alt": "티리스 도시 전경 4",
+            "caption": "티리스 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "티리스 도시 전경 5",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-tiris-newhollow-imagegen-v1-2560-labeled.webp",
+            "alt": "티리스 도시 전경 5",
+            "caption": "티리스 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "티리스 도시 전경 6",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-tiris-radbarhal-imagegen-v1-2560-labeled.webp",
+            "alt": "티리스 도시 전경 6",
+            "caption": "티리스 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "티리스 도시 전경 7",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-tiris-siltek-et-imagegen-v1-2560-labeled.webp",
+            "alt": "티리스 도시 전경 7",
+            "caption": "티리스 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "티리스 도시 전경 8",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-tiris-soriel-tor-imagegen-v1-2560-labeled.webp",
+            "alt": "티리스 도시 전경 8",
+            "caption": "티리스 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "옌메베트 도시 전경 1",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-yenmebet-silamrenum-imagegen-v1-2560-labeled.webp",
+            "alt": "옌메베트 도시 전경 1",
+            "caption": "옌메베트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "옌메베트 도시 전경 2",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-yenmebet-silbeket-imagegen-v1-2560-labeled.webp",
+            "alt": "옌메베트 도시 전경 2",
+            "caption": "옌메베트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "옌메베트 도시 전경 3",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-yenmebet-yenbekhal-imagegen-v1-2560-labeled.webp",
+            "alt": "옌메베트 도시 전경 3",
+            "caption": "옌메베트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
+      },
+      {
+            "title": "옌메베트 도시 전경 4",
+            "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-yenmebet-yenwokel-imagegen-v1-2560-labeled.webp",
+            "alt": "옌메베트 도시 전경 4",
+            "caption": "옌메베트 권역의 도시와 거점입니다. 성벽, 장터, 항구, 창고, 산길 같은 생활 표면을 한 장씩 볼 수 있습니다."
       }
-    ];
+];
+
+    const villageSlides = [
+      {
+            "title": "라드가르가",
+            "src": "./viewer/assets/illustrations/single_slides/village-leonia-radgarga.jpg",
+            "alt": "레오니아 라드가르가 봉토 마을",
+            "caption": "레오니아 봉토 주변의 마을입니다. 추천장과 문장, 납품 순서가 중요합니다."
+      },
+      {
+            "title": "가르푸크가",
+            "src": "./viewer/assets/illustrations/single_slides/village-tiris-garpukga.jpg",
+            "alt": "티리스 가르푸크가 영지 장터 마을",
+            "caption": "티리스 영지 장터 마을입니다. 곡물, 보증인, 공동 창고가 장면의 중심입니다."
+      },
+      {
+            "title": "마르토르가",
+            "src": "./viewer/assets/illustrations/single_slides/village-norghard-martorga.jpg",
+            "alt": "노르가르드 마르토르가 해안 마을",
+            "caption": "군항 뒤편의 해안 마을입니다. 선박 보급과 겨울 준비가 빠르게 오갑니다."
+      },
+      {
+            "title": "해안 어항",
+            "src": "./viewer/assets/illustrations/single_slides/village-coastal-fishing-harbor.jpg",
+            "alt": "비레스 해안 어항",
+            "caption": "고기와 소금, 작은 선착장이 하루의 값을 정하는 해안 정착지입니다."
+      },
+      {
+            "title": "산길 숙소촌",
+            "src": "./viewer/assets/illustrations/single_slides/village-mountain-pass-lodging-outpost.jpg",
+            "alt": "비레스 산길 숙소촌",
+            "caption": "고개를 넘는 사람에게 하룻밤의 불빛과 방한구가 은화보다 먼저 필요한 곳입니다."
+      },
+      {
+            "title": "감시 초소촌",
+            "src": "./viewer/assets/illustrations/single_slides/village-watch-checkpoint.jpg",
+            "alt": "비레스 감시 초소촌",
+            "caption": "검문과 허가, 지나가는 짐의 기록이 매일 쌓이는 작은 초소 마을입니다."
+      }
+];
 
     const regionGrid = document.getElementById("regionGrid");
     const regionDetail = document.getElementById("regionDetail");
@@ -1438,39 +2223,69 @@
     let panStartY = 0;
 
     function renderRegionButtons() {
-      regionGrid.innerHTML = regions.map((region, index) => `
-        <button class="region-button" type="button" data-index="${index}" aria-pressed="${index === 0 ? "true" : "false"}">
-          <strong>${region.name}</strong>
-          <span>${region.short}</span>
-        </button>
-      `).join("");
-
-      regionGrid.querySelectorAll(".region-button").forEach(button => {
-        button.addEventListener("click", () => {
-          const index = Number(button.dataset.index);
-          regionGrid.querySelectorAll(".region-button").forEach(item => item.setAttribute("aria-pressed", "false"));
-          button.setAttribute("aria-pressed", "true");
-          renderRegionDetail(index);
-        });
-      });
-    }
+          regionGrid.innerHTML = regions.map((region, index) => {
+            const visuals = regionVisuals[region.name];
+            const crest = visuals ? `<img class="region-card-crest" loading="lazy" src="${visuals.crest}" alt="${region.name} 문장">` : "";
+            return `
+              <button class="region-button" type="button" data-index="${index}" aria-pressed="${index === 0 ? "true" : "false"}">
+                <span class="region-card-head">${crest}<strong>${region.name}</strong></span>
+                <span>${region.short}</span>
+              </button>
+            `;
+          }).join("");
+    
+          regionGrid.querySelectorAll(".region-button").forEach(button => {
+            button.addEventListener("click", () => {
+              const index = Number(button.dataset.index);
+              regionGrid.querySelectorAll(".region-button").forEach(item => item.setAttribute("aria-pressed", "false"));
+              button.setAttribute("aria-pressed", "true");
+              renderRegionDetail(index);
+            });
+          });
+        }
 
     function renderRegionDetail(index) {
-      const region = regions[index];
-      regionDetail.innerHTML = `
-        <div class="type">${region.type}</div>
-        <h3>${region.name}</h3>
-        <p>${region.short}</p>
-        <div class="detail-grid">
-          <div class="detail-item"><b>첫 장면</b><span>${region.first}</span></div>
-          <div class="detail-item"><b>주요 장소</b><span>${region.places}</span></div>
-          <div class="detail-item"><b>사는 모습</b><span>${region.life}</span></div>
-          <div class="detail-item"><b>지금 문제</b><span>${region.pressure}</span></div>
-          <div class="detail-item"><b>남은 기억</b><span>${region.memory}</span></div>
-          <div class="detail-item"><b>어울리는 시작</b><span>${region.persona}</span></div>
-        </div>
-      `;
-    }
+          const region = regions[index];
+          const visuals = regionVisuals[region.name];
+          const visualSlides = visuals ? [
+            { title: `${region.name} 문장`, src: visuals.crest, alt: `${region.name} 문장`, caption: visuals.crestCaption },
+            { title: visuals.capitalName, src: visuals.capital, alt: `${region.name} 대표 도시 ${visuals.capitalName}`, caption: visuals.capitalCaption }
+          ] : [];
+          const visualHtml = visuals ? `
+            <aside class="region-hero-visual" style="--region-bg: url('${visuals.capital}')" aria-label="${region.name} 대표 도시와 문장">
+              <button class="region-bg-button" type="button" data-visual-index="1" aria-label="${visuals.capitalName} 크게 보기"></button>
+              <div class="region-hero-overlay">
+                <button class="region-crest-badge" type="button" data-visual-index="0" aria-label="${region.name} 문장 크게 보기">
+                  <img loading="lazy" src="${visuals.crest}" alt="${region.name} 문장">
+                </button>
+                <span><b>${visuals.capitalName}</b>${visuals.capitalCaption}</span>
+              </div>
+            </aside>
+          ` : "";
+    
+          regionDetail.innerHTML = `
+            <div class="detail-layout">
+              <div class="region-copy">
+                <div class="type">${region.type}</div>
+                <h3>${region.name}</h3>
+                <p>${region.short}</p>
+                <div class="detail-grid">
+                  <div class="detail-item"><b>첫 장면</b><span>${region.first}</span></div>
+                  <div class="detail-item"><b>주요 장소</b><span>${region.places}</span></div>
+                  <div class="detail-item"><b>사는 모습</b><span>${region.life}</span></div>
+                  <div class="detail-item"><b>지금 문제</b><span>${region.pressure}</span></div>
+                  <div class="detail-item"><b>남은 기억</b><span>${region.memory}</span></div>
+                  <div class="detail-item"><b>어울리는 시작</b><span>${region.persona}</span></div>
+                </div>
+              </div>
+              ${visualHtml}
+            </div>
+          `;
+    
+          regionDetail.querySelectorAll("[data-visual-index]").forEach(button => {
+            button.addEventListener("click", () => openLightbox(visualSlides, Number(button.dataset.visualIndex)));
+          });
+        }
 
     function renderReader() {
       readerGrid.innerHTML = readerSections.map((section, index) => `
@@ -1670,7 +2485,8 @@
     renderReader();
     renderImageSlider("sceneSlider", sceneSlides);
     renderImageSlider("diagramSlider", diagramSlides);
-    renderImageSlider("extraSlider", extraSlides);
+    renderImageSlider("citySlider", citySlides);
+    renderImageSlider("villageSlider", villageSlides);
     initStandaloneImageZoom();
   </script>
 </body>
