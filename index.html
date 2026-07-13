@@ -467,6 +467,85 @@
       padding-left: 18px;
     }
 
+    .reader-rich {
+      display: grid;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .reader-rich h4 {
+      margin: 0 0 8px;
+      color: var(--green-dark);
+      font-size: 16px;
+    }
+
+    .reader-columns {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .reader-group,
+    .reader-note {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(255, 250, 241, 0.78);
+      padding: 12px;
+    }
+
+    .reader-entry {
+      margin: 0 0 8px;
+      line-height: 1.65;
+    }
+
+    .reader-entry:last-child { margin-bottom: 0; }
+
+    .reader-entry b,
+    .reader-note b {
+      color: var(--green-dark);
+    }
+
+    .reader-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      font-size: 14px;
+    }
+
+    .reader-table th,
+    .reader-table td {
+      border-bottom: 1px solid var(--line);
+      padding: 9px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .reader-table th {
+      background: #efe5d6;
+      color: var(--green-dark);
+      font-weight: 900;
+    }
+
+    .reader-table tr:last-child td { border-bottom: 0; }
+
+    .reader-inline-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .reader-pill {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fffdf7;
+      padding: 6px 10px;
+      font-size: 13px;
+      color: #304139;
+    }
+
     .visual-strip {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -866,6 +945,7 @@
       .region-grid,
       .detail-grid,
       .reader-grid,
+      .reader-columns,
       .visual-strip,
       .quick-paths {
         grid-template-columns: 1fr;
@@ -1440,12 +1520,45 @@
       {
         title: "나라와 권역",
         summary: "비레스에는 왕이 다스리는 땅도 있고, 항구의 장부가 왕명만큼 무거운 땅도 있습니다.",
-        bullets: [
-          "레오니아에서는 문장 반지와 추천장이 길을 엽니다. 궁정에 가까울수록 말 한마디도 차례를 지켜야 합니다.",
-          "노르가르드의 부두에서는 배보다 먼저 장부가 도착합니다. 군항, 철강, 선장 보증이 사람의 신분처럼 따라붙습니다.",
-          "티리스의 길은 밭과 성문, 피난 정착지로 이어집니다. 그린할로우를 잃은 기억은 아직 식탁과 창고 앞에서 살아 있습니다.",
-          "남방의 강하 교역권, 북방의 혹한 해안, 숲 경계와 외해의 등대권은 저마다 다른 방식으로 낯선 이를 시험합니다."
-        ]
+        bodyHtml: `
+          <div class="reader-rich">
+            <div class="reader-note"><b>비레스 5083년의 큰 무대</b>는 에덴포르트 중심권, 북방·외연권, 남방 복합권, 주변 대륙·전승권으로 나뉩니다. 같은 은화도 왕도에서는 세금 장부가 되고, 항구에서는 선박 보증이 되며, 초지에서는 물권과 가축 값으로 다시 읽힙니다.</div>
+            <div class="reader-columns">
+              <div class="reader-group">
+                <h4>에덴포르트 중심권</h4>
+                <p class="reader-entry"><b>레오니아</b>: 중앙집권 왕국. 궁정, 기사 봉토, 왕실 납품, 추천장이 길을 엽니다.</p>
+                <p class="reader-entry"><b>노르가르드</b>: 군항과 철강의 해상 왕국. 항만세, 선박 수리, 해군 장부가 강합니다.</p>
+                <p class="reader-entry"><b>티리스</b>: 농경·목축 군주국. 영지 장터, 숲 경계, 서부 접경, 피난 공동체가 맞물립니다.</p>
+                <p class="reader-entry"><b>린레네트</b>: 학예 공화 도시국가. 극장, 기록원, 후원 계약, 검열 수수료가 생활에 닿습니다.</p>
+                <p class="reader-entry"><b>벡도레트</b>: 요새 군사 도시국가. 방벽, 병영, 검문소, 공사 동원이 도시를 움직입니다.</p>
+                <p class="reader-entry"><b>센할레트</b>: 공동체 농업 국가. 공동 창고, 수로 회의, 종자 보관, 배급 순서가 중요합니다.</p>
+              </div>
+              <div class="reader-group">
+                <h4>북방·외연권</h4>
+                <p class="reader-entry"><b>헤스페레트</b>: 북방 복합 권역. 저장고, 맹세석, 무기 중개, 고개 초소가 삶을 지킵니다.</p>
+                <p class="reader-entry"><b>켈나베트</b>: 항해·탐험 연방. 자유항, 해도, 보험, 원정 허가가 사람을 가릅니다.</p>
+                <p class="reader-entry"><b>헤스베케트</b>: 혹한 생존권. 공동 불씨, 방한구, 저장고 장부가 겨울을 버티게 합니다.</p>
+                <p class="reader-entry"><b>옌메베트</b>: 고공 통행과 숲 경계권. 고개길, 기수단, 숲 표식, 안내 실패가 큰 문제입니다.</p>
+                <p class="reader-entry"><b>님나레트</b>: 폐쇄 학술권. 감찰, 봉인 창고, 제한 교육, 허가서가 강하게 작동합니다.</p>
+              </div>
+              <div class="reader-group">
+                <h4>남방 복합권</h4>
+                <p class="reader-entry"><b>실니메트</b>: 산악·약초·강하권. 사원, 약초 장터, 통역, 강하 운송이 이어집니다.</p>
+                <p class="reader-entry"><b>아르도레트</b>: 고산 수도원·관측권. 순례로, 관측표, 천상 법원, 허가 사본이 남습니다.</p>
+                <p class="reader-entry"><b>가르메베트</b>: 초지·유목권. 물권, 가축, 계절 야영지, 동행료가 화폐만큼 중요합니다.</p>
+                <p class="reader-entry"><b>실할레트</b>: 성림·목재권. 숲 의례, 벌목 허가, 목재 검사, 금기 장소가 얽힙니다.</p>
+                <p class="reader-entry"><b>메르할레트</b>: 강하 상업 공화권. 통행세, 창고, 수로 계약, 상업 법정이 일상입니다.</p>
+                <p class="reader-entry"><b>님소레트</b>: 학술·종교 내륙권. 학당, 필사, 철학 논쟁, 신전 주석이 강합니다.</p>
+              </div>
+              <div class="reader-group">
+                <h4>주변 대륙·전승권</h4>
+                <p class="reader-entry"><b>실바니아</b>: 안개숲·계보권. 탐사 허가, 길잡이, 고문서, 숲길 표식이 핵심입니다.</p>
+                <p class="reader-entry"><b>드래곤스파이어</b>: 화산 군도권. 분화 감시, 화산석, 피난 표식, 위험 항로가 생활을 가릅니다.</p>
+                <p class="reader-entry"><b>펜리르의 눈</b>: 외해 금기권. 등대, 난파 기록, 구조 대기, 금기 해역의 소문이 남습니다.</p>
+              </div>
+            </div>
+          </div>
+        `
       },
       {
         title: "도시와 마을",
@@ -1463,7 +1576,39 @@
           "왕도와 큰 장터에서는 은화와 동전이 잘 통합니다. 농촌으로 갈수록 곡물 한 자루, 하루 품삯, 창고 몫이 더 또렷한 값이 됩니다.",
           "항만에서는 외래 주화도 오가지만, 선장 보증과 봉인된 화물표가 더 믿을 만한 증거가 되기도 합니다.",
           "산악과 북방에서는 숙소 자리, 말린 식량, 방한구, 고개 통행 허가가 곧 생존입니다. 비싼 물건보다 따뜻한 자리 하나가 더 급할 수 있습니다."
-        ]
+        ],
+        bodyHtml: `
+          <div class="reader-rich">
+            <table class="reader-table">
+              <thead><tr><th>돈</th><th>값</th><th>어디에 쓰이나</th></tr></thead>
+              <tbody>
+                <tr><td><b>금표</b></td><td>20 은량</td><td>외교 선물, 큰 선박 계약, 고급 병기와 말 거래에 쓰이는 고액 봉인 표식입니다.</td></tr>
+                <tr><td><b>은량</b></td><td>기준 1</td><td>세금 산정, 장거리 거래, 법정 배상, 품삯 비교에 쓰는 가장 흔한 회계 기준입니다.</td></tr>
+                <tr><td><b>반은</b></td><td>1/2 은량</td><td>숙박, 장인 품삯, 작은 계약금에 쓰입니다.</td></tr>
+                <tr><td><b>동각</b></td><td>1/12 은량</td><td>장터 음식, 나루, 짐꾼, 여관 부대비에 쓰는 소액 주화입니다.</td></tr>
+                <tr><td><b>철각</b></td><td>1/60 은량</td><td>빵, 죽, 묽은 맥주, 말먹이, 낮은 통행료처럼 아주 작은 값에 쓰입니다.</td></tr>
+              </tbody>
+            </table>
+            <div class="reader-columns">
+              <div class="reader-group">
+                <h4>장면에서 바로 쓰는 기준가</h4>
+                <p class="reader-entry"><b>보통 노동자 하루 품삯</b>: 1/6~1/4 은량. 성벽 공사나 항만 하역철에는 1/3 은량까지 오릅니다.</p>
+                <p class="reader-entry"><b>숙련 장인 하루 품삯</b>: 1/2~1.5 은량. 철강, 선박, 석재, 필사 전문성에 따라 달라집니다.</p>
+                <p class="reader-entry"><b>빵·죽 한 끼</b>: 1~2 철각. 흉작기와 피난민 밀집지에서는 더 비쌉니다.</p>
+                <p class="reader-entry"><b>낮은 여관 공동잠자리</b>: 2~6 동각. 성문 대기와 장터일에는 값이 뜁니다.</p>
+                <p class="reader-entry"><b>곡물 한 자루</b>: 2~4 은량. 봉쇄나 구휼철에는 5~9 은량까지 흔들립니다.</p>
+              </div>
+              <div class="reader-group">
+                <h4>길과 짐을 재는 말</h4>
+                <p class="reader-entry"><b>천걸음</b>: 약 750미터. 성문 밖 가까운 거리나 마을 사이 짧은 길을 잴 때 씁니다.</p>
+                <p class="reader-entry"><b>평지 하룻길</b>: 25~35킬로미터. 좋은 길과 날씨가 있을 때의 하루 이동입니다.</p>
+                <p class="reader-entry"><b>산길 하룻길</b>: 12~18킬로미터. 고개와 눈길에서는 더 짧아집니다.</p>
+                <p class="reader-entry"><b>등짐</b>: 약 30킬로그램. 한 사람이 지고 움직일 수 있는 짐의 기준입니다.</p>
+                <p class="reader-entry"><b>자루</b>: 40~50리터. 곡물과 저장품을 말할 때 자주 보입니다.</p>
+              </div>
+            </div>
+          </div>
+        `
       },
       {
         title: "달력과 시간",
@@ -1487,11 +1632,31 @@
       {
         title: "종족과 문화",
         summary: "여러 종족과 문화가 한 장터에 서 있어도, 모두가 같은 집으로 돌아가지는 않습니다.",
-        bullets: [
-          "대도시와 항만에서는 서로 다른 사람들이 일과 장부로 섞입니다. 같은 배를 내리지만 같은 신전으로 가지는 않을 수 있습니다.",
-          "숲, 산악, 혹한, 외해의 집단은 자기 경계와 금기를 더 오래 붙잡습니다. 그들에게 예의는 말보다 거리와 순서에 가깝습니다.",
-          "같은 사건도 누가 말하느냐에 따라 색이 달라집니다. 장인은 손실을 말하고, 신관은 징조를 말하고, 항해자는 바람의 방향을 말합니다."
-        ]
+        bodyHtml: `
+          <div class="reader-rich">
+            <div class="reader-note"><b>비레스의 종족</b>은 피와 몸의 차이만으로 나뉘지 않습니다. 어떤 집단은 광맥과 장례 각문으로, 어떤 집단은 숲길 이름과 계보로, 어떤 집단은 항해 노래와 난파 명부로 자신을 기억합니다.</div>
+            <div class="reader-columns">
+              <div class="reader-group">
+                <h4>문명권에서 자주 만나는 집단</h4>
+                <p class="reader-entry"><b>인간계</b>: 가장 넓게 퍼진 다수층입니다. 왕실, 영지, 항만, 학당, 초지, 숲 경계까지 모두 포함합니다.</p>
+                <p class="reader-entry"><b>페르브루니르</b>: 철맥계. 광산, 대장간, 석재, 병기 보수, 장례 각문과 가까운 산악·도시 장인 집단입니다.</p>
+                <p class="reader-entry"><b>실레니르</b>: 숲기록계. 계보 필사, 숲길 표식, 고문서 주석, 장례 목패를 오래 보존합니다.</p>
+                <p class="reader-entry"><b>메르세니르</b>: 씨앗상단계. 종자 보관, 장터 외상, 매듭 부호, 농촌 계약을 들고 길을 오갑니다.</p>
+                <p class="reader-entry"><b>님소리르</b>: 정령혈통계. 약초, 산악 통역, 혈통 의례, 금기 장소 안내로 알려져 있습니다.</p>
+                <p class="reader-entry"><b>노스킨·발카이트 계열</b>: 북방 복합 집단. 저장고, 고개 안내, 용병 계약, 방한구와 혹한 생존에 강합니다.</p>
+              </div>
+              <div class="reader-group">
+                <h4>경계와 먼 길의 집단</h4>
+                <p class="reader-entry"><b>혼합 거주 집단</b>: 별도 생물 종족이 아니라 항만, 접경, 피난지, 학당에서 혈통과 이름, 법적 등록이 섞인 생활층입니다.</p>
+                <p class="reader-entry"><b>렌실리르</b>: 실바니아 계보 집단. 안개숲 계보집, 사본 열람, 길잡이, 탐사 기록에 이름이 남습니다.</p>
+                <p class="reader-entry"><b>소르실리르</b>: 실바니아 숲빛 집단. 숲 의례, 장례 노래, 금기 장소 구전으로 접촉됩니다.</p>
+                <p class="reader-entry"><b>드라나리르</b>: 화산 용혈 집단. 드래곤스파이어의 분화 감시, 화산석, 위험 항로, 용혈 전승과 이어집니다.</p>
+                <p class="reader-entry"><b>벨마리르</b>: 외해 해양 집단. 해도 주석, 구조 신호, 난파 명부, 외해 보급으로 알려집니다.</p>
+                <p class="reader-entry"><b>린마리르</b>: 외해 노래 집단. 항해 노래, 금기일 암기, 실종자 기억, 항만 장례에 남습니다.</p>
+              </div>
+            </div>
+          </div>
+        `
       },
       {
         title: "플레이 시작점",
@@ -2315,7 +2480,8 @@
           <summary>${section.title}</summary>
           <div class="reader-body">
             <p>${section.summary}</p>
-            <ul>${section.bullets.map(item => `<li>${item}</li>`).join("")}</ul>
+            ${Array.isArray(section.bullets) && section.bullets.length ? `<ul>${section.bullets.map(item => `<li>${item}</li>`).join("")}</ul>` : ""}
+            ${section.bodyHtml || ""}
           </div>
         </details>
       `).join("");
