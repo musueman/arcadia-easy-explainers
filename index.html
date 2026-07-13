@@ -844,6 +844,21 @@
       overflow: hidden;
     }
 
+    details.gallery-group > summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      min-width: 0;
+      word-break: keep-all;
+      overflow-wrap: normal;
+      line-height: 1.35;
+    }
+
+    details.gallery-group > summary::after {
+      flex: 0 0 30px;
+    }
+
     .gallery-group .image-slider {
       border: 0;
       border-top: 1px solid var(--line);
