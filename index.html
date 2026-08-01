@@ -78,19 +78,36 @@
     }
 
     .hero {
-      min-height: 92vh;
-      display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
-      gap: clamp(20px, 4vw, 54px);
-      align-items: center;
-      width: min(1240px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: clamp(36px, 7vw, 86px) 0 42px;
+      position: relative;
+      min-height: min(78vh, 760px);
+      display: flex;
+      align-items: flex-end;
+      width: 100%;
+      margin: 0;
+      padding: clamp(90px, 13vw, 168px) max(16px, calc((100vw - 1240px) / 2)) clamp(42px, 7vw, 78px);
+      color: #fffdf7;
+      background:
+        linear-gradient(90deg, rgba(8, 24, 19, 0.92) 0%, rgba(8, 24, 19, 0.72) 46%, rgba(8, 24, 19, 0.22) 76%, rgba(8, 24, 19, 0.08) 100%),
+        linear-gradient(0deg, rgba(8, 24, 19, 0.5), transparent 42%),
+        url("./viewer/assets/illustrations/single_slides/leonia-radarhal.jpg") center 44% / cover;
+      isolation: isolate;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 18%;
+      z-index: -1;
+      background: linear-gradient(0deg, rgba(8, 24, 19, 0.58), transparent);
+      pointer-events: none;
     }
 
     .hero-copy {
       position: relative;
       z-index: 1;
+      width: min(720px, 100%);
     }
 
     .eyebrow {
@@ -102,10 +119,12 @@
 
     h1 {
       margin: 0;
-      color: var(--green-dark);
+      color: #fffdf7;
       font-size: clamp(44px, 8vw, 96px);
       line-height: 1.02;
       letter-spacing: 0;
+      text-wrap: balance;
+      text-shadow: 0 3px 30px rgba(0, 0, 0, 0.34);
     }
 
     h2 {
@@ -121,8 +140,9 @@
     .lead {
       max-width: 620px;
       margin-top: 22px;
-      color: #34413b;
+      color: rgba(255, 253, 247, 0.9);
       font-size: clamp(17px, 2.2vw, 21px);
+      text-shadow: 0 2px 16px rgba(0, 0, 0, 0.42);
     }
 
     .hero-actions {
@@ -144,43 +164,11 @@
     }
 
     .button.primary { color: #fffdf7; background: var(--green); }
-    .button.secondary { color: var(--green-dark); background: rgba(255, 253, 247, 0.8); }
-
-    .hero-panel {
-      min-height: 560px;
-      display: grid;
-      align-content: end;
-      padding: 18px;
-      border-radius: 10px;
-      background:
-        linear-gradient(0deg, rgba(12, 18, 15, 0.8), rgba(12, 18, 15, 0.12) 62%),
-        url("./viewer/assets/illustrations/single_slides/leonia-radarhal.jpg") center/cover;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .scene-tags {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .scene-tags span {
-      min-height: 62px;
-      padding: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.34);
-      border-radius: 8px;
+    .button.secondary {
+      border-color: rgba(255, 253, 247, 0.6);
       color: #fffdf7;
-      background: rgba(18, 28, 22, 0.5);
-      font-weight: 900;
-    }
-
-    .scene-tags small {
-      display: block;
-      margin-top: 2px;
-      color: rgba(255, 253, 247, 0.74);
-      font-size: 13px;
-      font-weight: 600;
+      background: rgba(12, 32, 25, 0.44);
+      backdrop-filter: blur(8px);
     }
 
     main {
@@ -335,8 +323,20 @@
     .detail-layout {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 16px;
+      gap: 18px;
       align-items: start;
+    }
+
+    .region-copy {
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .region-copy p {
+      max-width: 64ch;
+      margin-bottom: 0;
+      color: #34413b;
+      font-size: 17px;
     }
 
     .region-hero-visual {
@@ -412,20 +412,20 @@
 
     .detail-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
+      grid-template-columns: 1fr;
+      gap: 0;
       margin-top: 0;
+      border-top: 1px solid var(--line);
     }
 
     .detail-item {
       display: grid;
-      grid-template-columns: 34px minmax(0, 1fr);
-      gap: 10px;
+      grid-template-columns: 38px minmax(0, 1fr);
+      gap: 14px;
       align-items: start;
-      padding: 12px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: #fffaf1;
+      padding: 16px 4px;
+      border-bottom: 1px solid var(--line);
+      background: transparent;
     }
 
     .detail-icon {
@@ -811,6 +811,19 @@
       font-weight: 900;
     }
 
+    .start-choices {
+      padding: 14px 16px;
+      border-left: 4px solid var(--gold);
+      color: #34413b;
+      background: rgba(177, 122, 42, 0.08);
+    }
+
+    .start-choices b {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--green-dark);
+    }
+
     .start-comic {
       width: min(100%, 960px);
       justify-self: center;
@@ -921,6 +934,12 @@
 
     .slide-meta p {
       color: #3b4a43;
+    }
+
+    .slide-count {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 800;
     }
 
     .slide-open {
@@ -1180,11 +1199,9 @@
     }
 
     @media (max-width: 1000px) {
-      .hero,
       .region-layout {
         grid-template-columns: 1fr;
       }
-      .hero-panel { min-height: 420px; }
       .detail-panel { position: static; }
       .detail-layout { grid-template-columns: 1fr; }
       .quick-paths { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1200,11 +1217,11 @@
       }
       .nav-links { justify-content: flex-start; }
       .hero {
-        min-height: 0;
-        padding-top: 34px;
+        min-height: 640px;
+        align-items: flex-end;
+        padding: 100px 20px 42px;
+        background-position: 58% center;
       }
-      .hero-panel { min-height: 360px; }
-      .scene-tags,
       .region-grid,
       .detail-grid,
       .reader-grid,
@@ -1266,7 +1283,6 @@
       <a href="#read">세계 읽기</a>
       <a href="#start">시작 방식</a>
       <a href="#images">그림 보기</a>
-      <a href="https://vireth-starting-records.musueman.chatgpt.site/reader">발견 기록</a>
     </div>
   </nav>
 
@@ -1282,16 +1298,7 @@
       <div class="hero-actions">
         <a class="button primary" href="#regions">권역부터 고르기</a>
         <a class="button secondary" href="#read">세계관 바로 읽기</a>
-        <a class="button secondary" href="https://vireth-starting-records.musueman.chatgpt.site/reader">발견 기록 읽기</a>
-      </div>
-    </div>
-
-    <div class="hero-panel" aria-label="비레스 생활 장면">
-      <div class="scene-tags">
-        <span>성문<small>검문, 보증인, 통행 허가</small></span>
-        <span>항만<small>장부, 선적, 항만세</small></span>
-        <span>장터<small>물가, 소문, 계약</small></span>
-        <span>산길<small>숙소, 길잡이, 날씨</small></span>
+        <a class="button secondary" href="#start">시작 장면 보기</a>
       </div>
     </div>
   </header>
@@ -1312,20 +1319,6 @@
         <article id="regionDetail" class="detail-panel" aria-live="polite"></article>
       </div>
 
-      <div class="visual-strip" aria-label="권역과 지명 도식">
-        <figure class="visual-card">
-          <img loading="lazy" src="./viewer/assets/images/ck5083-regions-nations-culture-zones-v1.svg" alt="비레스 5083년 권역과 문화권 도식">
-          <figcaption>어느 권역이 어떤 생활권과 맞닿는지 먼저 보는 그림입니다.</figcaption>
-        </figure>
-        <figure class="visual-card">
-          <img loading="lazy" src="./viewer/assets/images/ck5083-internal-regions-settlements-hierarchy-v1.svg" alt="권역, 국가, 내부 지역, 도시와 마을의 계층 도식">
-          <figcaption>나라 안쪽의 지역, 도시, 마을이 어떤 층으로 이어지는지 보여줍니다.</figcaption>
-        </figure>
-        <figure class="visual-card">
-          <img loading="lazy" src="./viewer/assets/images/ck5083-named-regions-routes-villages-label-layer-v1.svg" alt="이름 있는 지역, 가도, 마을 라벨 도식">
-          <figcaption>지도에서 보이는 이름과 사람들이 생활 속에서 부르는 이름을 함께 읽는 자료입니다.</figcaption>
-        </figure>
-      </div>
     </section>
 
     <section id="read" class="section">
@@ -1336,20 +1329,6 @@
           아래 내용은 비레스의 길 위에서 자주 마주칠 이야기입니다.
           왕궁 문서처럼 차갑게 정리한 글이 아니라, 여관 탁자와 항구 창구와 신전 계단에서 들을 법한 말로 묶었습니다.
         </p>
-      </div>
-      <div class="visual-strip" aria-label="세계 읽기 보조 도식">
-        <figure class="visual-card">
-          <img loading="lazy" src="./viewer/assets/images/ck5083-world-overview-life-zones-v1.svg" alt="비레스 5083년 세계 총람과 생활권 도식">
-          <figcaption>왕도, 항구, 산길, 숲 경계가 어디서부터 다르게 보이는지 잡아주는 첫 지도입니다.</figcaption>
-        </figure>
-        <figure class="visual-card">
-          <img loading="lazy" src="./viewer/assets/images/ck5083-terrain-routes-borders-village-anchors-v1.svg" alt="지형, 가도, 국경, 마을 기준점 도식">
-          <figcaption>길과 강, 고개와 국경이 마을의 생활을 어떻게 나누는지 보여줍니다.</figcaption>
-        </figure>
-        <figure class="visual-card">
-          <img loading="lazy" src="./viewer/assets/images/ck5083-places-public-facilities-v2.svg" alt="성문, 장터, 창고, 신전 등 공공시설 도식">
-          <figcaption>성문과 창고, 장터와 신전처럼 정보가 모이는 장소를 먼저 볼 수 있습니다.</figcaption>
-        </figure>
       </div>
       <div id="readerGrid" class="reader-grid"></div>
     </section>
@@ -1365,7 +1344,7 @@
         <div class="path-card"><i class="path-icon" aria-hidden="true">⚔</i><span><b>호위나 용병</b><span>성문, 병영, 무기 보관, 징발 소문을 자주 듣습니다.</span></span></div>
         <div class="path-card"><i class="path-icon" aria-hidden="true">⌂</i><span><b>피난민이나 정착민</b><span>이름패, 배급 순서, 공동 창고, 귀향 논쟁에 얽힙니다.</span></span></div>
       </div>
-      <div class="start-scenarios">
+      <div class="start-scenarios" id="start-situations">
         <h3>웹툰으로 보는 시작상황</h3>
         <p>긴 장면은 접어 두었습니다. 마음에 드는 시작을 펼치면, 그 상황에서 무엇을 보고 듣고 선택하게 되는지 먼저 볼 수 있습니다.</p>
 
@@ -1376,6 +1355,7 @@
           <div class="start-scenario-body">
             <div class="start-tags"><span>여행자</span><span>성문 검문</span><span>소지품 확인</span><span>첫 선택</span></div>
             <p>도시로 들어가려는 길 끝에서 시작합니다. 가진 것은 작은 가방과 동전 몇 닢, 길 위에서 닳은 표식들뿐입니다. 앞으로 걸어가면 성문 서기와 마주하고, 돌아서면 아직 도시 밖의 길이 남아 있습니다.</p>
+            <div class="start-choices"><b>첫 선택</b>줄에 서서 용무를 밝히기 · 짐과 표식을 먼저 보여주기 · 성문 밖 사람들에게 소문을 묻기</div>
             <figure class="start-comic">
               <img loading="lazy" src="./viewer/assets/illustrations/start_situations/start-city-gate-day-v1.webp" alt="성문 앞에서 시작하는 웹툰 장면">
             </figure>
@@ -1389,6 +1369,7 @@
           <div class="start-scenario-body">
             <div class="start-tags"><span>호위·경비</span><span>야간 성문</span><span>분실물</span><span>누군가의 접근</span></div>
             <p>비가 내리는 밤, 당신은 성문 안쪽의 작은 근무처에 있습니다. 맡겨진 물건은 사소해 보이지만, 그 물건 하나가 누가 안으로 들어왔고 누가 밖에 남았는지를 가르는 단서가 됩니다.</p>
+            <div class="start-choices"><b>첫 선택</b>떨어진 물건을 확인하기 · 빗소리 너머 발걸음을 쫓기 · 교대 책임자에게 먼저 알리기</div>
             <figure class="start-comic">
               <img loading="lazy" src="./viewer/assets/illustrations/start_situations/start-night-gate-watch-v1.webp" alt="비 오는 밤 성문 근무 웹툰 장면">
             </figure>
@@ -1402,6 +1383,7 @@
           <div class="start-scenario-body">
             <div class="start-tags"><span>의뢰 수락</span><span>여관</span><span>보상과 책임</span><span>호위길</span></div>
             <p>비가 길을 막고, 여관 안에서는 누군가가 당신을 알아봅니다. 계약서는 짧지만 질문은 길게 남습니다. 어디까지 갈지, 누구의 책임을 질지, 보상보다 먼저 정해야 할 것이 생깁니다.</p>
+            <div class="start-choices"><b>첫 선택</b>계약의 목적지를 묻기 · 동행할 사람부터 확인하기 · 보상과 책임 범위를 다시 적기</div>
             <figure class="start-comic">
               <img loading="lazy" src="./viewer/assets/illustrations/start_situations/start-rainy-inn-contract-v1.webp" alt="산길 여관에서 의뢰를 받는 웹툰 장면">
             </figure>
@@ -1415,7 +1397,8 @@
           <div class="start-scenario-body">
             <div class="start-tags"><span>상인·서기</span><span>장터</span><span>봉인 끈</span><span>환전</span></div>
             <p>사람들은 물건보다 먼저 장부를 봅니다. 납품 도장이 맞는지, 은량과 곡표가 제대로 적혔는지, 누가 보증인인지에 따라 같은 짐도 전혀 다른 물건이 됩니다.</p>
-            <div class="start-placeholder">이미지 준비 중입니다. 나중에 장터, 장부, 봉인 끈이 보이는 시작 웹툰을 이 자리에 넣습니다.</div>
+            <div class="start-choices"><b>첫 선택</b>봉인 끈을 대조하기 · 환전값부터 따지기 · 보증인을 불러 장부를 다시 읽기</div>
+            <div class="start-placeholder">웹툰이 더해지기 전까지, 이 장면은 글로 먼저 공개됩니다.</div>
           </div>
         </details>
 
@@ -1426,7 +1409,8 @@
           <div class="start-scenario-body">
             <div class="start-tags"><span>피난민</span><span>공동 창고</span><span>이름패</span><span>배급 순서</span></div>
             <p>줄은 느리고, 사람들의 목소리는 낮습니다. 창고 문이 열리기 전부터 누구 이름이 먼저 불릴지, 누가 돌아갈 수 있고 누가 남아야 하는지를 두고 작은 다툼이 시작됩니다.</p>
-            <div class="start-placeholder">이미지 준비 중입니다. 나중에 배급 줄, 이름패, 공동 창고가 보이는 시작 웹툰을 이 자리에 넣습니다.</div>
+            <div class="start-choices"><b>첫 선택</b>자신의 이름패를 확인하기 · 줄에서 벌어진 다툼을 말리기 · 창고지기에게 배급 장부를 묻기</div>
+            <div class="start-placeholder">웹툰이 더해지기 전까지, 이 장면은 글로 먼저 공개됩니다.</div>
           </div>
         </details>
 
@@ -1437,7 +1421,8 @@
           <div class="start-scenario-body">
             <div class="start-tags"><span>항만</span><span>선원·짐꾼</span><span>항만세</span><span>선적 장부</span></div>
             <p>새벽 항구는 이미 깨어 있습니다. 젖은 밧줄 냄새와 장부 넘기는 소리 사이에서, 당신은 어느 배에 오를지 혹은 어떤 짐을 막아야 할지 선택하게 됩니다.</p>
-            <div class="start-placeholder">이미지 준비 중입니다. 나중에 항만, 선착장, 선적 장부가 보이는 시작 웹툰을 이 자리에 넣습니다.</div>
+            <div class="start-choices"><b>첫 선택</b>배표와 선적 장부를 맞추기 · 항만세 창구의 다툼을 살피기 · 출항 직전 선원에게 소문을 묻기</div>
+            <div class="start-placeholder">웹툰이 더해지기 전까지, 이 장면은 글로 먼저 공개됩니다.</div>
           </div>
         </details>
       </div>
@@ -1445,22 +1430,17 @@
 
     <section id="images" class="section">
       <div class="section-head">
-        <p class="eyebrow">그림으로 보기</p>
-        <h2>지도를 보고, 그다음 풍경을 봅니다.</h2>
+        <p class="eyebrow">풍경과 자료관</p>
+        <h2>먼저 풍경을 보고, 필요할 때 지도를 펼칩니다.</h2>
         <p>
-          도식은 길과 경계를 잡아주고, 설정화는 그 길 위에서 만나는 빛과 공기를 보여줍니다.
-          큰 묶음 그림은 흐름을 볼 때 쓰고, 도시와 마을은 한 장씩 넘겨 보도록 따로 정리했습니다.
+          도시와 마을은 한 장씩 크게 넘겨볼 수 있습니다.
+          길이나 경계가 궁금해졌을 때만 맨 아래 자료관의 도식을 펼쳐보세요.
         </p>
       </div>
       <div class="gallery-block">
         <div>
-          <h3>장면으로 보는 비레스</h3>
+          <h3>20개 권역의 중심도시</h3>
           <div id="sceneSlider" class="image-slider"></div>
-        </div>
-
-        <div>
-          <h3>길과 이름을 읽는 도식</h3>
-          <div id="diagramSlider" class="image-slider"></div>
         </div>
 
         <details class="gallery-group" open>
@@ -1472,11 +1452,19 @@
         </details>
 
         <details class="gallery-group">
-          <summary>마을과 초소 보기</summary>
+          <summary>마을과 초소 70장 보기</summary>
           <div class="image-slider">
             <p class="gallery-note">도시 밖의 숙소촌, 어항, 감시 초소, 피난 표식촌처럼 장면을 작게 시작하기 좋은 곳들입니다.</p>
           </div>
           <div id="villageSlider" class="image-slider"></div>
+        </details>
+
+        <details class="gallery-group">
+          <summary>지도와 자료관 열기</summary>
+          <div class="image-slider">
+            <p class="gallery-note">정착지 좌표, 도로, 도시 인구, 마을 시설처럼 풍경만으로 알기 어려운 내용을 모았습니다.</p>
+          </div>
+          <div id="diagramSlider" class="image-slider"></div>
         </details>
       </div>
     </section>
@@ -1560,7 +1548,7 @@
       },
       {
         name: "센할레트",
-        type: "공동 창고와 수문의 강하 교역권",
+        type: "공동 창고와 관개로의 농업 공동체",
         short: "곡물, 종자, 배급 순서가 사람의 삶을 가릅니다.",
         first: "공동 창고, 종자 회의장, 배급소, 수문",
         places: "센푸쿰, 벨바르, 센푸크에트, 가르센에트, 벱렌할",
@@ -1748,6 +1736,29 @@
       "펜리르의 눈": { icon: "◈", focus: "등대·난파", money: "구조비, 난파 물품, 등대 봉납, 해도 필사료가 얽힙니다.", people: "등대 보조, 해도 필사자, 구조 대기자, 실종자 가족이 모입니다.", time: "등대력은 조류, 안개, 실종 명부 갱신일을 중심으로 돕니다.", history: "등대 소실과 난파 기록이 외해 금기의 중심을 만들었습니다." }
     };
 
+    const regionSpecies = {
+      "레오니아": "인간계가 다수이며 페르브루니르 장인, 메르세니르 상인, 혼합 거주민이 궁정과 납품가에 함께 삽니다.",
+      "노르가르드": "인간계 선원과 페르브루니르 철공이 중심이며 벨마리르·린마리르 항해자와 혼합 거주민이 항구에 모입니다.",
+      "티리스": "인간계 농민과 메르세니르 종자상, 실레니르 숲길 기록자, 페르브루니르 수리공과 피난민이 영지마다 다른 비율로 섞입니다.",
+      "린레네트": "인간계가 다수이고 실레니르 필사자, 메르세니르 후원 중개인, 페르브루니르 무대 장인이 기록원과 극장가에 모입니다.",
+      "벡도레트": "인간계 수비대와 페르브루니르 공사 장인, 북방 복합 집단과 혼합 거주민이 성벽 안팎을 나눠 삽니다.",
+      "센할레트": "인간계 농민, 메르세니르 종자 보관인, 실레니르 수로 기록자와 혼합 거주민이 공동 창고를 중심으로 삽니다.",
+      "헤스페레트": "인간계와 북방 복합 집단이 다수이고 페르브루니르 무기 장인, 메르세니르 보급상이 고개와 저장고에 정착합니다.",
+      "켈나베트": "인간계 항만민과 벨마리르·린마리르 항해자, 실레니르 해도 필사자와 혼합 거주민이 자유항마다 섞입니다.",
+      "헤스베케트": "인간계와 북방 복합 집단이 저장촌의 주류이며 페르브루니르 수리공과 메르세니르 보급상이 계절마다 들어옵니다.",
+      "옌메베트": "인간계 기수단, 님소리르 통역자, 실레니르 경계인이 고개 통행소와 숲 마을에서 함께 삽니다.",
+      "님나레트": "인간계 감찰관과 페르브루니르 재료 관리인, 실레니르 필사자, 님소리르 연구자가 허가 구역마다 나뉘어 삽니다.",
+      "실니메트": "인간계와 님소리르, 실레니르, 메르세니르가 약초 장터와 산길, 강하 항구에서 가장 촘촘하게 섞입니다.",
+      "아르도레트": "인간계 수도사와 님소리르 관측자, 실레니르 약초 기록자, 페르브루니르 석공이 고산 거점에 삽니다.",
+      "가르메베트": "인간계와 메르세니르 목축민, 북방 복합 집단, 님소리르 물길 안내인이 계절 이동로를 공유합니다.",
+      "실할레트": "실레니르가 다수이며 인간계, 님소리르, 페르브루니르, 메르세니르가 허가받은 숲길과 장터에 거주합니다.",
+      "메르할레트": "인간계와 메르세니르 상인, 벨마리르 선원, 페르브루니르 창고 장인이 강과 항만을 따라 섞입니다.",
+      "님소레트": "인간계 학생과 실레니르 필사자, 님소리르 주석가, 메르세니르 후원 중개인이 학당 구역에 모입니다.",
+      "실바니아": "실레니르와 렌실리르·소르실리르가 중심이며 인간계 탐사자와 혼합 거주민은 허가된 경계 거점에 머뭅니다.",
+      "드래곤스파이어": "인간계 항만민과 드라나리르, 벨마리르 항해자, 페르브루니르 화산석 장인이 섬권 거점에 삽니다.",
+      "펜리르의 눈": "벨마리르와 린마리르가 중심이며 인간계·실레니르·혼합 거주민이 등대와 구조 거점에 드물게 정착합니다."
+    };
+
     const regionVisuals = {
       "레오니아": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-leonia-imagegen-v3-dragon-crest-2048-labeled.webp",
@@ -1766,8 +1777,8 @@
       "티리스": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-tiris-imagegen-v1-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-tiris-radbarhal-imagegen-v1-2560-labeled.webp",
-            "capitalName": "라드바르할",
-            "capitalCaption": "영지 장터와 서부 접경 소식이 왕국 안쪽으로 모이는 티리스의 중심 도시입니다.",
+            "capitalName": "라드바르할·실버킵",
+            "capitalCaption": "라드바르할과 실버킵은 왕실 행정의 중심이며, 베크켈카르와 레이븐스톤은 서부 접경의 큰 거점입니다.",
             "crestCaption": "티리스의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
       },
       "린레네트": {
@@ -1823,7 +1834,7 @@
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-nimnaret-imagegen-v1-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-nimnaret-yalbekum-imagegen-v1-2560-labeled.webp",
             "capitalName": "얄베크움",
-            "capitalCaption": "강가 문서와 학술 후원이 장터의 신용까지 움직이는 님나레트의 중심지입니다.",
+            "capitalCaption": "감찰실, 봉인 명령소, 출입 허가소와 외부자 대기실이 모인 님나레트의 폐쇄 학술 중심지입니다.",
             "crestCaption": "님나레트의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
       },
       "실니메트": {
@@ -1837,7 +1848,7 @@
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-ardolet-imagegen-v1-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-ardolet-dorsorhal-imagegen-v1-2560-labeled.webp",
             "capitalName": "도르소르할",
-            "capitalCaption": "강하 수로와 남방 교역이 만나는 아르도레트의 대표 거점입니다.",
+            "capitalCaption": "산악 수도원, 천상 법원, 관측표 보관실과 등정 허가소가 모인 아르도레트의 고산 중심지입니다.",
             "crestCaption": "아르도레트의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
       },
       "가르메베트": {
@@ -1851,7 +1862,7 @@
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-silhalet-imagegen-v1-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-silhalet-silsorsan-imagegen-v1-2560-labeled.webp",
             "capitalName": "실소르산",
-            "capitalCaption": "남방 산로와 항로의 물자가 쉬어 가는 실할레트의 산악 거점입니다.",
+            "capitalCaption": "성림 의례, 장례 기억, 벌목 금기와 채집 허가가 모이는 실할레트의 숲 신정 중심지입니다.",
             "crestCaption": "실할레트의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
       },
       "메르할레트": {
@@ -1865,7 +1876,7 @@
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-nimsolet-imagegen-v1-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-nimsolet-nimhal-imagegen-v1-2560-labeled.webp",
             "capitalName": "님할",
-            "capitalCaption": "강하 교역과 습지 장터가 이어지는 님소레트의 중심 거점입니다.",
+            "capitalCaption": "학당, 왕실 후원청, 종교 강의장과 공개 시험장이 모인 님소레트의 학술 중심지입니다.",
             "crestCaption": "님소레트의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
       },
       "실바니아": {
@@ -1945,7 +1956,7 @@
         ]
       },
       {
-        title: "생활과 돈",
+        title: "돈과 물건",
         summary: "돈주머니만 차 있다고 모든 문이 열리지는 않습니다. 때로는 보증인 한 명이 은화보다 값집니다.",
         bullets: [
           "왕도와 큰 장터에서는 은화와 동전이 잘 통합니다. 농촌으로 갈수록 곡물 한 자루, 하루 품삯, 창고 몫이 더 또렷한 값이 됩니다.",
@@ -1986,7 +1997,7 @@
         `
       },
       {
-        title: "달력과 시간",
+        title: "달력과 계절",
         summary: "비레스의 사람들은 같은 해를 살아도 같은 달력을 바라보지 않습니다.",
         bullets: [
           "레오니아의 달력에는 서임일과 궁정 의례가 깊게 새겨져 있습니다. 날짜는 명예와 순서를 알려주는 표식입니다.",
@@ -2032,16 +2043,6 @@
             </div>
           </div>
         `
-      },
-      {
-        title: "플레이 시작점",
-        summary: "작은 인물로 들어갈수록 세계는 더 가까이 다가옵니다.",
-        bullets: [
-          "여행자로 시작하면 성문 줄, 여관 방값, 통행세, 길잡이의 낮은 목소리부터 만납니다.",
-          "상인이나 서기로 시작하면 장부, 봉인 끈, 환전, 납품 지연 같은 다툼이 자연스럽게 따라옵니다.",
-          "피난민이나 정착민으로 시작하면 배급 순서, 이름패, 공동 창고, 귀향 논쟁이 바로 눈앞의 문제가 됩니다.",
-          "호위나 용병으로 시작하면 병영, 무기 보관소, 징발 소문, 닫힌 성문 앞의 긴장을 자주 지나게 됩니다."
-        ]
       }
     ];
 
@@ -2049,92 +2050,56 @@
       "나라와 권역": {
         icon: "♜",
         line: "먼저 어느 땅에 서 있는지 봅니다.",
-        image: "./viewer/assets/illustrations/ck5083-regions-nations-culture-zones-environment-sheet-v1.png",
-        alt: "비레스 여러 국가와 문화권의 생활 환경",
-        caption: "같은 은화와 같은 길도 권역이 바뀌면 전혀 다른 의미가 됩니다."
+        image: "./viewer/assets/illustrations/single_slides/leonia-radarhal.jpg",
+        alt: "레오니아의 중심 도시 라드아르할",
+        caption: "한 나라의 중심도시는 권력과 장터, 길이 한데 모인 얼굴입니다."
       },
       "도시와 마을": {
         icon: "⌂",
         line: "성문, 장터, 선착장, 산길 숙소가 장면을 엽니다.",
-        image: "./viewer/assets/illustrations/ck5083-settlements-routes-village-life-sheet-v1.png",
-        alt: "도시와 마을, 가도와 수로 생활 장면",
-        caption: "작은 정착지도 창고, 수문, 피난 표식 하나로 이야기를 움직입니다."
+        image: "./viewer/assets/illustrations/single_slides/tiris-ravenstone.jpg",
+        alt: "티리스 서부의 성곽 도시 레이븐스톤",
+        caption: "성문과 장터, 배후 마을을 함께 보아야 도시의 하루가 보입니다."
       },
-      "생활과 돈": {
+      "돈과 물건": {
         icon: "¤",
         line: "돈주머니보다 보증인과 장부가 먼저 통하는 곳도 있습니다.",
-        image: "./viewer/assets/illustrations/ck5083-places-public-facilities-life-surfaces-v1.png",
-        alt: "성문, 장터, 신전, 창고의 생활 장면",
-        caption: "값은 주화만으로 정해지지 않습니다. 장부, 봉인, 창고 몫이 같이 움직입니다."
+        image: "./viewer/assets/illustrations/single_slides/village-tiris-garpukga.jpg",
+        alt: "곡물과 물자가 오가는 티리스의 장터 마을",
+        caption: "값은 주화만으로 정해지지 않습니다. 곡물, 품삯, 보증과 창고 몫이 같이 움직입니다."
       },
-      "달력과 시간": {
+      "달력과 계절": {
         icon: "☉",
         line: "장날, 조석, 파종일, 금기일이 서로 다른 시계를 만듭니다.",
-        image: "./viewer/assets/images/vireth-seasons-twinmoon-cycle-v1.svg",
-        alt: "비레스 계절과 쌍월 주기 도식",
-        caption: "비레스의 660일, 두 달의 주기, 지역 계절감이 생활의 시간을 나눕니다."
+        image: "./viewer/assets/illustrations/vireth-seasons-twinmoon-sky-v1.png",
+        alt: "쌍월이 뜬 비레스의 계절별 하늘",
+        caption: "660일의 긴 해와 두 달의 주기, 지역마다 다른 계절감이 생활의 시간을 나눕니다."
       },
       "역사와 소문": {
         icon: "✦",
         line: "큰 역사는 기록에 남고, 작은 진실은 노래와 소문으로 흩어집니다.",
-        image: "./viewer/assets/images/ck5083-world-overview-life-zones-v1.svg",
-        alt: "5083년 세계 생활권 개요 도식",
-        caption: "사람들은 모든 진실을 알지 못합니다. 기록과 구전 사이에서 사건을 만납니다."
+        image: "./viewer/assets/illustrations/single_slides/tiris-newhollow.jpg",
+        alt: "피난민 정착지 뉴할로우",
+        caption: "사건은 도시와 마을의 흔적으로 남고, 사람들은 기록과 구전 사이에서 그 기억을 만납니다."
       },
       "종족과 문화": {
         icon: "☷",
         line: "누가 어디에 살고, 누구와 섞여 일하는지 봅니다.",
-        image: "./viewer/assets/images/ck5083-regions-nations-culture-zones-v1.svg",
-        alt: "권역과 문화권 도식",
-        caption: "종족은 따로 떨어진 목록이 아니라, 나라와 도시와 생업 안에서 만납니다."
-      },
-      "플레이 시작점": {
-        icon: "➜",
-        line: "작은 직업 하나가 첫 장면과 들을 수 있는 소문을 바꿉니다.",
-        image: "./viewer/assets/illustrations/ck5083-world-overview-life-surfaces-v1.png",
-        alt: "비레스 생활 표면 파노라마",
-        caption: "여행자, 서기, 호위, 정착민은 같은 도시에서도 서로 다른 문을 통과합니다."
+        image: "./viewer/assets/illustrations/single_slides/norghard-marnabmir.jpg",
+        alt: "여러 항해자와 장인이 모이는 노르가르드의 항구",
+        caption: "종족은 따로 떨어진 목록이 아니라, 나라와 도시와 생업 안에서 서로 만납니다."
       }
     };
 
-    const sceneSlides = [
-      {
-        title: "나라와 문화권",
-        src: "./viewer/assets/illustrations/ck5083-regions-nations-culture-zones-environment-sheet-v1.png",
-        alt: "비레스 여러 국가와 문화권의 생활 환경",
-        caption: "어디에서 시작하느냐에 따라 보이는 하늘, 길, 장터의 냄새가 달라집니다."
-      },
-      {
-        title: "도시와 마을",
-        src: "./viewer/assets/illustrations/ck5083-settlements-routes-village-life-sheet-v1.png",
-        alt: "도시, 마을, 가도, 수로가 연결된 생활 장면",
-        caption: "이동로, 창고, 선착장, 숙소가 사람들의 하루와 소문을 이어 줍니다."
-      },
-      {
-        title: "공공 장소",
-        src: "./viewer/assets/illustrations/ck5083-places-public-facilities-life-surfaces-v1.png",
-        alt: "성문, 장터, 신전, 창고 등 공공 장소",
-        caption: "성문과 장터, 신전과 창고는 비레스에서 정보가 가장 먼저 모이는 곳입니다."
-      },
-      {
-        title: "문명과 기술",
-        src: "./viewer/assets/illustrations/ck5083-civilization-technology-capability-life-sheet-v1.png",
-        alt: "문명과 기술 수준이 생활에 닿는 장면",
-        caption: "어디에는 수문과 장부가 있고, 어디에는 숙소의 불씨와 말린 식량이 더 중요합니다."
-      },
-      {
-        title: "라드아르할",
-        src: "./viewer/assets/illustrations/single_slides/leonia-radarhal.jpg",
-        alt: "레오니아 중심 도시 라드아르할 전경",
-        caption: "레오니아의 중심 도시입니다. 너른 길과 성문, 궁정으로 이어지는 질서가 먼저 보입니다."
-      },
-      {
-        title: "가르푸크가",
-        src: "./viewer/assets/illustrations/single_slides/village-tiris-garpukga.jpg",
-        alt: "티리스 영지 장터 마을 가르푸크가",
-        caption: "티리스의 작은 장터 마을입니다. 곡물과 보증인, 공동 창고의 말이 하루를 움직입니다."
-      }
-    ];
+    const sceneSlides = regions.map(region => {
+      const visual = regionVisuals[region.name];
+      return {
+        title: `${region.name} · ${visual.capitalName}`,
+        src: visual.capital,
+        alt: `${region.name} 중심 도시 ${visual.capitalName} 전경`,
+        caption: visual.capitalCaption
+      };
+    });
 
     const diagramSlides = [
       {
@@ -2845,7 +2810,7 @@
             return `
               <button class="region-button" type="button" data-index="${index}" aria-pressed="${index === 0 ? "true" : "false"}">
                 ${crest}
-                <span class="region-card-text"><strong>${region.name}</strong><span>${region.short}</span>${mini}</span>
+                <span class="region-card-text"><strong>${region.name}</strong><span>${region.short} ${region.type}입니다.</span>${mini}</span>
               </button>
             `;
           }).join("");
@@ -2856,6 +2821,9 @@
               regionGrid.querySelectorAll(".region-button").forEach(item => item.setAttribute("aria-pressed", "false"));
               button.setAttribute("aria-pressed", "true");
               renderRegionDetail(index);
+              if (window.matchMedia("(max-width: 1000px)").matches) {
+                regionDetail.scrollIntoView({ behavior: "smooth", block: "start" });
+              }
             });
           });
         }
@@ -2882,22 +2850,21 @@
     
           regionDetail.innerHTML = `
             <div class="detail-layout">
+              ${visualHtml}
               <div class="region-copy">
                 <div class="type">${region.type}</div>
                 <h3>${region.name}</h3>
                 <p>${region.short}</p>
               </div>
-              ${visualHtml}
               <div class="detail-grid">
-                <div class="detail-item"><i class="detail-icon" aria-hidden="true">◎</i><span><b>첫 장면</b><span>${region.first}</span></span></div>
-                <div class="detail-item"><i class="detail-icon" aria-hidden="true">⌖</i><span><b>도시와 장소</b><span>${region.places}</span></span></div>
-                <div class="detail-item"><i class="detail-icon" aria-hidden="true">☷</i><span><b>사는 모습</b><span>${region.life}</span></span></div>
-                <div class="detail-item"><i class="detail-icon" aria-hidden="true">¤</i><span><b>돈과 물자</b><span>${fact.money || "은량과 지역 장부가 함께 쓰입니다."}</span></span></div>
-                <div class="detail-item"><i class="detail-icon" aria-hidden="true">☉</i><span><b>달력과 시간</b><span>${fact.time || "권역마다 장날과 의례일을 다르게 셉니다."}</span></span></div>
-                <div class="detail-item"><i class="detail-icon" aria-hidden="true">♟</i><span><b>사람들</b><span>${fact.people || region.persona}</span></span></div>
+                <div class="detail-item"><i class="detail-icon" aria-hidden="true">◎</i><span><b>어떤 나라·권역인가</b><span>${region.life}</span></span></div>
+                <div class="detail-item"><i class="detail-icon" aria-hidden="true">⌖</i><span><b>수도와 주요 도시</b><span>${visuals ? `${visuals.capitalName}. ` : ""}${region.places}</span></span></div>
+                <div class="detail-item"><i class="detail-icon" aria-hidden="true">♟</i><span><b>사람과 종족</b><span>${regionSpecies[region.name]} ${fact.people || ""}</span></span></div>
+                <div class="detail-item"><i class="detail-icon" aria-hidden="true">¤</i><span><b>돈과 장터</b><span>${fact.money || "은량과 지역 장부가 함께 쓰입니다."}</span></span></div>
+                <div class="detail-item"><i class="detail-icon" aria-hidden="true">☉</i><span><b>달력과 계절</b><span>${fact.time || "권역마다 장날과 의례일을 다르게 셉니다."}</span></span></div>
+                <div class="detail-item"><i class="detail-icon" aria-hidden="true">✦</i><span><b>남아 있는 역사와 소문</b><span>${fact.history || region.memory}</span></span></div>
                 <div class="detail-item"><i class="detail-icon" aria-hidden="true">!</i><span><b>지금 문제</b><span>${region.pressure}</span></span></div>
-                <div class="detail-item"><i class="detail-icon" aria-hidden="true">✦</i><span><b>남은 기억</b><span>${fact.history || region.memory}</span></span></div>
-                <div class="detail-item"><i class="detail-icon" aria-hidden="true">➜</i><span><b>어울리는 시작</b><span>${region.persona}</span></span></div>
+                <div class="detail-item"><i class="detail-icon" aria-hidden="true">➜</i><span><b>여행자가 시작하기 좋은 장소</b><span>${region.first}. 어울리는 시작은 ${region.persona}입니다.</span></span></div>
               </div>
             </div>
           `;
@@ -2908,7 +2875,9 @@
         }
 
     function renderReader() {
-      readerGrid.innerHTML = readerSections.map((section, index) => {
+      const readerOrder = ["나라와 권역", "종족과 문화", "도시와 마을", "돈과 물건", "달력과 계절", "역사와 소문"];
+      const orderedSections = readerOrder.map(title => readerSections.find(section => section.title === title)).filter(Boolean);
+      readerGrid.innerHTML = orderedSections.map(section => {
         const visual = readerVisuals[section.title];
         const spotlight = visual ? `
           <div class="reader-spotlight">
@@ -2920,7 +2889,7 @@
           </div>
         ` : "";
         return `
-        <details class="reader-card" ${index < 2 ? "open" : ""}>
+        <details class="reader-card">
           <summary>
             <i class="reader-summary-icon" aria-hidden="true">${visual ? visual.icon : "•"}</i>
             <span class="reader-summary-text"><b>${section.title}</b><span>${visual ? visual.line : section.summary}</span></span>
@@ -2952,15 +2921,20 @@
 
       const draw = () => {
         const slide = slides[current];
+        container.setAttribute("role", "region");
+        container.setAttribute("aria-roledescription", "carousel");
+        container.setAttribute("aria-label", `${slide.title} 이미지 모음`);
+        container.setAttribute("tabindex", "0");
         container.innerHTML = `
           <div class="slide-stage">
             <button class="slide-control prev" type="button" aria-label="이전 이미지">‹</button>
             <img loading="lazy" src="${slide.src}" alt="${slide.alt}">
             <button class="slide-control next" type="button" aria-label="다음 이미지">›</button>
           </div>
-          <div class="slide-meta">
+          <div class="slide-meta" aria-live="polite">
             <strong>${slide.title}</strong>
             <p>${slide.caption}</p>
+            <span class="slide-count">${current + 1} / ${slides.length}</span>
             <button class="slide-open" type="button">이미지 확대해서 보기</button>
           </div>
           <div class="slide-thumbs" role="tablist" aria-label="${slide.title} 이미지 선택">
@@ -2994,6 +2968,18 @@
       };
 
       draw();
+      container.addEventListener("keydown", event => {
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          current = (current - 1 + slides.length) % slides.length;
+          draw();
+        }
+        if (event.key === "ArrowRight") {
+          event.preventDefault();
+          current = (current + 1) % slides.length;
+          draw();
+        }
+      });
     }
 
     function clampZoom(value) {
