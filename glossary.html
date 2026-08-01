@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="비레스의 나라, 도시, 종족, 화폐, 달력과 역사를 찾는 고유명사 사전">
+  <title>비레스 고유명사 사전</title>
+  <link rel="icon" href="data:,">
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+  <style>
+    :root {
+      --bg: #f4efe5;
+      --paper: #fffdf7;
+      --ink: #17211d;
+      --muted: #607069;
+      --line: #d8cbb7;
+      --green: #255d43;
+      --green-dark: #163d31;
+      --gold: #b48037;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: linear-gradient(180deg, #efe5d4 0%, var(--bg) 58%, #ece2d1 100%);
+      font-family: "Segoe UI", "Noto Sans KR", "Apple SD Gothic Neo", Arial, sans-serif;
+      line-height: 1.65;
+      word-break: keep-all;
+    }
+
+    a { color: inherit; }
+    button, input { font: inherit; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px clamp(16px, 4vw, 54px);
+      border-bottom: 1px solid rgba(35, 53, 43, 0.16);
+      background: rgba(255, 253, 247, 0.92);
+      backdrop-filter: blur(16px);
+    }
+
+    .brand {
+      display: grid;
+      color: var(--green-dark);
+      line-height: 1.1;
+      text-decoration: none;
+    }
+
+    .brand span {
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+    }
+
+    .brand b { font-size: 17px; }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--green-dark);
+      background: var(--paper);
+      font-size: 14px;
+      font-weight: 850;
+      text-decoration: none;
+    }
+
+    .back-link svg { width: 16px; height: 16px; }
+
+    main {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: clamp(48px, 8vw, 92px) 0 90px;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      color: var(--green-dark);
+      font-family: Georgia, "Noto Serif KR", serif;
+      font-size: clamp(42px, 8vw, 78px);
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 720px;
+      margin: 22px 0 0;
+      color: #405048;
+      font-size: clamp(17px, 2vw, 20px);
+    }
+
+    .search-panel {
+      margin: clamp(34px, 6vw, 62px) 0 30px;
+      padding: clamp(20px, 4vw, 34px);
+      border-top: 3px solid var(--green);
+      background: rgba(255, 253, 247, 0.82);
+      box-shadow: 0 16px 44px rgba(21, 28, 24, 0.08);
+    }
+
+    .search-field {
+      position: relative;
+    }
+
+    .search-field svg {
+      position: absolute;
+      left: 17px;
+      top: 50%;
+      width: 21px;
+      height: 21px;
+      color: var(--green);
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    #glossarySearch {
+      width: 100%;
+      min-height: 56px;
+      padding: 13px 16px 13px 50px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      color: var(--ink);
+      background: var(--paper);
+      font-size: 17px;
+    }
+
+    #glossarySearch:focus-visible {
+      outline: 3px solid rgba(37, 93, 67, 0.22);
+      border-color: var(--green);
+    }
+
+    #glossaryFilters {
+      display: flex;
+      gap: 8px;
+      margin-top: 16px;
+      padding-bottom: 4px;
+      overflow-x: auto;
+      scrollbar-width: thin;
+    }
+
+    .filter-button {
+      flex: 0 0 auto;
+      padding: 8px 13px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: #425148;
+      background: transparent;
+      font-size: 13px;
+      font-weight: 850;
+      cursor: pointer;
+    }
+
+    .filter-button[aria-pressed="true"] {
+      border-color: var(--green);
+      color: #fffdf7;
+      background: var(--green);
+    }
+
+    .results-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 0 2px 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .results-head h2 {
+      margin: 0;
+      color: var(--green-dark);
+      font-family: Georgia, "Noto Serif KR", serif;
+      font-size: clamp(24px, 4vw, 34px);
+    }
+
+    #glossaryCount {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    #glossaryResults {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 0;
+    }
+
+    .term {
+      min-width: 0;
+      padding: 24px 24px 26px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .term:nth-child(even) {
+      padding-left: 24px;
+      border-left: 1px solid var(--line);
+    }
+
+    .term-kind {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 7px;
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+    }
+
+    .term h3 {
+      margin: 0 0 8px;
+      color: var(--green-dark);
+      font-size: 21px;
+    }
+
+    .term p {
+      margin: 0;
+      color: #3f4e46;
+    }
+
+    .term-region {
+      display: block;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .empty {
+      grid-column: 1 / -1;
+      padding: 48px 0;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      main { width: min(100% - 28px, 1120px); }
+      .topbar { align-items: flex-start; }
+      #glossaryResults { grid-template-columns: 1fr; }
+      .term,
+      .term:nth-child(even) {
+        padding: 20px 0;
+        border-left: 0;
+      }
+      .results-head { align-items: flex-start; flex-direction: column; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="topbar" aria-label="고유명사 사전 이동">
+    <a class="brand" href="./index.html"><span>VIRETH 5083</span><b>고유명사 사전</b></a>
+    <a class="back-link" href="./index.html"><i data-lucide="arrow-left" aria-hidden="true"></i>여행 안내로 돌아가기</a>
+  </nav>
+
+  <main>
+    <header>
+      <p class="eyebrow">이름으로 찾는 비레스</p>
+      <h1>낯선 이름 하나에서 길이 시작된다.</h1>
+      <p class="lead">
+        나라와 도시, 종족과 화폐, 달력과 오래된 사건을 한곳에 모았다.
+        이름을 입력하거나 범주를 고르면 짧은 뜻과 관련 권역을 바로 찾을 수 있다.
+      </p>
+    </header>
+
+    <section class="search-panel" aria-label="고유명사 검색">
+      <label class="search-field">
+        <i data-lucide="search" aria-hidden="true"></i>
+        <input id="glossarySearch" type="search" placeholder="예: 레오니아, 은량, 녹지절력, 그린할로우" autocomplete="off">
+      </label>
+      <div id="glossaryFilters" aria-label="고유명사 범주"></div>
+    </section>
+
+    <section aria-labelledby="resultsTitle">
+      <div class="results-head">
+        <h2 id="resultsTitle">찾아볼 수 있는 이름</h2>
+        <span id="glossaryCount" aria-live="polite"></span>
+      </div>
+      <div id="glossaryResults"></div>
+    </section>
+  </main>
+
+  <script>
+    const regionRecords = [
+      ["레오니아", "라드아르할", ["지르바르에트", "팔테쿰가", "렘다트움"], "왕실과 기사 봉토가 중심인 중앙집권 왕국이다."],
+      ["노르가르드", "마르나브미르", ["페르나브부두", "아르마르토르", "나브할가"], "군항과 철강, 해상 법이 발달한 해군 왕국이다."],
+      ["티리스", "라드바르할", ["베크켈카르", "가르메브에트", "벨소르엘", "실테크에트", "소르이엘토르"], "농경 영지와 서부 접경이 맞물린 군주국이다."],
+      ["린레네트", "레눔가", ["린산가", "님렌할", "다트킨할", "렘렌가"], "기록원과 극장, 후원 계약이 권력을 이루는 학예 공화 도시국가다."],
+      ["벡도레트", "도르카르", ["켈카르", "베크할", "도르테쿰", "엔할가"], "방벽과 병영, 군법으로 유지되는 요새 도시국가다."],
+      ["센할레트", "센푸쿰", ["벨바르", "센푸크에트", "가르센에트", "벱렌할"], "공동 창고와 수문 회의가 배급을 관리하는 농업 국가다."],
+      ["헤스페레트", "헤스푸쿰", ["헤스켈카르", "페르바르", "람지르바르", "메브켈에트"], "저장고와 맹세석, 무기 거래가 강한 북방 복합권이다."],
+      ["켈나베트", "마르켈미르", ["워크바르", "마르렌움", "나브할", "움마르켈"], "자유항과 해도, 원정 허가로 묶인 항해 연방이다."],
+      ["헤스베케트", "베크헤스푸쿰", ["헤스워켈", "나르할", "메브헤스베크"], "공동 불씨와 겨울 저장고가 생존을 지탱하는 혹한 군주국이다."],
+      ["옌메베트", "옌워켈", ["옌베크할", "실베크에트", "실람렌움"], "고공길과 숲 경계를 함께 관리하는 동맹 군주국이다."],
+      ["님나레트", "얄베크움", ["님나할", "푸크나움", "헤드렌움", "엔켈할"], "위험 재료와 금지 지식을 감찰하는 폐쇄 학술국이다."],
+      ["실니메트", "도르소르산", ["실메르미르", "벨마르미르", "실소르켈", "메브메르켈"], "산악 사원과 약초 장터, 강하 항구가 느슨하게 연결된 남방 복합권이다."],
+      ["아르도레트", "도르소르할", ["옌이엘토르", "아르소르산", "도르켈바르", "소르할"], "고산 수도원과 관측대가 권위를 갖는 신정 왕국이다."],
+      ["가르메베트", "틱메브할", ["벨람바르", "메브바르", "벨베크엘", "워크렌움"], "우물과 계절 이동로를 공유하는 유목 부족 연합이다."],
+      ["실할레트", "실소르산", ["라드실할", "실베크엘", "실테크엘", "실다트바르"], "성림과 왕실 정원을 보호하는 숲 신정 군주국이다."],
+      ["메르할레트", "메르벨마르", ["메르바르", "헤드켈바르", "푸크테쿰", "메르님바르"], "강하 항구와 창고, 상업 법정으로 움직이는 공화국이다."],
+      ["님소레트", "님할", ["님렘할", "소르다트움", "렌테쿰", "렌메르미르"], "학당과 신전, 후원청이 왕권과 결합한 학문·종교 군주국이다."],
+      ["실바니아", "실렌산", ["워크켈할", "렌얄움", "움켈산"], "안개숲과 고문서 계보로 알려진 주변 대륙권이다."],
+      ["드래곤스파이어", "나르마르켈", ["나르베크토르", "나르마르렌움", "마르모스할"], "분화 감시와 위험 항로로 이어지는 화산 군도권이다."],
+      ["펜리르의 눈", "둔아르토르", ["둔나브렌움", "움마르소르", "벱나브할"], "등대 소실과 난파 기록이 쌓인 외해 금기권이다."]
+    ];
+
+    const glossary = [];
+    regionRecords.forEach(([name, capital, cities, description]) => {
+      glossary.push({ name, kind: "국가·권역", region: name, description });
+      glossary.push({ name: capital, kind: "도시·마을", region: name, description: `${name}의 수도 또는 중심 거점이다.` });
+      cities.forEach(city => glossary.push({ name: city, kind: "도시·마을", region: name, description: `${name}의 주요 도시 또는 지역 거점이다.` }));
+    });
+
+    glossary.push(
+      { name: "실버킵", kind: "도시·마을", region: "티리스", description: "티리스 수도 라드바르할의 생활명이다." },
+      { name: "레이븐스톤", kind: "도시·마을", region: "티리스", description: "티리스 도시 베크켈카르의 생활명이다. 서부 접경 방어의 중심지다." },
+      { name: "그린할로우", kind: "도시·마을", region: "티리스", description: "5068년에 상실된 티리스 서부의 옛 영지다." },
+      { name: "뉴할로우", kind: "도시·마을", region: "티리스", description: "5069년 이후 레이븐스톤 외곽에 형성된 피난민 재정착지다." },
+
+      { name: "인간계", kind: "종족·집단", region: "전역", description: "거의 모든 국가에 퍼진 다수층이다. 한 문화나 국가로 묶이지 않는다." },
+      { name: "페르브루니르", kind: "종족·집단", region: "산악·도시", description: "광맥, 제련, 석재, 병기 보수와 가까운 철맥계다." },
+      { name: "실레니르", kind: "종족·집단", region: "숲·학술권", description: "계보와 숲길 기록을 오래 보존하는 숲기록계다." },
+      { name: "메르세니르", kind: "종족·집단", region: "농경·상업권", description: "종자, 장터, 이동 장부를 다루는 씨앗상단계다." },
+      { name: "님소리르", kind: "종족·집단", region: "산악·남방", description: "혈통 의례, 약초, 산악 통역과 연결된 정령혈통계다." },
+      { name: "노스킨·발카이트", kind: "종족·집단", region: "북방권", description: "혹한 생존과 저장고, 고개 안내에 익숙한 북방 복합 집단이다." },
+      { name: "렌실리르", kind: "종족·집단", region: "실바니아", description: "실바니아 계보 기록에 나타나는 집단이다. 외부 기록은 불완전하다." },
+      { name: "소르실리르", kind: "종족·집단", region: "실바니아", description: "실바니아 의례 기록에 나타나는 집단이다. 외부 기록은 불완전하다." },
+      { name: "드라나리르", kind: "종족·집단", region: "드래곤스파이어", description: "화산 용혈 전승과 의례 기록으로 구분되는 집단이다." },
+      { name: "벨마리르", kind: "종족·집단", region: "외해권", description: "외해의 해도 주석과 구조 기록에 남은 해양 집단이다." },
+      { name: "린마리르", kind: "종족·집단", region: "외해권", description: "항해 노래와 실종자 기억에 남은 외해 집단이다." },
+
+      { name: "금표", kind: "화폐·단위", region: "전역", description: "20은량에 해당하는 고액 봉인 표식이다." },
+      { name: "은량", kind: "화폐·단위", region: "전역", description: "세금과 장거리 거래의 기준이 되는 은 회계 단위다." },
+      { name: "반은", kind: "화폐·단위", region: "전역", description: "1/2은량이다. 숙박과 장인 품삯, 작은 계약금에 자주 쓰인다." },
+      { name: "동각", kind: "화폐·단위", region: "전역", description: "1/12은량이다. 장터 음식과 나루, 짐꾼 값에 쓰는 소액 주화다." },
+      { name: "철각", kind: "화폐·단위", region: "전역", description: "1/60은량이다. 빵과 죽, 낮은 통행료처럼 작은 값에 쓰인다." },
+      { name: "천걸음", kind: "화폐·단위", region: "전역", description: "약 750미터에 해당하는 짧은 거리 단위다." },
+      { name: "평지 하룻길", kind: "화폐·단위", region: "전역", description: "좋은 길과 날씨에서 25~35킬로미터를 가리킨다." },
+      { name: "산길 하룻길", kind: "화폐·단위", region: "전역", description: "고개와 산길에서 12~18킬로미터를 가리킨다." },
+      { name: "손무게", kind: "화폐·단위", region: "전역", description: "약 0.5킬로그램에 해당하는 무게 단위다." },
+      { name: "등짐", kind: "화폐·단위", region: "전역", description: "한 사람이 지고 움직이는 약 30킬로그램의 짐이다." },
+      { name: "작은되", kind: "화폐·단위", region: "전역", description: "약 0.8리터의 부피 단위다." },
+      { name: "말", kind: "화폐·단위", region: "전역", description: "약 8리터의 부피 단위다." },
+      { name: "자루", kind: "화폐·단위", region: "전역", description: "곡물과 저장품에 쓰는 40~50리터의 부피 단위다." },
+      { name: "노동일", kind: "화폐·단위", region: "전역", description: "성인 한 사람의 하루 노동을 값으로 나타낸 단위다." },
+      { name: "물몫", kind: "화폐·단위", region: "농경권", description: "관개 수문을 사용할 수 있는 권리다." },
+      { name: "창고몫", kind: "화폐·단위", region: "농경·북방권", description: "공동 창고에서 배급받을 수 있는 권리다." },
+
+      { name: "비레스일", kind: "달력·시간", region: "전역", description: "26시간으로 이루어진 비레스의 하루다." },
+      { name: "비레스년", kind: "달력·시간", region: "전역", description: "660비레스일로 이루어진 한 해다." },
+      { name: "용관력", kind: "달력·시간", region: "레오니아", description: "서임과 궁정 의례를 기록하는 10일 주기 달력이다." },
+      { name: "조류력", kind: "달력·시간", region: "노르가르드", description: "조류와 겨울 보급 일정을 기록하는 10일 주기 달력이다." },
+      { name: "녹지절력", kind: "달력·시간", region: "티리스", description: "파종과 수확, 장터와 배급을 기록하는 10일 주기 달력이다." },
+      { name: "예술력", kind: "달력·시간", region: "린레네트", description: "공연과 공개 논쟁 일정을 기록하는 10일 주기 달력이다." },
+      { name: "철문력", kind: "달력·시간", region: "벡도레트", description: "교대와 통금, 공사 동원일을 기록하는 10일 주기 달력이다." },
+      { name: "공동력", kind: "달력·시간", region: "센할레트", description: "파종과 수문 개방, 공동 창고 일정을 기록하는 10일 주기 달력이다." },
+      { name: "명예력", kind: "달력·시간", region: "헤스페레트", description: "맹세일과 저장 점검일을 기록하는 12일 주기 달력이다." },
+      { name: "해도력", kind: "달력·시간", region: "켈나베트", description: "출항 허가와 원정 시기를 기록하는 11일 주기 달력이다." },
+      { name: "저장력", kind: "달력·시간", region: "헤스베케트", description: "긴 겨울과 이동 가능기를 기록하는 15일 주기 달력이다." },
+      { name: "생태력", kind: "달력·시간", region: "옌메베트", description: "눈선과 개화, 고개 통행기를 기록하는 20일 주기 달력이다." },
+      { name: "은성력", kind: "달력·시간", region: "님나레트", description: "관측표와 봉인 해제일을 기록하는 11일 주기 달력이다." },
+      { name: "관측력", kind: "달력·시간", region: "남방 산악권", description: "천문 관측과 산악 일정을 맞추는 11일 주기 달력이다." },
+      { name: "이동력", kind: "달력·시간", region: "가르메베트", description: "풀과 물, 가축 번식기를 따라가는 12일 주기 달력이다." },
+      { name: "시장력", kind: "달력·시간", region: "메르할레트", description: "강하 장터와 창고 결산일을 맞추는 10일 주기 달력이다." },
+
+      { name: "노르가르드 항만법 기원", kind: "역사·사건", region: "노르가르드", description: "난파 책임과 선장 보증, 항만세를 장부로 묶은 장기 형성 사건이다." },
+      { name: "티리스 낮은 율례 성립", kind: "역사·사건", region: "티리스", description: "1450~1700년에 농지와 봉납, 구휼, 통행 책임을 생활 법질서로 묶은 과정이다." },
+      { name: "철의 수호자 전쟁", kind: "역사·사건", region: "북방·벡도레트", description: "3360~3410년에 북방 무기 공급과 벡도레트 병참을 고착시킨 장기전이다." },
+      { name: "님나레트 감찰법 결합", kind: "역사·사건", region: "님나레트", description: "3600~3900년 이후 위험 재료와 금지 학술을 봉인·허가제로 묶은 변화다." },
+      { name: "그린할로우 상실", kind: "역사·사건", region: "티리스", description: "5068년에 티리스 서부 영지와 농경 기록이 끊긴 사건이다." },
+      { name: "뉴할로우 재정착", kind: "역사·사건", region: "티리스", description: "5069~5082년에 피난민과 종자, 구휼품이 모여 새 정착지를 이룬 과정이다." },
+      { name: "외해 금기 장부 확정", kind: "역사·사건", region: "펜리르의 눈", description: "4020~4090년 이후 등대 소실과 난파 기록이 항해 금기로 굳어진 과정이다." },
+      { name: "드래곤스파이어 분화 항로 고정", kind: "역사·사건", region: "드래곤스파이어", description: "화산 경고와 피난선, 보험 책임을 항로 제도로 만든 사건이다." },
+
+      { name: "왕실 법정·서임망", kind: "기관·장소", region: "레오니아·티리스", description: "판결과 추천장, 기사 서임을 다루는 왕실 기관망이다." },
+      { name: "해상 법원·보험망", kind: "기관·장소", region: "항만권", description: "항만세와 난파 책임, 선박 징발, 보험 지급을 판정한다." },
+      { name: "성문 군법망", kind: "기관·장소", region: "벡도레트·티리스", description: "통행증과 무기, 병참 우선권을 심사하는 접경 기관망이다." },
+      { name: "수로 회의·공동 창고", kind: "기관·장소", region: "센할레트", description: "수문 개폐와 종자 보존, 배급 순서, 노동일을 정한다." },
+      { name: "숲의 법정·채집 허가망", kind: "기관·장소", region: "숲권", description: "벌목과 약초 반출, 사냥권, 장례 목패를 다룬다." },
+      { name: "상업 법원·통행세 관청", kind: "기관·장소", region: "메르할레트", description: "강하 운송과 창고 봉인, 계약 파기, 손실 책임을 판정한다." },
+      { name: "감찰실·봉인 창고", kind: "기관·장소", region: "님나레트", description: "위험 재료와 금지 문서, 외부자 출입을 통제한다." },
+      { name: "학당·기록원·후원청", kind: "기관·장소", region: "학술권", description: "사본 열람과 공개 논쟁, 후원 계약, 검열을 관리한다." },
+
+      { name: "북방 절벽해안", kind: "지형·생활권", region: "북방", description: "군항과 철강 부두, 등대촌이 이어지는 해무 많은 암반 해안이다." },
+      { name: "북방 산악 저장대", kind: "지형·생활권", region: "북방", description: "광맥과 고개, 겨울 저장고가 모인 산지다." },
+      { name: "북동 혹한 고원", kind: "지형·생활권", region: "헤스베케트", description: "적설과 사냥숲, 폐쇄로가 강한 생활권이다." },
+      { name: "서부 외해 항로권", kind: "지형·생활권", region: "켈나베트", description: "자유항과 보급섬이 이어지는 항해권이다." },
+      { name: "온대 왕도 평야", kind: "지형·생활권", region: "레오니아", description: "궁정길과 기사 봉토가 펼쳐진 내륙 평야다." },
+      { name: "티리스 농경 저지대", kind: "지형·생활권", region: "티리스", description: "곡물과 목축, 수로가 모인 영지권이다." },
+      { name: "티리스 서부 접경 구릉", kind: "지형·생활권", region: "티리스", description: "그린할로우와 뉴할로우, 베크켈카르가 놓인 폐허·피난·재개간 지대다." },
+      { name: "내해·하구 습지대", kind: "지형·생활권", region: "내해권", description: "수문과 갈대밭, 나루, 염수 침투가 얽힌 저지대다." },
+      { name: "동부 고공 산림 경계", kind: "지형·생활권", region: "옌메베트", description: "고공길과 숲문이 만나는 산림권이다." },
+      { name: "님나레트 폐쇄 고원", kind: "지형·생활권", region: "님나레트", description: "감찰 관문과 봉인 창고가 모인 제한 지대다." },
+      { name: "남방 사원 산지", kind: "지형·생활권", region: "실니메트", description: "약초와 산악 사원, 성림 접촉이 모인 산지다." },
+      { name: "강하 하구 상업권", kind: "지형·생활권", region: "메르할레트", description: "창고와 항구가 강을 따라 이어지는 물류권이다." },
+      { name: "남부 초지·반건조권", kind: "지형·생활권", region: "가르메베트", description: "우물과 계절 야영지가 놓인 이동권이다." },
+      { name: "실바니아 안개숲", kind: "지형·생활권", region: "실바니아", description: "길잡이와 계보 기록 없이는 이동하기 어려운 외곽 숲이다." },
+      { name: "드래곤스파이어 화산 군도", kind: "지형·생활권", region: "드래곤스파이어", description: "분화 감시와 피난 항로가 필요한 섬권이다." }
+    );
+
+    const categories = ["전체", ...new Set(glossary.map(item => item.kind))];
+    const search = document.getElementById("glossarySearch");
+    const filters = document.getElementById("glossaryFilters");
+    const results = document.getElementById("glossaryResults");
+    const count = document.getElementById("glossaryCount");
+    let activeCategory = "전체";
+
+    const escapeHtml = value => value.replace(/[&<>"']/g, character => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
+    })[character]);
+
+    function renderFilters() {
+      filters.innerHTML = categories.map(category => `
+        <button class="filter-button" type="button" data-category="${category}" aria-pressed="${category === activeCategory ? "true" : "false"}">${category}</button>
+      `).join("");
+      filters.querySelectorAll("button").forEach(button => {
+        button.addEventListener("click", () => {
+          activeCategory = button.dataset.category;
+          renderFilters();
+          renderResults();
+        });
+      });
+    }
+
+    function renderResults() {
+      const query = search.value.trim().toLocaleLowerCase("ko");
+      const matched = glossary
+        .filter(item => activeCategory === "전체" || item.kind === activeCategory)
+        .filter(item => `${item.name} ${item.description} ${item.region}`.toLocaleLowerCase("ko").includes(query))
+        .sort((a, b) => a.name.localeCompare(b.name, "ko"));
+
+      count.textContent = `${matched.length}개 이름`;
+      results.innerHTML = matched.length ? matched.map(item => `
+        <article class="term">
+          <span class="term-kind">${escapeHtml(item.kind)}</span>
+          <h3>${escapeHtml(item.name)}</h3>
+          <p>${escapeHtml(item.description)}</p>
+          <span class="term-region">관련 권역 · ${escapeHtml(item.region)}</span>
+        </article>
+      `).join("") : `<p class="empty">일치하는 이름이 없다. 다른 철자나 범주로 다시 찾아볼 수 있다.</p>`;
+    }
+
+    search.addEventListener("input", renderResults);
+    renderFilters();
+    renderResults();
+    window.addEventListener("DOMContentLoaded", () => window.lucide?.createIcons({ attrs: { "stroke-width": 1.9 } }));
+  </script>
+</body>
+</html>

@@ -30,6 +30,17 @@ function Assert-Count {
     }
 }
 
+function Assert-NotContains {
+    param(
+        [string]$Pattern,
+        [string]$Message
+    )
+
+    if ($html -match $Pattern) {
+        $failures.Add($Message)
+    }
+}
+
 $regions = @(
     '레오니아', '노르가르드', '티리스', '린레네트', '벡도레트',
     '센할레트', '헤스페레트', '켈나베트', '헤스베케트', '옌메베트',
@@ -59,7 +70,7 @@ foreach ($field in @('money', 'people', 'time', 'history')) {
 }
 
 Assert-Count -Pattern '"capitalName":\s*"[^"]+"' -Expected 20 -Message '권역 대표 거점 20개 불일치'
-Assert-Count -Pattern 'class="region-fact"' -Expected 8 -Message '권역 기사 정보 여덟 항목 불일치'
+Assert-Count -Pattern 'class="region-fact"' -Expected 4 -Message '권역 기사 정보 네 묶음 불일치'
 
 $readerBlock = [regex]::Match($html, 'const readerSections = \[(?<body>[\s\S]*?)\];\s*const readerIconNames').Groups['body'].Value
 $readerCount = [regex]::Matches($readerBlock, 'title:\s*"(나라와 권역|종족과 문화|도시와 마을|돈과 물건|달력과 계절|역사와 소문)"').Count
@@ -67,15 +78,7 @@ if ($readerCount -ne 6) {
     $failures.Add("세계 읽기 여섯 묶음 불일치 (expected=6 actual=$readerCount)")
 }
 
-$detailLabels = @(
-    '이곳에서는 무엇이 길을 열까요?',
-    '먼저 만나게 될 도시',
-    '사람과 종족',
-    '장터에서 값을 치르는 법',
-    '길을 나서기 좋은 때',
-    '사람들이 아직 기억하는 이야기',
-    '어디서 이야기를 시작할까요?'
-)
+$detailLabels = @('도시와 사람', '돈과 계절', '역사와 현재', '첫 장면')
 
 foreach ($label in $detailLabels) {
     Assert-Contains -Pattern ([regex]::Escape($label)) -Message "권역 상세 항목 누락: $label"
@@ -108,18 +111,42 @@ Assert-Contains -Pattern '비레스를 먼저 걸으며 낯선 길과 사람의 
 Assert-Contains -Pattern '붉은 망토를 두르고, 무너진 길에서도 사람을 지키려는 기사' -Message '듀란 공개 소개 누락'
 Assert-Count -Pattern 'class="guide-profile' -Expected 2 -Message '렌·듀란 안내자 프로필 두 개 불일치'
 Assert-Contains -Pattern 'data-lucide=' -Message '루시드 아이콘 체계 누락'
-Assert-Contains -Pattern '사건 당사자는 아닙니다' -Message '안내자 역할 경계 문구 누락'
+Assert-Contains -Pattern '사건 당사자는 아니다' -Message '안내자 역할 경계 문구 누락'
 Assert-Count -Pattern 'class="section-band' -Expected 4 -Message '전폭 섹션 밴드 네 개 불일치'
 Assert-Contains -Pattern 'class="region-index"' -Message '권역 색인 누락'
 Assert-Contains -Pattern 'class="region-index-shell"' -Message '권역 가로 슬라이더 셸 누락'
+Assert-Contains -Pattern 'class="region-card-keywords"' -Message '권역 카드 핵심어 묶음 누락'
 Assert-Count -Pattern 'class="region-index-control' -Expected 2 -Message '권역 슬라이더 이전·다음 버튼 불일치'
 Assert-Contains -Pattern 'id="regionPosition"' -Message '권역 슬라이더 현재 위치 표시 누락'
 Assert-Contains -Pattern 'regionGrid\.addEventListener\("keydown"' -Message '권역 슬라이더 방향키 조작 누락'
+Assert-Contains -Pattern 'location\.hash\s*===\s*"#regions"' -Message '구형 권역 링크 첫 화면 복구 누락'
+Assert-Contains -Pattern 'history\.replaceState' -Message '구형 권역 링크 주소 정리 누락'
 Assert-Contains -Pattern 'class="region-article"' -Message '권역 기사 누락'
 Assert-Contains -Pattern 'class="region-article-hero"' -Message '권역 전폭 대표 이미지 누락'
 Assert-Contains -Pattern 'class="reader-chapter"' -Message '장 제목형 세계 읽기 누락'
+Assert-Contains -Pattern '<strong class="reader-keyword">' -Message '세계 읽기 핵심어 강조 누락'
 Assert-Contains -Pattern 'class="start-path"' -Message '무박스 플레이 유형 누락'
 Assert-Count -Pattern '<section id="(?:regions|read|start|images)" class="section">' -Expected 0 -Message '구형 박스 섹션 잔존'
+Assert-Contains -Pattern 'href="\./glossary\.html"' -Message '고유명사 검색 페이지 링크 누락'
+Assert-NotContains -Pattern '궁정, 기사, 납품 장부가 길을 여닫습니다' -Message '어색한 권역 소개 문장 잔존'
+
+$politeCount = [regex]::Matches($html, '(?<!아)니다[\.?!]|세요[\.?!]|까요[\.?!]').Count
+if ($politeCount -gt 20) {
+    $failures.Add("공개 문체의 존댓말 종결 과다 (limit=20 actual=$politeCount)")
+}
+
+$glossaryPath = Join-Path (Split-Path -Parent $HtmlPath) 'glossary.html'
+if (-not (Test-Path -LiteralPath $glossaryPath)) {
+    $failures.Add('고유명사 검색 페이지 파일 누락')
+}
+else {
+    $glossary = Get-Content -Raw -LiteralPath $glossaryPath -Encoding UTF8
+    foreach ($pattern in @('id="glossarySearch"', 'id="glossaryFilters"', 'id="glossaryResults"', 'aria-live="polite"')) {
+        if ($glossary -notmatch $pattern) {
+            $failures.Add("고유명사 검색 기능 누락: $pattern")
+        }
+    }
+}
 
 $relativeSources = [regex]::Matches($html, '(?:src|href)="(\./[^"#?]+)"')
 foreach ($match in $relativeSources) {

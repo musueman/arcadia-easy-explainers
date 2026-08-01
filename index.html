@@ -1754,10 +1754,46 @@
 
     .region-index-meta {
       display: block;
-      margin-top: 5px;
       color: var(--muted);
       font-size: 12px;
       font-weight: 800;
+    }
+
+    .region-card-text {
+      display: grid;
+      gap: 7px;
+      min-width: 0;
+    }
+
+    .region-card-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .region-card-keywords {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .region-card-keywords em {
+      padding: 3px 6px;
+      border: 1px solid rgba(37, 93, 67, 0.18);
+      color: #385348;
+      background: rgba(255, 253, 247, 0.62);
+      font-size: 11px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .region-button[aria-pressed="true"] .region-card-keywords em {
+      border-color: rgba(37, 93, 67, 0.34);
+      color: var(--green-dark);
+      background: rgba(255, 253, 247, 0.82);
     }
 
     .region-article {
@@ -2165,11 +2201,19 @@
   </style>
 </head>
 <body>
+  <script>
+    if (window.location.hash === "#regions") {
+      window.history.scrollRestoration = "manual";
+      window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
+      window.addEventListener("load", () => window.scrollTo({ top: 0, left: 0, behavior: "auto" }), { once: true });
+    }
+  </script>
   <nav class="topbar" aria-label="주요 이동">
     <a class="brand" href="#top"><span>VIRETH 5083</span><b>여행 안내</b></a>
     <div class="nav-links">
       <a href="#regions"><i data-lucide="map-pin" aria-hidden="true"></i>여행지 고르기</a>
       <a href="#read"><i data-lucide="book-open-text" aria-hidden="true"></i>비레스 알아보기</a>
+      <a href="./glossary.html"><i data-lucide="search" aria-hidden="true"></i>고유명사 찾기</a>
       <a href="#start"><i data-lucide="compass" aria-hidden="true"></i>시작 장면</a>
       <a href="#images"><i data-lucide="images" aria-hidden="true"></i>풍경 보기</a>
     </div>
@@ -2180,8 +2224,8 @@
       <p class="eyebrow">VIRETH 5083 · 첫 여행 안내</p>
       <h1>비레스에서 어디로 갈까요?</h1>
       <p class="lead">
-        왕도와 항구, 눈 덮인 고개와 안개숲은 저마다 다른 방식으로 여행자를 맞습니다.
-        가고 싶은 곳을 고르면 그곳의 사람, 돈, 계절과 오래된 소문을 바로 읽을 수 있습니다.
+        왕도와 항구, 눈 덮인 고개와 안개숲은 저마다 다른 얼굴로 여행자를 맞는다.
+        권역을 고르면 그 땅의 사람과 돈, 계절과 오래된 소문이 펼쳐진다.
       </p>
       <div class="hero-actions">
         <a class="button primary" href="#regions"><i data-lucide="map" aria-hidden="true"></i>여행지 고르기</a>
@@ -2191,7 +2235,7 @@
     </div>
     <div class="hero-guides" aria-label="비레스의 시각 안내자 렌과 듀란">
       <figure class="guide-portrait ren">
-        <img src="./viewer/assets/illustrations/character_guides/ren-guide-full-cutout.webp" alt="비레스를 먼저 여행한 렌. 기록의 저자나 사건 당사자는 아닙니다.">
+        <img src="./viewer/assets/illustrations/character_guides/ren-guide-full-cutout.webp" alt="비레스를 먼저 여행한 렌. 기록의 저자나 사건 당사자는 아니다.">
         <figcaption class="guide-profile ren-profile">
           <span class="guide-kicker">먼저 길을 건넌 여행자</span>
           <strong>렌</strong>
@@ -2199,7 +2243,7 @@
         </figcaption>
       </figure>
       <figure class="guide-portrait duran">
-        <img src="./viewer/assets/illustrations/character_guides/duran-guide-full-cutout.webp" alt="붉은 망토의 기사 듀란. 기록의 저자나 사건 당사자는 아닙니다.">
+        <img src="./viewer/assets/illustrations/character_guides/duran-guide-full-cutout.webp" alt="붉은 망토의 기사 듀란. 기록의 저자나 사건 당사자는 아니다.">
         <figcaption class="guide-profile duran-profile">
           <span class="guide-kicker">붉은 망토의 기사</span>
           <strong>듀란</strong>
@@ -2214,10 +2258,10 @@
       <div class="section-shell">
       <div class="section-head">
         <p class="eyebrow">권역 선택</p>
-        <h2>먼저 출발할 곳을 고르세요.</h2>
+        <h2>스무 권역, 서로 다른 첫 장면</h2>
         <p>
-          같은 은화도 항구와 산길에서 값이 다릅니다. 왕도에서 영웅담이 된 이야기가 숲 경계에서는 경고로 남기도 합니다.
-          이름을 고르면 수도의 풍경과 그곳 사람들이 살아가는 방식이 한눈에 펼쳐집니다.
+          같은 은화도 항구와 산길에서 값이 다르다. 왕도의 영웅담이 숲 경계에서는 경고로 남기도 한다.
+          이름을 고르면 수도의 풍경과 그 땅의 생활이 아래에 펼쳐진다.
         </p>
       </div>
 
@@ -2234,7 +2278,7 @@
           </div>
           <div class="region-index-status" aria-live="polite">
             <strong id="regionPosition">1 / 20</strong>
-            <span>옆으로 넘기거나 화살표를 눌러 다른 권역을 살펴보세요.</span>
+            <span>옆으로 넘겨 다른 권역 보기</span>
           </div>
         </div>
         <article id="regionDetail" class="region-article" aria-live="polite"></article>
@@ -2246,10 +2290,10 @@
       <div class="section-shell">
       <div class="section-head">
         <p class="eyebrow">비레스 알아보기</p>
-        <h2>길을 나서기 전에, 이 정도만 알아두세요.</h2>
+        <h2>길 위에서 먼저 마주치는 것들</h2>
         <p>
-          성문에서 왜 이름을 묻는지, 여관비는 얼마인지, 두 달이 뜨는 밤에는 무엇이 달라지는지 살펴봅니다.
-          긴 설명 대신 실제 여행 중 마주칠 사람과 물건, 계절과 소문을 중심으로 모았습니다.
+          성문에서는 <strong>이름과 보증인</strong>을 확인한다. 장터에서는 <strong>품삯과 물가</strong>가 오가고,
+          두 달이 뜨는 밤에는 길과 바다가 달라진다.
         </p>
       </div>
       <div id="readerGrid" class="reader-grid"></div>
@@ -2260,26 +2304,26 @@
       <div class="section-shell">
       <div class="section-head">
         <p class="eyebrow">내 첫 장면</p>
-        <h2>당신은 어떤 모습으로 길에 설까요?</h2>
-        <p>직업이 달라지면 처음 열리는 문도 달라집니다. 마음에 가까운 삶을 하나 고르고, 그다음 시작 장면을 펼쳐보세요.</p>
+        <h2>어떤 사람으로 시작할 것인가</h2>
+        <p>직업에 따라 처음 만나는 장소와 사건이 달라진다. 마음에 가까운 삶을 고른 뒤 시작 장면을 펼쳐 볼 수 있다.</p>
       </div>
       <div class="quick-paths">
-        <div class="start-path"><i class="path-icon" data-lucide="route" aria-hidden="true"></i><span><b>길 위의 여행자</b><span>여관과 검문소를 지나며 길값과 소문부터 배웁니다.</span></span></div>
-        <div class="start-path"><i class="path-icon" data-lucide="scroll-text" aria-hidden="true"></i><span><b>상인이나 서기</b><span>장부와 봉인 끈을 들고 물건값과 사람의 약속을 따집니다.</span></span></div>
-        <div class="start-path"><i class="path-icon" data-lucide="shield" aria-hidden="true"></i><span><b>호위나 용병</b><span>성문과 병영에서 무기, 경계, 징발 소문을 먼저 듣습니다.</span></span></div>
-        <div class="start-path"><i class="path-icon" data-lucide="house" aria-hidden="true"></i><span><b>피난민이나 정착민</b><span>이름패와 배급 줄 앞에서 머물 곳과 돌아갈 길을 찾습니다.</span></span></div>
+        <div class="start-path"><i class="path-icon" data-lucide="route" aria-hidden="true"></i><span><b>길 위의 여행자</b><span>여관과 검문소를 지나며 길값과 소문부터 배운다.</span></span></div>
+        <div class="start-path"><i class="path-icon" data-lucide="scroll-text" aria-hidden="true"></i><span><b>상인이나 서기</b><span>장부와 봉인 끈을 들고 물건값과 사람의 약속을 따진다.</span></span></div>
+        <div class="start-path"><i class="path-icon" data-lucide="shield" aria-hidden="true"></i><span><b>호위나 용병</b><span>성문과 병영에서 무기, 경계, 징발 소문을 먼저 듣는다.</span></span></div>
+        <div class="start-path"><i class="path-icon" data-lucide="house" aria-hidden="true"></i><span><b>피난민이나 정착민</b><span>이름패와 배급 줄 앞에서 머물 곳과 돌아갈 길을 찾는다.</span></span></div>
       </div>
       <div class="start-scenarios" id="start-situations">
-        <h3>내 이야기는 어디서 시작할까요?</h3>
-        <p>긴 장면은 접어 두었습니다. 마음에 드는 시작을 펼치면, 그 상황에서 무엇을 보고 듣고 선택하게 되는지 먼저 볼 수 있습니다.</p>
+        <h3>이야기가 시작되는 곳</h3>
+        <p>긴 장면은 접어 두었다. 마음에 드는 시작을 펼치면, 그 상황에서 무엇을 보고 듣고 선택하게 되는지 먼저 볼 수 있다.</p>
 
         <details class="start-scenario">
           <summary style="--start-bg: url('./viewer/assets/illustrations/single_slides/leonia-radarhal.jpg')">
-            <span class="start-summary"><i class="start-icon" data-lucide="door-open" aria-hidden="true"></i><span><b>성문 앞에서 시작</b><span>낯선 도시의 문 앞에서 이름과 용무를 묻는 장면입니다.</span></span></span>
+            <span class="start-summary"><i class="start-icon" data-lucide="door-open" aria-hidden="true"></i><span><b>성문 앞에서 시작</b><span>낯선 도시의 문 앞에서 이름과 용무를 묻는 장면이다.</span></span></span>
           </summary>
           <div class="start-scenario-body">
             <div class="start-tags"><span>여행자</span><span>성문 검문</span><span>소지품 확인</span><span>첫 선택</span></div>
-            <p>도시로 들어가려는 길 끝에서 시작합니다. 가진 것은 작은 가방과 동전 몇 닢, 길 위에서 닳은 표식들뿐입니다. 앞으로 걸어가면 성문 서기와 마주하고, 돌아서면 아직 도시 밖의 길이 남아 있습니다.</p>
+            <p>도시로 들어가려는 길 끝에서 시작한다. 가진 것은 작은 가방과 동전 몇 닢, 길 위에서 닳은 표식들뿐이다. 앞으로 걸어가면 성문 서기와 마주하고, 돌아서면 아직 도시 밖의 길이 남아 있다.</p>
             <div class="start-choices"><b>첫 선택</b>줄에 서서 용무를 밝히기 · 짐과 표식을 먼저 보여주기 · 성문 밖 사람들에게 소문을 묻기</div>
             <figure class="start-comic">
               <img loading="lazy" src="./viewer/assets/illustrations/start_situations/start-city-gate-day-v1.webp" alt="성문 앞에서 시작하는 웹툰 장면">
@@ -2289,11 +2333,11 @@
 
         <details class="start-scenario">
           <summary style="--start-bg: url('./viewer/assets/illustrations/single_slides/tiris-ravenstone.jpg')">
-            <span class="start-summary"><i class="start-icon" data-lucide="shield" aria-hidden="true"></i><span><b>비 오는 밤의 성문 근무</b><span>문 안쪽 초소에서 경비와 의심, 작은 소리가 시작됩니다.</span></span></span>
+            <span class="start-summary"><i class="start-icon" data-lucide="shield" aria-hidden="true"></i><span><b>비 오는 밤의 성문 근무</b><span>문 안쪽 초소에서 경비와 의심, 작은 소리가 시작된다.</span></span></span>
           </summary>
           <div class="start-scenario-body">
             <div class="start-tags"><span>호위·경비</span><span>야간 성문</span><span>분실물</span><span>누군가의 접근</span></div>
-            <p>비가 내리는 밤, 당신은 성문 안쪽의 작은 근무처에 있습니다. 맡겨진 물건은 사소해 보이지만, 그 물건 하나가 누가 안으로 들어왔고 누가 밖에 남았는지를 가르는 단서가 됩니다.</p>
+            <p>비가 내리는 밤, 당신은 성문 안쪽의 작은 근무처에 있다. 맡겨진 물건은 사소해 보이지만, 그 물건 하나가 누가 안으로 들어왔고 누가 밖에 남았는지를 가르는 단서가 된다.</p>
             <div class="start-choices"><b>첫 선택</b>떨어진 물건을 확인하기 · 빗소리 너머 발걸음을 쫓기 · 교대 책임자에게 먼저 알리기</div>
             <figure class="start-comic">
               <img loading="lazy" src="./viewer/assets/illustrations/start_situations/start-night-gate-watch-v1.webp" alt="비 오는 밤 성문 근무 웹툰 장면">
@@ -2303,11 +2347,11 @@
 
         <details class="start-scenario">
           <summary style="--start-bg: url('./viewer/assets/illustrations/generated_outputs/village_vistas/ck5083-village-hesferet-hespukga-imagegen-v1-2560-labeled.webp')">
-            <span class="start-summary"><i class="start-icon" data-lucide="file-signature" aria-hidden="true"></i><span><b>산길 여관의 의뢰</b><span>비 내리는 여관에서 낯선 계약과 책임을 건네받습니다.</span></span></span>
+            <span class="start-summary"><i class="start-icon" data-lucide="file-signature" aria-hidden="true"></i><span><b>산길 여관의 의뢰</b><span>비 내리는 여관에서 낯선 계약과 책임을 건네받는다.</span></span></span>
           </summary>
           <div class="start-scenario-body">
             <div class="start-tags"><span>의뢰 수락</span><span>여관</span><span>보상과 책임</span><span>호위길</span></div>
-            <p>비가 길을 막고, 여관 안에서는 누군가가 당신을 알아봅니다. 계약서는 짧지만 질문은 길게 남습니다. 어디까지 갈지, 누구의 책임을 질지, 보상보다 먼저 정해야 할 것이 생깁니다.</p>
+            <p>비가 길을 막고, 여관 안에서는 누군가가 당신을 알아본다. 계약서는 짧지만 질문은 길게 남는다. 어디까지 갈지, 누구의 책임을 질지, 보상보다 먼저 정해야 할 것이 생긴다.</p>
             <div class="start-choices"><b>첫 선택</b>계약의 목적지를 묻기 · 동행할 사람부터 확인하기 · 보상과 책임 범위를 다시 적기</div>
             <figure class="start-comic">
               <img loading="lazy" src="./viewer/assets/illustrations/start_situations/start-rainy-inn-contract-v1.webp" alt="산길 여관에서 의뢰를 받는 웹툰 장면">
@@ -2317,37 +2361,37 @@
 
         <details class="start-scenario">
           <summary style="--start-bg: url('./viewer/assets/illustrations/generated_outputs/village_outposts/ck5083-village-estate-market-yeongji-jangteo-imagegen-v1-2560-labeled.png')">
-            <span class="start-summary"><i class="start-icon" data-lucide="notebook-tabs" aria-hidden="true"></i><span><b>장터와 납품 장부</b><span>상인이나 서기로 시작해 봉인 끈과 환전 문제에 들어갑니다.</span></span></span>
+            <span class="start-summary"><i class="start-icon" data-lucide="notebook-tabs" aria-hidden="true"></i><span><b>장터와 납품 장부</b><span>상인이나 서기로 시작해 봉인 끈과 환전 문제에 들어간다.</span></span></span>
           </summary>
           <div class="start-scenario-body">
             <div class="start-tags"><span>상인·서기</span><span>장터</span><span>봉인 끈</span><span>환전</span></div>
-            <p>사람들은 물건보다 먼저 장부를 봅니다. 납품 도장이 맞는지, 은량과 곡표가 제대로 적혔는지, 누가 보증인인지에 따라 같은 짐도 전혀 다른 물건이 됩니다.</p>
+            <p>사람들은 물건보다 먼저 장부를 본다. 납품 도장이 맞는지, 은량과 곡표가 제대로 적혔는지, 누가 보증인인지에 따라 같은 짐도 전혀 다른 물건이 된다.</p>
             <div class="start-choices"><b>첫 선택</b>봉인 끈을 대조하기 · 환전값부터 따지기 · 보증인을 불러 장부를 다시 읽기</div>
-            <div class="start-placeholder">웹툰이 더해지기 전까지, 이 장면은 글로 먼저 공개됩니다.</div>
+            <div class="start-placeholder">웹툰이 더해지기 전까지, 이 장면은 글로 먼저 공개된다.</div>
           </div>
         </details>
 
         <details class="start-scenario">
           <summary style="--start-bg: url('./viewer/assets/illustrations/single_slides/tiris-newhollow.jpg')">
-            <span class="start-summary"><i class="start-icon" data-lucide="warehouse" aria-hidden="true"></i><span><b>피난민 배급 줄</b><span>이름패와 공동 창고, 귀향 논쟁에서 시작합니다.</span></span></span>
+            <span class="start-summary"><i class="start-icon" data-lucide="warehouse" aria-hidden="true"></i><span><b>피난민 배급 줄</b><span>이름패와 공동 창고, 귀향 논쟁에서 시작한다.</span></span></span>
           </summary>
           <div class="start-scenario-body">
             <div class="start-tags"><span>피난민</span><span>공동 창고</span><span>이름패</span><span>배급 순서</span></div>
-            <p>줄은 느리고, 사람들의 목소리는 낮습니다. 창고 문이 열리기 전부터 누구 이름이 먼저 불릴지, 누가 돌아갈 수 있고 누가 남아야 하는지를 두고 작은 다툼이 시작됩니다.</p>
+            <p>줄은 느리고, 사람들의 목소리는 낮다. 창고 문이 열리기 전부터 누구 이름이 먼저 불릴지, 누가 돌아갈 수 있고 누가 남아야 하는지를 두고 작은 다툼이 시작된다.</p>
             <div class="start-choices"><b>첫 선택</b>자신의 이름패를 확인하기 · 줄에서 벌어진 다툼을 말리기 · 창고지기에게 배급 장부를 묻기</div>
-            <div class="start-placeholder">웹툰이 더해지기 전까지, 이 장면은 글로 먼저 공개됩니다.</div>
+            <div class="start-placeholder">웹툰이 더해지기 전까지, 이 장면은 글로 먼저 공개된다.</div>
           </div>
         </details>
 
         <details class="start-scenario">
           <summary style="--start-bg: url('./viewer/assets/illustrations/single_slides/village-coastal-fishing-harbor.jpg')">
-            <span class="start-summary"><i class="start-icon" data-lucide="anchor" aria-hidden="true"></i><span><b>항만과 선착장의 새벽</b><span>배표, 항만세, 선적 장부가 얽히는 출발입니다.</span></span></span>
+            <span class="start-summary"><i class="start-icon" data-lucide="anchor" aria-hidden="true"></i><span><b>항만과 선착장의 새벽</b><span>배표, 항만세, 선적 장부가 얽히는 출발이다.</span></span></span>
           </summary>
           <div class="start-scenario-body">
             <div class="start-tags"><span>항만</span><span>선원·짐꾼</span><span>항만세</span><span>선적 장부</span></div>
-            <p>새벽 항구는 이미 깨어 있습니다. 젖은 밧줄 냄새와 장부 넘기는 소리 사이에서, 당신은 어느 배에 오를지 혹은 어떤 짐을 막아야 할지 선택하게 됩니다.</p>
+            <p>새벽 항구는 이미 깨어 있다. 젖은 밧줄 냄새와 장부 넘기는 소리 사이에서, 당신은 어느 배에 오를지 혹은 어떤 짐을 막아야 할지 선택하게 된다.</p>
             <div class="start-choices"><b>첫 선택</b>배표와 선적 장부를 맞추기 · 항만세 창구의 다툼을 살피기 · 출항 직전 선원에게 소문을 묻기</div>
-            <div class="start-placeholder">웹툰이 더해지기 전까지, 이 장면은 글로 먼저 공개됩니다.</div>
+            <div class="start-placeholder">웹툰이 더해지기 전까지, 이 장면은 글로 먼저 공개된다.</div>
           </div>
         </details>
       </div>
@@ -2358,10 +2402,10 @@
       <div class="section-shell">
       <div class="section-head">
         <p class="eyebrow">풍경 보기</p>
-        <h2>도시 한 곳을 천천히 바라보세요.</h2>
+        <h2>도시의 얼굴을 한 장씩</h2>
         <p>
-          높은 성벽과 젖은 부두, 산길 숙소와 작은 어항을 한 장씩 크게 넘겨볼 수 있습니다.
-          길과 경계가 궁금해졌을 때만 맨 아래 자료관을 펼치면 됩니다.
+          높은 성벽과 젖은 부두, 산길 숙소와 작은 어항을 한 장씩 크게 넘겨볼 수 있다.
+          길과 경계가 궁금해졌을 때만 맨 아래 자료관을 펼치면 된다.
         </p>
       </div>
       <div class="gallery-block">
@@ -2373,7 +2417,7 @@
         <details class="gallery-group" open>
           <summary>도시 전경 97장 보기</summary>
           <div class="image-slider">
-            <p class="gallery-note">각 권역의 수도, 대표도시, 지역도시를 한 장씩 넘겨볼 수 있습니다. 처음 보는 사람도 도시의 성벽, 항구, 장터, 산길, 신전과 창고가 어디에 붙어 있는지 바로 감을 잡게 하는 자료입니다.</p>
+            <p class="gallery-note">각 권역의 수도, 대표도시, 지역도시를 한 장씩 넘겨볼 수 있다. 처음 보는 사람도 도시의 성벽, 항구, 장터, 산길, 신전과 창고가 어디에 붙어 있는지 바로 감을 잡게 하는 자료다.</p>
           </div>
           <div id="citySlider" class="image-slider"></div>
         </details>
@@ -2381,7 +2425,7 @@
         <details class="gallery-group">
           <summary>마을과 초소 70장 보기</summary>
           <div class="image-slider">
-            <p class="gallery-note">도시 밖의 숙소촌, 어항, 감시 초소, 피난 표식촌처럼 장면을 작게 시작하기 좋은 곳들입니다.</p>
+            <p class="gallery-note">도시 밖의 숙소촌, 어항, 감시 초소, 피난 표식촌처럼 장면을 작게 시작하기 좋은 곳들이다.</p>
           </div>
           <div id="villageSlider" class="image-slider"></div>
         </details>
@@ -2389,7 +2433,7 @@
         <details class="gallery-group">
           <summary>지도와 자료관 열기</summary>
           <div class="image-slider">
-            <p class="gallery-note">정착지 좌표, 도로, 도시 인구, 마을 시설처럼 풍경만으로 알기 어려운 내용을 모았습니다.</p>
+            <p class="gallery-note">정착지 좌표, 도로, 도시 인구, 마을 시설처럼 풍경만으로 알기 어려운 내용을 모았다.</p>
           </div>
           <div id="diagramSlider" class="image-slider"></div>
         </details>
@@ -2400,7 +2444,7 @@
 
   <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="이미지 크게 보기">
     <div class="lightbox-toolbar">
-      <span class="lightbox-help">마우스 휠 또는 버튼으로 확대하고, 드래그해서 움직입니다.</span>
+      <span class="lightbox-help">마우스 휠 또는 버튼으로 확대하고, 드래그해서 움직인다.</span>
       <div class="lightbox-tools" aria-label="이미지 확대 도구">
         <button id="zoomOut" class="lightbox-tool" type="button" aria-label="축소">−</button>
         <span id="zoomStatus" class="lightbox-zoom-status">100%</span>
@@ -2422,246 +2466,246 @@
       {
         name: "레오니아",
         type: "왕실과 기사 봉토의 나라",
-        short: "궁정, 기사, 납품 장부가 길을 여닫습니다.",
+        short: "왕실과 기사 봉토가 모인 땅이다. 추천장과 문장 반지가 신분을 증명한다.",
         first: "궁정 납품 대기열, 기사단 회랑, 왕실 법정",
         places: "라드아르할, 지르바르에트, 팔테쿰가, 렘다트움",
-        life: "추천장과 문장 반지가 힘을 가집니다. 말투와 예법을 지키면 문이 열리지만, 봉인문서를 함부로 다루면 바로 의심을 받습니다.",
+        life: "추천장과 문장 반지가 힘을 가진다. 말투와 예법을 지키면 문이 열리지만, 봉인문서를 함부로 다루면 바로 의심을 받는다.",
         pressure: "납품 품질, 서임 순서, 왕실 물자 횡령, 봉토 충성 서약",
-        memory: "오래된 왕권과 빈 왕좌 이야기가 왕실의 정당성을 지탱합니다.",
+        memory: "오래된 왕권과 빈 왕좌 이야기가 왕실의 정당성을 지탱한다.",
         persona: "궁정 납품인, 견습 기사, 사절 보조, 장인 조합원"
       },
       {
         name: "노르가르드",
         type: "군항과 철강의 해군 왕국",
-        short: "군항, 철강 부두, 해상 법정이 일상을 만듭니다.",
+        short: "군항, 철강 부두, 해상 법정이 일상을 만든다.",
         first: "군항 검문, 철강 부두, 등대, 선원 숙박가",
         places: "마르나브미르, 페르나브부두, 아르마르토르, 나브할가",
-        life: "배와 철, 보험과 항만세가 중요합니다. 선적 장부가 없으면 물건도 사람도 쉽게 움직이지 못합니다.",
+        life: "배와 철, 보험과 항만세가 중요하다. 선적 장부가 없으면 물건도 사람도 쉽게 움직이지 못한다.",
         pressure: "항만세 과다, 선박 징발, 난파 책임, 해도 은닉",
-        memory: "침몰한 배의 장부 이야기는 탐욕과 책임을 경고하는 말로 남았습니다.",
+        memory: "침몰한 배의 장부 이야기는 탐욕과 책임을 경고하는 말로 남았다.",
         persona: "선원, 항만 서기, 철강 운반인, 해상 법정 증인"
       },
       {
         name: "티리스",
         type: "농경 영지와 서부 접경의 왕국",
-        short: "영지 장터, 숲 경계, 피난민 정착지가 맞물립니다.",
+        short: "영지 장터, 숲 경계, 피난민 정착지가 맞물린다.",
         first: "레이븐스톤 성문, 뉴할로우 배급소, 영지 장터",
         places: "실버킵, 레이븐스톤, 하이가든, 그린할로우, 뉴할로우",
-        life: "이름패와 보증인이 중요합니다. 피난민 배급, 숲길 소유권, 곡물 장부가 자주 다툼이 됩니다.",
+        life: "이름패와 보증인이 중요하다. 피난민 배급, 숲길 소유권, 곡물 장부가 자주 다툼이 된다.",
         pressure: "접경 방어, 피난민 구휼, 낮은 율례 해석, 목재·수로 분쟁",
-        memory: "그린할로우 상실과 뉴할로우 재정착은 5083년 티리스 서부의 가장 큰 상처입니다.",
+        memory: "그린할로우 상실과 뉴할로우 재정착은 5083년 티리스 서부의 가장 큰 상처다.",
         persona: "피난민, 접경 병사, 영지 서리, 약초 처방소 조수"
       },
       {
         name: "린레네트",
         type: "기록원과 극장의 학예 도시국가",
-        short: "기록, 공연, 후원 계약이 힘을 가집니다.",
+        short: "기록, 공연, 후원 계약이 힘을 가진다.",
         first: "기록원 접수대, 극장 뒤편, 사본 장터",
         places: "레눔가, 린산가, 님렌할, 다트킨할, 렘렌가",
-        life: "말과 글이 돈이 됩니다. 후원자가 누구인지, 어떤 기록을 인용했는지가 사람의 평판을 바꿉니다.",
+        life: "말과 글이 돈이 된다. 후원자가 누구인지, 어떤 기록을 인용했는지가 사람의 평판을 바꾼다.",
         pressure: "표절, 후원 검열, 증언 상품화, 사본 위조",
-        memory: "공개 논쟁과 공연 기록이 정치 기억을 오래 붙잡습니다.",
+        memory: "공개 논쟁과 공연 기록이 정치 기억을 오래 붙잡는다.",
         persona: "필사 보조, 극장 심부름꾼, 후원가 하인, 학생"
       },
       {
         name: "벡도레트",
         type: "방벽과 병영의 요새 도시국가",
-        short: "성문에서 목적과 보증인을 먼저 묻습니다.",
+        short: "성문에서 목적과 보증인을 먼저 묻는다.",
         first: "성문 검문소, 병영, 무기고, 성벽 공사장",
         places: "도르카르, 켈카르, 베크할, 도르테쿰, 엔할가",
-        life: "무기 반입과 야간 이동이 엄격합니다. 공사 동원은 벌이자 의무이자 정치 참여입니다.",
+        life: "무기 반입과 야간 이동이 엄격하다. 공사 동원은 벌이자 의무이자 정치 참여다.",
         pressure: "무단 무장, 공사 동원 회피, 군법과 민간법 충돌, 피난 순서",
-        memory: "오래된 방어선 위에 도시가 자라났다는 기억이 시민 의무의 근거가 됩니다.",
+        memory: "오래된 방어선 위에 도시가 자라났다는 기억이 시민 의무의 근거가 된다.",
         persona: "성문 통역, 공사 노동자, 무기 수리공, 피난 대기자"
       },
       {
         name: "센할레트",
         type: "공동 창고와 관개로의 농업 공동체",
-        short: "곡물, 종자, 배급 순서가 사람의 삶을 가릅니다.",
+        short: "곡물, 종자, 배급 순서가 사람의 삶을 가른다.",
         first: "공동 창고, 종자 회의장, 배급소, 수문",
         places: "센푸쿰, 벨바르, 센푸크에트, 가르센에트, 벱렌할",
-        life: "공동 창고 장부가 강합니다. 누구에게 먼저 배급할지, 어떤 종자를 섞을지가 마을의 큰 문제입니다.",
+        life: "공동 창고 장부가 강하다. 누구에게 먼저 배급할지, 어떤 종자를 섞을지가 마을의 큰 문제다.",
         pressure: "종자 혼입, 배급 순서, 재정착 경작권, 수문 개폐",
-        memory: "관개로와 공동 창고가 흉년을 버티게 했다는 기억이 법처럼 남아 있습니다.",
+        memory: "관개로와 공동 창고가 흉년을 버티게 했다는 기억이 법처럼 남아 있다.",
         persona: "창고지기 보조, 수문 감시인, 종자 운반인, 재정착 농민"
       },
       {
         name: "헤스페레트",
         type: "저장고와 맹세석의 북방 산악권",
-        short: "추위, 저장품, 무기 납품, 맹세가 중요합니다.",
+        short: "추위, 저장품, 무기 납품, 맹세가 중요하다.",
         first: "저장고, 고개 초소, 무기 중개소, 맹세석",
         places: "헤스푸쿰, 헤스켈카르, 페르바르, 람지르바르, 메브켈에트",
-        life: "겨울을 넘길 물자와 무기 품질이 평판을 결정합니다. 맹세를 어기면 거래보다 오래 기억됩니다.",
+        life: "겨울을 넘길 물자와 무기 품질이 평판을 결정한다. 맹세를 어기면 거래보다 오래 기억된다.",
         pressure: "용병 보수, 장례 표식 훼손, 무기 품질, 저장품 배분",
-        memory: "갈라진 검은 종 이야기는 재난과 맹세 파기를 함께 떠올리게 합니다.",
+        memory: "갈라진 검은 종 이야기는 재난과 맹세 파기를 함께 떠올리게 한다.",
         persona: "무기 중개인, 고개 숙소 일꾼, 용병, 저장고 기록원"
       },
       {
         name: "켈나베트",
         type: "자유항과 해도의 연방 항만권",
-        short: "선장 보증, 해도, 보험이 길을 엽니다.",
+        short: "선장 보증, 해도, 보험이 길을 연다.",
         first: "자유항, 원정 허가소, 해도 창고, 선원 숙박가",
         places: "마르켈미르, 워크바르, 마르렌움, 나브할, 움마르켈",
-        life: "먼 바다의 이야기는 노래보다 장부와 해도에 오래 남습니다. 원정 실패는 돈과 명예를 함께 무너뜨립니다.",
+        life: "먼 바다의 이야기는 노래보다 장부와 해도에 오래 남는다. 원정 실패는 돈과 명예를 함께 무너뜨린다.",
         pressure: "해도 독점, 원정 실패 책임, 보험 사기, 외해 물품 소유권",
-        memory: "세 번 접힌 해도 이야기는 미지 항로의 상징입니다.",
+        memory: "세 번 접힌 해도 이야기는 미지 항로의 상징이다.",
         persona: "항해자, 해도 필사자, 보험 중개인, 항구 짐꾼"
       },
       {
         name: "헤스베케트",
         type: "혹한 저장고와 겨울 통행권",
-        short: "식량과 불씨, 방한구가 곧 생존입니다.",
+        short: "식량과 불씨, 방한구가 곧 생존이다.",
         first: "저장고, 공동 불씨집, 방한구 수리막, 눈길 초소",
         places: "베크헤스푸쿰, 헤스워켈, 나르할, 메브헤스베크",
-        life: "겨울에는 돈보다 식량 배분과 잠잘 자리가 먼저입니다. 통행 폐쇄는 법보다 날씨에 가깝습니다.",
+        life: "겨울에는 돈보다 식량 배분과 잠잘 자리가 먼저다. 통행 폐쇄는 법보다 날씨에 가깝다.",
         pressure: "식량 배분, 불씨 자리, 통행 폐쇄, 사냥권",
-        memory: "불씨와 저장품은 왕권보다 오래된 공동체 기억으로 여겨집니다.",
+        memory: "불씨와 저장품은 왕권보다 오래된 공동체 기억으로 여겨진다.",
         persona: "눈길 안내인, 저장고 일꾼, 방한구 수리공, 사냥꾼"
       },
       {
         name: "옌메베트",
         type: "고공 통행과 숲 경계의 동맹권",
-        short: "산길 표식과 숲의 허락이 중요합니다.",
+        short: "산길 표식과 숲의 허락이 중요하다.",
         first: "고공 통행소, 기수단 둥지, 숲문 도시, 자연 동맹 기록소",
         places: "옌워켈, 옌베크할, 실베크에트, 실람렌움",
-        life: "길은 있지만 모두에게 열린 길은 아닙니다. 안내 실패와 표식 훼손은 단순한 실수가 아닙니다.",
+        life: "길은 있지만 모두에게 열린 길은 아니다. 안내 실패와 표식 훼손은 단순한 실수가 아니다.",
         pressure: "채집권, 안내 실패, 생태 의무 위반, 길 표식 훼손",
-        memory: "산악 통행권과 숲 경계 공동체가 서로 길을 보증하며 동맹을 만들었습니다.",
+        memory: "산악 통행권과 숲 경계 공동체가 서로 길을 보증하며 동맹을 만들었다.",
         persona: "산길 짐꾼, 숲문 통역, 기수단 장비공, 기록소 보조"
       },
       {
         name: "님나레트",
         type: "봉인 창고와 제한 학술의 폐쇄권",
-        short: "허가받은 지식과 금지된 재료가 나뉩니다.",
+        short: "허가받은 지식과 금지된 재료가 나뉜다.",
         first: "감찰실, 봉인 창고, 재료 검사소, 외부자 대기소",
         places: "얄베크움, 님나할, 푸크나움, 헤드렌움, 엔켈할",
-        life: "무엇을 알고 있는지보다 무엇을 허가받았는지가 더 중요합니다. 외부자는 오래 기다리고 적게 봅니다.",
+        life: "무엇을 알고 있는지보다 무엇을 허가받았는지가 더 중요하다. 외부자는 오래 기다리고 적게 본다.",
         pressure: "학술 망명, 재료 은닉, 봉인 파손, 외부자 감금 논란",
-        memory: "위험 재료와 금기 학술을 통제하려고 감찰권이 강해졌습니다.",
+        memory: "위험 재료와 금기 학술을 통제하려고 감찰권이 강해졌다.",
         persona: "외부 학자, 감찰 보조, 재료 운반인, 봉인 창고 견습"
       },
       {
         name: "실니메트",
         type: "약초 장터와 산악 사원길의 남방 복합권",
-        short: "통역, 처방, 산길 허가가 자주 얽힙니다.",
+        short: "통역, 처방, 산길 허가가 자주 얽힌다.",
         first: "약초 장터, 강하 항구, 산악 사원길, 성림 접촉문",
         places: "도르소르산, 실메르미르, 벨마르미르, 실소르켈, 메브메르켈",
-        life: "한 권역 안에서도 말과 관습이 크게 다릅니다. 약초 가격과 처방 책임은 쉽게 다툼이 됩니다.",
+        life: "한 권역 안에서도 말과 관습이 크게 다르다. 약초 가격과 처방 책임은 쉽게 다툼이 된다.",
         pressure: "통역 오류, 약초 가격, 성림 금기, 처방 책임",
-        memory: "여러 산악 사원, 약초 장터, 강하 항구가 오래 얽혀 생긴 문화권입니다.",
+        memory: "여러 산악 사원, 약초 장터, 강하 항구가 오래 얽혀 생긴 문화권이다.",
         persona: "약초꾼, 통역, 사원길 안내인, 강하 항구 짐꾼"
       },
       {
         name: "아르도레트",
         type: "산악 수도원과 관측대의 신정권",
-        short: "하늘 기록과 순례 질서가 권위입니다.",
+        short: "하늘 기록과 순례 질서가 권위다.",
         first: "산악 수도원, 관측대, 등정 허가소, 순례 숙소",
         places: "도르소르할, 옌이엘토르, 아르소르산, 도르켈바르, 소르할",
-        life: "관측표는 학문이면서 세금과 의례의 근거입니다. 산을 오르는 일에도 허가와 순서가 필요합니다.",
+        life: "관측표는 학문이면서 세금과 의례의 근거다. 산을 오르는 일에도 허가와 순서가 필요하다.",
         pressure: "등정 사고, 관측표 해석, 봉납 부담, 순례 순서",
-        memory: "하늘을 접는 매듭 이야기는 폭풍과 관측의 상징입니다.",
+        memory: "하늘을 접는 매듭 이야기는 폭풍과 관측의 상징이다.",
         persona: "순례자, 관측 보조, 등정 허가소 심부름꾼, 수도원 서기"
       },
       {
         name: "가르메베트",
         type: "초지 물권과 계절 야영의 유목권",
-        short: "우물 순번과 동행료가 삶을 움직입니다.",
+        short: "우물 순번과 동행료가 삶을 움직인다.",
         first: "계절 야영지, 물가 약속 장소, 가축 분쟁장, 이동 장부소",
         places: "틱메브할, 벨람바르, 메브바르, 벨베크엘, 워크렌움",
-        life: "정착지보다 우물과 이동로가 더 오래 기억됩니다. 누구와 함께 움직이는지가 신분증보다 중요할 때가 많습니다.",
+        life: "정착지보다 우물과 이동로가 더 오래 기억된다. 누구와 함께 움직이는지가 신분증보다 중요할 때가 많다.",
         pressure: "우물 순번, 가축 질병, 혼인 약속, 초지 경계",
-        memory: "물가 증언과 혼인 계약이 정치 문서 역할을 합니다.",
+        memory: "물가 증언과 혼인 계약이 정치 문서 역할을 한다.",
         persona: "길잡이, 가축 돌봄꾼, 야영지 손님, 물권 증인"
       },
       {
         name: "실할레트",
         type: "성림과 왕실 정원의 숲 신정권",
-        short: "숲길, 채집 허가, 기억의 진위가 중요합니다.",
+        short: "숲길, 채집 허가, 기억의 진위가 중요하다.",
         first: "성림, 왕실 정원, 숲 감시소, 채집 허가소",
         places: "실소르산, 라드실할, 실베크엘, 실테크엘, 실다트바르",
-        life: "나무를 베거나 길을 묻는 일도 허가와 증언이 필요합니다. 장례 기억과 숲 표식은 법정에서 힘을 가집니다.",
+        life: "나무를 베거나 길을 묻는 일도 허가와 증언이 필요하다. 장례 기억과 숲 표식은 법정에서 힘을 가진다.",
         pressure: "벌목 위반, 사냥권, 숲길 실종, 장례 기억 훼손",
-        memory: "거울 없는 잎 이야기는 기억의 진위를 가르는 상징으로 남았습니다.",
+        memory: "거울 없는 잎 이야기는 기억의 진위를 가르는 상징으로 남았다.",
         persona: "채집 허가 보조, 숲 감시인, 장례 증언자, 왕실 정원 일꾼"
       },
       {
         name: "메르할레트",
         type: "강하 항구와 상인 의회의 교역권",
-        short: "통행세, 봉인, 창고 보관이 핵심입니다.",
+        short: "통행세, 봉인, 창고 보관이 핵심이다.",
         first: "강하 항구, 통행세 관청, 창고 거리, 상업 법정",
         places: "메르벨마르, 메르바르, 헤드켈바르, 푸크테쿰, 메르님바르",
-        life: "물건은 강을 따라 움직이고, 말보다 봉인 끈과 증인의 이름이 오래 남습니다.",
+        life: "물건은 강을 따라 움직이고, 말보다 봉인 끈과 증인의 이름이 오래 남는다.",
         pressure: "통행세 이의, 보관 손실, 계약 파기, 하역 사고",
-        memory: "하구와 강하 운송로의 통행세를 조정하며 상인 의회가 커졌습니다.",
+        memory: "하구와 강하 운송로의 통행세를 조정하며 상인 의회가 커졌다.",
         persona: "상단 짐꾼, 창고지기, 통행세 서기, 강하 선원"
       },
       {
         name: "님소레트",
         type: "학당과 후원소의 학술·종교권",
-        short: "후원, 강의, 사본 가격이 도시를 흔듭니다.",
+        short: "후원, 강의, 사본 가격이 도시를 흔든다.",
         first: "학당, 철학 회합장, 후원청, 사본 교환장",
         places: "님할, 님렘할, 소르다트움, 렌테쿰, 렌메르미르",
-        life: "논쟁은 지식만이 아니라 돈과 명예의 문제입니다. 후원자가 바뀌면 금지되는 말도 바뀔 수 있습니다.",
+        life: "논쟁은 지식만이 아니라 돈과 명예의 문제다. 후원자가 바뀌면 금지되는 말도 바뀔 수 있다.",
         pressure: "후원 경쟁, 검열, 교리 논쟁, 사본 가격",
-        memory: "공개 논쟁은 정치 위신과 학문 권위를 함께 만듭니다.",
+        memory: "공개 논쟁은 정치 위신과 학문 권위를 함께 만든다.",
         persona: "학생, 필경사, 후원소 심부름꾼, 종교 강의 청중"
       },
       {
         name: "실바니아",
         type: "숲 전승과 탐사 기록의 외곽권",
-        short: "숲의 계보와 탐사 기록이 서로 다릅니다.",
+        short: "숲의 계보와 탐사 기록이 서로 다르다.",
         first: "숲 전승지, 탐사 거점, 사본 열람소, 안개길 숙소",
         places: "실렌산, 워크켈할, 렌얄움, 움켈산",
-        life: "외부인은 기록과 길잡이에 기대야 합니다. 같은 장소도 전승지와 탐사 보고서에서 다르게 불립니다.",
+        life: "외부인은 기록과 길잡이에 기대야 한다. 같은 장소도 전승지와 탐사 보고서에서 다르게 불린다.",
         pressure: "실종 책임, 계보 해석, 사본 반출, 길 표식 조작",
-        memory: "현행 행정권보다 고문서와 탐사 기록으로 더 많이 알려져 있습니다.",
+        memory: "현행 행정권보다 고문서와 탐사 기록으로 더 많이 알려져 있다.",
         persona: "탐사자, 길잡이 보조, 사본 열람인, 숲 경계 손님"
       },
       {
         name: "드래곤스파이어",
         type: "화산 항로와 용 신화의 섬권",
-        short: "분화 감시와 피난 표식이 항로를 좌우합니다.",
+        short: "분화 감시와 피난 표식이 항로를 좌우한다.",
         first: "화산 항로 부두, 분화 감시소, 해도 주석소, 피난 표식촌",
         places: "나르마르켈, 나르베크토르, 나르마르렌움, 마르모스할",
-        life: "항로가 열려 있어도 안전하다는 뜻은 아닙니다. 보험료와 피난 순서가 사람들의 기분을 날카롭게 만듭니다.",
+        life: "항로가 열려 있어도 안전하다는 뜻은 아니다. 보험료와 피난 순서가 사람들의 기분을 날카롭게 만든다.",
         pressure: "보험료, 피난 순서, 화산석 소유권, 용혈 전승 사칭",
-        memory: "화산 항로와 용 신화는 왕실 신화와 항해 보고 양쪽에 남아 있습니다.",
+        memory: "화산 항로와 용 신화는 왕실 신화와 항해 보고 양쪽에 남아 있다.",
         persona: "항해 보고원, 분화 감시인, 피난 표식촌 주민, 화산석 거래인"
       },
       {
         name: "펜리르의 눈",
         type: "등대와 난파 기록의 외해 금기권",
-        short: "실종 명부와 금기 표식이 항해자를 붙잡습니다.",
+        short: "실종 명부와 금기 표식이 항해자를 붙잡는다.",
         first: "등대권, 난파 기록소, 해도 필사대, 금기 표식소",
         places: "둔아르토르, 둔나브렌움, 움마르소르, 벱나브할",
-        life: "지도에 길이 있어도 갈 수 있다는 뜻은 아닙니다. 구조 신호와 난파 물품은 늘 다툼을 부릅니다.",
+        life: "지도에 길이 있어도 갈 수 있다는 뜻은 아니다. 구조 신호와 난파 물품은 늘 다툼을 부른다.",
         pressure: "구조 신호 악용, 난파 물품 소유권, 금기 해역 통행, 실종자 이름",
-        memory: "등대 소실과 난파 기록이 쌓이며 항해 금기의 중심이 되었습니다.",
+        memory: "등대 소실과 난파 기록이 쌓이며 항해 금기의 중심이 되었다.",
         persona: "등대 보조, 해도 필사자, 구조 대기자, 실종자 가족"
       }
     ];
 
     const regionFacts = {
-      "레오니아": { icon: "♛", focus: "궁정·봉토", money: "금표, 은량, 궁정 납품표가 큰 거래를 묶습니다.", people: "왕실 관리, 기사 수행원, 장인, 사절과 하인이 많이 오갑니다.", time: "용관력 공회날과 용심 서약일에 접견과 서임이 몰립니다.", history: "용관 왕권과 기사 봉토 확대가 추천장과 문장 예법을 만들었습니다." },
-      "노르가르드": { icon: "⚓", focus: "군항·철강", money: "항만 장부, 선박 보험, 외래 주화, 철강 납품표가 섞입니다.", people: "해군, 선원, 철강 운반인, 해상 법정 증인이 많습니다.", time: "조류력과 겨울 보급 일정이 항구 생활을 가릅니다.", history: "군항과 철강 부두가 왕권보다 먼저 사람의 길을 열었습니다." },
-      "티리스": { icon: "⚑", focus: "영지·접경", money: "은량, 곡표, 노동일, 공동 창고 몫이 함께 쓰입니다.", people: "농민, 피난민, 영지 서리, 접경 병사, 약초 처방소 사람이 섞입니다.", time: "녹지절력의 파종·수확 표기가 장터와 배급에 닿습니다.", history: "그린할로우 상실과 뉴할로우 재정착이 서부의 큰 상처로 남았습니다." },
-      "린레네트": { icon: "✒", focus: "기록·극장", money: "사본료, 후원금, 검열 수수료, 공연 계약금이 도시의 돈을 움직입니다.", people: "필사자, 배우, 학생, 후원가 하인, 증언 중개인이 많습니다.", time: "공연일과 공개 논쟁일에 도시의 말과 평판이 빠르게 움직입니다.", history: "기록원과 극장 기록이 정치 기억을 가장 오래 붙잡습니다." },
-      "벡도레트": { icon: "⛨", focus: "방벽·병영", money: "군표, 공사 장부, 무기 수리비, 배급권이 강합니다.", people: "성문 통역, 공사 노동자, 병영 서기, 피난 대기자가 많습니다.", time: "교대종, 야간 통금, 공사 동원일이 하루를 나눕니다.", history: "오래된 방어선 위에 도시가 자라 시민 의무가 강해졌습니다." },
-      "센할레트": { icon: "☉", focus: "창고·수문", money: "곡표, 종자 몫, 물몫, 창고 장부가 은화보다 가까울 때가 많습니다.", people: "농민, 수문 관리자, 종자 보관인, 재정착민이 주류입니다.", time: "공동 파종일과 수문 개방일이 마을 회의를 움직입니다.", history: "배급과 수로를 함께 관리한 경험이 공동체의 권위가 되었습니다." },
-      "헤스페레트": { icon: "◇", focus: "맹세·무기", money: "은량, 무기 납품, 저장고 몫, 맹세 보증이 같이 굴러갑니다.", people: "북방 전사, 무기 중개인, 고개 초소병, 저장고 관리인이 많습니다.", time: "명예력의 맹세일과 겨울 저장 점검일이 사람을 모읍니다.", history: "부족 맹세와 고개 방어가 북방 복합 권역의 뼈대입니다." },
-      "켈나베트": { icon: "⛵", focus: "해도·보험", money: "항만 잔액, 보험 증서, 선박 지분, 외래 주화가 강합니다.", people: "선장, 항해사, 해도 필사자, 하역꾼, 보험 증인이 많습니다.", time: "해도력과 조류표가 출항 허가와 원정 시기를 정합니다.", history: "멀리 다녀온 배의 장부가 연방의 권위와 소문을 함께 키웠습니다." },
-      "헤스베케트": { icon: "❄", focus: "저장·혹한", money: "말린 식량, 방한구, 저장고 몫, 사냥 도구가 값의 기준입니다.", people: "사냥꾼, 저장고 관리자, 방한구 장인, 겨울 숙소 주민이 많습니다.", time: "저장력은 긴 겨울과 짧은 이동 가능기를 중심으로 돕니다.", history: "혹한 생존의 기억이 공동 불씨와 저장고 질서를 만들었습니다." },
-      "옌메베트": { icon: "⛰", focus: "고개·숲", money: "동행료, 안내 보증, 숲 허가, 산길 숙소값이 중요합니다.", people: "기수단, 숲 경계인, 고개 숙소 주인, 안내인이 많습니다.", time: "생태력의 눈선·개화 표식이 고개 통행 시기를 알립니다.", history: "숲 표식과 고공 통행소가 서로 다른 법을 맞물리게 했습니다." },
-      "님나레트": { icon: "◌", focus: "봉인·학술", money: "허가비, 사본료, 재료 보관료, 후원금이 도시의 돈을 움직입니다.", people: "감찰관, 필사자, 재료 관리인, 제한 학생이 많습니다.", time: "은성력 관측표와 봉인 해제일이 학술권 일정을 정합니다.", history: "금지된 지식과 보존 창고가 폐쇄 학술권의 권위를 만들었습니다." },
-      "실니메트": { icon: "⚕", focus: "약초·강하", money: "약초값, 통역료, 강하 운송료, 사원 봉납이 함께 쓰입니다.", people: "약초상, 통역, 강하 선원, 처방 보조, 사원길 주민이 많습니다.", time: "관측력과 상단 주석력이 약초 채집과 강하 일정에 붙습니다.", history: "산길 처방과 강하 교역이 남방 사람과 물자를 이어 왔습니다." },
-      "아르도레트": { icon: "✦", focus: "수도원·관측", money: "봉납, 등정 허가, 관측 사본료, 순례 숙소값이 보입니다.", people: "수도사, 순례자, 관측 보조, 산길 짐꾼이 많습니다.", time: "관측표와 긴 계절 기록이 신앙과 법정 증거로도 쓰입니다.", history: "고산 관측소와 수도원이 하늘 기록의 권위를 쌓았습니다." },
-      "가르메베트": { icon: "♢", focus: "초지·유목", money: "가축, 물권, 동행료, 혼인 보증이 은화보다 가까울 수 있습니다.", people: "유목민, 말 돌봄꾼, 물길 안내인, 혼인 증인이 많습니다.", time: "이동력은 풀과 물, 가축 번식 시기를 따라 움직입니다.", history: "폐쇄분지와 초지 이동로가 집단의 약속과 기억을 나눴습니다." },
-      "실할레트": { icon: "♧", focus: "성림·목재", money: "목재세, 채집 허가, 장례 증언, 숲길 통행료가 중요합니다.", people: "목재 검사인, 숲 신정민, 채집인, 장례 증언자가 많습니다.", time: "성림력은 벌목 금지기와 장례 의례일을 강하게 표시합니다.", history: "숲의 경계와 장례 관습이 정치보다 오래 사람을 묶습니다." },
-      "메르할레트": { icon: "☍", focus: "강하·상업", money: "통행세, 창고 보관료, 봉인 끈, 상단 계약금이 촘촘합니다.", people: "상인, 하역꾼, 창고지기, 통행세 서기, 강하 선원이 많습니다.", time: "시장력은 수위와 장날, 창고 결산일을 같이 봅니다.", history: "강하 운송로와 하구 통행세 조정이 상인 의회를 키웠습니다." },
-      "님소레트": { icon: "⊕", focus: "학당·후원", money: "강의료, 필사료, 후원금, 신전 주석료가 주된 값입니다.", people: "학생, 필경사, 후원소 심부름꾼, 종교 강의 청중이 많습니다.", time: "학당력과 공개 논쟁일이 후원과 평판을 흔듭니다.", history: "철학 논쟁과 신전 주석이 권력 다툼의 언어가 되었습니다." },
-      "실바니아": { icon: "◐", focus: "안개숲·계보", money: "탐사 허가, 길잡이값, 사본 열람료가 외부인의 비용입니다.", people: "숲 길잡이, 계보 보관자, 탐사자, 사본 열람인이 보입니다.", time: "안개력은 숲길이 열리는 날과 계보 의례일을 표시합니다.", history: "숲 전승과 탐사 보고가 서로 다른 이름으로 같은 장소를 남깁니다." },
-      "드래곤스파이어": { icon: "⚗", focus: "화산·항로", money: "보험료, 화산석, 피난 표식, 위험 항로 보증금이 큽니다.", people: "분화 감시인, 항해 보고원, 화산석 거래인, 피난 표식촌 주민이 많습니다.", time: "분화력과 항로 열림일이 출항과 피난 순서를 가릅니다.", history: "화산 항로와 용 신화가 왕실 기록과 항해 보고 양쪽에 남았습니다." },
-      "펜리르의 눈": { icon: "◈", focus: "등대·난파", money: "구조비, 난파 물품, 등대 봉납, 해도 필사료가 얽힙니다.", people: "등대 보조, 해도 필사자, 구조 대기자, 실종자 가족이 모입니다.", time: "등대력은 조류, 안개, 실종 명부 갱신일을 중심으로 돕니다.", history: "등대 소실과 난파 기록이 외해 금기의 중심을 만들었습니다." }
+      "레오니아": { icon: "♛", focus: "궁정·봉토", money: "금표, 은량, 궁정 납품표가 큰 거래를 묶는다.", people: "왕실 관리, 기사 수행원, 장인, 사절과 하인이 많이 오간다.", time: "용관력 공회날과 용심 서약일에 접견과 서임이 몰린다.", history: "용관 왕권과 기사 봉토 확대가 추천장과 문장 예법을 만들었다." },
+      "노르가르드": { icon: "⚓", focus: "군항·철강", money: "항만 장부, 선박 보험, 외래 주화, 철강 납품표가 섞인다.", people: "해군, 선원, 철강 운반인, 해상 법정 증인이 많다.", time: "조류력과 겨울 보급 일정이 항구 생활을 가른다.", history: "군항과 철강 부두가 왕권보다 먼저 사람의 길을 열었다." },
+      "티리스": { icon: "⚑", focus: "영지·접경", money: "은량, 곡표, 노동일, 공동 창고 몫이 함께 쓰인다.", people: "농민, 피난민, 영지 서리, 접경 병사, 약초 처방소 사람이 섞인다.", time: "녹지절력의 파종·수확 표기가 장터와 배급에 닿는다.", history: "그린할로우 상실과 뉴할로우 재정착이 서부의 큰 상처로 남았다." },
+      "린레네트": { icon: "✒", focus: "기록·극장", money: "사본료, 후원금, 검열 수수료, 공연 계약금이 도시의 돈을 움직인다.", people: "필사자, 배우, 학생, 후원가 하인, 증언 중개인이 많다.", time: "공연일과 공개 논쟁일에 도시의 말과 평판이 빠르게 움직인다.", history: "기록원과 극장 기록이 정치 기억을 가장 오래 붙잡는다." },
+      "벡도레트": { icon: "⛨", focus: "방벽·병영", money: "군표, 공사 장부, 무기 수리비, 배급권이 강하다.", people: "성문 통역, 공사 노동자, 병영 서기, 피난 대기자가 많다.", time: "교대종, 야간 통금, 공사 동원일이 하루를 나눈다.", history: "오래된 방어선 위에 도시가 자라 시민 의무가 강해졌다." },
+      "센할레트": { icon: "☉", focus: "창고·수문", money: "곡표, 종자 몫, 물몫, 창고 장부가 은화보다 가까울 때가 많다.", people: "농민, 수문 관리자, 종자 보관인, 재정착민이 주류다.", time: "공동 파종일과 수문 개방일이 마을 회의를 움직인다.", history: "배급과 수로를 함께 관리한 경험이 공동체의 권위가 되었다." },
+      "헤스페레트": { icon: "◇", focus: "맹세·무기", money: "은량, 무기 납품, 저장고 몫, 맹세 보증이 같이 굴러간다.", people: "북방 전사, 무기 중개인, 고개 초소병, 저장고 관리인이 많다.", time: "명예력의 맹세일과 겨울 저장 점검일이 사람을 모은다.", history: "부족 맹세와 고개 방어가 북방 복합 권역의 뼈대다." },
+      "켈나베트": { icon: "⛵", focus: "해도·보험", money: "항만 잔액, 보험 증서, 선박 지분, 외래 주화가 강하다.", people: "선장, 항해사, 해도 필사자, 하역꾼, 보험 증인이 많다.", time: "해도력과 조류표가 출항 허가와 원정 시기를 정한다.", history: "멀리 다녀온 배의 장부가 연방의 권위와 소문을 함께 키웠다." },
+      "헤스베케트": { icon: "❄", focus: "저장·혹한", money: "말린 식량, 방한구, 저장고 몫, 사냥 도구가 값의 기준이다.", people: "사냥꾼, 저장고 관리자, 방한구 장인, 겨울 숙소 주민이 많다.", time: "저장력은 긴 겨울과 짧은 이동 가능기를 중심으로 돈다.", history: "혹한 생존의 기억이 공동 불씨와 저장고 질서를 만들었다." },
+      "옌메베트": { icon: "⛰", focus: "고개·숲", money: "동행료, 안내 보증, 숲 허가, 산길 숙소값이 중요하다.", people: "기수단, 숲 경계인, 고개 숙소 주인, 안내인이 많다.", time: "생태력의 눈선·개화 표식이 고개 통행 시기를 알린다.", history: "숲 표식과 고공 통행소가 서로 다른 법을 맞물리게 했다." },
+      "님나레트": { icon: "◌", focus: "봉인·학술", money: "허가비, 사본료, 재료 보관료, 후원금이 도시의 돈을 움직인다.", people: "감찰관, 필사자, 재료 관리인, 제한 학생이 많다.", time: "은성력 관측표와 봉인 해제일이 학술권 일정을 정한다.", history: "금지된 지식과 보존 창고가 폐쇄 학술권의 권위를 만들었다." },
+      "실니메트": { icon: "⚕", focus: "약초·강하", money: "약초값, 통역료, 강하 운송료, 사원 봉납이 함께 쓰인다.", people: "약초상, 통역, 강하 선원, 처방 보조, 사원길 주민이 많다.", time: "관측력, 이동력, 시장력이 약초 채집과 강하 일정을 서로 다르게 나눈다.", history: "산길 처방과 강하 교역이 남방 사람과 물자를 이어 왔다." },
+      "아르도레트": { icon: "✦", focus: "수도원·관측", money: "봉납, 등정 허가, 관측 사본료, 순례 숙소값이 보인다.", people: "수도사, 순례자, 관측 보조, 산길 짐꾼이 많다.", time: "관측표와 긴 계절 기록이 신앙과 법정 증거로도 쓰인다.", history: "고산 관측소와 수도원이 하늘 기록의 권위를 쌓았다." },
+      "가르메베트": { icon: "♢", focus: "초지·유목", money: "가축, 물권, 동행료, 혼인 보증이 은화보다 가까울 수 있다.", people: "유목민, 말 돌봄꾼, 물길 안내인, 혼인 증인이 많다.", time: "이동력은 풀과 물, 가축 번식 시기를 따라 움직인다.", history: "폐쇄분지와 초지 이동로가 집단의 약속과 기억을 나눴다." },
+      "실할레트": { icon: "♧", focus: "성림·목재", money: "목재세, 채집 허가, 장례 증언, 숲길 통행료가 중요하다.", people: "목재 검사인, 숲 신정민, 채집인, 장례 증언자가 많다.", time: "성림력은 벌목 금지기와 장례 의례일을 강하게 표시한다.", history: "숲의 경계와 장례 관습이 정치보다 오래 사람을 묶는다." },
+      "메르할레트": { icon: "☍", focus: "강하·상업", money: "통행세, 창고 보관료, 봉인 끈, 상단 계약금이 촘촘하다.", people: "상인, 하역꾼, 창고지기, 통행세 서기, 강하 선원이 많다.", time: "시장력은 수위와 장날, 창고 결산일을 같이 본다.", history: "강하 운송로와 하구 통행세 조정이 상인 의회를 키웠다." },
+      "님소레트": { icon: "⊕", focus: "학당·후원", money: "강의료, 필사료, 후원금, 신전 주석료가 주된 값이다.", people: "학생, 필경사, 후원소 심부름꾼, 종교 강의 청중이 많다.", time: "학당력과 공개 논쟁일이 후원과 평판을 흔든다.", history: "철학 논쟁과 신전 주석이 권력 다툼의 언어가 되었다." },
+      "실바니아": { icon: "◐", focus: "안개숲·계보", money: "탐사 허가, 길잡이값, 사본 열람료가 외부인의 비용이다.", people: "숲 길잡이, 계보 보관자, 탐사자, 사본 열람인이 보인다.", time: "안개력은 숲길이 열리는 날과 계보 의례일을 표시한다.", history: "숲 전승과 탐사 보고가 서로 다른 이름으로 같은 장소를 남긴다." },
+      "드래곤스파이어": { icon: "⚗", focus: "화산·항로", money: "보험료, 화산석, 피난 표식, 위험 항로 보증금이 크다.", people: "분화 감시인, 항해 보고원, 화산석 거래인, 피난 표식촌 주민이 많다.", time: "분화력과 항로 열림일이 출항과 피난 순서를 가른다.", history: "화산 항로와 용 신화가 왕실 기록과 항해 보고 양쪽에 남았다." },
+      "펜리르의 눈": { icon: "◈", focus: "등대·난파", money: "구조비, 난파 물품, 등대 봉납, 해도 필사료가 얽힌다.", people: "등대 보조, 해도 필사자, 구조 대기자, 실종자 가족이 모인다.", time: "등대력은 조류, 안개, 실종 명부 갱신일을 중심으로 돈다.", history: "등대 소실과 난파 기록이 외해 금기의 중심을 만들었다." }
     };
 
     const regionIconNames = {
@@ -2687,27 +2731,50 @@
       "펜리르의 눈": "navigation"
     };
 
+    const regionCardKeywords = {
+      "레오니아": ["왕실", "기사 봉토", "납품 공방"],
+      "노르가르드": ["군항", "철강 부두", "해상 법정"],
+      "티리스": ["농경 영지", "서부 접경", "피난 공동체"],
+      "린레네트": ["기록원", "극장", "후원 계약"],
+      "벡도레트": ["방벽", "병영", "공사 동원"],
+      "센할레트": ["공동 창고", "관개로", "종자 회의"],
+      "헤스페레트": ["맹세석", "저장고", "무기 중개"],
+      "켈나베트": ["자유항", "해도", "보험"],
+      "헤스베케트": ["혹한", "공동 불씨", "겨울 저장"],
+      "옌메베트": ["고공 통행", "숲 경계", "기수단"],
+      "님나레트": ["봉인 창고", "감찰", "제한 학술"],
+      "실니메트": ["약초", "산악 통역", "강하 운송"],
+      "아르도레트": ["고산 수도원", "관측표", "순례로"],
+      "가르메베트": ["초지", "계절 야영", "물권"],
+      "실할레트": ["성림", "목재", "벌목 허가"],
+      "메르할레트": ["강하", "창고", "상업 법정"],
+      "님소레트": ["학당", "필사", "신전 주석"],
+      "실바니아": ["안개숲", "계보", "탐사 허가"],
+      "드래곤스파이어": ["화산 군도", "분화 감시", "위험 항로"],
+      "펜리르의 눈": ["외해", "등대", "난파 기록"]
+    };
+
     const regionSpecies = {
-      "레오니아": "인간계가 다수이며 페르브루니르 장인, 메르세니르 상인, 혼합 거주민이 궁정과 납품가에 함께 삽니다.",
-      "노르가르드": "인간계 선원과 페르브루니르 철공이 중심이며 벨마리르·린마리르 항해자와 혼합 거주민이 항구에 모입니다.",
-      "티리스": "인간계 농민과 메르세니르 종자상, 실레니르 숲길 기록자, 페르브루니르 수리공과 피난민이 영지마다 다른 비율로 섞입니다.",
-      "린레네트": "인간계가 다수이고 실레니르 필사자, 메르세니르 후원 중개인, 페르브루니르 무대 장인이 기록원과 극장가에 모입니다.",
-      "벡도레트": "인간계 수비대와 페르브루니르 공사 장인, 북방 복합 집단과 혼합 거주민이 성벽 안팎을 나눠 삽니다.",
-      "센할레트": "인간계 농민, 메르세니르 종자 보관인, 실레니르 수로 기록자와 혼합 거주민이 공동 창고를 중심으로 삽니다.",
-      "헤스페레트": "인간계와 북방 복합 집단이 다수이고 페르브루니르 무기 장인, 메르세니르 보급상이 고개와 저장고에 정착합니다.",
-      "켈나베트": "인간계 항만민과 벨마리르·린마리르 항해자, 실레니르 해도 필사자와 혼합 거주민이 자유항마다 섞입니다.",
-      "헤스베케트": "인간계와 북방 복합 집단이 저장촌의 주류이며 페르브루니르 수리공과 메르세니르 보급상이 계절마다 들어옵니다.",
-      "옌메베트": "인간계 기수단, 님소리르 통역자, 실레니르 경계인이 고개 통행소와 숲 마을에서 함께 삽니다.",
-      "님나레트": "인간계 감찰관과 페르브루니르 재료 관리인, 실레니르 필사자, 님소리르 연구자가 허가 구역마다 나뉘어 삽니다.",
-      "실니메트": "인간계와 님소리르, 실레니르, 메르세니르가 약초 장터와 산길, 강하 항구에서 가장 촘촘하게 섞입니다.",
-      "아르도레트": "인간계 수도사와 님소리르 관측자, 실레니르 약초 기록자, 페르브루니르 석공이 고산 거점에 삽니다.",
-      "가르메베트": "인간계와 메르세니르 목축민, 북방 복합 집단, 님소리르 물길 안내인이 계절 이동로를 공유합니다.",
-      "실할레트": "실레니르가 다수이며 인간계, 님소리르, 페르브루니르, 메르세니르가 허가받은 숲길과 장터에 거주합니다.",
-      "메르할레트": "인간계와 메르세니르 상인, 벨마리르 선원, 페르브루니르 창고 장인이 강과 항만을 따라 섞입니다.",
-      "님소레트": "인간계 학생과 실레니르 필사자, 님소리르 주석가, 메르세니르 후원 중개인이 학당 구역에 모입니다.",
-      "실바니아": "실레니르와 렌실리르·소르실리르가 중심이며 인간계 탐사자와 혼합 거주민은 허가된 경계 거점에 머뭅니다.",
-      "드래곤스파이어": "인간계 항만민과 드라나리르, 벨마리르 항해자, 페르브루니르 화산석 장인이 섬권 거점에 삽니다.",
-      "펜리르의 눈": "벨마리르와 린마리르가 중심이며 인간계·실레니르·혼합 거주민이 등대와 구조 거점에 드물게 정착합니다."
+      "레오니아": "인간계가 다수이며 페르브루니르 장인, 메르세니르 상인, 혼합 거주민이 궁정과 납품가에 함께 산다.",
+      "노르가르드": "인간계 선원과 페르브루니르 철공이 중심이며 벨마리르·린마리르 항해자와 혼합 거주민이 항구에 모인다.",
+      "티리스": "인간계 농민과 메르세니르 종자상, 실레니르 숲길 기록자, 페르브루니르 수리공과 피난민이 영지마다 다른 비율로 섞인다.",
+      "린레네트": "인간계가 다수이고 실레니르 필사자, 메르세니르 후원 중개인, 페르브루니르 무대 장인이 기록원과 극장가에 모인다.",
+      "벡도레트": "인간계 수비대와 페르브루니르 공사 장인, 북방 복합 집단과 혼합 거주민이 성벽 안팎을 나눠 산다.",
+      "센할레트": "인간계 농민, 메르세니르 종자 보관인, 실레니르 수로 기록자와 혼합 거주민이 공동 창고를 중심으로 산다.",
+      "헤스페레트": "인간계와 북방 복합 집단이 다수이고 페르브루니르 무기 장인, 메르세니르 보급상이 고개와 저장고에 정착한다.",
+      "켈나베트": "인간계 항만민과 벨마리르·린마리르 항해자, 실레니르 해도 필사자와 혼합 거주민이 자유항마다 섞인다.",
+      "헤스베케트": "인간계와 북방 복합 집단이 저장촌의 주류이며 페르브루니르 수리공과 메르세니르 보급상이 계절마다 들어온다.",
+      "옌메베트": "인간계 기수단, 님소리르 통역자, 실레니르 경계인이 고개 통행소와 숲 마을에서 함께 산다.",
+      "님나레트": "인간계 감찰관과 페르브루니르 재료 관리인, 실레니르 필사자, 님소리르 연구자가 허가 구역마다 나뉘어 산다.",
+      "실니메트": "인간계와 님소리르, 실레니르, 메르세니르가 약초 장터와 산길, 강하 항구에서 가장 촘촘하게 섞인다.",
+      "아르도레트": "인간계 수도사와 님소리르 관측자, 실레니르 약초 기록자, 페르브루니르 석공이 고산 거점에 산다.",
+      "가르메베트": "인간계와 메르세니르 목축민, 북방 복합 집단, 님소리르 물길 안내인이 계절 이동로를 공유한다.",
+      "실할레트": "실레니르가 다수이며 인간계, 님소리르, 페르브루니르, 메르세니르가 허가받은 숲길과 장터에 거주한다.",
+      "메르할레트": "인간계와 메르세니르 상인, 벨마리르 선원, 페르브루니르 창고 장인이 강과 항만을 따라 섞인다.",
+      "님소레트": "인간계 학생과 실레니르 필사자, 님소리르 주석가, 메르세니르 후원 중개인이 학당 구역에 모인다.",
+      "실바니아": "실레니르와 렌실리르·소르실리르가 중심이며 인간계 탐사자와 혼합 거주민은 허가된 경계 거점에 머문다.",
+      "드래곤스파이어": "인간계 항만민과 드라나리르, 벨마리르 항해자, 페르브루니르 화산석 장인이 섬권 거점에 산다.",
+      "펜리르의 눈": "벨마리르와 린마리르가 중심이며 인간계·실레니르·혼합 거주민이 등대와 구조 거점에 드물게 정착한다."
     };
 
     const regionVisuals = {
@@ -2715,183 +2782,183 @@
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-leonia-imagegen-v3-dragon-crest-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-leonia-radarhal-imagegen-v1-2560-labeled.webp",
             "capitalName": "라드아르할",
-            "capitalCaption": "궁정과 기사 봉토가 이어지는 레오니아의 중심 도시입니다.",
-            "crestCaption": "레오니아의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+            "capitalCaption": "궁정과 기사 봉토가 이어지는 레오니아의 중심 도시다.",
+            "crestCaption": "레오니아의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
       },
       "노르가르드": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-norghard-imagegen-v1-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-norghard-marnabmir-imagegen-v1-2560-labeled.webp",
             "capitalName": "마르나브미르",
-            "capitalCaption": "군항과 철강 부두, 겨울 보급 장부가 모이는 노르가르드의 큰 항구입니다.",
-            "crestCaption": "노르가르드의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+            "capitalCaption": "군항과 철강 부두, 겨울 보급 장부가 모이는 노르가르드의 큰 항구다.",
+            "crestCaption": "노르가르드의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
       },
       "티리스": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-tiris-imagegen-v1-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-tiris-radbarhal-imagegen-v1-2560-labeled.webp",
             "capitalName": "라드바르할·실버킵",
-            "capitalCaption": "라드바르할과 실버킵은 왕실 행정의 중심이며, 베크켈카르와 레이븐스톤은 서부 접경의 큰 거점입니다.",
-            "crestCaption": "티리스의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+            "capitalCaption": "라드바르할과 실버킵은 왕실 행정의 중심이며, 베크켈카르와 레이븐스톤은 서부 접경의 큰 거점이다.",
+            "crestCaption": "티리스의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
       },
       "린레네트": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-linrenet-imagegen-v1-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-linrenet-renumga-imagegen-v1-2560-labeled.webp",
             "capitalName": "레눔가",
-            "capitalCaption": "기록원, 사본 장터, 후원 계약이 길을 여는 린레네트의 학예 도시입니다.",
-            "crestCaption": "린레네트의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+            "capitalCaption": "기록원, 사본 장터, 후원 계약이 길을 여는 린레네트의 학예 도시다.",
+            "crestCaption": "린레네트의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
       },
       "벡도레트": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-bekdoret-imagegen-v1-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-bekdoret-dorkar-imagegen-v1-2560-labeled.webp",
             "capitalName": "도르카르",
-            "capitalCaption": "성문 보증과 통행 절차가 촘촘한 벡도레트의 교통 거점입니다.",
-            "crestCaption": "벡도레트의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+            "capitalCaption": "성문 보증과 통행 절차가 촘촘한 벡도레트의 교통 거점이다.",
+            "crestCaption": "벡도레트의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
       },
       "센할레트": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-senhalet-imagegen-v1-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-senhalet-senpukum-imagegen-v1-2560-labeled.webp",
             "capitalName": "센푸쿰",
-            "capitalCaption": "곡물 창고와 배급 순서가 사람들의 하루를 가르는 센할레트의 중심지입니다.",
-            "crestCaption": "센할레트의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+            "capitalCaption": "곡물 창고와 배급 순서가 사람들의 하루를 가르는 센할레트의 중심지다.",
+            "crestCaption": "센할레트의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
       },
       "헤스페레트": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-hesferet-imagegen-v2-no-runes-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-hesferet-hespukum-imagegen-v1-2560-labeled.webp",
             "capitalName": "헤스푸쿰",
-            "capitalCaption": "추위, 저장품, 통행 허가가 함께 계산되는 헤스페레트의 북방 거점입니다.",
-            "crestCaption": "헤스페레트의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+            "capitalCaption": "추위, 저장품, 통행 허가가 함께 계산되는 헤스페레트의 북방 거점이다.",
+            "crestCaption": "헤스페레트의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
       },
       "켈나베트": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-kelnabet-imagegen-v1-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-kelnabet-markelmir-imagegen-v1-2560-labeled.webp",
             "capitalName": "마르켈미르",
-            "capitalCaption": "선장 보증과 해도, 항만 장부가 힘을 갖는 켈나베트의 항구입니다.",
-            "crestCaption": "켈나베트의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+            "capitalCaption": "선장 보증과 해도, 항만 장부가 힘을 갖는 켈나베트의 항구다.",
+            "crestCaption": "켈나베트의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
       },
       "헤스베케트": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-hesbeket-imagegen-v1-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-hesbeket-bekhespukum-imagegen-v1-2560-labeled.webp",
             "capitalName": "베크헤스푸쿰",
-            "capitalCaption": "식량과 불씨, 방한구가 곧 생존인 혹한권 도시입니다.",
-            "crestCaption": "헤스베케트의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+            "capitalCaption": "식량과 불씨, 방한구가 곧 생존인 혹한권 도시다.",
+            "crestCaption": "헤스베케트의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
       },
       "옌메베트": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-yenmebet-imagegen-v1-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-yenmebet-yenwokel-imagegen-v1-2560-labeled.webp",
             "capitalName": "옌워켈",
-            "capitalCaption": "숲 경계와 표식권, 벌목 허락이 맞물리는 옌메베트의 거점입니다.",
-            "crestCaption": "옌메베트의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+            "capitalCaption": "숲 경계와 표식권, 벌목 허락이 맞물리는 옌메베트의 거점이다.",
+            "crestCaption": "옌메베트의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
       },
       "님나레트": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-nimnaret-imagegen-v1-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-nimnaret-yalbekum-imagegen-v1-2560-labeled.webp",
             "capitalName": "얄베크움",
-            "capitalCaption": "감찰실, 봉인 명령소, 출입 허가소와 외부자 대기실이 모인 님나레트의 폐쇄 학술 중심지입니다.",
-            "crestCaption": "님나레트의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+            "capitalCaption": "감찰실, 봉인 명령소, 출입 허가소와 외부자 대기실이 모인 님나레트의 폐쇄 학술 중심지다.",
+            "crestCaption": "님나레트의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
       },
       "실니메트": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-silnimet-imagegen-v1-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-silnimet-dorsorsan-imagegen-v1-2560-labeled.webp",
             "capitalName": "도르소르산",
-            "capitalCaption": "산악 길과 수도원, 약초 장부가 생활을 지탱하는 실니메트의 산지 도시입니다.",
-            "crestCaption": "실니메트의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+            "capitalCaption": "산악 길과 수도원, 약초 장부가 생활을 지탱하는 실니메트의 산지 도시다.",
+            "crestCaption": "실니메트의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
       },
       "아르도레트": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-ardolet-imagegen-v1-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-ardolet-dorsorhal-imagegen-v1-2560-labeled.webp",
             "capitalName": "도르소르할",
-            "capitalCaption": "산악 수도원, 천상 법원, 관측표 보관실과 등정 허가소가 모인 아르도레트의 고산 중심지입니다.",
-            "crestCaption": "아르도레트의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+            "capitalCaption": "산악 수도원, 천상 법원, 관측표 보관실과 등정 허가소가 모인 아르도레트의 고산 중심지다.",
+            "crestCaption": "아르도레트의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
       },
       "가르메베트": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-garmebet-imagegen-v1-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-garmebet-tikmebhal-imagegen-v1-2560-labeled.webp",
             "capitalName": "틱메브할",
-            "capitalCaption": "초지의 물권, 동행료, 가축 장부가 도시 기능을 대신하는 가르메베트의 거점입니다.",
-            "crestCaption": "가르메베트의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+            "capitalCaption": "초지의 물권, 동행료, 가축 장부가 도시 기능을 대신하는 가르메베트의 거점이다.",
+            "crestCaption": "가르메베트의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
       },
       "실할레트": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-silhalet-imagegen-v1-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-silhalet-silsorsan-imagegen-v1-2560-labeled.webp",
             "capitalName": "실소르산",
-            "capitalCaption": "성림 의례, 장례 기억, 벌목 금기와 채집 허가가 모이는 실할레트의 숲 신정 중심지입니다.",
-            "crestCaption": "실할레트의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+            "capitalCaption": "성림 의례, 장례 기억, 벌목 금기와 채집 허가가 모이는 실할레트의 숲 신정 중심지다.",
+            "crestCaption": "실할레트의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
       },
       "메르할레트": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-merhalet-imagegen-v1-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-merhalet-merbelmar-imagegen-v1-2560-labeled.webp",
             "capitalName": "메르벨마르",
-            "capitalCaption": "항만세와 장부 신용, 수로 물자가 모이는 메르할레트의 물길 도시입니다.",
-            "crestCaption": "메르할레트의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+            "capitalCaption": "항만세와 장부 신용, 수로 물자가 모이는 메르할레트의 물길 도시다.",
+            "crestCaption": "메르할레트의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
       },
       "님소레트": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-nimsolet-imagegen-v1-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-nimsolet-nimhal-imagegen-v1-2560-labeled.webp",
             "capitalName": "님할",
-            "capitalCaption": "학당, 왕실 후원청, 종교 강의장과 공개 시험장이 모인 님소레트의 학술 중심지입니다.",
-            "crestCaption": "님소레트의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+            "capitalCaption": "학당, 왕실 후원청, 종교 강의장과 공개 시험장이 모인 님소레트의 학술 중심지다.",
+            "crestCaption": "님소레트의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
       },
       "실바니아": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-sylvania-imagegen-v1-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-sylvania-silensan-imagegen-v1-2560-labeled.webp",
             "capitalName": "실렌산",
-            "capitalCaption": "숲의 허락과 산길 표식이 사람의 움직임을 정하는 실바니아의 성림 도시입니다.",
-            "crestCaption": "실바니아의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+            "capitalCaption": "숲의 허락과 산길 표식이 사람의 움직임을 정하는 실바니아의 성림 도시다.",
+            "crestCaption": "실바니아의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
       },
       "드래곤스파이어": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-dragonspire-imagegen-v1-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-dragonspire-narmarkel-imagegen-v1-2560-labeled.webp",
             "capitalName": "나르마르켈",
-            "capitalCaption": "화산 항로와 섬의 창고가 맞물린 드래곤스파이어의 도시입니다.",
-            "crestCaption": "드래곤스파이어의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+            "capitalCaption": "화산 항로와 섬의 창고가 맞물린 드래곤스파이어의 도시다.",
+            "crestCaption": "드래곤스파이어의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
       },
       "펜리르의 눈": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-fenrir-eye-imagegen-v1-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-fenrir-eye-dunartore-imagegen-v1-2560-labeled.webp",
             "capitalName": "둔아르토르",
-            "capitalCaption": "외해 등대와 난파 기록이 모이는 금기 해역의 거점입니다.",
-            "crestCaption": "펜리르의 눈의 문장입니다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴입니다."
+            "capitalCaption": "외해 등대와 난파 기록이 모이는 금기 해역의 거점이다.",
+            "crestCaption": "펜리르의 눈의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
       }
 };
 
     const readerSections = [
       {
         title: "나라와 권역",
-        summary: "비레스에는 왕이 다스리는 땅도 있고, 항구의 장부가 왕명만큼 무거운 땅도 있습니다.",
+        summary: "비레스에는 왕이 다스리는 땅도 있고, 항구의 장부가 왕명만큼 무거운 땅도 있다.",
         bodyHtml: `
           <div class="reader-rich">
-            <div class="reader-note"><b>비레스 5083년의 큰 무대</b>는 에덴포르트 중심권, 북방·외연권, 남방 복합권, 주변 대륙·전승권으로 나뉩니다. 같은 은화도 왕도에서는 세금 장부가 되고, 항구에서는 선박 보증이 되며, 초지에서는 물권과 가축 값으로 다시 읽힙니다.</div>
+            <div class="reader-note"><b>비레스 5083년의 큰 무대</b>는 에덴포르트 중심권, 북방·외연권, 남방 복합권, 주변 대륙·전승권으로 나뉜다. 같은 은화도 왕도에서는 세금 장부가 되고, 항구에서는 선박 보증이 되며, 초지에서는 물권과 가축 값으로 다시 읽힌다.</div>
             <div class="reader-columns">
               <div class="reader-group">
                 <h4>에덴포르트 중심권</h4>
-                <p class="reader-entry"><b>레오니아</b>: 중앙집권 왕국. 궁정, 기사 봉토, 왕실 납품, 추천장이 길을 엽니다.</p>
-                <p class="reader-entry"><b>노르가르드</b>: 군항과 철강의 해상 왕국. 항만세, 선박 수리, 해군 장부가 강합니다.</p>
-                <p class="reader-entry"><b>티리스</b>: 농경·목축 군주국. 영지 장터, 숲 경계, 서부 접경, 피난 공동체가 맞물립니다.</p>
-                <p class="reader-entry"><b>린레네트</b>: 학예 공화 도시국가. 극장, 기록원, 후원 계약, 검열 수수료가 생활에 닿습니다.</p>
-                <p class="reader-entry"><b>벡도레트</b>: 요새 군사 도시국가. 방벽, 병영, 검문소, 공사 동원이 도시를 움직입니다.</p>
-                <p class="reader-entry"><b>센할레트</b>: 공동체 농업 국가. 공동 창고, 수로 회의, 종자 보관, 배급 순서가 중요합니다.</p>
+                <p class="reader-entry"><b>레오니아</b>: 중앙집권 왕국. 궁정, 기사 봉토, 왕실 납품, 추천장이 길을 연다.</p>
+                <p class="reader-entry"><b>노르가르드</b>: 군항과 철강의 해상 왕국. 항만세, 선박 수리, 해군 장부가 강하다.</p>
+                <p class="reader-entry"><b>티리스</b>: 농경·목축 군주국. 영지 장터, 숲 경계, 서부 접경, 피난 공동체가 맞물린다.</p>
+                <p class="reader-entry"><b>린레네트</b>: 학예 공화 도시국가. 극장, 기록원, 후원 계약, 검열 수수료가 생활에 닿는다.</p>
+                <p class="reader-entry"><b>벡도레트</b>: 요새 군사 도시국가. 방벽, 병영, 검문소, 공사 동원이 도시를 움직인다.</p>
+                <p class="reader-entry"><b>센할레트</b>: 공동체 농업 국가. 공동 창고, 수로 회의, 종자 보관, 배급 순서가 중요하다.</p>
               </div>
               <div class="reader-group">
                 <h4>북방·외연권</h4>
-                <p class="reader-entry"><b>헤스페레트</b>: 북방 복합 권역. 저장고, 맹세석, 무기 중개, 고개 초소가 삶을 지킵니다.</p>
-                <p class="reader-entry"><b>켈나베트</b>: 항해·탐험 연방. 자유항, 해도, 보험, 원정 허가가 사람을 가릅니다.</p>
-                <p class="reader-entry"><b>헤스베케트</b>: 혹한 생존권. 공동 불씨, 방한구, 저장고 장부가 겨울을 버티게 합니다.</p>
-                <p class="reader-entry"><b>옌메베트</b>: 고공 통행과 숲 경계권. 고개길, 기수단, 숲 표식, 안내 실패가 큰 문제입니다.</p>
-                <p class="reader-entry"><b>님나레트</b>: 폐쇄 학술권. 감찰과 봉인 창고가 사람의 출입을 가르고, 허가서 없이는 배우거나 물건을 옮기기 어렵습니다.</p>
+                <p class="reader-entry"><b>헤스페레트</b>: 북방 복합 권역. 저장고, 맹세석, 무기 중개, 고개 초소가 삶을 지킨다.</p>
+                <p class="reader-entry"><b>켈나베트</b>: 항해·탐험 연방. 자유항, 해도, 보험, 원정 허가가 사람을 가른다.</p>
+                <p class="reader-entry"><b>헤스베케트</b>: 혹한 생존권. 공동 불씨, 방한구, 저장고 장부가 겨울을 버티게 한다.</p>
+                <p class="reader-entry"><b>옌메베트</b>: 고공 통행과 숲 경계권. 고개길, 기수단, 숲 표식, 안내 실패가 큰 문제다.</p>
+                <p class="reader-entry"><b>님나레트</b>: 폐쇄 학술권. 감찰과 봉인 창고가 사람의 출입을 가르고, 허가서 없이는 배우거나 물건을 옮기기 어렵다.</p>
               </div>
               <div class="reader-group">
                 <h4>남방 복합권</h4>
-                <p class="reader-entry"><b>실니메트</b>: 산악·약초·강하권. 사원, 약초 장터, 통역, 강하 운송이 이어집니다.</p>
-                <p class="reader-entry"><b>아르도레트</b>: 고산 수도원·관측권. 순례로, 관측표, 천상 법원, 허가 사본이 남습니다.</p>
-                <p class="reader-entry"><b>가르메베트</b>: 초지·유목권. 물권, 가축, 계절 야영지, 동행료가 화폐만큼 중요합니다.</p>
-                <p class="reader-entry"><b>실할레트</b>: 성림·목재권. 숲 의례, 벌목 허가, 목재 검사, 금기 장소가 얽힙니다.</p>
-                <p class="reader-entry"><b>메르할레트</b>: 강하 상업 공화권. 통행세, 창고, 수로 계약, 상업 법정이 일상입니다.</p>
-                <p class="reader-entry"><b>님소레트</b>: 학술·종교 내륙권. 학당, 필사, 철학 논쟁, 신전 주석이 강합니다.</p>
+                <p class="reader-entry"><b>실니메트</b>: 산악·약초·강하권. 사원, 약초 장터, 통역, 강하 운송이 이어진다.</p>
+                <p class="reader-entry"><b>아르도레트</b>: 고산 수도원·관측권. 순례로, 관측표, 천상 법원, 허가 사본이 남는다.</p>
+                <p class="reader-entry"><b>가르메베트</b>: 초지·유목권. 물권, 가축, 계절 야영지, 동행료가 화폐만큼 중요하다.</p>
+                <p class="reader-entry"><b>실할레트</b>: 성림·목재권. 숲 의례, 벌목 허가, 목재 검사, 금기 장소가 얽힌다.</p>
+                <p class="reader-entry"><b>메르할레트</b>: 강하 상업 공화권. 통행세, 창고, 수로 계약, 상업 법정이 일상이다.</p>
+                <p class="reader-entry"><b>님소레트</b>: 학술·종교 내륙권. 학당, 필사, 철학 논쟁, 신전 주석이 강하다.</p>
               </div>
               <div class="reader-group">
                 <h4>주변 대륙·전승권</h4>
-                <p class="reader-entry"><b>실바니아</b>: 안개숲·계보권. 탐사 허가, 길잡이, 고문서, 숲길 표식이 핵심입니다.</p>
-                <p class="reader-entry"><b>드래곤스파이어</b>: 화산 군도권. 분화 감시, 화산석, 피난 표식, 위험 항로가 생활을 가릅니다.</p>
-                <p class="reader-entry"><b>펜리르의 눈</b>: 외해 금기권. 등대, 난파 기록, 구조 대기, 금기 해역의 소문이 남습니다.</p>
+                <p class="reader-entry"><b>실바니아</b>: 안개숲·계보권. 탐사 허가, 길잡이, 고문서, 숲길 표식이 핵심이다.</p>
+                <p class="reader-entry"><b>드래곤스파이어</b>: 화산 군도권. 분화 감시, 화산석, 피난 표식, 위험 항로가 생활을 가른다.</p>
+                <p class="reader-entry"><b>펜리르의 눈</b>: 외해 금기권. 등대, 난파 기록, 구조 대기, 금기 해역의 소문이 남는다.</p>
               </div>
             </div>
           </div>
@@ -2899,49 +2966,49 @@
       },
       {
         title: "도시와 마을",
-        summary: "도시는 멀리서 보이는 성벽이 아니라, 줄을 서고 값을 치르고 누군가에게 이름을 말해야 하는 장소입니다.",
+        summary: "도시는 멀리서 보이는 성벽이 아니라, 줄을 서고 값을 치르고 누군가에게 이름을 말해야 하는 장소다.",
         bullets: [
-          "큰 도시에 들어가면 먼저 성문과 검문소를 만납니다. 안쪽으로 갈수록 장터, 창고, 관청, 신전, 병영의 소리가 겹칩니다.",
-          "마을은 작아도 가볍지 않습니다. 공동 창고, 수문, 피난 표식, 선착장, 산길 숙소 하나가 겨울과 전쟁을 버티는 힘이 됩니다.",
-          "이름 없는 외곽 마을도 있고, 길 위의 사람들이 오래 기억하는 마을도 있습니다. 어떤 곳은 좋은 빵으로, 어떤 곳은 닫힌 문으로 기억됩니다."
+          "큰 도시에 들어가면 먼저 성문과 검문소를 만난다. 안쪽으로 갈수록 장터, 창고, 관청, 신전, 병영의 소리가 겹친다.",
+          "마을은 작아도 가볍지 않는다. 공동 창고, 수문, 피난 표식, 선착장, 산길 숙소 하나가 겨울과 전쟁을 버티는 힘이 된다.",
+          "이름 없는 외곽 마을도 있고, 길 위의 사람들이 오래 기억하는 마을도 있다. 어떤 곳은 좋은 빵으로, 어떤 곳은 닫힌 문으로 기억된다."
         ]
       },
       {
         title: "돈과 물건",
-        summary: "돈주머니만 차 있다고 모든 문이 열리지는 않습니다. 때로는 보증인 한 명이 은화보다 값집니다.",
+        summary: "돈주머니만 차 있다고 모든 문이 열리지는 않는다. 때로는 보증인 한 명이 은화보다 값지다.",
         bullets: [
-          "왕도와 큰 장터에서는 은화와 동전이 잘 통합니다. 농촌으로 갈수록 곡물 한 자루, 하루 품삯, 창고 몫이 더 또렷한 값이 됩니다.",
-          "항만에서는 외래 주화도 오가지만, 선장 보증과 봉인된 화물표가 더 믿을 만한 증거가 되기도 합니다.",
-          "산악과 북방에서는 숙소 자리, 말린 식량, 방한구, 고개 통행 허가가 곧 생존입니다. 비싼 물건보다 따뜻한 자리 하나가 더 급할 수 있습니다."
+          "왕도와 큰 장터에서는 은화와 동전이 잘 통한다. 농촌으로 갈수록 곡물 한 자루, 하루 품삯, 창고 몫이 더 또렷한 값이 된다.",
+          "항만에서는 외래 주화도 오가지만, 선장 보증과 봉인된 화물표가 더 믿을 만한 증거가 되기도 한다.",
+          "산악과 북방에서는 숙소 자리, 말린 식량, 방한구, 고개 통행 허가가 곧 생존이다. 비싼 물건보다 따뜻한 자리 하나가 더 급할 수 있다."
         ],
         bodyHtml: `
           <div class="reader-rich">
             <table class="reader-table">
               <thead><tr><th>돈</th><th>값</th><th>어디에 쓰이나</th></tr></thead>
               <tbody>
-                <tr><td><b>금표</b></td><td>20 은량</td><td>외교 선물, 큰 선박 계약, 고급 병기와 말 거래에 쓰이는 고액 봉인 표식입니다.</td></tr>
-                <tr><td><b>은량</b></td><td>기준 1</td><td>세금 산정, 장거리 거래, 법정 배상, 품삯 비교에 쓰는 가장 흔한 회계 기준입니다.</td></tr>
-                <tr><td><b>반은</b></td><td>1/2 은량</td><td>숙박, 장인 품삯, 작은 계약금에 쓰입니다.</td></tr>
-                <tr><td><b>동각</b></td><td>1/12 은량</td><td>장터 음식, 나루, 짐꾼, 여관 부대비에 쓰는 소액 주화입니다.</td></tr>
-                <tr><td><b>철각</b></td><td>1/60 은량</td><td>빵, 죽, 묽은 맥주, 말먹이, 낮은 통행료처럼 아주 작은 값에 쓰입니다.</td></tr>
+                <tr><td><b>금표</b></td><td>20 은량</td><td>외교 선물, 큰 선박 계약, 고급 병기와 말 거래에 쓰이는 고액 봉인 표식이다.</td></tr>
+                <tr><td><b>은량</b></td><td>기준 1</td><td>세금 산정, 장거리 거래, 법정 배상, 품삯 비교에 쓰는 가장 흔한 회계 기준이다.</td></tr>
+                <tr><td><b>반은</b></td><td>1/2 은량</td><td>숙박, 장인 품삯, 작은 계약금에 쓰인다.</td></tr>
+                <tr><td><b>동각</b></td><td>1/12 은량</td><td>장터 음식, 나루, 짐꾼, 여관 부대비에 쓰는 소액 주화다.</td></tr>
+                <tr><td><b>철각</b></td><td>1/60 은량</td><td>빵, 죽, 묽은 맥주, 말먹이, 낮은 통행료처럼 아주 작은 값에 쓰인다.</td></tr>
               </tbody>
             </table>
             <div class="reader-columns">
               <div class="reader-group">
                 <h4>장면에서 바로 쓰는 기준가</h4>
-                <p class="reader-entry"><b>보통 노동자 하루 품삯</b>: 1/6~1/4 은량. 성벽 공사나 항만 하역철에는 1/3 은량까지 오릅니다.</p>
-                <p class="reader-entry"><b>숙련 장인 하루 품삯</b>: 1/2~1.5 은량. 철강, 선박, 석재, 필사 전문성에 따라 달라집니다.</p>
-                <p class="reader-entry"><b>빵·죽 한 끼</b>: 1~2 철각. 흉작기와 피난민 밀집지에서는 더 비쌉니다.</p>
-                <p class="reader-entry"><b>낮은 여관 공동잠자리</b>: 2~6 동각. 성문 대기와 장터일에는 값이 뜁니다.</p>
-                <p class="reader-entry"><b>곡물 한 자루</b>: 2~4 은량. 봉쇄나 구휼철에는 5~9 은량까지 흔들립니다.</p>
+                <p class="reader-entry"><b>보통 노동자 하루 품삯</b>: 1/6~1/4 은량. 성벽 공사나 항만 하역철에는 1/3 은량까지 오른다.</p>
+                <p class="reader-entry"><b>숙련 장인 하루 품삯</b>: 1/2~1.5 은량. 철강, 선박, 석재, 필사 전문성에 따라 달라진다.</p>
+                <p class="reader-entry"><b>빵·죽 한 끼</b>: 1~2 철각. 흉작기와 피난민 밀집지에서는 더 비싸다.</p>
+                <p class="reader-entry"><b>낮은 여관 공동잠자리</b>: 2~6 동각. 성문 대기와 장터일에는 값이 뛴다.</p>
+                <p class="reader-entry"><b>곡물 한 자루</b>: 2~4 은량. 봉쇄나 구휼철에는 5~9 은량까지 흔들린다.</p>
               </div>
               <div class="reader-group">
                 <h4>길과 짐을 재는 말</h4>
-                <p class="reader-entry"><b>천걸음</b>: 약 750미터. 성문 밖 가까운 거리나 마을 사이 짧은 길을 잴 때 씁니다.</p>
-                <p class="reader-entry"><b>평지 하룻길</b>: 25~35킬로미터. 좋은 길과 날씨가 있을 때의 하루 이동입니다.</p>
-                <p class="reader-entry"><b>산길 하룻길</b>: 12~18킬로미터. 고개와 눈길에서는 더 짧아집니다.</p>
-                <p class="reader-entry"><b>등짐</b>: 약 30킬로그램. 한 사람이 지고 움직일 수 있는 짐의 기준입니다.</p>
-                <p class="reader-entry"><b>자루</b>: 40~50리터. 곡물과 저장품을 말할 때 자주 보입니다.</p>
+                <p class="reader-entry"><b>천걸음</b>: 약 750미터. 성문 밖 가까운 거리나 마을 사이 짧은 길을 잴 때 쓴다.</p>
+                <p class="reader-entry"><b>평지 하룻길</b>: 25~35킬로미터. 좋은 길과 날씨가 있을 때의 하루 이동이다.</p>
+                <p class="reader-entry"><b>산길 하룻길</b>: 12~18킬로미터. 고개와 눈길에서는 더 짧아진다.</p>
+                <p class="reader-entry"><b>등짐</b>: 약 30킬로그램. 한 사람이 지고 움직일 수 있는 짐의 기준이다.</p>
+                <p class="reader-entry"><b>자루</b>: 40~50리터. 곡물과 저장품을 말할 때 자주 보인다.</p>
               </div>
             </div>
           </div>
@@ -2949,47 +3016,47 @@
       },
       {
         title: "달력과 계절",
-        summary: "비레스의 사람들은 같은 해를 살아도 같은 달력을 바라보지 않습니다.",
+        summary: "비레스의 사람들은 같은 해를 살아도 같은 달력을 바라보지 않는다.",
         bullets: [
-          "레오니아의 달력에는 서임일과 궁정 의례가 깊게 새겨져 있습니다. 날짜는 명예와 순서를 알려주는 표식입니다.",
-          "노르가르드와 켈나베트의 항구 사람들은 바람과 조류를 먼저 봅니다. 좋은 날은 축제일보다 출항 가능한 날일 때가 많습니다.",
-          "티리스와 센할레트에서는 씨 뿌릴 때, 저장할 때, 공동 창고를 열 때가 한 해의 중심입니다.",
-          "북방권에서는 겨울 폐쇄가 사람을 가릅니다. 문이 닫히기 전 들어왔는지, 닫힌 뒤 남겨졌는지가 한 사람의 운명을 바꿉니다."
+          "레오니아의 달력에는 서임일과 궁정 의례가 깊게 새겨져 있다. 날짜는 명예와 순서를 알려주는 표식이다.",
+          "노르가르드와 켈나베트의 항구 사람들은 바람과 조류를 먼저 본다. 좋은 날은 축제일보다 출항 가능한 날일 때가 많다.",
+          "티리스와 센할레트에서는 씨 뿌릴 때, 저장할 때, 공동 창고를 열 때가 한 해의 중심이다.",
+          "북방권에서는 겨울 폐쇄가 사람을 가른다. 문이 닫히기 전 들어왔는지, 닫힌 뒤 남겨졌는지가 한 사람의 운명을 바꾼다."
         ]
       },
       {
         title: "역사와 소문",
-        summary: "큰 사건은 책에도 남고 노래에도 남지만, 책과 노래가 늘 같은 말을 하지는 않습니다.",
+        summary: "큰 사건은 책에도 남고 노래에도 남지만, 책과 노래가 늘 같은 말을 하지는 않는다.",
         bullets: [
-          "티리스 서부에서는 그린할로우를 잃은 일이 아직 끝나지 않았습니다. 뉴할로우의 불빛은 새 삶의 표식이면서 돌아가지 못한 사람들의 그림자입니다.",
-          "항만권에서는 난파 장부와 해도 노래가 오래 남습니다. 누구는 경고로 부르고, 누구는 책임을 피하려는 말로 씁니다.",
-          "학술권에서는 사본 한 장의 누락이 역사를 바꿔 보이게 합니다. 봉인된 주석과 후원자의 침묵은 말보다 오래 남습니다."
+          "티리스 서부에서는 그린할로우를 잃은 일이 아직 끝나지 않았다. 뉴할로우의 불빛은 새 삶의 표식이면서 돌아가지 못한 사람들의 그림자다.",
+          "항만권에서는 난파 장부와 해도 노래가 오래 남는다. 누구는 경고로 부르고, 누구는 책임을 피하려는 말로 쓴다.",
+          "학술권에서는 사본 한 장의 누락이 역사를 바꿔 보이게 한다. 봉인된 주석과 후원자의 침묵은 말보다 오래 남는다."
         ]
       },
       {
         title: "종족과 문화",
-        summary: "여러 종족과 문화가 한 장터에 서 있어도, 모두가 같은 집으로 돌아가지는 않습니다.",
+        summary: "여러 종족과 문화가 한 장터에 서 있어도, 모두가 같은 집으로 돌아가지는 않는다.",
         bodyHtml: `
           <div class="reader-rich">
-            <div class="reader-note"><b>비레스의 종족</b>은 피와 몸의 차이만으로 나뉘지 않습니다. 어떤 집단은 광맥과 장례 각문으로, 어떤 집단은 숲길 이름과 계보로, 어떤 집단은 항해 노래와 난파 명부로 자신을 기억합니다.</div>
+            <div class="reader-note"><b>비레스의 종족</b>은 피와 몸의 차이만으로 나뉘지 않는다. 어떤 집단은 광맥과 장례 각문으로, 어떤 집단은 숲길 이름과 계보로, 어떤 집단은 항해 노래와 난파 명부로 자신을 기억한다.</div>
             <div class="reader-columns">
               <div class="reader-group">
                 <h4>문명권에서 자주 만나는 집단</h4>
-                <p class="reader-entry"><b>인간계</b>: 가장 넓게 퍼진 다수층입니다. 왕실, 영지, 항만, 학당, 초지, 숲 경계까지 모두 포함합니다.</p>
-                <p class="reader-entry"><b>페르브루니르</b>: 철맥계. 광산, 대장간, 석재, 병기 보수, 장례 각문과 가까운 산악·도시 장인 집단입니다.</p>
-                <p class="reader-entry"><b>실레니르</b>: 숲기록계. 계보 필사, 숲길 표식, 고문서 주석, 장례 목패를 오래 보존합니다.</p>
-                <p class="reader-entry"><b>메르세니르</b>: 씨앗상단계. 종자 보관, 장터 외상, 매듭 부호, 농촌 계약을 들고 길을 오갑니다.</p>
-                <p class="reader-entry"><b>님소리르</b>: 정령혈통계. 약초, 산악 통역, 혈통 의례, 금기 장소 안내로 알려져 있습니다.</p>
-                <p class="reader-entry"><b>노스킨·발카이트 계열</b>: 북방 복합 집단. 저장고, 고개 안내, 용병 계약, 방한구와 혹한 생존에 강합니다.</p>
+                <p class="reader-entry"><b>인간계</b>: 가장 넓게 퍼진 다수층이다. 왕실, 영지, 항만, 학당, 초지, 숲 경계까지 모두 포함한다.</p>
+                <p class="reader-entry"><b>페르브루니르</b>: 철맥계. 광산, 대장간, 석재, 병기 보수, 장례 각문과 가까운 산악·도시 장인 집단이다.</p>
+                <p class="reader-entry"><b>실레니르</b>: 숲기록계. 계보 필사, 숲길 표식, 고문서 주석, 장례 목패를 오래 보존한다.</p>
+                <p class="reader-entry"><b>메르세니르</b>: 씨앗상단계. 종자 보관, 장터 외상, 매듭 부호, 농촌 계약을 들고 길을 오간다.</p>
+                <p class="reader-entry"><b>님소리르</b>: 정령혈통계. 약초, 산악 통역, 혈통 의례, 금기 장소 안내로 알려져 있다.</p>
+                <p class="reader-entry"><b>노스킨·발카이트 계열</b>: 북방 복합 집단. 저장고, 고개 안내, 용병 계약, 방한구와 혹한 생존에 강하다.</p>
               </div>
               <div class="reader-group">
                 <h4>경계와 먼 길의 집단</h4>
-                <p class="reader-entry"><b>혼합 거주 집단</b>: 별도 생물 종족이 아니라 항만, 접경, 피난지, 학당에서 혈통과 이름, 법적 등록이 섞인 생활층입니다.</p>
-                <p class="reader-entry"><b>렌실리르</b>: 실바니아 계보 집단. 안개숲 계보집, 사본 열람, 길잡이, 탐사 기록에 이름이 남습니다.</p>
-                <p class="reader-entry"><b>소르실리르</b>: 실바니아 숲빛 집단. 숲 의례, 장례 노래, 금기 장소 구전으로 접촉됩니다.</p>
-                <p class="reader-entry"><b>드라나리르</b>: 화산 용혈 집단. 드래곤스파이어의 분화 감시, 화산석, 위험 항로, 용혈 전승과 이어집니다.</p>
-                <p class="reader-entry"><b>벨마리르</b>: 외해 해양 집단. 해도 주석, 구조 신호, 난파 명부, 외해 보급으로 알려집니다.</p>
-                <p class="reader-entry"><b>린마리르</b>: 외해 노래 집단. 항해 노래, 금기일 암기, 실종자 기억, 항만 장례에 남습니다.</p>
+                <p class="reader-entry"><b>혼합 거주 집단</b>: 별도 생물 종족이 아니라 항만, 접경, 피난지, 학당에서 혈통과 이름, 법적 등록이 섞인 생활층이다.</p>
+                <p class="reader-entry"><b>렌실리르</b>: 실바니아 계보 집단. 안개숲 계보집, 사본 열람, 길잡이, 탐사 기록에 이름이 남는다.</p>
+                <p class="reader-entry"><b>소르실리르</b>: 실바니아 숲빛 집단. 숲 의례, 장례 노래, 금기 장소 구전으로 접촉된다.</p>
+                <p class="reader-entry"><b>드라나리르</b>: 화산 용혈 집단. 드래곤스파이어의 분화 감시, 화산석, 위험 항로, 용혈 전승과 이어진다.</p>
+                <p class="reader-entry"><b>벨마리르</b>: 외해 해양 집단. 해도 주석, 구조 신호, 난파 명부, 외해 보급으로 알려진다.</p>
+                <p class="reader-entry"><b>린마리르</b>: 외해 노래 집단. 항해 노래, 금기일 암기, 실종자 기억, 항만 장례에 남는다.</p>
               </div>
             </div>
           </div>
@@ -3009,45 +3076,45 @@
     const readerVisuals = {
       "나라와 권역": {
         icon: "♜",
-        line: "먼저 어느 땅에 서 있는지 봅니다.",
+        line: "먼저 어느 땅에 서 있는지 본다.",
         image: "./viewer/assets/illustrations/single_slides/leonia-radarhal.jpg",
         alt: "레오니아의 중심 도시 라드아르할",
-        caption: "한 나라의 중심도시는 권력과 장터, 길이 한데 모인 얼굴입니다."
+        caption: "한 나라의 중심도시는 권력과 장터, 길이 한데 모인 얼굴이다."
       },
       "도시와 마을": {
         icon: "⌂",
-        line: "성문, 장터, 선착장, 산길 숙소가 장면을 엽니다.",
+        line: "성문, 장터, 선착장, 산길 숙소가 장면을 연다.",
         image: "./viewer/assets/illustrations/single_slides/tiris-ravenstone.jpg",
         alt: "티리스 서부의 성곽 도시 레이븐스톤",
-        caption: "성문과 장터, 배후 마을을 함께 보아야 도시의 하루가 보입니다."
+        caption: "성문과 장터, 배후 마을을 함께 보아야 도시의 하루가 보인다."
       },
       "돈과 물건": {
         icon: "¤",
-        line: "돈주머니보다 보증인과 장부가 먼저 통하는 곳도 있습니다.",
+        line: "돈주머니보다 보증인과 장부가 먼저 통하는 곳도 있다.",
         image: "./viewer/assets/illustrations/single_slides/village-tiris-garpukga.jpg",
         alt: "곡물과 물자가 오가는 티리스의 장터 마을",
-        caption: "값은 주화만으로 정해지지 않습니다. 곡물, 품삯, 보증과 창고 몫이 같이 움직입니다."
+        caption: "값은 주화만으로 정해지지 않는다. 곡물, 품삯, 보증과 창고 몫이 같이 움직인다."
       },
       "달력과 계절": {
         icon: "☉",
-        line: "장날, 조석, 파종일, 금기일이 서로 다른 시계를 만듭니다.",
+        line: "장날, 조석, 파종일, 금기일이 서로 다른 시계를 만든다.",
         image: "./viewer/assets/illustrations/vireth-seasons-twinmoon-sky-v1.png",
         alt: "쌍월이 뜬 비레스의 계절별 하늘",
-        caption: "660일의 긴 해와 두 달의 주기, 지역마다 다른 계절감이 생활의 시간을 나눕니다."
+        caption: "660일의 긴 해와 두 달의 주기, 지역마다 다른 계절감이 생활의 시간을 나눈다."
       },
       "역사와 소문": {
         icon: "✦",
-        line: "큰 역사는 기록에 남고, 작은 진실은 노래와 소문으로 흩어집니다.",
+        line: "큰 역사는 기록에 남고, 작은 진실은 노래와 소문으로 흩어진다.",
         image: "./viewer/assets/illustrations/single_slides/tiris-newhollow.jpg",
         alt: "피난민 정착지 뉴할로우",
-        caption: "사건은 도시와 마을의 흔적으로 남고, 사람들은 기록과 구전 사이에서 그 기억을 만납니다."
+        caption: "사건은 도시와 마을의 흔적으로 남고, 사람들은 기록과 구전 사이에서 그 기억을 만난다."
       },
       "종족과 문화": {
         icon: "☷",
-        line: "누가 어디에 살고, 누구와 섞여 일하는지 봅니다.",
+        line: "누가 어디에 살고, 누구와 섞여 일하는지 본다.",
         image: "./viewer/assets/illustrations/single_slides/norghard-marnabmir.jpg",
         alt: "여러 항해자와 장인이 모이는 노르가르드의 항구",
-        caption: "종족은 따로 떨어진 목록이 아니라, 나라와 도시와 생업 안에서 서로 만납니다."
+        caption: "종족은 따로 떨어진 목록이 아니라, 나라와 도시와 생업 안에서 서로 만난다."
       }
     };
 
@@ -3066,49 +3133,49 @@
         title: "정착지 좌표와 규모",
         src: "./viewer/assets/images/ck5083-settlement-coordinate-scale-grid-v1.svg",
         alt: "정착지 좌표와 규모 기준 도식",
-        caption: "도시와 마을이 지도 위 어디에 놓이고, 어느 정도 크기로 읽히는지 잡아 주는 기준판입니다."
+        caption: "도시와 마을이 지도 위 어디에 놓이고, 어느 정도 크기로 읽히는지 잡아 주는 기준판이다."
       },
       {
         title: "도시별 인구와 종족 구성",
         src: "./viewer/assets/images/ck5083-city-population-species-composition-v1.svg",
         alt: "도시별 인구와 종족 구성 도식",
-        caption: "도시마다 누가 많이 살고, 어떤 사람들이 장터와 항구를 드나드는지 비교합니다."
+        caption: "도시마다 누가 많이 살고, 어떤 사람들이 장터와 항구를 드나드는지 비교한다."
       },
       {
         title: "도시 내부 구역과 배후지",
         src: "./viewer/assets/images/ck5083-city-district-hinterland-issues-v1.svg",
         alt: "도시 내부 구역과 배후 정착지 도식",
-        caption: "성문, 장터, 항만, 배후 마을이 어떤 문제와 함께 이어지는지 보여줍니다."
+        caption: "성문, 장터, 항만, 배후 마을이 어떤 문제와 함께 이어지는지 보여준다."
       },
       {
         title: "마을별 인구와 시설",
         src: "./viewer/assets/images/ck5083-village-population-livelihood-facility-db-v1.svg",
         alt: "마을별 인구, 생업, 시설 도식",
-        caption: "마을마다 인구, 생업, 시설, 가까운 도시와 길 소속이 다릅니다."
+        caption: "마을마다 인구, 생업, 시설, 가까운 도시와 길 소속이 다르다."
       },
       {
         title: "마을의 소문과 물자 흐름",
         src: "./viewer/assets/images/ck5083-village-issue-rumor-authority-flow-db-v1.svg",
         alt: "마을별 쟁점, 소문, 권위자, 물자 흐름 도식",
-        caption: "소문, 권위자, 출입 조건, 물자 흐름이 작은 마을의 장면을 만듭니다."
+        caption: "소문, 권위자, 출입 조건, 물자 흐름이 작은 마을의 장면을 만든다."
       },
       {
         title: "문명과 기술 기능",
         src: "./viewer/assets/images/ck5083-civilization-technology-capability-matrix-v1.svg",
         alt: "문명과 기술 기능 매트릭스",
-        caption: "어느 권역에 어떤 기능이 강하고 약한지 한 장에서 비교합니다."
+        caption: "어느 권역에 어떤 기능이 강하고 약한지 한 장에서 비교한다."
       },
       {
         title: "자연권과 생활권",
         src: "./viewer/assets/images/ck5083-natural-life-zones-v1.svg",
         alt: "자연권과 생활권 도식",
-        caption: "기후와 지형이 사람들의 이동, 생업, 정착지를 어떻게 나누는지 보여줍니다."
+        caption: "기후와 지형이 사람들의 이동, 생업, 정착지를 어떻게 나누는지 보여준다."
       },
       {
         title: "도시와 장소 기능망",
         src: "./viewer/assets/images/ck5083-cities-places-function-network-v1.svg",
         alt: "도시와 장소 기능망 도식",
-        caption: "도시 기능과 공공 장소가 어떤 역할로 서로 이어지는지 보여줍니다."
+        caption: "도시 기능과 공공 장소가 어떤 역할로 서로 이어지는지 보여준다."
       }
     ];
 
@@ -3117,583 +3184,583 @@
             "title": "아르도레트 도시 전경 1",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-ardolet-arsorsan-imagegen-v1-2560-labeled.webp",
             "alt": "아르도레트 도시 전경 1",
-            "caption": "아르도레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "아르도레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "아르도레트 도시 전경 2",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-ardolet-dorkelbar-imagegen-v1-2560-labeled.webp",
             "alt": "아르도레트 도시 전경 2",
-            "caption": "아르도레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "아르도레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "아르도레트 도시 전경 3",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-ardolet-dorsorhal-imagegen-v1-2560-labeled.webp",
             "alt": "아르도레트 도시 전경 3",
-            "caption": "아르도레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "아르도레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "아르도레트 도시 전경 4",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-ardolet-sorhal-imagegen-v1-2560-labeled.webp",
             "alt": "아르도레트 도시 전경 4",
-            "caption": "아르도레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "아르도레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "아르도레트 도시 전경 5",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-ardolet-yenieltor-imagegen-v1-2560-labeled.webp",
             "alt": "아르도레트 도시 전경 5",
-            "caption": "아르도레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "아르도레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "벡도레트 도시 전경 1",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-bekdoret-bekhal-imagegen-v1-2560-labeled.webp",
             "alt": "벡도레트 도시 전경 1",
-            "caption": "벡도레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "벡도레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "벡도레트 도시 전경 2",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-bekdoret-dorkar-imagegen-v1-2560-labeled.webp",
             "alt": "벡도레트 도시 전경 2",
-            "caption": "벡도레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "벡도레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "벡도레트 도시 전경 3",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-bekdoret-dortekum-imagegen-v1-2560-labeled.webp",
             "alt": "벡도레트 도시 전경 3",
-            "caption": "벡도레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "벡도레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "벡도레트 도시 전경 4",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-bekdoret-enhalga-imagegen-v1-2560-labeled.webp",
             "alt": "벡도레트 도시 전경 4",
-            "caption": "벡도레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "벡도레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "벡도레트 도시 전경 5",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-bekdoret-kelkar-imagegen-v1-2560-labeled.webp",
             "alt": "벡도레트 도시 전경 5",
-            "caption": "벡도레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "벡도레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "드래곤스파이어 도시 전경 1",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-dragonspire-marmoshal-imagegen-v1-2560-labeled.webp",
             "alt": "드래곤스파이어 도시 전경 1",
-            "caption": "드래곤스파이어 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "드래곤스파이어 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "드래곤스파이어 도시 전경 2",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-dragonspire-narmarkel-imagegen-v1-2560-labeled.webp",
             "alt": "드래곤스파이어 도시 전경 2",
-            "caption": "드래곤스파이어 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "드래곤스파이어 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "드래곤스파이어 도시 전경 3",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-dragonspire-narmarrenum-imagegen-v1-2560-labeled.webp",
             "alt": "드래곤스파이어 도시 전경 3",
-            "caption": "드래곤스파이어 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "드래곤스파이어 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "드래곤스파이어 도시 전경 4",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-dragonspire-narvektor-imagegen-v1-2560-labeled.webp",
             "alt": "드래곤스파이어 도시 전경 4",
-            "caption": "드래곤스파이어 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "드래곤스파이어 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "펜리르의 눈 도시 전경 1",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-fenrir-eye-dunartore-imagegen-v1-2560-labeled.webp",
             "alt": "펜리르의 눈 도시 전경 1",
-            "caption": "펜리르의 눈 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "펜리르의 눈 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "펜리르의 눈 도시 전경 2",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-fenrir-eye-dunnabrenum-imagegen-v1-2560-labeled.webp",
             "alt": "펜리르의 눈 도시 전경 2",
-            "caption": "펜리르의 눈 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "펜리르의 눈 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "펜리르의 눈 도시 전경 3",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-fenrir-eye-ummarsor-imagegen-v1-2560-labeled.webp",
             "alt": "펜리르의 눈 도시 전경 3",
-            "caption": "펜리르의 눈 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "펜리르의 눈 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "펜리르의 눈 도시 전경 4",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-fenrir-eye-vepnabhal-imagegen-v1-2560-labeled.webp",
             "alt": "펜리르의 눈 도시 전경 4",
-            "caption": "펜리르의 눈 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "펜리르의 눈 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "가르메베트 도시 전경 1",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-garmebet-belbekel-imagegen-v1-2560-labeled.webp",
             "alt": "가르메베트 도시 전경 1",
-            "caption": "가르메베트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "가르메베트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "가르메베트 도시 전경 2",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-garmebet-bellambar-imagegen-v1-2560-labeled.webp",
             "alt": "가르메베트 도시 전경 2",
-            "caption": "가르메베트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "가르메베트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "가르메베트 도시 전경 3",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-garmebet-mevbar-imagegen-v1-2560-labeled.webp",
             "alt": "가르메베트 도시 전경 3",
-            "caption": "가르메베트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "가르메베트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "가르메베트 도시 전경 4",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-garmebet-tikmebhal-imagegen-v1-2560-labeled.webp",
             "alt": "가르메베트 도시 전경 4",
-            "caption": "가르메베트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "가르메베트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "가르메베트 도시 전경 5",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-garmebet-workrenum-imagegen-v1-2560-labeled.webp",
             "alt": "가르메베트 도시 전경 5",
-            "caption": "가르메베트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "가르메베트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "헤스베케트 도시 전경 1",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-hesbeket-bekhespukum-imagegen-v1-2560-labeled.webp",
             "alt": "헤스베케트 도시 전경 1",
-            "caption": "헤스베케트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "헤스베케트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "헤스베케트 도시 전경 2",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-hesbeket-heswokel-imagegen-v1-2560-labeled.webp",
             "alt": "헤스베케트 도시 전경 2",
-            "caption": "헤스베케트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "헤스베케트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "헤스베케트 도시 전경 3",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-hesbeket-mevhesbek-imagegen-v1-2560-labeled.webp",
             "alt": "헤스베케트 도시 전경 3",
-            "caption": "헤스베케트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "헤스베케트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "헤스베케트 도시 전경 4",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-hesbeket-narhal-imagegen-v1-2560-labeled.webp",
             "alt": "헤스베케트 도시 전경 4",
-            "caption": "헤스베케트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "헤스베케트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "헤스페레트 도시 전경 1",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-hesferet-heskelkar-imagegen-v1-2560-labeled.webp",
             "alt": "헤스페레트 도시 전경 1",
-            "caption": "헤스페레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "헤스페레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "헤스페레트 도시 전경 2",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-hesferet-hespukum-imagegen-v1-2560-labeled.webp",
             "alt": "헤스페레트 도시 전경 2",
-            "caption": "헤스페레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "헤스페레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "헤스페레트 도시 전경 3",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-hesferet-mevkelet-imagegen-v1-2560-labeled.webp",
             "alt": "헤스페레트 도시 전경 3",
-            "caption": "헤스페레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "헤스페레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "헤스페레트 도시 전경 4",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-hesferet-perbar-imagegen-v1-2560-labeled.webp",
             "alt": "헤스페레트 도시 전경 4",
-            "caption": "헤스페레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "헤스페레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "헤스페레트 도시 전경 5",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-hesferet-ramjirbar-imagegen-v1-2560-labeled.webp",
             "alt": "헤스페레트 도시 전경 5",
-            "caption": "헤스페레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "헤스페레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "켈나베트 도시 전경 1",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-kelnabet-markelmir-imagegen-v1-2560-labeled.webp",
             "alt": "켈나베트 도시 전경 1",
-            "caption": "켈나베트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "켈나베트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "켈나베트 도시 전경 2",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-kelnabet-marrenum-imagegen-v1-2560-labeled.webp",
             "alt": "켈나베트 도시 전경 2",
-            "caption": "켈나베트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "켈나베트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "켈나베트 도시 전경 3",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-kelnabet-nabhal-imagegen-v1-2560-labeled.webp",
             "alt": "켈나베트 도시 전경 3",
-            "caption": "켈나베트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "켈나베트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "켈나베트 도시 전경 4",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-kelnabet-ummarkel-imagegen-v1-2560-labeled.webp",
             "alt": "켈나베트 도시 전경 4",
-            "caption": "켈나베트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "켈나베트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "켈나베트 도시 전경 5",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-kelnabet-workbar-imagegen-v1-2560-labeled.webp",
             "alt": "켈나베트 도시 전경 5",
-            "caption": "켈나베트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "켈나베트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "레오니아 도시 전경 1",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-leonia-jirbar-et-imagegen-v1-2560-labeled.webp",
             "alt": "레오니아 도시 전경 1",
-            "caption": "레오니아 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "레오니아 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "레오니아 도시 전경 2",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-leonia-paltekumga-imagegen-v1-2560-labeled.webp",
             "alt": "레오니아 도시 전경 2",
-            "caption": "레오니아 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "레오니아 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "레오니아 도시 전경 3",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-leonia-radarhal-imagegen-v1-2560-labeled.webp",
             "alt": "레오니아 도시 전경 3",
-            "caption": "레오니아 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "레오니아 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "레오니아 도시 전경 4",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-leonia-remdatum-imagegen-v1-2560-labeled.webp",
             "alt": "레오니아 도시 전경 4",
-            "caption": "레오니아 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "레오니아 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "린레네트 도시 전경 1",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-linrenet-datkinhal-imagegen-v1-2560-labeled.webp",
             "alt": "린레네트 도시 전경 1",
-            "caption": "린레네트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "린레네트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "린레네트 도시 전경 2",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-linrenet-linsanga-imagegen-v1-2560-labeled.webp",
             "alt": "린레네트 도시 전경 2",
-            "caption": "린레네트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "린레네트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "린레네트 도시 전경 3",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-linrenet-nimrenhal-imagegen-v1-2560-labeled.webp",
             "alt": "린레네트 도시 전경 3",
-            "caption": "린레네트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "린레네트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "린레네트 도시 전경 4",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-linrenet-remrenga-imagegen-v1-2560-labeled.webp",
             "alt": "린레네트 도시 전경 4",
-            "caption": "린레네트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "린레네트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "린레네트 도시 전경 5",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-linrenet-renumga-imagegen-v1-2560-labeled.webp",
             "alt": "린레네트 도시 전경 5",
-            "caption": "린레네트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "린레네트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "메르할레트 도시 전경 1",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-merhalet-hedkelbar-imagegen-v1-2560-labeled.webp",
             "alt": "메르할레트 도시 전경 1",
-            "caption": "메르할레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "메르할레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "메르할레트 도시 전경 2",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-merhalet-merbelmar-imagegen-v1-2560-labeled.webp",
             "alt": "메르할레트 도시 전경 2",
-            "caption": "메르할레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "메르할레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "메르할레트 도시 전경 3",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-merhalet-mernimbar-imagegen-v1-2560-labeled.webp",
             "alt": "메르할레트 도시 전경 3",
-            "caption": "메르할레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "메르할레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "메르할레트 도시 전경 4",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-merhalet-mervar-imagegen-v1-2560-labeled.webp",
             "alt": "메르할레트 도시 전경 4",
-            "caption": "메르할레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "메르할레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "메르할레트 도시 전경 5",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-merhalet-puktekum-imagegen-v1-2560-labeled.webp",
             "alt": "메르할레트 도시 전경 5",
-            "caption": "메르할레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "메르할레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "님나레트 도시 전경 1",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-nimnaret-enkelhal-imagegen-v1-2560-labeled.webp",
             "alt": "님나레트 도시 전경 1",
-            "caption": "님나레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "님나레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "님나레트 도시 전경 2",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-nimnaret-hedrenum-imagegen-v1-2560-labeled.webp",
             "alt": "님나레트 도시 전경 2",
-            "caption": "님나레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "님나레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "님나레트 도시 전경 3",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-nimnaret-nimnahal-imagegen-v1-2560-labeled.webp",
             "alt": "님나레트 도시 전경 3",
-            "caption": "님나레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "님나레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "님나레트 도시 전경 4",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-nimnaret-puknaum-imagegen-v1-2560-labeled.webp",
             "alt": "님나레트 도시 전경 4",
-            "caption": "님나레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "님나레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "님나레트 도시 전경 5",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-nimnaret-yalbekum-imagegen-v1-2560-labeled.webp",
             "alt": "님나레트 도시 전경 5",
-            "caption": "님나레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "님나레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "님소레트 도시 전경 1",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-nimsolet-nimhal-imagegen-v1-2560-labeled.webp",
             "alt": "님소레트 도시 전경 1",
-            "caption": "님소레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "님소레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "님소레트 도시 전경 2",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-nimsolet-nimremhal-imagegen-v1-2560-labeled.webp",
             "alt": "님소레트 도시 전경 2",
-            "caption": "님소레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "님소레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "님소레트 도시 전경 3",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-nimsolet-renmermir-imagegen-v1-2560-labeled.webp",
             "alt": "님소레트 도시 전경 3",
-            "caption": "님소레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "님소레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "님소레트 도시 전경 4",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-nimsolet-rentekum-imagegen-v1-2560-labeled.webp",
             "alt": "님소레트 도시 전경 4",
-            "caption": "님소레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "님소레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "님소레트 도시 전경 5",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-nimsolet-sordatum-imagegen-v1-2560-labeled.webp",
             "alt": "님소레트 도시 전경 5",
-            "caption": "님소레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "님소레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "노르가르드 도시 전경 1",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-norghard-armartor-imagegen-v1-2560-labeled.webp",
             "alt": "노르가르드 도시 전경 1",
-            "caption": "노르가르드 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "노르가르드 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "노르가르드 도시 전경 2",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-norghard-marnabmir-imagegen-v1-2560-labeled.webp",
             "alt": "노르가르드 도시 전경 2",
-            "caption": "노르가르드 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "노르가르드 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "노르가르드 도시 전경 3",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-norghard-nabhalga-imagegen-v1-2560-labeled.webp",
             "alt": "노르가르드 도시 전경 3",
-            "caption": "노르가르드 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "노르가르드 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "노르가르드 도시 전경 4",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-norghard-pernav-pier-imagegen-v1-2560-labeled.webp",
             "alt": "노르가르드 도시 전경 4",
-            "caption": "노르가르드 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "노르가르드 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "센할레트 도시 전경 1",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-senhalet-belbar-imagegen-v1-2560-labeled.webp",
             "alt": "센할레트 도시 전경 1",
-            "caption": "센할레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "센할레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "센할레트 도시 전경 2",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-senhalet-garsen-et-imagegen-v1-2560-labeled.webp",
             "alt": "센할레트 도시 전경 2",
-            "caption": "센할레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "센할레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "센할레트 도시 전경 3",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-senhalet-senpuk-et-imagegen-v1-2560-labeled.webp",
             "alt": "센할레트 도시 전경 3",
-            "caption": "센할레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "센할레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "센할레트 도시 전경 4",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-senhalet-senpukum-imagegen-v1-2560-labeled.webp",
             "alt": "센할레트 도시 전경 4",
-            "caption": "센할레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "센할레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "센할레트 도시 전경 5",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-senhalet-veprenhal-imagegen-v1-2560-labeled.webp",
             "alt": "센할레트 도시 전경 5",
-            "caption": "센할레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "센할레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "실할레트 도시 전경 1",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-silhalet-radsilhal-imagegen-v1-2560-labeled.webp",
             "alt": "실할레트 도시 전경 1",
-            "caption": "실할레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "실할레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "실할레트 도시 전경 2",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-silhalet-silbekel-imagegen-v1-2560-labeled.webp",
             "alt": "실할레트 도시 전경 2",
-            "caption": "실할레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "실할레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "실할레트 도시 전경 3",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-silhalet-sildatbar-imagegen-v1-2560-labeled.webp",
             "alt": "실할레트 도시 전경 3",
-            "caption": "실할레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "실할레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "실할레트 도시 전경 4",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-silhalet-silsorsan-imagegen-v1-2560-labeled.webp",
             "alt": "실할레트 도시 전경 4",
-            "caption": "실할레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "실할레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "실할레트 도시 전경 5",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-silhalet-siltekel-imagegen-v1-2560-labeled.webp",
             "alt": "실할레트 도시 전경 5",
-            "caption": "실할레트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "실할레트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "실니메트 도시 전경 1",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-silnimet-belmarmir-imagegen-v1-2560-labeled.webp",
             "alt": "실니메트 도시 전경 1",
-            "caption": "실니메트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "실니메트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "실니메트 도시 전경 2",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-silnimet-dorsorsan-imagegen-v1-2560-labeled.webp",
             "alt": "실니메트 도시 전경 2",
-            "caption": "실니메트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "실니메트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "실니메트 도시 전경 3",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-silnimet-mevmerkel-imagegen-v1-2560-labeled.webp",
             "alt": "실니메트 도시 전경 3",
-            "caption": "실니메트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "실니메트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "실니메트 도시 전경 4",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-silnimet-silmermar-imagegen-v1-2560-labeled.webp",
             "alt": "실니메트 도시 전경 4",
-            "caption": "실니메트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "실니메트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "실니메트 도시 전경 5",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-silnimet-silmermir-imagegen-v1-2560-labeled.webp",
             "alt": "실니메트 도시 전경 5",
-            "caption": "실니메트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "실니메트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "실니메트 도시 전경 6",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-silnimet-silsorkel-imagegen-v1-2560-labeled.webp",
             "alt": "실니메트 도시 전경 6",
-            "caption": "실니메트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "실니메트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "실바니아 도시 전경 1",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-sylvania-renyalum-imagegen-v1-2560-labeled.webp",
             "alt": "실바니아 도시 전경 1",
-            "caption": "실바니아 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "실바니아 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "실바니아 도시 전경 2",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-sylvania-silensan-imagegen-v1-2560-labeled.webp",
             "alt": "실바니아 도시 전경 2",
-            "caption": "실바니아 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "실바니아 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "실바니아 도시 전경 3",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-sylvania-umkelsan-imagegen-v1-2560-labeled.webp",
             "alt": "실바니아 도시 전경 3",
-            "caption": "실바니아 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "실바니아 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "실바니아 도시 전경 4",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-sylvania-workkelhal-imagegen-v1-2560-labeled.webp",
             "alt": "실바니아 도시 전경 4",
-            "caption": "실바니아 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "실바니아 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "티리스 도시 전경 1",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-tiris-bekkellkar-ravenstone-imagegen-v1-2560-labeled.webp",
             "alt": "티리스 도시 전경 1",
-            "caption": "티리스 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "티리스 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "티리스 도시 전경 2",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-tiris-belsor-el-imagegen-v1-2560-labeled.webp",
             "alt": "티리스 도시 전경 2",
-            "caption": "티리스 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "티리스 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "티리스 도시 전경 3",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-tiris-garmev-et-imagegen-v1-2560-labeled.webp",
             "alt": "티리스 도시 전경 3",
-            "caption": "티리스 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "티리스 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "티리스 도시 전경 4",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-tiris-greenhollow-imagegen-v1-2560-labeled.webp",
             "alt": "티리스 도시 전경 4",
-            "caption": "티리스 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "티리스 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "티리스 도시 전경 5",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-tiris-newhollow-imagegen-v1-2560-labeled.webp",
             "alt": "티리스 도시 전경 5",
-            "caption": "티리스 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "티리스 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "티리스 도시 전경 6",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-tiris-radbarhal-imagegen-v1-2560-labeled.webp",
             "alt": "티리스 도시 전경 6",
-            "caption": "티리스 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "티리스 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "티리스 도시 전경 7",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-tiris-siltek-et-imagegen-v1-2560-labeled.webp",
             "alt": "티리스 도시 전경 7",
-            "caption": "티리스 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "티리스 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "티리스 도시 전경 8",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-tiris-soriel-tor-imagegen-v1-2560-labeled.webp",
             "alt": "티리스 도시 전경 8",
-            "caption": "티리스 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "티리스 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "옌메베트 도시 전경 1",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-yenmebet-silamrenum-imagegen-v1-2560-labeled.webp",
             "alt": "옌메베트 도시 전경 1",
-            "caption": "옌메베트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "옌메베트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "옌메베트 도시 전경 2",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-yenmebet-silbeket-imagegen-v1-2560-labeled.webp",
             "alt": "옌메베트 도시 전경 2",
-            "caption": "옌메베트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "옌메베트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "옌메베트 도시 전경 3",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-yenmebet-yenbekhal-imagegen-v1-2560-labeled.webp",
             "alt": "옌메베트 도시 전경 3",
-            "caption": "옌메베트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "옌메베트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       },
       {
             "title": "옌메베트 도시 전경 4",
             "src": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-yenmebet-yenwokel-imagegen-v1-2560-labeled.webp",
             "alt": "옌메베트 도시 전경 4",
-            "caption": "옌메베트 권역의 도시와 거점입니다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있습니다."
+            "caption": "옌메베트 권역의 도시와 거점이다. 성벽과 장터, 항구와 창고, 산길에서 사람들이 살아가는 모습을 한 장씩 볼 수 있다."
       }
 ];
 
@@ -3702,37 +3769,37 @@
             "title": "라드가르가",
             "src": "./viewer/assets/illustrations/single_slides/village-leonia-radgarga.jpg",
             "alt": "레오니아 라드가르가 봉토 마을",
-            "caption": "레오니아 봉토 주변의 마을입니다. 추천장과 문장, 납품 순서가 중요합니다."
+            "caption": "레오니아 봉토 주변의 마을이다. 추천장과 문장, 납품 순서가 중요하다."
       },
       {
             "title": "가르푸크가",
             "src": "./viewer/assets/illustrations/single_slides/village-tiris-garpukga.jpg",
             "alt": "티리스 가르푸크가 영지 장터 마을",
-            "caption": "티리스 영지 장터 마을입니다. 곡물, 보증인, 공동 창고가 장면의 중심입니다."
+            "caption": "티리스 영지 장터 마을이다. 곡물, 보증인, 공동 창고가 장면의 중심이다."
       },
       {
             "title": "마르토르가",
             "src": "./viewer/assets/illustrations/single_slides/village-norghard-martorga.jpg",
             "alt": "노르가르드 마르토르가 해안 마을",
-            "caption": "군항 뒤편의 해안 마을입니다. 선박 보급과 겨울 준비가 빠르게 오갑니다."
+            "caption": "군항 뒤편의 해안 마을이다. 선박 보급과 겨울 준비가 빠르게 오간다."
       },
       {
             "title": "해안 어항",
             "src": "./viewer/assets/illustrations/single_slides/village-coastal-fishing-harbor.jpg",
             "alt": "비레스 해안 어항",
-            "caption": "고기와 소금, 작은 선착장이 하루의 값을 정하는 해안 정착지입니다."
+            "caption": "고기와 소금, 작은 선착장이 하루의 값을 정하는 해안 정착지다."
       },
       {
             "title": "산길 숙소촌",
             "src": "./viewer/assets/illustrations/single_slides/village-mountain-pass-lodging-outpost.jpg",
             "alt": "비레스 산길 숙소촌",
-            "caption": "고개를 넘는 사람에게 하룻밤의 불빛과 방한구가 은화보다 먼저 필요한 곳입니다."
+            "caption": "고개를 넘는 사람에게 하룻밤의 불빛과 방한구가 은화보다 먼저 필요한 곳이다."
       },
       {
             "title": "감시 초소촌",
             "src": "./viewer/assets/illustrations/single_slides/village-watch-checkpoint.jpg",
             "alt": "비레스 감시 초소촌",
-            "caption": "검문과 허가, 지나가는 짐의 기록이 매일 쌓이는 작은 초소 마을입니다."
+            "caption": "검문과 허가, 지나가는 짐의 기록이 매일 쌓이는 작은 초소 마을이다."
       }
 ];
 
@@ -3780,15 +3847,17 @@
     function renderRegionButtons() {
           regionGrid.innerHTML = regions.map((region, index) => {
             const visuals = regionVisuals[region.name];
-            const fact = regionFacts[region.name];
             const crest = visuals ? `<img class="region-card-crest" loading="lazy" src="${visuals.crest}" alt="${region.name} 문장">` : "";
+            const keywords = regionCardKeywords[region.name] || [];
             return `
               <button class="region-button" type="button" data-index="${index}" aria-pressed="${index === 0 ? "true" : "false"}" tabindex="${index === 0 ? "0" : "-1"}">
                 ${crest}
                 <span class="region-card-text">
-                  <strong>${region.name}</strong>
-                  <span>${region.short}</span>
-                  <small class="region-index-meta">${visuals ? visuals.capitalName : "중심지"} · ${fact ? fact.focus : region.type}</small>
+                  <span class="region-card-heading">
+                    <strong>${region.name}</strong>
+                    <small class="region-index-meta">${visuals ? visuals.capitalName : "중심지"}</small>
+                  </span>
+                  <span class="region-card-keywords">${keywords.map(keyword => `<em>${keyword}</em>`).join("")}</span>
                 </span>
               </button>
             `;
@@ -3881,14 +3950,10 @@
             <div class="region-article-body">
               <p class="region-article-lede">${region.short}</p>
               <div class="region-facts">
-                <section class="region-fact"><i class="detail-icon" data-lucide="landmark" aria-hidden="true"></i><div><h4>이곳에서는 무엇이 길을 열까요?</h4><p>${region.life}</p></div></section>
-                <section class="region-fact"><i class="detail-icon" data-lucide="map-pinned" aria-hidden="true"></i><div><h4>먼저 만나게 될 도시</h4><p>${region.places}가 이 권역의 주요 도시와 거점입니다.</p></div></section>
-                <section class="region-fact"><i class="detail-icon" data-lucide="users" aria-hidden="true"></i><div><h4>사람과 종족</h4><p>${regionSpecies[region.name]} ${fact.people || ""}</p></div></section>
-                <section class="region-fact"><i class="detail-icon" data-lucide="coins" aria-hidden="true"></i><div><h4>장터에서 값을 치르는 법</h4><p>${fact.money || "은량과 지역 장부가 함께 쓰입니다."}</p></div></section>
-                <section class="region-fact"><i class="detail-icon" data-lucide="calendar-days" aria-hidden="true"></i><div><h4>길을 나서기 좋은 때</h4><p>${fact.time || "장날과 의례일을 살피면 길이 붐비는 때와 쉬는 때를 알 수 있습니다."}</p></div></section>
-                <section class="region-fact"><i class="detail-icon" data-lucide="scroll-text" aria-hidden="true"></i><div><h4>사람들이 아직 기억하는 이야기</h4><p>${region.memory}</p></div></section>
-                <section class="region-fact"><i class="detail-icon" data-lucide="triangle-alert" aria-hidden="true"></i><div><h4>지금 길 위에서 부딪히는 일</h4><p>사람들이 지금 가장 자주 꺼내는 말은 ${region.pressure}입니다.</p></div></section>
-                <section class="region-fact"><i class="detail-icon" data-lucide="signpost" aria-hidden="true"></i><div><h4>어디서 이야기를 시작할까요?</h4><p>${region.first}에서 첫 장면을 열기 좋습니다. ${region.persona}처럼 이 땅의 일상에 가까운 사람으로 들어갈 수 있습니다.</p></div></section>
+                <section class="region-fact"><i class="detail-icon" data-lucide="map-pinned" aria-hidden="true"></i><div><h4>도시와 사람</h4><p><strong>${region.places}</strong>가 주요 도시와 거점이다. ${regionSpecies[region.name]} ${fact.people || ""}</p></div></section>
+                <section class="region-fact"><i class="detail-icon" data-lucide="coins" aria-hidden="true"></i><div><h4>돈과 계절</h4><p>${fact.money || "은량과 지역 장부가 함께 쓰인다."} ${fact.time || "장날과 의례일이 길의 흐름을 바꾼다."}</p></div></section>
+                <section class="region-fact"><i class="detail-icon" data-lucide="scroll-text" aria-hidden="true"></i><div><h4>역사와 현재</h4><p>${region.memory} 현재 가장 자주 충돌하는 문제는 <strong>${region.pressure}</strong>다.</p></div></section>
+                <section class="region-fact"><i class="detail-icon" data-lucide="signpost" aria-hidden="true"></i><div><h4>첫 장면</h4><p>${region.life} <strong>${region.first}</strong>에서 ${region.persona}의 삶과 가까운 장면이 열린다.</p></div></section>
               </div>
             </div>
           `;
@@ -3902,14 +3967,19 @@
     function renderReader() {
       const readerOrder = ["나라와 권역", "종족과 문화", "도시와 마을", "돈과 물건", "달력과 계절", "역사와 소문"];
       const readerIntroductions = {
-        "나라와 권역": "지금 서 있는 땅의 이름부터 살펴봅니다.",
-        "종족과 문화": "누구와 마주치고, 서로 어떻게 살아가는지 봅니다.",
-        "도시와 마을": "성문 밖과 안에서 무엇이 달라지는지 읽습니다.",
-        "돈과 물건": "오늘 품삯으로 무엇을 사고 어디서 잘 수 있는지 봅니다.",
-        "달력과 계절": "오늘이 언제이며 길을 나서기 좋은 때인지 확인합니다.",
-        "역사와 소문": "기록에 남은 일과 사람들 입에 남은 이야기를 나눠 봅니다."
+        "나라와 권역": "지금 서 있는 땅의 이름부터 살펴본다.",
+        "종족과 문화": "누구와 마주치고, 서로 어떻게 살아가는지 본다.",
+        "도시와 마을": "성문 밖과 안에서 무엇이 달라지는지 읽는다.",
+        "돈과 물건": "오늘 품삯으로 무엇을 사고 어디서 잘 수 있는지 본다.",
+        "달력과 계절": "오늘이 언제이며 길을 나서기 좋은 때인지 확인한다.",
+        "역사와 소문": "기록에 남은 일과 사람들 입에 남은 이야기를 나눠 본다."
       };
       const orderedSections = readerOrder.map(title => readerSections.find(section => section.title === title)).filter(Boolean);
+      const readerKeywords = ["이름과 보증인", "은량", "하루 품삯", "두 달", "통행 허가", "현재 갈등", "공동 창고", "해도", "금표", "동각", "철각"];
+      const emphasizeReaderKeywords = value => readerKeywords.reduce(
+        (output, keyword) => output.replaceAll(keyword, `<strong class="reader-keyword">${keyword}</strong>`),
+        value
+      );
       readerGrid.innerHTML = orderedSections.map(section => {
         const visual = readerVisuals[section.title];
         const spotlight = visual ? `
@@ -3929,9 +3999,9 @@
           </summary>
           <div class="reader-article">
             ${spotlight}
-            <p>${section.summary}</p>
-            ${Array.isArray(section.bullets) && section.bullets.length ? `<ul>${section.bullets.map(item => `<li>${item}</li>`).join("")}</ul>` : ""}
-            ${section.bodyHtml || ""}
+            <p>${emphasizeReaderKeywords(section.summary)}</p>
+            ${Array.isArray(section.bullets) && section.bullets.length ? `<ul>${section.bullets.map(item => `<li>${emphasizeReaderKeywords(item)}</li>`).join("")}</ul>` : ""}
+            ${emphasizeReaderKeywords(section.bodyHtml || "")}
           </div>
         </details>
       `;
