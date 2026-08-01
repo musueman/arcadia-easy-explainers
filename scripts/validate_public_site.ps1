@@ -100,6 +100,8 @@ Assert-Contains -Pattern 'event\.key\s*===\s*"ArrowRight"' -Message '다음 이�
 Assert-Contains -Pattern 'aria-live="polite"' -Message '슬라이드 변경 알림 영역 누락'
 Assert-Contains -Pattern 'ren-guide-full-cutout\.webp' -Message '렌 전신 누끼 안내자 이미지 누락'
 Assert-Contains -Pattern 'duran-guide-full-cutout\.webp' -Message '듀란 상반신 누끼 안내자 이미지 누락'
+Assert-Contains -Pattern '\.guide-portrait\.ren img\s*\{' -Message '렌 원본 비율 개별 배치 누락'
+Assert-Contains -Pattern '\.guide-portrait\.duran img\s*\{' -Message '듀란 원본 비율 개별 배치 누락'
 Assert-Contains -Pattern '비레스를 먼저 걸으며 낯선 길과 사람의 기색을 읽어 온 여행자' -Message '렌 공개 소개 누락'
 Assert-Contains -Pattern '붉은 망토를 두르고, 무너진 길에서도 사람을 지키려는 기사' -Message '듀란 공개 소개 누락'
 Assert-Count -Pattern 'class="guide-profile' -Expected 2 -Message '렌·듀란 안내자 프로필 두 개 불일치'
