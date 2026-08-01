@@ -44,7 +44,7 @@ foreach ($region in $regions) {
 
 Assert-Count -Pattern '"capitalName":\s*"[^"]+"' -Expected 20 -Message '권역 대표 거점 20개 불일치'
 
-$readerBlock = [regex]::Match($html, 'const readerSections = \[(?<body>[\s\S]*?)\];\s*const readerVisuals').Groups['body'].Value
+$readerBlock = [regex]::Match($html, 'const readerSections = \[(?<body>[\s\S]*?)\];\s*const readerIconNames').Groups['body'].Value
 $readerCount = [regex]::Matches($readerBlock, 'title:\s*"(나라와 권역|종족과 문화|도시와 마을|돈과 물건|달력과 계절|역사와 소문)"').Count
 if ($readerCount -ne 6) {
     $failures.Add("세계 읽기 여섯 묶음 불일치 (expected=6 actual=$readerCount)")
@@ -81,6 +81,11 @@ Assert-Contains -Pattern 'loading="lazy"' -Message '지연 로딩 이미지 누�
 Assert-Contains -Pattern 'event\.key\s*===\s*"ArrowLeft"' -Message '이전 이미지 키보드 조작 누락'
 Assert-Contains -Pattern 'event\.key\s*===\s*"ArrowRight"' -Message '다음 이미지 키보드 조작 누락'
 Assert-Contains -Pattern 'aria-live="polite"' -Message '슬라이드 변경 알림 영역 누락'
+Assert-Contains -Pattern 'ren-guide-cutout\.webp' -Message '렌 안내자 이미지 누락'
+Assert-Contains -Pattern 'duran-guide-cutout\.webp' -Message '듀란 안내자 이미지 누락'
+Assert-Contains -Pattern 'data-lucide=' -Message '루시드 아이콘 체계 누락'
+Assert-Contains -Pattern '사건 당사자는 아닙니다' -Message '안내자 역할 경계 문구 누락'
+Assert-Count -Pattern 'class="region-card-scene"' -Expected 1 -Message '권역 카드 풍경 렌더러 누락'
 
 $relativeSources = [regex]::Matches($html, '(?:src|href)="(\./[^"#?]+)"')
 foreach ($match in $relativeSources) {

@@ -6,6 +6,7 @@
   <meta name="description" content="비레스 세계 시뮬레이션 공개 안내 페이지">
   <title>비레스에서 어디로 갈까요?</title>
   <link rel="icon" href="data:,">
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
   <style>
     :root {
       --bg: #f4efe5;
@@ -54,9 +55,23 @@
     }
 
     .brand {
+      display: grid;
+      gap: 1px;
       color: var(--green-dark);
-      font-weight: 900;
+      line-height: 1.05;
       text-decoration: none;
+    }
+
+    .brand span {
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+    }
+
+    .brand b {
+      font-size: 17px;
+      font-weight: 900;
     }
 
     .nav-links {
@@ -67,6 +82,9 @@
     }
 
     .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       padding: 7px 10px;
       border: 1px solid var(--line);
       border-radius: 999px;
@@ -77,17 +95,24 @@
       background: rgba(255, 253, 247, 0.82);
     }
 
+    .nav-links svg,
+    .button svg {
+      width: 16px;
+      height: 16px;
+      flex: 0 0 auto;
+    }
+
     .hero {
       position: relative;
-      min-height: min(78vh, 760px);
+      min-height: 520px;
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       width: 100%;
       margin: 0;
-      padding: clamp(90px, 13vw, 168px) max(16px, calc((100vw - 1240px) / 2)) clamp(42px, 7vw, 78px);
+      padding: 64px max(16px, calc((100vw - 1240px) / 2));
       color: #fffdf7;
       background:
-        linear-gradient(90deg, rgba(8, 24, 19, 0.92) 0%, rgba(8, 24, 19, 0.72) 46%, rgba(8, 24, 19, 0.22) 76%, rgba(8, 24, 19, 0.08) 100%),
+        linear-gradient(90deg, rgba(8, 24, 19, 0.94) 0%, rgba(8, 24, 19, 0.77) 43%, rgba(8, 24, 19, 0.2) 73%, rgba(8, 24, 19, 0.08) 100%),
         linear-gradient(0deg, rgba(8, 24, 19, 0.5), transparent 42%),
         url("./viewer/assets/illustrations/single_slides/leonia-radarhal.jpg") center 44% / cover;
       isolation: isolate;
@@ -106,8 +131,71 @@
 
     .hero-copy {
       position: relative;
-      z-index: 1;
-      width: min(720px, 100%);
+      z-index: 3;
+      width: min(650px, 54vw);
+    }
+
+    .hero-guides {
+      position: absolute;
+      right: max(10px, calc((100vw - 1240px) / 2));
+      bottom: 0;
+      z-index: 2;
+      width: min(500px, 41vw);
+      height: 96%;
+      pointer-events: none;
+    }
+
+    .guide-portrait {
+      position: absolute;
+      bottom: 0;
+      width: 58%;
+      height: 96%;
+      margin: 0;
+    }
+
+    .guide-portrait.ren {
+      right: 37%;
+      height: 87%;
+      opacity: 0.94;
+    }
+
+    .guide-portrait.duran {
+      right: -2%;
+      z-index: 2;
+    }
+
+    .guide-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center bottom;
+      filter: drop-shadow(0 20px 24px rgba(7, 16, 13, 0.38));
+    }
+
+    .guide-portrait figcaption {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      min-width: 108px;
+      margin: 0;
+      padding: 5px 10px;
+      border-left: 3px solid var(--gold);
+      color: #fffdf7;
+      background: rgba(8, 24, 19, 0.78);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-align: center;
+      transform: translateX(-50%);
+    }
+
+    .guide-portrait figcaption span {
+      display: block;
+      margin-top: 1px;
+      color: rgba(255, 253, 247, 0.72);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0;
     }
 
     .eyebrow {
@@ -120,7 +208,7 @@
     h1 {
       margin: 0;
       color: #fffdf7;
-      font-size: clamp(44px, 8vw, 96px);
+      font-size: clamp(44px, 6.4vw, 78px);
       line-height: 1.02;
       letter-spacing: 0;
       text-wrap: balance;
@@ -138,8 +226,8 @@
     p { margin: 0; }
 
     .lead {
-      max-width: 620px;
-      margin-top: 22px;
+      max-width: 590px;
+      margin-top: 18px;
       color: rgba(255, 253, 247, 0.9);
       font-size: clamp(17px, 2.2vw, 21px);
       text-shadow: 0 2px 16px rgba(0, 0, 0, 0.42);
@@ -155,6 +243,7 @@
     .button {
       display: inline-flex;
       align-items: center;
+      gap: 8px;
       min-height: 44px;
       padding: 10px 16px;
       border: 1px solid var(--green);
@@ -169,6 +258,15 @@
       color: #fffdf7;
       background: rgba(12, 32, 25, 0.44);
       backdrop-filter: blur(8px);
+    }
+
+    .button:hover,
+    .button:focus-visible,
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      border-color: var(--gold);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(180, 128, 55, 0.22);
     }
 
     main {
@@ -206,19 +304,50 @@
     .region-button {
       position: relative;
       display: grid;
-      grid-template-columns: 80px minmax(0, 1fr);
+      grid-template-columns: 68px minmax(0, 1fr);
       gap: 16px;
       align-items: center;
       width: 100%;
-      min-height: 136px;
+      min-height: 146px;
       padding: 16px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      color: var(--ink);
-      background: var(--paper-2);
+      overflow: hidden;
+      border: 1px solid rgba(255, 253, 247, 0.28);
+      border-radius: 6px;
+      color: #fffdf7;
+      background: #14251f;
       text-align: left;
       font: inherit;
       cursor: pointer;
+    }
+
+    .region-button::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(90deg, rgba(7, 22, 17, 0.94) 0%, rgba(7, 22, 17, 0.76) 56%, rgba(7, 22, 17, 0.28) 100%);
+      pointer-events: none;
+    }
+
+    .region-card-scene {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 220ms ease, filter 220ms ease;
+    }
+
+    .region-button:hover .region-card-scene,
+    .region-button:focus-visible .region-card-scene {
+      transform: scale(1.025);
+      filter: saturate(1.08);
+    }
+
+    .region-button > *:not(.region-card-scene) {
+      position: relative;
+      z-index: 2;
     }
 
     .region-card-head {
@@ -226,13 +355,13 @@
     }
 
     .region-card-crest {
-      width: 80px;
-      height: 80px;
+      width: 68px;
+      height: 68px;
       padding: 6px;
-      border: 1px solid rgba(20, 59, 47, 0.22);
-      border-radius: 12px;
+      border: 1px solid rgba(255, 253, 247, 0.38);
+      border-radius: 6px;
       object-fit: contain;
-      background: #17231f;
+      background: rgba(10, 24, 20, 0.72);
     }
 
     .region-card-text {
@@ -241,7 +370,7 @@
 
     .region-button strong {
       display: block;
-      color: var(--green-dark);
+      color: #fffdf7;
       font-size: 18px;
       line-height: 1.2;
     }
@@ -249,7 +378,7 @@
     .region-button span {
       display: block;
       margin-top: 6px;
-      color: var(--muted);
+      color: rgba(255, 253, 247, 0.82);
       font-size: 14px;
       line-height: 1.45;
     }
@@ -271,17 +400,23 @@
       gap: 5px;
       padding: 4px 7px;
       border-radius: 999px;
-      color: #435248;
-      background: rgba(34, 97, 72, 0.08);
+      color: #fffdf7;
+      background: rgba(7, 22, 17, 0.58);
       font-size: 12px;
       font-style: normal;
       font-weight: 800;
     }
 
+    .region-card-mini svg {
+      width: 13px;
+      height: 13px;
+      flex: 0 0 13px;
+    }
+
     .region-button[aria-pressed="true"] {
-      border-color: var(--green);
+      border-color: var(--gold);
       color: #fffdf7;
-      background: var(--green);
+      box-shadow: 0 0 0 3px rgba(180, 128, 55, 0.22);
     }
 
     .region-button[aria-pressed="true"] strong,
@@ -291,11 +426,11 @@
 
     .region-button[aria-pressed="true"] .region-card-mini em {
       color: #fffdf7;
-      background: rgba(255, 253, 247, 0.16);
+      background: rgba(180, 128, 55, 0.28);
     }
 
     .region-button[aria-pressed="true"] .region-card-crest {
-      border-color: rgba(255, 253, 247, 0.58);
+      border-color: var(--gold);
       background: rgba(12, 30, 24, 0.35);
     }
 
@@ -433,6 +568,7 @@
       place-items: center;
       width: 34px;
       height: 34px;
+      padding: 8px;
       border-radius: 50%;
       color: #fffdf7;
       background: var(--green-dark);
@@ -486,6 +622,7 @@
       place-items: center;
       width: 42px;
       height: 42px;
+      padding: 10px;
       border-radius: 50%;
       color: #fffdf7;
       background: var(--green-dark);
@@ -698,6 +835,7 @@
       place-items: center;
       width: 46px;
       height: 46px;
+      padding: 11px;
       border-radius: 14px;
       color: #fffdf7;
       background: var(--green-dark);
@@ -744,7 +882,13 @@
       align-items: center;
       justify-content: space-between;
       gap: 14px;
+      min-height: 126px;
       min-width: 0;
+      padding: 18px;
+      color: #fffdf7;
+      background:
+        linear-gradient(90deg, rgba(7, 22, 17, 0.94) 0%, rgba(7, 22, 17, 0.72) 52%, rgba(7, 22, 17, 0.16) 100%),
+        var(--start-bg) center / cover;
       word-break: keep-all;
       line-height: 1.35;
     }
@@ -757,16 +901,15 @@
       min-width: 0;
     }
 
-    .start-summary i {
+    .start-summary .start-icon {
       display: grid;
       place-items: center;
       width: 42px;
       height: 42px;
+      padding: 10px;
       border-radius: 50%;
       color: #fffdf7;
       background: var(--green-dark);
-      font-style: normal;
-      font-size: 20px;
     }
 
     .start-summary b,
@@ -775,19 +918,22 @@
     }
 
     .start-summary b {
-      color: var(--green-dark);
+      color: #fffdf7;
       font-size: 18px;
     }
 
     .start-summary span {
       margin-top: 3px;
-      color: var(--muted);
+      color: rgba(255, 253, 247, 0.8);
       font-size: 14px;
       font-weight: 700;
     }
 
     details.start-scenario > summary::after {
       flex: 0 0 30px;
+      border-color: rgba(255, 253, 247, 0.4);
+      color: #fffdf7;
+      background: rgba(7, 22, 17, 0.7);
     }
 
     .start-scenario-body {
@@ -1199,6 +1345,12 @@
     }
 
     @media (max-width: 1000px) {
+      .hero-copy { width: min(620px, 68vw); }
+      .hero-guides {
+        right: -34px;
+        width: 46vw;
+        opacity: 0.72;
+      }
       .region-layout {
         grid-template-columns: 1fr;
       }
@@ -1217,10 +1369,32 @@
       }
       .nav-links { justify-content: flex-start; }
       .hero {
-        min-height: 640px;
+        min-height: 550px;
         align-items: flex-end;
-        padding: 100px 20px 42px;
+        padding: 72px 20px 34px;
         background-position: 58% center;
+      }
+      .hero-copy { width: 100%; }
+      .hero-guides {
+        right: -82px;
+        bottom: 0;
+        width: 82vw;
+        height: 66%;
+        opacity: 0.45;
+      }
+      .guide-portrait figcaption { display: none; }
+      .lead {
+        max-width: 34ch;
+        font-size: 16px;
+      }
+      .hero-actions {
+        gap: 8px;
+        margin-top: 20px;
+      }
+      .button {
+        min-height: 42px;
+        padding: 9px 12px;
+        font-size: 14px;
       }
       .region-grid,
       .detail-grid,
@@ -1239,7 +1413,7 @@
       .region-card-crest {
         width: 58px;
         height: 58px;
-        border-radius: 10px;
+        border-radius: 6px;
       }
       .region-hero-visual { aspect-ratio: 1 / 1; }
       summary {
@@ -1277,29 +1451,38 @@
 </head>
 <body>
   <nav class="topbar" aria-label="주요 이동">
-    <a class="brand" href="#top">비레스 5083</a>
+    <a class="brand" href="#top"><span>VIRETH 5083</span><b>여행 안내</b></a>
     <div class="nav-links">
-      <a href="#regions">권역 고르기</a>
-      <a href="#read">세계 읽기</a>
-      <a href="#start">시작 방식</a>
-      <a href="#images">그림 보기</a>
+      <a href="#regions"><i data-lucide="map-pin" aria-hidden="true"></i>여행지 고르기</a>
+      <a href="#read"><i data-lucide="book-open-text" aria-hidden="true"></i>비레스 알아보기</a>
+      <a href="#start"><i data-lucide="compass" aria-hidden="true"></i>시작 장면</a>
+      <a href="#images"><i data-lucide="images" aria-hidden="true"></i>풍경 보기</a>
     </div>
   </nav>
 
   <header id="top" class="hero">
     <div class="hero-copy">
-      <p class="eyebrow">챗봇 여행자를 위한 첫 안내</p>
+      <p class="eyebrow">VIRETH 5083 · 첫 여행 안내</p>
       <h1>비레스에서 어디로 갈까요?</h1>
       <p class="lead">
-        성문 앞에는 여행자들이 줄을 서고, 항구에는 젖은 밧줄 냄새와 장부 넘기는 소리가 남습니다.
-        비레스의 하루는 그런 작은 자리에서 시작됩니다. 먼저 가고 싶은 곳을 고르면,
-        그곳 사람들이 무엇을 두려워하고 무엇을 기대하며 살아가는지 바로 읽을 수 있습니다.
+        왕도와 항구, 눈 덮인 고개와 안개숲은 저마다 다른 방식으로 여행자를 맞습니다.
+        가고 싶은 곳을 고르면 그곳의 사람, 돈, 계절과 오래된 소문을 바로 읽을 수 있습니다.
       </p>
       <div class="hero-actions">
-        <a class="button primary" href="#regions">권역부터 고르기</a>
-        <a class="button secondary" href="#read">세계관 바로 읽기</a>
-        <a class="button secondary" href="#start">시작 장면 보기</a>
+        <a class="button primary" href="#regions"><i data-lucide="map" aria-hidden="true"></i>여행지 고르기</a>
+        <a class="button secondary" href="#read"><i data-lucide="book-open" aria-hidden="true"></i>비레스 알아보기</a>
+        <a class="button secondary" href="#start"><i data-lucide="sparkles" aria-hidden="true"></i>시작 장면 고르기</a>
       </div>
+    </div>
+    <div class="hero-guides" aria-label="비레스를 먼저 걸어본 여행자 렌과 듀란">
+      <figure class="guide-portrait ren">
+        <img src="./viewer/assets/illustrations/character_guides/ren-guide-cutout.webp" alt="비레스를 먼저 여행한 길잡이 렌. 본문 기록의 저자나 사건 당사자는 아닙니다.">
+        <figcaption>REN<span>먼저 길을 걸어본 여행자</span></figcaption>
+      </figure>
+      <figure class="guide-portrait duran">
+        <img src="./viewer/assets/illustrations/character_guides/duran-guide-cutout.webp" alt="비레스를 먼저 여행한 길잡이 듀란. 본문 기록의 저자나 사건 당사자는 아닙니다.">
+        <figcaption>DURAN<span>먼저 길을 걸어본 여행자</span></figcaption>
+      </figure>
     </div>
   </header>
 
@@ -1335,22 +1518,22 @@
 
     <section id="start" class="section">
       <div class="section-head">
-        <p class="eyebrow">플레이 시작점</p>
-        <h2>이런 사람으로 들어가면 바로 장면이 열립니다.</h2>
+        <p class="eyebrow">내 첫 장면</p>
+        <h2>어떤 사람으로 첫발을 내디딜까요?</h2>
       </div>
       <div class="quick-paths">
-        <div class="path-card"><i class="path-icon" aria-hidden="true">⌁</i><span><b>길 위의 여행자</b><span>여관, 검문소, 통행세, 길잡이 소문을 먼저 만납니다.</span></span></div>
-        <div class="path-card"><i class="path-icon" aria-hidden="true">✍</i><span><b>상인이나 서기</b><span>장부, 봉인 끈, 환전, 납품 분쟁에 쉽게 접근합니다.</span></span></div>
-        <div class="path-card"><i class="path-icon" aria-hidden="true">⚔</i><span><b>호위나 용병</b><span>성문, 병영, 무기 보관, 징발 소문을 자주 듣습니다.</span></span></div>
-        <div class="path-card"><i class="path-icon" aria-hidden="true">⌂</i><span><b>피난민이나 정착민</b><span>이름패, 배급 순서, 공동 창고, 귀향 논쟁에 얽힙니다.</span></span></div>
+        <div class="path-card"><i class="path-icon" data-lucide="route" aria-hidden="true"></i><span><b>길 위의 여행자</b><span>여관, 검문소, 통행세, 길잡이 소문을 먼저 만납니다.</span></span></div>
+        <div class="path-card"><i class="path-icon" data-lucide="scroll-text" aria-hidden="true"></i><span><b>상인이나 서기</b><span>장부, 봉인 끈, 환전, 납품 분쟁에 쉽게 접근합니다.</span></span></div>
+        <div class="path-card"><i class="path-icon" data-lucide="shield" aria-hidden="true"></i><span><b>호위나 용병</b><span>성문, 병영, 무기 보관, 징발 소문을 자주 듣습니다.</span></span></div>
+        <div class="path-card"><i class="path-icon" data-lucide="house" aria-hidden="true"></i><span><b>피난민이나 정착민</b><span>이름패, 배급 순서, 공동 창고, 귀향 논쟁에 얽힙니다.</span></span></div>
       </div>
       <div class="start-scenarios" id="start-situations">
-        <h3>웹툰으로 보는 시작상황</h3>
+        <h3>내 이야기는 어디서 시작할까요?</h3>
         <p>긴 장면은 접어 두었습니다. 마음에 드는 시작을 펼치면, 그 상황에서 무엇을 보고 듣고 선택하게 되는지 먼저 볼 수 있습니다.</p>
 
         <details class="start-scenario">
-          <summary>
-            <span class="start-summary"><i aria-hidden="true">門</i><span><b>성문 앞에서 시작</b><span>낯선 도시의 문 앞에서 이름과 용무를 묻는 장면입니다.</span></span></span>
+          <summary style="--start-bg: url('./viewer/assets/illustrations/single_slides/leonia-radarhal.jpg')">
+            <span class="start-summary"><i class="start-icon" data-lucide="door-open" aria-hidden="true"></i><span><b>성문 앞에서 시작</b><span>낯선 도시의 문 앞에서 이름과 용무를 묻는 장면입니다.</span></span></span>
           </summary>
           <div class="start-scenario-body">
             <div class="start-tags"><span>여행자</span><span>성문 검문</span><span>소지품 확인</span><span>첫 선택</span></div>
@@ -1363,8 +1546,8 @@
         </details>
 
         <details class="start-scenario">
-          <summary>
-            <span class="start-summary"><i aria-hidden="true">燈</i><span><b>비 오는 밤의 성문 근무</b><span>문 안쪽 초소에서 경비와 의심, 작은 소리가 시작됩니다.</span></span></span>
+          <summary style="--start-bg: url('./viewer/assets/illustrations/single_slides/tiris-ravenstone.jpg')">
+            <span class="start-summary"><i class="start-icon" data-lucide="shield" aria-hidden="true"></i><span><b>비 오는 밤의 성문 근무</b><span>문 안쪽 초소에서 경비와 의심, 작은 소리가 시작됩니다.</span></span></span>
           </summary>
           <div class="start-scenario-body">
             <div class="start-tags"><span>호위·경비</span><span>야간 성문</span><span>분실물</span><span>누군가의 접근</span></div>
@@ -1377,8 +1560,8 @@
         </details>
 
         <details class="start-scenario">
-          <summary>
-            <span class="start-summary"><i aria-hidden="true">契</i><span><b>산길 여관의 의뢰</b><span>비 내리는 여관에서 낯선 계약과 책임을 건네받습니다.</span></span></span>
+          <summary style="--start-bg: url('./viewer/assets/illustrations/generated_outputs/village_vistas/ck5083-village-hesferet-hespukga-imagegen-v1-2560-labeled.webp')">
+            <span class="start-summary"><i class="start-icon" data-lucide="file-signature" aria-hidden="true"></i><span><b>산길 여관의 의뢰</b><span>비 내리는 여관에서 낯선 계약과 책임을 건네받습니다.</span></span></span>
           </summary>
           <div class="start-scenario-body">
             <div class="start-tags"><span>의뢰 수락</span><span>여관</span><span>보상과 책임</span><span>호위길</span></div>
@@ -1391,8 +1574,8 @@
         </details>
 
         <details class="start-scenario">
-          <summary>
-            <span class="start-summary"><i aria-hidden="true">帳</i><span><b>장터와 납품 장부</b><span>상인이나 서기로 시작해 봉인 끈과 환전 문제에 들어갑니다.</span></span></span>
+          <summary style="--start-bg: url('./viewer/assets/illustrations/generated_outputs/village_outposts/ck5083-village-estate-market-yeongji-jangteo-imagegen-v1-2560-labeled.png')">
+            <span class="start-summary"><i class="start-icon" data-lucide="notebook-tabs" aria-hidden="true"></i><span><b>장터와 납품 장부</b><span>상인이나 서기로 시작해 봉인 끈과 환전 문제에 들어갑니다.</span></span></span>
           </summary>
           <div class="start-scenario-body">
             <div class="start-tags"><span>상인·서기</span><span>장터</span><span>봉인 끈</span><span>환전</span></div>
@@ -1403,8 +1586,8 @@
         </details>
 
         <details class="start-scenario">
-          <summary>
-            <span class="start-summary"><i aria-hidden="true">倉</i><span><b>피난민 배급 줄</b><span>이름패와 공동 창고, 귀향 논쟁에서 시작합니다.</span></span></span>
+          <summary style="--start-bg: url('./viewer/assets/illustrations/single_slides/tiris-newhollow.jpg')">
+            <span class="start-summary"><i class="start-icon" data-lucide="warehouse" aria-hidden="true"></i><span><b>피난민 배급 줄</b><span>이름패와 공동 창고, 귀향 논쟁에서 시작합니다.</span></span></span>
           </summary>
           <div class="start-scenario-body">
             <div class="start-tags"><span>피난민</span><span>공동 창고</span><span>이름패</span><span>배급 순서</span></div>
@@ -1415,8 +1598,8 @@
         </details>
 
         <details class="start-scenario">
-          <summary>
-            <span class="start-summary"><i aria-hidden="true">⚓</i><span><b>항만과 선착장의 새벽</b><span>배표, 항만세, 선적 장부가 얽히는 출발입니다.</span></span></span>
+          <summary style="--start-bg: url('./viewer/assets/illustrations/single_slides/village-coastal-fishing-harbor.jpg')">
+            <span class="start-summary"><i class="start-icon" data-lucide="anchor" aria-hidden="true"></i><span><b>항만과 선착장의 새벽</b><span>배표, 항만세, 선적 장부가 얽히는 출발입니다.</span></span></span>
           </summary>
           <div class="start-scenario-body">
             <div class="start-tags"><span>항만</span><span>선원·짐꾼</span><span>항만세</span><span>선적 장부</span></div>
@@ -1736,6 +1919,29 @@
       "펜리르의 눈": { icon: "◈", focus: "등대·난파", money: "구조비, 난파 물품, 등대 봉납, 해도 필사료가 얽힙니다.", people: "등대 보조, 해도 필사자, 구조 대기자, 실종자 가족이 모입니다.", time: "등대력은 조류, 안개, 실종 명부 갱신일을 중심으로 돕니다.", history: "등대 소실과 난파 기록이 외해 금기의 중심을 만들었습니다." }
     };
 
+    const regionIconNames = {
+      "레오니아": "crown",
+      "노르가르드": "anchor",
+      "티리스": "shield",
+      "린레네트": "drama",
+      "벡도레트": "castle",
+      "센할레트": "warehouse",
+      "헤스페레트": "hammer",
+      "켈나베트": "ship-wheel",
+      "헤스베케트": "snowflake",
+      "옌메베트": "mountain",
+      "님나레트": "lock-keyhole",
+      "실니메트": "leaf",
+      "아르도레트": "telescope",
+      "가르메베트": "tent-tree",
+      "실할레트": "trees",
+      "메르할레트": "coins",
+      "님소레트": "graduation-cap",
+      "실바니아": "tree-pine",
+      "드래곤스파이어": "flame",
+      "펜리르의 눈": "navigation"
+    };
+
     const regionSpecies = {
       "레오니아": "인간계가 다수이며 페르브루니르 장인, 메르세니르 상인, 혼합 거주민이 궁정과 납품가에 함께 삽니다.",
       "노르가르드": "인간계 선원과 페르브루니르 철공이 중심이며 벨마리르·린마리르 항해자와 혼합 거주민이 항구에 모입니다.",
@@ -2045,6 +2251,15 @@
         `
       }
     ];
+
+    const readerIconNames = {
+      "나라와 권역": "map",
+      "종족과 문화": "users",
+      "도시와 마을": "building-2",
+      "돈과 물건": "coins",
+      "달력과 계절": "calendar-days",
+      "역사와 소문": "scroll-text"
+    };
 
     const readerVisuals = {
       "나라와 권역": {
@@ -2801,14 +3016,28 @@
     let panStartX = 0;
     let panStartY = 0;
 
+    function refreshIcons() {
+      if (window.lucide) {
+        window.lucide.createIcons({
+          attrs: {
+            "stroke-width": 1.9
+          }
+        });
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", refreshIcons);
+
     function renderRegionButtons() {
           regionGrid.innerHTML = regions.map((region, index) => {
             const visuals = regionVisuals[region.name];
             const fact = regionFacts[region.name];
             const crest = visuals ? `<img class="region-card-crest" loading="lazy" src="${visuals.crest}" alt="${region.name} 문장">` : "";
-            const mini = fact ? `<span class="region-card-mini"><em>${fact.icon} ${fact.focus}</em><em>${visuals ? visuals.capitalName : "중심지"}</em></span>` : "";
+            const scene = visuals ? `<img class="region-card-scene" loading="lazy" src="${visuals.capital}" alt="">` : "";
+            const mini = fact ? `<span class="region-card-mini"><em><i data-lucide="${regionIconNames[region.name] || "map-pin"}" aria-hidden="true"></i>${fact.focus}</em><em>${visuals ? visuals.capitalName : "중심지"}</em></span>` : "";
             return `
               <button class="region-button" type="button" data-index="${index}" aria-pressed="${index === 0 ? "true" : "false"}">
+                ${scene}
                 ${crest}
                 <span class="region-card-text"><strong>${region.name}</strong><span>${region.short} ${region.type}입니다.</span>${mini}</span>
               </button>
@@ -2826,6 +3055,7 @@
               }
             });
           });
+          refreshIcons();
         }
 
     function renderRegionDetail(index) {
@@ -2857,14 +3087,14 @@
                 <p>${region.short}</p>
               </div>
               <div class="detail-grid">
-                <div class="detail-item"><i class="detail-icon" aria-hidden="true">◎</i><span><b>어떤 나라·권역인가</b><span>${region.life}</span></span></div>
-                <div class="detail-item"><i class="detail-icon" aria-hidden="true">⌖</i><span><b>수도와 주요 도시</b><span>${visuals ? `${visuals.capitalName}. ` : ""}${region.places}</span></span></div>
-                <div class="detail-item"><i class="detail-icon" aria-hidden="true">♟</i><span><b>사람과 종족</b><span>${regionSpecies[region.name]} ${fact.people || ""}</span></span></div>
-                <div class="detail-item"><i class="detail-icon" aria-hidden="true">¤</i><span><b>돈과 장터</b><span>${fact.money || "은량과 지역 장부가 함께 쓰입니다."}</span></span></div>
-                <div class="detail-item"><i class="detail-icon" aria-hidden="true">☉</i><span><b>달력과 계절</b><span>${fact.time || "권역마다 장날과 의례일을 다르게 셉니다."}</span></span></div>
-                <div class="detail-item"><i class="detail-icon" aria-hidden="true">✦</i><span><b>남아 있는 역사와 소문</b><span>${fact.history || region.memory}</span></span></div>
-                <div class="detail-item"><i class="detail-icon" aria-hidden="true">!</i><span><b>지금 문제</b><span>${region.pressure}</span></span></div>
-                <div class="detail-item"><i class="detail-icon" aria-hidden="true">➜</i><span><b>여행자가 시작하기 좋은 장소</b><span>${region.first}. 어울리는 시작은 ${region.persona}입니다.</span></span></div>
+                <div class="detail-item"><i class="detail-icon" data-lucide="landmark" aria-hidden="true"></i><span><b>어떤 나라·권역인가</b><span>${region.life}</span></span></div>
+                <div class="detail-item"><i class="detail-icon" data-lucide="map-pinned" aria-hidden="true"></i><span><b>수도와 주요 도시</b><span>${visuals ? `${visuals.capitalName}. ` : ""}${region.places}</span></span></div>
+                <div class="detail-item"><i class="detail-icon" data-lucide="users" aria-hidden="true"></i><span><b>사람과 종족</b><span>${regionSpecies[region.name]} ${fact.people || ""}</span></span></div>
+                <div class="detail-item"><i class="detail-icon" data-lucide="coins" aria-hidden="true"></i><span><b>돈과 장터</b><span>${fact.money || "은량과 지역 장부가 함께 쓰입니다."}</span></span></div>
+                <div class="detail-item"><i class="detail-icon" data-lucide="calendar-days" aria-hidden="true"></i><span><b>달력과 계절</b><span>${fact.time || "권역마다 장날과 의례일을 다르게 셉니다."}</span></span></div>
+                <div class="detail-item"><i class="detail-icon" data-lucide="scroll-text" aria-hidden="true"></i><span><b>남아 있는 역사와 소문</b><span>${fact.history || region.memory}</span></span></div>
+                <div class="detail-item"><i class="detail-icon" data-lucide="triangle-alert" aria-hidden="true"></i><span><b>지금 문제</b><span>${region.pressure}</span></span></div>
+                <div class="detail-item"><i class="detail-icon" data-lucide="signpost" aria-hidden="true"></i><span><b>여행자가 시작하기 좋은 장소</b><span>${region.first}. 어울리는 시작은 ${region.persona}입니다.</span></span></div>
               </div>
             </div>
           `;
@@ -2872,6 +3102,7 @@
           regionDetail.querySelectorAll("[data-visual-index]").forEach(button => {
             button.addEventListener("click", () => openLightbox(visualSlides, Number(button.dataset.visualIndex)));
           });
+          refreshIcons();
         }
 
     function renderReader() {
@@ -2891,7 +3122,7 @@
         return `
         <details class="reader-card">
           <summary>
-            <i class="reader-summary-icon" aria-hidden="true">${visual ? visual.icon : "•"}</i>
+            <i class="reader-summary-icon" data-lucide="${readerIconNames[section.title] || "book-open"}" aria-hidden="true"></i>
             <span class="reader-summary-text"><b>${section.title}</b><span>${visual ? visual.line : section.summary}</span></span>
           </summary>
           <div class="reader-body">
@@ -2911,6 +3142,7 @@
           { title: image.dataset.readerImage, src: visual.image, alt: visual.alt, caption: visual.caption }
         ], 0));
       });
+      refreshIcons();
     }
 
     function renderImageSlider(containerId, slides) {
