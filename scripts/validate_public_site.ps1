@@ -94,6 +94,8 @@ foreach ($term in $economyTerms) {
 Assert-Contains -Pattern 'id="start-situations"' -Message '시작상황 앵커 누락'
 Assert-Count -Pattern '<details class="start-scenario">' -Expected 6 -Message '시작상황 여섯 항목 불일치'
 Assert-Count -Pattern '<figure class="start-comic">' -Expected 3 -Message '시작 웹툰 세 항목 불일치'
+Assert-Contains -Pattern '(?s)\.start-comic img\s*\{[^}]*aspect-ratio:\s*auto' -Message '세로 웹툰 원본 비율 복원 누락'
+Assert-Contains -Pattern '(?s)\.start-comic img\s*\{[^}]*object-fit:\s*contain' -Message '세로 웹툰 잘림 방지 누락'
 Assert-Contains -Pattern 'loading="lazy"' -Message '지연 로딩 이미지 누락'
 Assert-Contains -Pattern 'event\.key\s*===\s*"ArrowLeft"' -Message '이전 이미지 키보드 조작 누락'
 Assert-Contains -Pattern 'event\.key\s*===\s*"ArrowRight"' -Message '다음 이미지 키보드 조작 누락'
