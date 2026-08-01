@@ -42,7 +42,24 @@ foreach ($region in $regions) {
     Assert-Contains -Pattern ('"' + [regex]::Escape($region) + '":\s*"[^"]+"') -Message "권역 종족 설명 누락: $region"
 }
 
+$regionBlock = [regex]::Match($html, 'const regions = \[(?<body>[\s\S]*?)\];\s*const regionFacts').Groups['body'].Value
+foreach ($field in @('name', 'type', 'short', 'first', 'places', 'life', 'pressure', 'memory', 'persona')) {
+    $count = [regex]::Matches($regionBlock, ([regex]::Escape($field) + ':\s*"[^"]+"')).Count
+    if ($count -ne 20) {
+        $failures.Add("권역 필드 20개 불일치: $field (expected=20 actual=$count)")
+    }
+}
+
+$factsBlock = [regex]::Match($html, 'const regionFacts = \{(?<body>[\s\S]*?)\};\s*const regionIconNames').Groups['body'].Value
+foreach ($field in @('money', 'people', 'time', 'history')) {
+    $count = [regex]::Matches($factsBlock, ([regex]::Escape($field) + ':\s*"[^"]+"')).Count
+    if ($count -ne 20) {
+        $failures.Add("권역 생활 정보 20개 불일치: $field (expected=20 actual=$count)")
+    }
+}
+
 Assert-Count -Pattern '"capitalName":\s*"[^"]+"' -Expected 20 -Message '권역 대표 거점 20개 불일치'
+Assert-Count -Pattern 'class="region-fact"' -Expected 8 -Message '권역 기사 정보 여덟 항목 불일치'
 
 $readerBlock = [regex]::Match($html, 'const readerSections = \[(?<body>[\s\S]*?)\];\s*const readerIconNames').Groups['body'].Value
 $readerCount = [regex]::Matches($readerBlock, 'title:\s*"(나라와 권역|종족과 문화|도시와 마을|돈과 물건|달력과 계절|역사와 소문)"').Count
@@ -51,13 +68,13 @@ if ($readerCount -ne 6) {
 }
 
 $detailLabels = @(
-    '어떤 나라·권역인가',
-    '수도와 주요 도시',
+    '이곳에서는 무엇이 길을 열까요?',
+    '먼저 만나게 될 도시',
     '사람과 종족',
-    '돈과 장터',
-    '달력과 계절',
-    '남아 있는 역사와 소문',
-    '여행자가 시작하기 좋은 장소'
+    '장터에서 값을 치르는 법',
+    '길을 나서기 좋은 때',
+    '사람들이 아직 기억하는 이야기',
+    '어디서 이야기를 시작할까요?'
 )
 
 foreach ($label in $detailLabels) {
@@ -88,7 +105,13 @@ Assert-Contains -Pattern '붉은 망토를 두르고, 무너진 길에서도 사
 Assert-Count -Pattern 'class="guide-profile' -Expected 2 -Message '렌·듀란 안내자 프로필 두 개 불일치'
 Assert-Contains -Pattern 'data-lucide=' -Message '루시드 아이콘 체계 누락'
 Assert-Contains -Pattern '사건 당사자는 아닙니다' -Message '안내자 역할 경계 문구 누락'
-Assert-Count -Pattern 'class="region-card-scene"' -Expected 1 -Message '권역 카드 풍경 렌더러 누락'
+Assert-Count -Pattern 'class="section-band' -Expected 4 -Message '전폭 섹션 밴드 네 개 불일치'
+Assert-Contains -Pattern 'class="region-index"' -Message '권역 색인 누락'
+Assert-Contains -Pattern 'class="region-article"' -Message '권역 기사 누락'
+Assert-Contains -Pattern 'class="region-article-hero"' -Message '권역 전폭 대표 이미지 누락'
+Assert-Contains -Pattern 'class="reader-chapter"' -Message '장 제목형 세계 읽기 누락'
+Assert-Contains -Pattern 'class="start-path"' -Message '무박스 플레이 유형 누락'
+Assert-Count -Pattern '<section id="(?:regions|read|start|images)" class="section">' -Expected 0 -Message '구형 박스 섹션 잔존'
 
 $relativeSources = [regex]::Matches($html, '(?:src|href)="(\./[^"#?]+)"')
 foreach ($match in $relativeSources) {
