@@ -97,6 +97,21 @@
       background: rgba(255, 253, 247, 0.82);
     }
 
+    .nav-links .nav-glossary {
+      color: #fffaf0;
+      border-color: #b17a2f;
+      background: linear-gradient(135deg, #9b6425, #c08a3e);
+      box-shadow: 0 8px 20px rgba(116, 73, 24, 0.2);
+    }
+
+    .nav-links .nav-glossary:hover,
+    .nav-links .nav-glossary:focus-visible {
+      color: #ffffff;
+      border-color: #7f4f1e;
+      background: linear-gradient(135deg, #7f4f1e, #ae752c);
+      transform: translateY(-1px);
+    }
+
     .nav-links svg,
     .button svg {
       width: 16px;
@@ -2213,9 +2228,9 @@
     <div class="nav-links">
       <a href="#regions"><i data-lucide="map-pin" aria-hidden="true"></i>여행지 고르기</a>
       <a href="#read"><i data-lucide="book-open-text" aria-hidden="true"></i>비레스 알아보기</a>
-      <a href="./glossary.html"><i data-lucide="search" aria-hidden="true"></i>고유명사 찾기</a>
       <a href="#start"><i data-lucide="compass" aria-hidden="true"></i>시작 장면</a>
       <a href="#images"><i data-lucide="images" aria-hidden="true"></i>풍경 보기</a>
+      <a class="nav-glossary" href="./glossary.html"><i data-lucide="book-key" aria-hidden="true"></i>고유명사 찾기</a>
     </div>
   </nav>
 

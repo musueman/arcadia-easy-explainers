@@ -298,6 +298,7 @@
     </section>
   </main>
 
+  <script src="./glossary-canon-data.js"></script>
   <script>
     const regionRecords = [
       ["레오니아", "라드아르할", ["지르바르에트", "팔테쿰가", "렘다트움"], "왕실과 기사 봉토가 중심인 중앙집권 왕국이다."],
@@ -415,6 +416,14 @@
       { name: "실바니아 안개숲", kind: "지형·생활권", region: "실바니아", description: "길잡이와 계보 기록 없이는 이동하기 어려운 외곽 숲이다." },
       { name: "드래곤스파이어 화산 군도", kind: "지형·생활권", region: "드래곤스파이어", description: "분화 감시와 피난 항로가 필요한 섬권이다." }
     );
+
+    const existingNames = new Set(glossary.map(item => item.name));
+    (window.VIRETH_CANON_GLOSSARY_ENTRIES || []).forEach(item => {
+      if (!existingNames.has(item.name)) {
+        glossary.push(item);
+        existingNames.add(item.name);
+      }
+    });
 
     const categories = ["전체", ...new Set(glossary.map(item => item.kind))];
     const search = document.getElementById("glossarySearch");

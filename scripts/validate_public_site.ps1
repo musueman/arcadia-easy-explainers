@@ -128,6 +128,17 @@ Assert-Contains -Pattern '<strong class="reader-keyword">' -Message '세계 읽�
 Assert-Contains -Pattern 'class="start-path"' -Message '무박스 플레이 유형 누락'
 Assert-Count -Pattern '<section id="(?:regions|read|start|images)" class="section">' -Expected 0 -Message '구형 박스 섹션 잔존'
 Assert-Contains -Pattern 'href="\./glossary\.html"' -Message '고유명사 검색 페이지 링크 누락'
+Assert-Contains -Pattern 'class="nav-glossary"' -Message '고유명사 마지막 강조 메뉴 누락'
+$navBlock = [regex]::Match($html, '<div class="nav-links">(?<body>[\s\S]*?)</div>')
+if (-not $navBlock.Success) {
+    $failures.Add('상단 내비게이션 블록 누락')
+}
+else {
+    $navLinks = [regex]::Matches($navBlock.Groups['body'].Value, '<a\b[^>]*href="(?<href>[^"]+)"[^>]*>[\s\S]*?</a>')
+    if ($navLinks.Count -eq 0 -or $navLinks[$navLinks.Count - 1].Groups['href'].Value -ne './glossary.html') {
+        $failures.Add('고유명사 찾기가 상단 내비게이션의 마지막 메뉴가 아님')
+    }
+}
 Assert-NotContains -Pattern '궁정, 기사, 납품 장부가 길을 여닫습니다' -Message '어색한 권역 소개 문장 잔존'
 
 $politeCount = [regex]::Matches($html, '(?<!아)니다[\.?!]|세요[\.?!]|까요[\.?!]').Count
@@ -141,9 +152,24 @@ if (-not (Test-Path -LiteralPath $glossaryPath)) {
 }
 else {
     $glossary = Get-Content -Raw -LiteralPath $glossaryPath -Encoding UTF8
-    foreach ($pattern in @('id="glossarySearch"', 'id="glossaryFilters"', 'id="glossaryResults"', 'aria-live="polite"')) {
+    foreach ($pattern in @('id="glossarySearch"', 'id="glossaryFilters"', 'id="glossaryResults"', 'aria-live="polite"', 'src="\./glossary-canon-data\.js"', 'VIRETH_CANON_GLOSSARY_ENTRIES')) {
         if ($glossary -notmatch $pattern) {
             $failures.Add("고유명사 검색 기능 누락: $pattern")
+        }
+    }
+
+    $glossaryDataPath = Join-Path (Split-Path -Parent $HtmlPath) 'glossary-canon-data.js'
+    if (-not (Test-Path -LiteralPath $glossaryDataPath)) {
+        $failures.Add('최신 통합본 기반 고유명사 데이터 파일 누락')
+    }
+    else {
+        $glossaryData = Get-Content -Raw -LiteralPath $glossaryDataPath -Encoding UTF8
+        if ($glossaryData -notmatch 'Arcadia_비레스_세계관_DB_최종통합본_v1\.md') {
+            $failures.Add('고유명사 데이터의 최신 통합본 출처 표기 누락')
+        }
+        $generatedEntryCount = [regex]::Matches($glossaryData, '"name"\s*:').Count
+        if ($generatedEntryCount -lt 300) {
+            $failures.Add("최신 통합본 고유명사 색인 수 부족 (minimum=300 actual=$generatedEntryCount)")
         }
     }
 }
