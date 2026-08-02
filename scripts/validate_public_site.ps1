@@ -204,4 +204,9 @@ if ($failures.Count -gt 0) {
     exit 1
 }
 
+& (Join-Path $PSScriptRoot 'validate_public_copy.ps1') -IndexPath $HtmlPath -GlossaryPath $glossaryPath
+if ($LASTEXITCODE -ne 0) {
+    exit $LASTEXITCODE
+}
+
 Write-Output "PUBLIC_SITE_VALIDATION_OK regions=$($regions.Count)"
