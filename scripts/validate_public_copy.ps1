@@ -68,6 +68,19 @@ foreach ($term in @(
     }
 }
 
+$regionBlock = [regex]::Match(
+    $index,
+    'const regions = \[(?<body>[\s\S]*?)\];\s*const regionFacts'
+).Groups['body'].Value
+
+foreach ($field in @('name', 'short', 'first', 'places', 'life', 'pressure', 'memory', 'persona')) {
+    $minimumLength = if ($field -eq 'name') { 1 } else { 12 }
+    $count = [regex]::Matches($regionBlock, ([regex]::Escape($field) + ':\s*"[^"]{' + $minimumLength + ',}"')).Count
+    if ($count -ne 20) {
+        $failures.Add("구체 권역 필드 불일치: $field expected=20 actual=$count")
+    }
+}
+
 if ($failures.Count -gt 0) {
     $failures | ForEach-Object { Write-Host "ERROR: $_" -ForegroundColor Red }
     exit 1

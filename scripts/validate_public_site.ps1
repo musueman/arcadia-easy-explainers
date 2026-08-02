@@ -70,7 +70,7 @@ foreach ($field in @('money', 'people', 'time', 'history')) {
 }
 
 Assert-Count -Pattern '"capitalName":\s*"[^"]+"' -Expected 20 -Message '권역 대표 거점 20개 불일치'
-Assert-Count -Pattern 'class="region-fact"' -Expected 4 -Message '권역 기사 정보 네 묶음 불일치'
+Assert-Count -Pattern 'class="region-fact"' -Expected 7 -Message '권역 기사 정보 일곱 묶음 불일치'
 
 $readerBlock = [regex]::Match($html, 'const readerSections = \[(?<body>[\s\S]*?)\];\s*const readerIconNames').Groups['body'].Value
 $readerCount = [regex]::Matches($readerBlock, 'title:\s*"(나라와 권역|종족과 문화|도시와 마을|돈과 물건|달력과 계절|역사와 소문)"').Count
@@ -78,7 +78,7 @@ if ($readerCount -ne 6) {
     $failures.Add("세계 읽기 여섯 묶음 불일치 (expected=6 actual=$readerCount)")
 }
 
-$detailLabels = @('도시와 사람', '돈과 계절', '역사와 현재', '첫 장면')
+$detailLabels = @('어떤 땅인가', '수도와 주요 도시', '사람과 종족', '돈과 장터', '달력과 계절', '역사와 현재', '여행의 시작')
 
 foreach ($label in $detailLabels) {
     Assert-Contains -Pattern ([regex]::Escape($label)) -Message "권역 상세 항목 누락: $label"
