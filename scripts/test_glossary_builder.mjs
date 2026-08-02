@@ -39,6 +39,25 @@ const sample = `
 |---|---|---|
 | 라드어 | 레오니아 | 궁정과 봉토 장부에서는 납품 인장이 중요하다 |
 
+### 7.1 언어층
+
+| 층위 | 쓰임 | 예시 |
+|---|---|---|
+| 생활어 | 마을, 가문, 장터, 항구에서 말하는 일상어 | 티리스 농경어 |
+| 권역 공용어 | 국가와 권역 안의 행정·교역 언어 | 레오니아 궁정어 |
+| 공용서기어 | 조약, 지도, 세금 장부의 공통 표기층 | 서로 다른 지역명을 대조한다 |
+| 종족어 | 종족·가문·길드가 보존한 말 | 철맥계 각문어 |
+| 전승 외명 | 고문서와 항해담에 남은 이름 | 실바니아 전승명 |
+
+### 7.6 문해력과 기록 접근
+
+| 층위 | 읽을 수 있는 것 | 접근 가능한 정보 | 한계 |
+|---|---|---|---|
+| 비문해 생활층 | 표식, 색, 문장 | 장터 위치와 창고 줄 | 장부 내용을 남에게 들어야 한다 |
+| 생활 문해 | 이름패, 목패, 단순 장부 | 세금, 배급, 노동일 | 조약문과 학술 주석은 어렵다 |
+| 전문 서기 문해 | 조약, 판결 요약, 공용서기어 | 판결문과 항만세 장부 | 현장 생활어를 놓칠 수 있다 |
+| 학술·신전 문해 | 관측표, 의례문, 주석서 | 신전 해석과 학술 논쟁 | 민간 경험을 낮게 볼 수 있다 |
+
 ## 9. 신앙·의례·법
 | 국가·권역 | 주 신앙·권위 | 사법·관할 | 생활에 닿는 방식 |
 |---|---|---|---|
@@ -84,6 +103,18 @@ assert.equal(byName.get("센푸쿰 배급 기준 재판")?.kind, "현재 갈등"
 assert.equal(byName.get("첫창고 기준 확정")?.kind, "역사·사건");
 assert.ok(entries.every(entry => !/HP001|CF5083-001|E0018|directtransition/.test(entry.description)));
 assert.match(byName.get("라드어")?.description || "", /납품 인장이 중요하다/);
+for (const tierName of [
+  "생활어", "권역 공용어", "공용서기어", "종족어", "전승 외명",
+  "비문해 생활층", "생활 문해", "전문 서기 문해", "학술·신전 문해"
+]) {
+  assert.equal(
+    byName.get(tierName)?.kind,
+    "언어·문자",
+    `${tierName} is a legitimate tier glossary entity`
+  );
+}
+assert.match(byName.get("공용서기어")?.description ?? "", /조약|세금 장부/);
+assert.match(byName.get("생활 문해")?.description ?? "", /이름패|배급/);
 assert.deepEqual(
   findEntries("실소르켈").map(entry => entry.kind).sort((a, b) => a.localeCompare(b, "ko")),
   ["도시·마을", "지명·가도"].sort((a, b) => a.localeCompare(b, "ko")),

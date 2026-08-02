@@ -130,6 +130,19 @@ assert.match(
   /금표|궁정 납품표/
 );
 
+for (const tierName of [
+  "생활어", "권역 공용어", "공용서기어", "종족어", "전승 외명",
+  "비문해 생활층", "생활 문해", "전문 서기 문해", "학술·신전 문해"
+]) {
+  const canonTierEntries = Array.from(page.canonEntries)
+    .filter(entry => entry.name === tierName);
+  assert.deepEqual(
+    Array.from(canonTierEntries, entry => entry.kind),
+    ["언어·문자"],
+    `${tierName} must remain in regenerated canon glossary data`
+  );
+}
+
 for (const structuralLabel of [
   "수도·중심도시", "대표도시", "지역 도시·거점", "도시 성격", "도시망 규모",
   "중심도시 설계", "대표도시 설계", "지역·외곽도시 설계",
