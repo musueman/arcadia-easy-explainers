@@ -142,6 +142,23 @@ foreach ($term in $economyTerms) {
 Assert-Contains -Pattern 'id="start-situations"' -Message '시작상황 앵커 누락'
 Assert-Count -Pattern '<details class="start-scenario">' -Expected 6 -Message '시작상황 여섯 항목 불일치'
 Assert-Count -Pattern '<figure class="start-comic">' -Expected 3 -Message '시작 웹툰 세 항목 불일치'
+Assert-Contains -Pattern 'id="library"' -Message '이야기 서고 소개 섹션 누락'
+Assert-Contains -Pattern 'class="nav-library"[^>]*href="#library"' -Message '이야기 서고 상단 이동 메뉴 누락'
+Assert-Contains -Pattern 'href="#library"[^>]*>[\s\S]*?이야기 서고' -Message '이야기 서고 첫 화면 진입 버튼 누락'
+Assert-Contains -Pattern 'href="https://vireth-starting-records\.musueman\.chatgpt\.site/reader"[^>]*target="_blank"[^>]*rel="noopener noreferrer"[^>]*aria-label="[^"]*새 창[^"]*"' -Message '이야기 서고 공식 열람 링크 또는 새 창 안내 누락'
+Assert-Contains -Pattern '8개의 시작' -Message '이야기 서고 시작 장면 수 안내 누락'
+Assert-Contains -Pattern '14편의 기록' -Message '이야기 서고 기록 수 안내 누락'
+Assert-Contains -Pattern '30장의 삽화' -Message '이야기 서고 삽화 수 안내 누락'
+$startSectionIndex = $html.IndexOf('<section id="start"')
+$librarySectionIndex = $html.IndexOf('<section id="library"')
+$imagesSectionIndex = $html.IndexOf('<section id="images"')
+if (
+    $startSectionIndex -lt 0 -or
+    $librarySectionIndex -le $startSectionIndex -or
+    $imagesSectionIndex -le $librarySectionIndex
+) {
+    $failures.Add('공개 흐름이 시작 장면 → 이야기 서고 → 풍경 보기 순서가 아님')
+}
 Assert-Contains -Pattern '(?s)\.start-comic img\s*\{[^}]*aspect-ratio:\s*auto' -Message '세로 웹툰 원본 비율 복원 누락'
 Assert-Contains -Pattern '(?s)\.start-comic img\s*\{[^}]*object-fit:\s*contain' -Message '세로 웹툰 잘림 방지 누락'
 Assert-Contains -Pattern 'loading="lazy"' -Message '지연 로딩 이미지 누락'
@@ -162,7 +179,7 @@ Assert-Contains -Pattern '붉은 망토를 두르고, 무너진 길에서도 사
 Assert-Count -Pattern 'class="guide-profile' -Expected 2 -Message '렌·듀란 안내자 프로필 두 개 불일치'
 Assert-Contains -Pattern 'data-lucide=' -Message '루시드 아이콘 체계 누락'
 Assert-Contains -Pattern '사건 당사자는 아니다' -Message '안내자 역할 경계 문구 누락'
-Assert-Count -Pattern 'class="section-band' -Expected 4 -Message '전폭 섹션 밴드 네 개 불일치'
+Assert-Count -Pattern 'class="section-band' -Expected 5 -Message '전폭 섹션 밴드 다섯 개 불일치'
 Assert-Contains -Pattern 'class="region-index"' -Message '권역 색인 누락'
 Assert-Contains -Pattern 'class="region-index-shell"' -Message '권역 가로 슬라이더 셸 누락'
 Assert-Contains -Pattern 'class="region-card-keywords"' -Message '권역 카드 핵심어 묶음 누락'

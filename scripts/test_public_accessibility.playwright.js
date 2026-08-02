@@ -8,6 +8,31 @@ async page => {
 
   await page.setViewportSize({ width: 768, height: 1024 });
   await page.goto(`${origin}/#read`);
+
+  const libraryNav = page.locator(".nav-library");
+  assert(await libraryNav.count() === 1, "library nav");
+  await libraryNav.focus();
+  await page.keyboard.press("Enter");
+  await page.waitForFunction(() => window.location.hash === "#library");
+  assert(await page.locator("#library").isVisible(), "library section visibility");
+
+  const libraryLink = page.getByRole("link", {
+    name: "\ube44\ub808\uc2a4 5083 \uc774\uc57c\uae30 \uc11c\uace0\ub97c \uc0c8 \ucc3d\uc5d0\uc11c \uc5f4\uae30",
+    exact: true
+  });
+  assert(await libraryLink.count() === 1, "library accessible link");
+  assert(
+    await libraryLink.getAttribute("href") ===
+      "https://vireth-starting-records.musueman.chatgpt.site/reader",
+    "library canonical href"
+  );
+  assert(await libraryLink.getAttribute("target") === "_blank", "library target");
+  assert(
+    (await libraryLink.getAttribute("rel"))?.split(/\s+/).includes("noopener"),
+    "library rel"
+  );
+
+  await page.goto(`${origin}/#read`);
   await page.locator("details.reader-chapter").first().locator("summary").click();
 
   const readerTrigger = page.locator(".reader-image-trigger").first();
