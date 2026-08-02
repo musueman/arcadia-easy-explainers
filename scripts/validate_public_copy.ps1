@@ -77,6 +77,45 @@ if ($startBlock -match '웹툰이 더해지기 전까지') {
     $failures.Add('시작 장면 제작 상태 문구 잔존')
 }
 
+$expectedStartComicSources = @(
+    './viewer/assets/illustrations/start_situations/start-city-gate-day-v1.webp',
+    './viewer/assets/illustrations/start_situations/start-night-gate-watch-v1.webp',
+    './viewer/assets/illustrations/start_situations/start-rainy-inn-contract-v1.webp'
+)
+$startComicFigures = [regex]::Matches(
+    $startBlock,
+    '<figure\b[^>]*\bclass="[^"]*\bstart-comic\b[^"]*"[^>]*>'
+)
+if ($startComicFigures.Count -ne $expectedStartComicSources.Count) {
+    $failures.Add('시작 장면 웹툰 수 불일치')
+}
+
+$startComicSources = [regex]::Matches(
+    $startBlock,
+    '(?s)<figure\b[^>]*\bclass="[^"]*\bstart-comic\b[^"]*"[^>]*>\s*<img\b[^>]*\bsrc="(?<src>[^"]+)"[^>]*>'
+)
+if ($startComicSources.Count -ne $expectedStartComicSources.Count) {
+    $failures.Add('시작 장면 웹툰 이미지 경로 불일치')
+}
+else {
+    $siteRoot = Split-Path -Parent (Resolve-Path -LiteralPath $IndexPath)
+    for ($i = 0; $i -lt $expectedStartComicSources.Count; $i++) {
+        $source = $startComicSources[$i].Groups['src'].Value
+        if ($source -ne $expectedStartComicSources[$i]) {
+            $failures.Add('시작 장면 웹툰 이미지 경로 불일치')
+            break
+        }
+
+        $assetPath = Join-Path (
+            $siteRoot
+        ) ($source.Substring(2) -replace '/', [IO.Path]::DirectorySeparatorChar)
+        if (-not (Test-Path -LiteralPath $assetPath -PathType Leaf)) {
+            $failures.Add('시작 장면 웹툰 이미지 파일 누락')
+            break
+        }
+    }
+}
+
 $requiredReaderTerms = @(
     '라드아르할',
     '페르브루니르',

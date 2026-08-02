@@ -56,7 +56,7 @@ else {
             $mutatedBody
         )
         $mutatedIndex = "<!-- required term outside readerSections: $requiredTerm -->`r`n$mutatedIndex"
-        $tempIndex = Join-Path ([System.IO.Path]::GetTempPath()) (
+        $tempIndex = Join-Path (Split-Path -Parent (Resolve-Path -LiteralPath $IndexPath)) (
             "vireth-reader-copy-{0}.html" -f [guid]::NewGuid().ToString('N')
         )
 
@@ -111,7 +111,7 @@ else {
     $firstChoiceMarkup = '<div class="start-choices"><b>' + $firstChoice + '</b>'
     $nextChoiceMarkup = '<div class="start-choices"><b>' + $nextChoice + '</b>'
     $placeholderMarkup = '<div class="start-placeholder">'
-    $tempIndex = Join-Path ([System.IO.Path]::GetTempPath()) (
+    $tempIndex = Join-Path (Split-Path -Parent (Resolve-Path -LiteralPath $IndexPath)) (
         "vireth-start-copy-{0}.html" -f [guid]::NewGuid().ToString('N')
     )
 
@@ -158,6 +158,77 @@ else {
     }
     finally {
         Remove-Item -LiteralPath $tempIndex -Force -ErrorAction SilentlyContinue
+    }
+}
+
+$startComicPattern = '(?s)<figure\s+class="start-comic">\s*<img\b[^>]*\bsrc="(?<src>[^"]+)"[^>]*>\s*</figure>'
+$firstStartComic = [regex]::Match($startBlock, $startComicPattern)
+if (-not $firstStartComic.Success) {
+    $failures.Add('Could not find a start comic figure for mutation testing.')
+}
+else {
+    $validator = Join-Path $PSScriptRoot 'validate_public_copy.ps1'
+    $brokenComicSource = './viewer/assets/illustrations/start_situations/missing-start-comic.webp'
+    $comicMutations = @(
+        @{
+            Name = 'deleted comic figure'
+            StartBlock = $startBlock.Remove($firstStartComic.Index, $firstStartComic.Length)
+            ExpectedFailure = Convert-UnicodeLiteral '\uC2DC\uC791 \uC7A5\uBA74 \uC6F9\uD230 \uC218 \uBD88\uC77C\uCE58'
+        },
+        @{
+            Name = 'broken comic source'
+            StartBlock = $startBlock.Remove(
+                $firstStartComic.Index,
+                $firstStartComic.Length
+            ).Insert(
+                $firstStartComic.Index,
+                $firstStartComic.Value.Replace(
+                    $firstStartComic.Groups['src'].Value,
+                    $brokenComicSource
+                )
+            )
+            ExpectedFailure = Convert-UnicodeLiteral '\uC2DC\uC791 \uC7A5\uBA74 \uC6F9\uD230 \uC774\uBBF8\uC9C0 \uACBD\uB85C \uBD88\uC77C\uCE58'
+        }
+    )
+
+    foreach ($comicMutation in $comicMutations) {
+        $mutatedIndex = $index.Remove(
+            $startBlock.Index,
+            $startBlock.Length
+        ).Insert(
+            $startBlock.Index,
+            $comicMutation.StartBlock
+        )
+        $tempIndex = Join-Path (Split-Path -Parent (Resolve-Path -LiteralPath $IndexPath)) (
+            "vireth-start-comic-{0}.html" -f [guid]::NewGuid().ToString('N')
+        )
+
+        try {
+            [System.IO.File]::WriteAllText(
+                $tempIndex,
+                $mutatedIndex,
+                [System.Text.UTF8Encoding]::new($false)
+            )
+            $validationOutput = & powershell -NoProfile -ExecutionPolicy Bypass `
+                -File $validator `
+                -IndexPath $tempIndex `
+                -GlossaryPath $GlossaryPath `
+                -GlossaryDataPath $GlossaryDataPath 2>&1
+            $validationExitCode = $LASTEXITCODE
+            $validationText = $validationOutput -join "`n"
+
+            if (
+                $validationExitCode -eq 0 -or
+                $validationText -notmatch [regex]::Escape($comicMutation.ExpectedFailure)
+            ) {
+                $failures.Add(
+                    "Start comic validation missed $($comicMutation.Name): $($comicMutation.ExpectedFailure)"
+                )
+            }
+        }
+        finally {
+            Remove-Item -LiteralPath $tempIndex -Force -ErrorAction SilentlyContinue
+        }
     }
 }
 
