@@ -94,6 +94,73 @@ else {
     }
 }
 
+$startBlock = [regex]::Match(
+    $index,
+    '<section id="start"[\s\S]*?</section>'
+).Value
+if ([string]::IsNullOrWhiteSpace($startBlock)) {
+    $failures.Add('Could not find the start scene section.')
+}
+else {
+    $validator = Join-Path $PSScriptRoot 'validate_public_copy.ps1'
+    $firstChoice = Convert-UnicodeLiteral '\uCCAB \uC120\uD0DD'
+    $nextChoice = Convert-UnicodeLiteral '\uB2E4\uC74C \uC120\uD0DD'
+    $productionStatus = Convert-UnicodeLiteral (
+        '\uC6F9\uD230\uC774 \uB354\uD574\uC9C0\uAE30 \uC804\uAE4C\uC9C0'
+    )
+    $firstChoiceMarkup = '<div class="start-choices"><b>' + $firstChoice + '</b>'
+    $nextChoiceMarkup = '<div class="start-choices"><b>' + $nextChoice + '</b>'
+    $placeholderMarkup = '<div class="start-placeholder">'
+    $tempIndex = Join-Path ([System.IO.Path]::GetTempPath()) (
+        "vireth-start-copy-{0}.html" -f [guid]::NewGuid().ToString('N')
+    )
+
+    try {
+        $mutatedStartBlock = $startBlock.Replace(
+            $firstChoiceMarkup,
+            $nextChoiceMarkup
+        )
+        $mutatedStartBlock = $mutatedStartBlock.Replace(
+            $placeholderMarkup,
+            ($placeholderMarkup + $productionStatus + ' ')
+        )
+        $mutatedIndex = $index.Remove(
+            $startBlock.Index,
+            $startBlock.Length
+        ).Insert(
+            $startBlock.Index,
+            $mutatedStartBlock
+        )
+        [System.IO.File]::WriteAllText(
+            $tempIndex,
+            $mutatedIndex,
+            [System.Text.UTF8Encoding]::new($false)
+        )
+        $validationOutput = & powershell -NoProfile -ExecutionPolicy Bypass `
+            -File $validator `
+            -IndexPath $tempIndex `
+            -GlossaryPath $GlossaryPath `
+            -GlossaryDataPath $GlossaryDataPath 2>&1
+        $validationExitCode = $LASTEXITCODE
+        $validationText = $validationOutput -join "`n"
+
+        foreach ($expectedFailure in @(
+            (Convert-UnicodeLiteral '\uC2DC\uC791 \uC7A5\uBA74 \uC120\uD0DD\uC9C0 \uC5EC\uC12F \uBB36\uC74C \uBD88\uC77C\uCE58'),
+            (Convert-UnicodeLiteral '\uC2DC\uC791 \uC7A5\uBA74 \uC81C\uC791 \uC0C1\uD0DC \uBB38\uAD6C \uC794\uC874')
+        )) {
+            if (
+                $validationExitCode -eq 0 -or
+                $validationText -notmatch [regex]::Escape($expectedFailure)
+            ) {
+                $failures.Add("Start scene validation missed: $expectedFailure")
+            }
+        }
+    }
+    finally {
+        Remove-Item -LiteralPath $tempIndex -Force -ErrorAction SilentlyContinue
+    }
+}
+
 if ($failures.Count -gt 0) {
     $failures | ForEach-Object { Write-Host "ERROR: $_" -ForegroundColor Red }
     exit 1

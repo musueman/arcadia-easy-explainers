@@ -64,6 +64,19 @@ foreach ($entry in $publicForbiddenPatterns.GetEnumerator()) {
     }
 }
 
+$startBlock = [regex]::Match(
+    $index,
+    '<section id="start"[\s\S]*?</section>'
+).Value
+
+if ([regex]::Matches($startBlock, '<div class="start-choices"><b>첫 선택</b>').Count -ne 6) {
+    $failures.Add('시작 장면 선택지 여섯 묶음 불일치')
+}
+
+if ($startBlock -match '웹툰이 더해지기 전까지') {
+    $failures.Add('시작 장면 제작 상태 문구 잔존')
+}
+
 $requiredReaderTerms = @(
     '라드아르할',
     '페르브루니르',
