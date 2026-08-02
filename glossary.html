@@ -323,11 +323,15 @@
       ["펜리르의 눈", "둔아르토르", ["둔나브렌움", "움마르소르", "벱나브할"], "등대 소실과 난파 기록이 쌓인 외해 금기권이다."]
     ];
 
+    const cityFallbackDescriptions = new Map([
+      ["라드바르할", "실버킵 왕실권의 성채 수도로, 왕실 법정과 영지 문서, 신전 봉납이 모인다."],
+      ["베크켈카르", "서부 접경의 성문도시로, 검문과 피난민 분류, 병참, 접경 법정이 얽힌다."]
+    ]);
     const glossary = [];
     regionRecords.forEach(([name, capital, cities, description]) => {
       glossary.push({ name, kind: "국가·권역", region: name, description });
-      glossary.push({ name: capital, kind: "도시·마을", region: name, description: `${name}의 수도 또는 중심 거점으로 기록된 곳이다.` });
-      cities.forEach(city => glossary.push({ name: city, kind: "도시·마을", region: name, description: `${name}의 도시 또는 지역 거점으로 기록된 곳이다.` }));
+      glossary.push({ name: capital, kind: "도시·마을", region: name, description: cityFallbackDescriptions.get(capital) || `${name}의 수도 또는 중심 거점으로 기록된 곳이다.` });
+      cities.forEach(city => glossary.push({ name: city, kind: "도시·마을", region: name, description: cityFallbackDescriptions.get(city) || `${name}의 도시 또는 지역 거점으로 기록된 곳이다.` }));
     });
 
     glossary.push(
@@ -417,14 +421,17 @@
       { name: "드래곤스파이어 화산 군도", kind: "지형·생활권", region: "드래곤스파이어", description: "분화 감시와 피난 항로가 필요한 섬권이다." }
     );
 
-    const glossaryByName = new Map();
+    const glossaryBySemanticKey = new Map();
+    const glossaryKey = item => [item.name, item.kind]
+      .map(value => value.normalize("NFC").trim().toLocaleLowerCase("ko"))
+      .join("\u0000");
 
-    glossary.forEach(item => glossaryByName.set(item.name, item));
+    glossary.forEach(item => glossaryBySemanticKey.set(glossaryKey(item), item));
     (window.VIRETH_CANON_GLOSSARY_ENTRIES || []).forEach(item => {
-      glossaryByName.set(item.name, item);
+      glossaryBySemanticKey.set(glossaryKey(item), item);
     });
 
-    const mergedGlossary = [...glossaryByName.values()];
+    const mergedGlossary = [...glossaryBySemanticKey.values()];
     const categories = ["전체", ...new Set(mergedGlossary.map(item => item.kind))];
     const search = document.getElementById("glossarySearch");
     const filters = document.getElementById("glossaryFilters");
