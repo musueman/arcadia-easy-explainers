@@ -239,7 +239,7 @@
 
     .duran-profile {
       --guide-accent: var(--duran);
-      right: -2px;
+      right: 8px;
     }
 
     .guide-profile .guide-kicker {
@@ -1467,7 +1467,7 @@
       font-weight: 900;
     }
 
-    @media (max-width: 1000px) {
+    @media (max-width: 1180px) {
       .hero {
         min-height: 856px;
         align-items: flex-start;
@@ -1491,6 +1491,9 @@
       }
       .ren-profile { left: 24px; }
       .duran-profile { right: 8px; }
+    }
+
+    @media (max-width: 1000px) {
       .region-layout {
         grid-template-columns: 1fr;
       }
@@ -1639,6 +1642,36 @@
         font-size: 24px;
       }
       .slide-thumb { flex-basis: 82px; }
+    }
+
+    @media (max-width: 360px) {
+      .hero {
+        min-height: 760px;
+        padding-bottom: 360px;
+      }
+      .hero-guides { height: 360px; }
+      .guide-portrait.ren img {
+        height: 84%;
+        bottom: calc(40px - 14.9%);
+      }
+      .guide-portrait.duran img {
+        height: 69%;
+        bottom: 40px;
+      }
+      .guide-profile {
+        bottom: 6px;
+        width: calc((100vw - 24px) / 2);
+        min-height: 76px;
+        padding: 5px 6px;
+      }
+      .ren-profile { left: 6px; }
+      .duran-profile { right: 6px; }
+      .guide-profile .guide-kicker { font-size: 9px; }
+      .guide-profile strong { font-size: 16px; }
+      .guide-profile > span:last-child {
+        font-size: 9px;
+        line-height: 1.2;
+      }
     }
 
     /* Cinematic editorial layout */
