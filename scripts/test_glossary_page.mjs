@@ -105,11 +105,51 @@ assert.equal(
   "canonical same-name and same-kind entries must override manual entries"
 );
 
-for (const name of ["티리스", "레오니아", "센할레트"]) {
-  assert.ok(findEntry(page.mergedGlossary, name, "국가·권역"), `${name} country entry must survive the merge`);
-  assert.ok(findEntry(page.mergedGlossary, name, "화폐·단위"), `${name} currency/unit entry must survive the merge`);
+const regionNames = [
+  "레오니아", "노르가르드", "티리스", "린레네트", "벡도레트",
+  "센할레트", "헤스페레트", "켈나베트", "헤스베케트", "옌메베트",
+  "님나레트", "실니메트", "아르도레트", "가르메베트", "실할레트",
+  "메르할레트", "님소레트", "실바니아", "드래곤스파이어", "펜리르의 눈"
+];
+for (const name of regionNames) {
+  const exactEntries = Array.from(page.mergedGlossary)
+    .filter(entry => entry.name === name);
+  assert.deepEqual(
+    Array.from(exactEntries, entry => entry.kind),
+    ["국가·권역"],
+    `${name} must resolve to one country/region entity`
+  );
 }
 assert.ok(page.categories.includes("국가·권역"), "country category must remain filterable");
+assert.match(
+  findEntry(page.mergedGlossary, "레오니아", "국가·권역")?.description ?? "",
+  /용 상징|궁정 법/
+);
+assert.match(
+  findEntry(page.mergedGlossary, "레오니아", "국가·권역")?.description ?? "",
+  /금표|궁정 납품표/
+);
+
+for (const structuralLabel of [
+  "수도·중심도시", "대표도시", "지역 도시·거점", "도시 성격", "도시망 규모",
+  "중심도시 설계", "대표도시 설계", "지역·외곽도시 설계",
+  "하위 정착지·구역", "기본 공공시설", "추가 도시층"
+]) {
+  assert.equal(
+    page.mergedGlossary.filter(entry => entry.name === structuralLabel).length,
+    0,
+    `${structuralLabel} must not render as a glossary term`
+  );
+}
+
+assert.deepEqual(
+  Array.from(page.mergedGlossary)
+    .filter(entry => entry.name === "실소르켈")
+    .map(entry => entry.kind)
+    .sort((a, b) => a.localeCompare(b, "ko")),
+  ["도시·마을", "지명·가도"].sort((a, b) => a.localeCompare(b, "ko")),
+  "genuinely distinct canon entities may share a name"
+);
 
 search.value = "__no_such_glossary_entry__";
 search.dispatch("input");
@@ -119,7 +159,7 @@ assert.match(results.innerHTML, /일치하는 이름이 없다/);
 search.value = "티리스";
 search.dispatch("input");
 assert.match(results.innerHTML, /<span class="term-kind">국가·권역<\/span>\s*<h3>티리스<\/h3>/);
-assert.match(results.innerHTML, /<span class="term-kind">화폐·단위<\/span>\s*<h3>티리스<\/h3>/);
+assert.doesNotMatch(results.innerHTML, /<span class="term-kind">(?:화폐·단위|신앙·법)<\/span>\s*<h3>티리스<\/h3>/);
 
 const countryFilter = filters.querySelectorAll("button").find(button => button.dataset.category === "국가·권역");
 assert.ok(countryFilter, "country filter button must render");
@@ -131,7 +171,7 @@ assert.doesNotMatch(results.innerHTML, /<span class="term-kind">화폐·단위<\
 const allFilter = filters.querySelectorAll("button").find(button => button.dataset.category === "전체");
 assert.ok(allFilter, "all filter button must remain available after rerender");
 allFilter.click();
-assert.match(results.innerHTML, /<span class="term-kind">화폐·단위<\/span>\s*<h3>티리스<\/h3>/);
+assert.doesNotMatch(results.innerHTML, /<span class="term-kind">(?:화폐·단위|신앙·법)<\/span>\s*<h3>티리스<\/h3>/);
 
 for (const [name, description] of [
   ["라드바르할", "실버킵 왕실권의 성채 수도로, 왕실 법정과 영지 문서, 신전 봉납이 모인다."],

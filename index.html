@@ -748,6 +748,16 @@
       background: #f8f0e3;
     }
 
+    .reader-image-trigger {
+      display: block;
+      width: 100%;
+      min-width: 0;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      cursor: zoom-in;
+    }
+
     .reader-spotlight img {
       width: 100%;
       height: 100%;
@@ -756,6 +766,14 @@
       object-fit: cover;
       background: #efe5d6;
       cursor: zoom-in;
+    }
+
+    .reader-image-trigger:focus-visible,
+    .slide-image-trigger:focus-visible,
+    .visual-image-trigger:focus-visible {
+      outline: 3px solid #fffdf7;
+      outline-offset: -5px;
+      box-shadow: 0 0 0 2px var(--green);
     }
 
     .reader-spotlight-copy {
@@ -868,6 +886,15 @@
       border: 1px solid var(--line);
       border-radius: 10px;
       background: #fffaf1;
+    }
+
+    .visual-image-trigger {
+      display: block;
+      width: 100%;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      cursor: zoom-in;
     }
 
     .visual-card img {
@@ -1119,6 +1146,15 @@
       background: #111b17;
     }
 
+    .slide-image-trigger {
+      display: block;
+      width: 100%;
+      padding: 0;
+      border: 0;
+      background: #111b17;
+      cursor: zoom-in;
+    }
+
     .slide-stage img {
       width: 100%;
       max-width: 100%;
@@ -1205,7 +1241,7 @@
       overflow: hidden;
     }
 
-    .slide-thumb[aria-selected="true"] {
+    .slide-thumb[aria-pressed="true"] {
       border-color: var(--green);
     }
 
@@ -2472,7 +2508,7 @@
     </section>
   </main>
 
-  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="이미지 크게 보기">
+  <div id="lightbox" class="lightbox" aria-hidden="true" aria-modal="true" aria-describedby="lightboxCaption" role="dialog" aria-label="이미지 크게 보기">
     <div class="lightbox-toolbar">
       <span class="lightbox-help">마우스 휠 또는 버튼으로 확대하고, 드래그해서 움직인다.</span>
       <div class="lightbox-tools" aria-label="이미지 확대 도구">
@@ -2497,7 +2533,7 @@
         name: "레오니아",
         type: "왕실과 기사 봉토의 나라",
         short: "왕궁과 기사 봉토가 이어진 중앙 왕국이다. 추천장이 없으면 왕실 납품 줄에 설 수 없다.",
-        first: "궁정 납품소에서 추천장을 접수하고 왕실 법정 대기표를 받는 장면으로 시작한다.",
+        first: "궁정 납품소에서 추천장과 납품 보증을 대조하고 사절 명부에 이름이 있는지 확인받는 장면으로 시작한다.",
         places: "라드아르할 왕도, 지르바르에트 기사도시, 팔테쿰가 공방도시, 렘다트움 외교관문",
         life: "왕실 납품소는 추천장에 적힌 보증인과 봉인을 대조한다. 문장 반지는 신분과 소속 가문을 확인하는 표식이다.",
         pressure: "최근에는 납품 품질과 서임 순서를 둘러싼 이의가 왕실 법정과 장터에서 함께 늘었다.",
@@ -2541,9 +2577,9 @@
         name: "벡도레트",
         type: "방벽과 병영의 요새 도시국가",
         short: "방벽과 병영이 도시 기능을 나누는 요새국가다. 출입 목적과 보증인을 밝히지 않으면 짐 검사가 끝나도 성문을 넘지 못한다.",
-        first: "켈카르 성문에서 통행문을 접수하고 무기를 맡긴 뒤 보관표를 받는 장면으로 시작한다.",
+        first: "켈카르 성문에서 통행문을 접수하고 무기 각문을 확인받은 뒤 무기 반납 기록을 남기는 장면으로 시작한다.",
         places: "도르카르 내성, 켈카르 외성문, 베크할 병영, 도르테쿰 공사권, 엔할가 민간거주권",
-        life: "성문 보초는 통행문, 보증인, 짐 목록을 차례로 확인한다. 반입 무기는 무기고 보관표를 받아야 돌려받을 수 있다.",
+        life: "성문 보초는 통행문, 보증인, 짐 목록을 차례로 확인한다. 반입 무기는 각문을 확인하고 무기 반납 기록에 적어야 성문을 나갈 때 돌려받을 수 있다.",
         pressure: "최근에는 무단 무장과 공사 동원 회피, 군법과 민간법 충돌, 피난 대기 순서를 둘러싼 접수가 늘었다.",
         memory: "오래된 방어선 위에 도시가 자라면서 성벽 보수와 공사 동원 기록이 시민 의무의 근거가 되었다.",
         persona: "성문 통역, 성벽 공사 노동자, 병영 무기 수리공, 외성문의 피난 대기자"
@@ -2552,9 +2588,9 @@
         name: "센할레트",
         type: "공동 창고와 관개로의 농업 공동체",
         short: "공동 창고와 관개 수문이 농촌을 묶는 국가다. 배급 명부나 종자 출처가 없으면 곡물 몫과 봄 파종분이 미뤄진다.",
-        first: "센푸쿰 공동 창고에서 배급 목패를 대조하고 벨바르 수문 회의에 이의를 접수하는 장면으로 시작한다.",
+        first: "센푸쿰 공동 창고에서 배급 명부의 이름과 노동일을 확인받고 창고 목패를 따로 대조한 뒤, 벨바르 수문 회의에 이의를 접수하는 장면으로 시작한다.",
         places: "센푸쿰 공동창고도시, 벨바르 수로도시, 센푸크에트 종자보존권, 가르센에트 농촌권, 벱렌할 재정착권",
-        life: "창고지기는 배급 목패와 가구 명부를 대조한다. 수문 회의는 상류와 하류 증언을 기록한 뒤 개폐 순서를 정한다.",
+        life: "창고지기는 배급 명부에서 가구 이름과 노동일 기록을 대조한다. 창고 출입 때에는 창고 목패를 따로 확인하고, 수문 회의는 상류와 하류 증언을 기록한 뒤 개폐 순서를 정한다.",
         pressure: "최근에는 종자 혼입과 배급 순서, 재정착 경작권과 수문 보수 노동일을 둘러싼 이의가 대표 회의에 쌓인다.",
         memory: "관개로와 공동 창고로 흉년을 버틴 경험은 배급 장부와 공동 노동일을 국가 권위로 굳혔다.",
         persona: "공동 창고 기록 보조, 수문 감시인, 종자 항아리 운반인, 벱렌할 재정착 농민"
@@ -2716,12 +2752,12 @@
     ];
 
     const regionFacts = {
-      "레오니아": { icon: "♛", focus: "궁정·봉토", money: "금표와 은량, 궁정 납품표를 검품 장부와 대조하며 봉인이 다른 물품은 왕실 납품소가 반려한다.", people: "인간계가 다수이고 페르브루니르 장인과 메르세니르 상인, 왕실 관리와 기사 수행원이 궁정과 납품가에 모인다.", time: "용관력의 공회날과 용심 서약일에는 접견 명부와 기사 서임 대기표가 평소보다 길어진다.", history: "용관 왕권이 기사 봉토와 장인 직할지를 묶으며 추천장, 문장, 서임문을 궁정 질서로 굳혔다." },
+      "레오니아": { icon: "♛", focus: "궁정·봉토", money: "금표와 은량, 궁정 납품표를 검품 장부와 대조하며 봉인이 다른 물품은 왕실 납품소가 반려한다.", people: "인간계가 다수이고 페르브루니르 장인과 메르세니르 상인, 왕실 관리와 기사 수행원이 궁정과 납품가에 모인다.", time: "용관력의 공회날과 용심 서약일에는 추천장 확인, 서임문 열람, 기사단 회랑 낭독 순서가 평소보다 오래 걸린다.", history: "용관 왕권이 기사 봉토와 장인 직할지를 묶으며 추천장, 문장, 서임문을 궁정 질서로 굳혔다." },
       "노르가르드": { icon: "⚓", focus: "군항·철강", money: "항만세와 선박 보험, 철강 납품표를 화물 봉인과 대조하며 신고가 빠진 짐은 하역을 보류한다.", people: "인간계 선원과 페르브루니르 철공이 중심이고 벨마리르·린마리르 항해자와 해상 법정 증인이 항구에 모인다.", time: "조류표와 겨울 보급 일정에 따라 출항 허가와 선박 징발 순서가 정해진다.", history: "군항과 철강 부두가 확장되며 왕권, 상인 길드, 해상 법원이 서로의 장부를 확인하는 체제가 만들어졌다." },
       "티리스": { icon: "⚑", focus: "영지·접경", money: "은량과 곡표, 노동일과 공동 창고 몫을 함께 기록하며 이름패가 없는 가구는 배급 심사를 다시 받는다.", people: "인간계 농민과 피난민이 다수이고 메르세니르 종자상, 실레니르 숲길 기록자, 페르브루니르 수리공이 영지마다 섞인다.", time: "녹지절력의 파종일과 수확일에 맞춰 곡물 계량, 수문 개방, 공동 창고 배급이 진행된다.", history: "농경 영지와 낮은 율례가 왕국을 지탱했으나 그린할로우 상실과 뉴할로우 재정착이 귀향권을 갈라 놓았다." },
       "린레네트": { icon: "✒", focus: "기록·극장", money: "사본료와 후원금, 공연 계약금을 출처 장부에 적으며 인증이 없는 사본은 장터에서 정식 가격을 받지 못한다.", people: "인간계가 다수이고 실레니르 필사자, 메르세니르 후원 중개인, 페르브루니르 무대 장인과 학생이 기록원과 극장가에 모인다.", time: "공연일과 공개 논쟁일에는 사본 인증, 반론 접수, 공연 허가 순서가 함께 조정된다.", history: "상업 도시의 후원망에서 학예 공화 체제가 성장했고 사본과 공연 기록이 정치 논쟁을 보존했다." },
       "벡도레트": { icon: "⛨", focus: "방벽·병영", money: "군표와 공사 장부, 무기 수리비와 배급표를 병영 서리가 대조하며 동원 기록이 없으면 임금 지급이 늦어진다.", people: "인간계 수비대와 페르브루니르 공사 장인, 북방 복합 집단과 성문 통역이 성벽 안팎의 병영과 작업가에 산다.", time: "교대종과 야간 통금, 공사 동원일에 맞춰 성문 개폐와 병영 배급 시간이 달라진다.", history: "오래된 방어선 위에 도시가 자라 성벽 보수와 공사 동원 기록이 시민 의무와 정치 참여의 근거가 되었다." },
-      "센할레트": { icon: "☉", focus: "창고·수문", money: "곡표와 종자 몫, 물몫을 창고 장부에 적으며 배급 목패가 맞지 않으면 대표 회의의 재확인을 거친다.", people: "인간계 농민과 메르세니르 종자 보관인, 실레니르 수로 기록자와 재정착민이 공동 창고를 중심으로 산다.", time: "공동 파종일과 수문 개방일에는 종자 항아리 봉인과 상·하류 증언을 먼저 확인한다.", history: "관개로와 공동 창고로 흉년을 버틴 경험이 배급, 종자 보존, 노동일 기록을 국가 제도로 굳혔다." },
+      "센할레트": { icon: "☉", focus: "창고·수문", money: "곡표와 종자 몫, 물몫을 창고 장부에 적는다. 배급 명부에서는 가구 이름과 노동일을 확인하고, 창고 목패는 출입 표식으로 따로 대조한다.", people: "인간계 농민과 메르세니르 종자 보관인, 실레니르 수로 기록자와 재정착민이 공동 창고를 중심으로 산다.", time: "공동 파종일과 수문 개방일에는 종자 항아리 봉인과 상·하류 증언을 먼저 확인한다.", history: "관개로와 공동 창고로 흉년을 버틴 경험이 배급, 종자 보존, 노동일 기록을 국가 제도로 굳혔다." },
       "헤스페레트": { icon: "◇", focus: "맹세·무기", money: "은량과 무기 납품, 저장고 몫을 보증 각문과 대조하며 품질 판정이 끝나야 용병 계약금이 지급된다.", people: "인간계와 북방 복합 집단이 다수이고 페르브루니르 무기 장인, 메르세니르 보급상과 용병이 고개와 저장고에 모인다.", time: "명예력의 맹세일과 겨울 저장 점검일에는 계약 증인과 저장품 표식이 다시 등록된다.", history: "혹한과 산악 통행 속에서 전사 서약권과 철맥계 장인권이 함께 성장해 저장고와 맹세석을 중심으로 묶였다." },
       "켈나베트": { icon: "⛵", focus: "해도·보험", money: "항만 잔액과 보험 증서, 선박 지분을 출항 장부와 대조하며 미신고 발견물은 보상과 귀속 판정을 보류한다.", people: "인간계 항만민과 벨마리르·린마리르 항해자, 실레니르 해도 필사자와 보험 증인이 자유항마다 섞인다.", time: "해도력과 조류표에 따라 선박 검사, 원정 허가, 외해 출항 시간이 차례로 배정된다.", history: "발견물 신고와 외해 항로를 공동 관리하려 여러 항구가 연합했고 선장 보증과 보험 법정이 그 권위를 받친다." },
       "헤스베케트": { icon: "❄", focus: "저장·혹한", money: "말린 식량과 방한구, 장작 몫을 저장 장부에 기록하며 방한 검사표가 없으면 겨울 통행 허가가 나오지 않는다.", people: "인간계와 북방 복합 집단이 저장촌의 주류이고 페르브루니르 수리공, 메르세니르 보급상과 구조 대기자가 계절마다 들어온다.", time: "저장력은 긴 겨울과 짧은 이동 가능기를 표시하며 폐쇄 표식이 걸리면 관문이 즉시 통행 명부를 닫는다.", history: "긴 겨울과 고위도 통행로를 관리하는 과정에서 공동 불씨, 저장 의무, 약자 보호가 군주제의 생활 질서가 되었다." },
@@ -3106,11 +3142,12 @@
               <div class="reader-group">
                 <h4>권위와 이동</h4>
                 <p class="reader-entry"><b>레오니아 용관력</b>은 궁정 의례, 기사 서약, 법정일을 정하고, <b>헤스페레트 명예력</b>은 결투, 장례, 보호 맹세의 날짜를 정한다.</p>
+                <p class="reader-entry"><b>린레네트 예술력</b>은 빈무대, 반론일, 관객날, 막내림으로 극장 편성표와 공개 낭독, 후원 계약의 마감 순서를 정한다.</p>
                 <p class="reader-entry"><b>가르메베트 이동력</b>은 물가와 큰이동, 천막접음으로 우물 순번과 계절 야영지 이동을 맞추며, <b>메르할레트 시장력</b>은 작은장, 큰장, 도장닫음으로 통행세와 계약 마감을 정한다.</p>
               </div>
               <div class="reader-group">
                 <h4>숲과 관측, 위험 해역</h4>
-                <p class="reader-entry"><b>옌메베트·실할레트 생태력</b>은 숲문, 벌목묻기, 길닫음으로 채집과 벌목 허가를 조정한다. <b>님나레트 은성력</b>과 <b>아르도레트·님소레트 관측력</b>은 봉인, 관측표, 학술 주석의 마감일을 정한다.</p>
+                <p class="reader-entry"><b>옌메베트·실할레트 생태력</b>은 숲문, 벌목묻기, 길닫음으로 채집과 벌목 허가를 조정한다. <b>님나레트 은성력</b>, <b>아르도레트 관측력</b>, <b>님소레트 관측력·학당 주석력</b>은 봉인, 관측표, 학술 주석의 마감일을 정한다.</p>
                 <p class="reader-entry"><b>드래곤스파이어 화산 주석력</b>은 분화 경고와 피난깃을, <b>펜리르의 눈 외해 금기력</b>은 등대·난파목·마지막등을 기준으로 항해 보류와 구조 대기를 정한다.</p>
               </div>
             </div>
@@ -3923,12 +3960,15 @@
     const zoomIn = document.getElementById("zoomIn");
     const zoomOut = document.getElementById("zoomOut");
     const zoomReset = document.getElementById("zoomReset");
+    const lightboxClose = lightbox.querySelector(".lightbox-close");
     const lightboxPrev = lightbox.querySelector(".lightbox-nav.prev");
     const lightboxNext = lightbox.querySelector(".lightbox-nav.next");
 
     let lightboxSlides = [];
     let lightboxIndex = 0;
     let lightboxZoom = 1;
+    let lightboxOpener = null;
+    let bodyOverflowBeforeLightbox = "";
     let panX = 0;
     let panY = 0;
     let dragging = false;
@@ -4067,7 +4107,9 @@
           `;
     
           regionDetail.querySelectorAll("[data-visual-index]").forEach(button => {
-            button.addEventListener("click", () => openLightbox(visualSlides, Number(button.dataset.visualIndex)));
+            button.addEventListener("click", () => {
+              openLightbox(visualSlides, Number(button.dataset.visualIndex), button);
+            });
           });
           refreshIcons();
         }
@@ -4092,7 +4134,9 @@
         const visual = readerVisuals[section.title];
         const spotlight = visual ? `
           <div class="reader-spotlight">
-            <img loading="lazy" src="${visual.image}" alt="${visual.alt}" data-reader-image="${section.title}">
+            <button class="reader-image-trigger" type="button" data-reader-image="${section.title}" aria-label="${visual.alt} 크게 보기">
+              <img loading="lazy" src="${visual.image}" alt="${visual.alt}">
+            </button>
             <div class="reader-spotlight-copy">
               <b>${visual.line}</b>
               <span>${visual.caption}</span>
@@ -4115,12 +4159,14 @@
       `;
       }).join("");
 
-      readerGrid.querySelectorAll("[data-reader-image]").forEach(image => {
-        const visual = readerVisuals[image.dataset.readerImage];
+      readerGrid.querySelectorAll("[data-reader-image]").forEach(trigger => {
+        const visual = readerVisuals[trigger.dataset.readerImage];
         if (!visual) return;
-        image.addEventListener("click", () => openLightbox([
-          { title: image.dataset.readerImage, src: visual.image, alt: visual.alt, caption: visual.caption }
-        ], 0));
+        trigger.addEventListener("click", () => {
+          openLightbox([
+            { title: trigger.dataset.readerImage, src: visual.image, alt: visual.alt, caption: visual.caption }
+          ], 0, trigger);
+        });
       });
       refreshIcons();
     }
@@ -4131,7 +4177,17 @@
 
       let current = 0;
 
-      const draw = () => {
+      const carouselFocusSelector = target => {
+        if (!(target instanceof Element) || !container.contains(target) || target === container) return null;
+        if (target.closest(".slide-control.prev")) return ".slide-control.prev";
+        if (target.closest(".slide-control.next")) return ".slide-control.next";
+        if (target.closest(".slide-image-trigger")) return ".slide-image-trigger";
+        if (target.closest(".slide-open")) return ".slide-open";
+        const thumb = target.closest(".slide-thumb");
+        return thumb ? `.slide-thumb[data-index="${thumb.dataset.index}"]` : null;
+      };
+
+      const draw = (focusSelector = null) => {
         const slide = slides[current];
         container.setAttribute("role", "region");
         container.setAttribute("aria-roledescription", "carousel");
@@ -4140,7 +4196,9 @@
         container.innerHTML = `
           <div class="slide-stage">
             <button class="slide-control prev" type="button" aria-label="이전 이미지">‹</button>
-            <img loading="lazy" src="${slide.src}" alt="${slide.alt}">
+            <button class="slide-image-trigger" type="button" aria-label="${slide.title} 크게 보기">
+              <img loading="lazy" src="${slide.src}" alt="${slide.alt}">
+            </button>
             <button class="slide-control next" type="button" aria-label="다음 이미지">›</button>
           </div>
           <div class="slide-meta" aria-live="polite">
@@ -4149,9 +4207,9 @@
             <span class="slide-count">${current + 1} / ${slides.length}</span>
             <button class="slide-open" type="button">이미지 확대해서 보기</button>
           </div>
-          <div class="slide-thumbs" role="tablist" aria-label="${slide.title} 이미지 선택">
+          <div class="slide-thumbs" role="group" aria-label="${slide.title} 이미지 선택">
             ${slides.map((item, index) => `
-              <button class="slide-thumb" type="button" data-index="${index}" aria-label="${item.title}" aria-selected="${index === current ? "true" : "false"}">
+              <button class="slide-thumb" type="button" data-index="${index}" aria-label="${item.title}" aria-pressed="${index === current ? "true" : "false"}">
                 <img loading="lazy" src="${item.src}" alt="">
               </button>
             `).join("")}
@@ -4160,37 +4218,44 @@
 
         container.querySelector(".prev").addEventListener("click", () => {
           current = (current - 1 + slides.length) % slides.length;
-          draw();
+          draw(".slide-control.prev");
         });
 
         container.querySelector(".next").addEventListener("click", () => {
           current = (current + 1) % slides.length;
-          draw();
+          draw(".slide-control.next");
         });
 
-        container.querySelector(".slide-stage img").addEventListener("click", () => openLightbox(slides, current));
-        container.querySelector(".slide-open").addEventListener("click", () => openLightbox(slides, current));
+        container.querySelector(".slide-image-trigger").addEventListener("click", event => {
+          openLightbox(slides, current, event.currentTarget);
+        });
+        container.querySelector(".slide-open").addEventListener("click", event => {
+          openLightbox(slides, current, event.currentTarget);
+        });
 
         container.querySelectorAll(".slide-thumb").forEach(button => {
           button.addEventListener("click", () => {
             current = Number(button.dataset.index);
-            draw();
+            draw(`.slide-thumb[data-index="${current}"]`);
           });
         });
+
+        if (focusSelector) {
+          container.querySelector(focusSelector)?.focus({ preventScroll: true });
+        }
       };
 
       draw();
       container.addEventListener("keydown", event => {
-        if (event.key === "ArrowLeft") {
-          event.preventDefault();
-          current = (current - 1 + slides.length) % slides.length;
-          draw();
-        }
-        if (event.key === "ArrowRight") {
-          event.preventDefault();
-          current = (current + 1) % slides.length;
-          draw();
-        }
+        if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+        event.preventDefault();
+        const sourceSelector = carouselFocusSelector(event.target);
+        const direction = event.key === "ArrowRight" ? 1 : -1;
+        current = (current + direction + slides.length) % slides.length;
+        const focusSelector = sourceSelector?.startsWith(".slide-thumb")
+          ? `.slide-thumb[data-index="${current}"]`
+          : sourceSelector;
+        draw(focusSelector);
       });
     }
 
@@ -4232,19 +4297,37 @@
       resetLightboxZoom(1);
     }
 
-    function openLightbox(slides, index = 0) {
+    function lightboxFocusableElements() {
+      return [...lightbox.querySelectorAll("button:not([disabled]):not([hidden])")]
+        .filter(element => element.getClientRects().length > 0);
+    }
+
+    function openLightbox(slides, index = 0, opener = document.activeElement) {
+      const wasClosed = lightbox.getAttribute("aria-hidden") !== "false";
+      if (wasClosed) {
+        lightboxOpener = opener instanceof HTMLElement ? opener : null;
+        bodyOverflowBeforeLightbox = document.body.style.overflow;
+      }
       lightboxSlides = slides;
       lightboxIndex = index;
       showLightboxSlide();
       lightbox.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
+      lightboxClose.focus({ preventScroll: true });
     }
 
     function closeLightbox() {
+      if (lightbox.getAttribute("aria-hidden") !== "false") return;
+      const opener = lightboxOpener;
       lightbox.setAttribute("aria-hidden", "true");
       lightboxImage.src = "";
-      document.body.style.overflow = "";
+      document.body.style.overflow = bodyOverflowBeforeLightbox;
       resetLightboxZoom(1);
+      lightboxOpener = null;
+      bodyOverflowBeforeLightbox = "";
+      if (opener?.isConnected) {
+        opener.focus({ preventScroll: true });
+      }
     }
 
     function moveLightbox(direction) {
@@ -4263,11 +4346,17 @@
           alt: image.alt || "자료 이미지",
           caption
         };
-        image.addEventListener("click", () => openLightbox([slide], 0));
+        const trigger = document.createElement("button");
+        trigger.className = "visual-image-trigger";
+        trigger.type = "button";
+        trigger.setAttribute("aria-label", `${slide.title} 크게 보기`);
+        image.before(trigger);
+        trigger.append(image);
+        trigger.addEventListener("click", () => openLightbox([slide], 0, trigger));
       });
     }
 
-    lightbox.querySelector(".lightbox-close").addEventListener("click", closeLightbox);
+    lightboxClose.addEventListener("click", closeLightbox);
     lightboxPrev.addEventListener("click", () => moveLightbox(-1));
     lightboxNext.addEventListener("click", () => moveLightbox(1));
     zoomIn.addEventListener("click", () => setLightboxZoom(lightboxZoom + 0.35));
@@ -4318,9 +4407,33 @@
       if (event.target === lightbox) closeLightbox();
     });
     document.addEventListener("keydown", event => {
-      if (event.key === "Escape" && lightbox.getAttribute("aria-hidden") === "false") closeLightbox();
-      if (event.key === "ArrowLeft" && lightbox.getAttribute("aria-hidden") === "false") moveLightbox(-1);
-      if (event.key === "ArrowRight" && lightbox.getAttribute("aria-hidden") === "false") moveLightbox(1);
+      if (lightbox.getAttribute("aria-hidden") !== "false") return;
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeLightbox();
+        return;
+      }
+      if (event.key === "Tab") {
+        const focusable = lightboxFocusableElements();
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (!first || !last) {
+          event.preventDefault();
+          return;
+        }
+        if (event.shiftKey && (document.activeElement === first || !lightbox.contains(document.activeElement))) {
+          event.preventDefault();
+          last.focus({ preventScroll: true });
+        } else if (!event.shiftKey && (document.activeElement === last || !lightbox.contains(document.activeElement))) {
+          event.preventDefault();
+          first.focus({ preventScroll: true });
+        }
+        return;
+      }
+      if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+        event.preventDefault();
+        moveLightbox(event.key === "ArrowRight" ? 1 : -1);
+      }
     });
 
     renderRegionButtons();

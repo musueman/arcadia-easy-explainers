@@ -7,6 +7,7 @@ param(
 $ErrorActionPreference = 'Stop'
 $failures = [System.Collections.Generic.List[string]]::new()
 $index = Get-Content -Raw -LiteralPath $IndexPath -Encoding UTF8
+$glossary = Get-Content -Raw -LiteralPath $GlossaryPath -Encoding UTF8
 $readerPattern = 'const\s+readerSections\s*=\s*\[(?<body>[\s\S]*?)\];\s*const\s+readerIconNames'
 $readerMatch = [regex]::Match($index, $readerPattern)
 
@@ -14,6 +15,54 @@ function Convert-UnicodeLiteral {
     param([string]$Value)
 
     return ConvertFrom-Json ('"' + $Value + '"')
+}
+
+$unsupportedAuthoredTerms = @(
+    '\uC655\uC2E4 \uBC95\uC815 \uB300\uAE30\uD45C',
+    '\uAE30\uC0AC \uC11C\uC784 \uB300\uAE30\uD45C',
+    '\uBCF4\uAD00\uD45C',
+    '\uBB34\uAE30\uACE0 \uBCF4\uAD00\uD45C',
+    '\uBC30\uAE09 \uBAA9\uD328'
+) | ForEach-Object { Convert-UnicodeLiteral $_ }
+$authoredPublicCopy = $index + "`n" + $glossary
+foreach ($unsupportedTerm in $unsupportedAuthoredTerms) {
+    if ($authoredPublicCopy -match [regex]::Escape($unsupportedTerm)) {
+        $failures.Add("Unsupported authored procedure remains: $unsupportedTerm")
+    }
+}
+
+$authoredSweepTerm = Convert-UnicodeLiteral (
+    '\uC655\uC2E4 \uBC95\uC815 \uB300\uAE30\uD45C'
+)
+$authoredSweepMarker = '<p class="reader-entry">' + $authoredSweepTerm + '</p>'
+$authoredSweepIndex = $index.Replace('</main>', ($authoredSweepMarker + "`n</main>"))
+$authoredSweepTemp = Join-Path (Split-Path -Parent (Resolve-Path -LiteralPath $IndexPath)) (
+    "vireth-authored-copy-{0}.html" -f [guid]::NewGuid().ToString('N')
+)
+
+try {
+    [System.IO.File]::WriteAllText(
+        $authoredSweepTemp,
+        $authoredSweepIndex,
+        [System.Text.UTF8Encoding]::new($false)
+    )
+    $authoredSweepOutput = & powershell -NoProfile -ExecutionPolicy Bypass `
+        -File (Join-Path $PSScriptRoot 'validate_public_copy.ps1') `
+        -IndexPath $authoredSweepTemp `
+        -GlossaryPath $GlossaryPath `
+        -GlossaryDataPath $GlossaryDataPath 2>&1
+    $authoredSweepExitCode = $LASTEXITCODE
+    $authoredSweepText = $authoredSweepOutput -join "`n"
+
+    if (
+        $authoredSweepExitCode -eq 0 -or
+        $authoredSweepText -notmatch [regex]::Escape($authoredSweepTerm)
+    ) {
+        $failures.Add('Authored-copy validation missed a procedure outside readerSections.')
+    }
+}
+finally {
+    Remove-Item -LiteralPath $authoredSweepTemp -Force -ErrorAction SilentlyContinue
 }
 
 if (-not $readerMatch.Success) {
@@ -38,6 +87,18 @@ else {
         $unsupportedTerm = Convert-UnicodeLiteral $escapedTerm
         if ($readerCopy -match [regex]::Escape($unsupportedTerm)) {
             $failures.Add("Unsupported reader procedure remains: $escapedTerm")
+        }
+    }
+
+    foreach ($calendarName in @(
+        '\uB178\uB974\uAC00\uB974\uB4DC \uC870\uB958\uB825',
+        '\uB9B0\uB808\uB124\uD2B8 \uC608\uC220\uB825',
+        '\uBCA1\uB3C4\uB808\uD2B8 \uCCA0\uBB38\uB825',
+        '\uC13C\uD560\uB808\uD2B8 \uACF5\uB3D9\uB825',
+        '\uC544\uB974\uB3C4\uB808\uD2B8 \uAD00\uCE21\uB825'
+    ) | ForEach-Object { Convert-UnicodeLiteral $_ }) {
+        if ($readerCopy -notmatch [regex]::Escape($calendarName)) {
+            $failures.Add("Formal calendar name missing from readerSections: $calendarName")
         }
     }
 

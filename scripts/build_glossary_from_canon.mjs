@@ -8,8 +8,21 @@ const GENERIC_NAMES = new Set([
   "명칭", "이름", "기능", "시설", "구조물", "생활 설명명", "정본 지명"
 ]);
 
+const REGION_NAMES = new Set([
+  "레오니아", "노르가르드", "티리스", "린레네트", "벡도레트",
+  "센할레트", "헤스페레트", "켈나베트", "헤스베케트", "옌메베트",
+  "님나레트", "실니메트", "아르도레트", "가르메베트", "실할레트",
+  "메르할레트", "님소레트", "실바니아", "드래곤스파이어", "펜리르의 눈"
+]);
+
+const STRUCTURAL_NAMES = new Set([
+  "수도·중심도시", "대표도시", "지역 도시·거점", "도시 성격", "도시망 규모",
+  "중심도시 설계", "대표도시 설계", "지역·외곽도시 설계",
+  "하위 정착지·구역", "기본 공공시설", "추가 도시층"
+]);
+
 const META_HEADER = /(?:^|[_\s·])(?:id|code|상태|비고|정합성|검산|금지선|응답|챗봇|메타|출처|근거|연결|목적|단계|누락감|플레이 노출|유통 형태|기록층|확정도)(?:$|[_\s·])/i;
-const NAME_HEADER = /^(?:한글명|위성|현상|자연권|지형권|자원권|재해권|기후대|해류·수권|유역|생태구|정본 지명|가도·항로|종족(?:·집단)?|집단명|언어명|언어|언어층|문화권|층위|문자명|문자|달력명|달력|명절|절기|기념일|화폐명|단위명|사건명|현재갈등명|인물명|명칭|이름|국가·권역|권역명|도시명|도시|마을명|마을)$/;
+const NAME_HEADER = /^(?:한글명|위성|현상|자연권|지형권|자원권|재해권|기후대|해류·수권|유역|생태구|정본 지명|가도·항로|종족(?:·집단)?|집단명|언어명|언어|언어층|문화권|문자명|문자|달력명|달력|명절|절기|기념일|화폐명|단위명|사건명|현재갈등명|인물명|명칭|이름|국가·권역|권역명|도시명|도시|마을명|마을)$/;
 const DESCRIPTION_PRIORITY = [
   "종류", "성격", "객관 성격", "특징", "기능", "핵심 기능", "생활 설명명",
   "표면·구조 특징", "비레스 효과", "주 사용권", "주 분포권", "현재 분포",
@@ -98,6 +111,7 @@ function classify(headers, context, nameHeader) {
 function validName(name) {
   if (!name || name.length < 2 || name.length > 80) return false;
   if (GENERIC_NAMES.has(name)) return false;
+  if (STRUCTURAL_NAMES.has(name)) return false;
   if (/^(?:[A-Z]{1,8}[-_]?\d+|[A-Z]\d+|\d+(?:\.\d+)*|[-–—]+)$/i.test(name)) return false;
   if (/^(?:약\s*)?\d/.test(name)) return false;
   if (/[{}[\]<>]/.test(name)) return false;
@@ -147,6 +161,37 @@ function truncate(value, limit) {
   return `${value.slice(0, limit - 1).replace(/\s+\S*$/, "")}…`;
 }
 
+function firstSentence(value) {
+  const boundary = value.indexOf(". ");
+  return boundary >= 0 ? value.slice(0, boundary + 1) : value;
+}
+
+function punctuate(value) {
+  return /[.!?…]$/.test(value) ? value : `${value}.`;
+}
+
+function composeCountryDescription(descriptions) {
+  const baseKind = ["국가·권역", "기관·문서", "도시·마을"]
+    .find(kind => descriptions.has(kind));
+  const parts = [];
+  if (baseKind) parts.push(punctuate(descriptions.get(baseKind)));
+
+  for (const [kind, label] of [
+    ["도시·마을", "도시망"],
+    ["기관·문서", "생활 제도"],
+    ["신앙·법", "법·신앙"],
+    ["화폐·단위", "장터·부담"],
+    ["역사·사건", "역사 관계"]
+  ]) {
+    if (kind === baseKind || !descriptions.has(kind)) continue;
+    const snippet = firstSentence(descriptions.get(kind));
+    if (parts.some(part => part.includes(snippet) || snippet.includes(part))) continue;
+    parts.push(punctuate(`${label}: ${snippet}`));
+  }
+
+  return truncate(parts.join(" "), 520);
+}
+
 function inferRegion(record) {
   for (const key of REGION_HEADERS) {
     const value = record[key];
@@ -159,19 +204,35 @@ export function buildGlossaryEntries(markdown) {
   const lines = markdown.replace(/\r\n?/g, "\n").split("\n");
   const context = { h2: "", h3: "", h4: "", section: null };
   const entries = [];
-  const seen = new Set();
+  const seen = new Map();
 
   const add = entry => {
     if (!validName(entry.name) || !entry.kind) return;
-    const key = `${entry.kind}\u0000${entry.name}`;
-    if (seen.has(key)) return;
-    seen.add(key);
-    entries.push({
+    const sourceKind = entry.kind;
+    const isRegion = REGION_NAMES.has(entry.name);
+    const normalized = {
       name: entry.name,
-      kind: entry.kind,
-      region: entry.region || "비레스",
+      kind: isRegion ? "국가·권역" : entry.kind,
+      region: isRegion ? entry.name : (entry.region || "비레스"),
       description: entry.description
-    });
+    };
+    const key = `${normalized.kind}\u0000${normalized.name}`;
+    const existing = seen.get(key);
+
+    if (existing) {
+      if (isRegion) {
+        existing.countryDescriptions.set(sourceKind, entry.description);
+        existing.description = composeCountryDescription(existing.countryDescriptions);
+      }
+      return;
+    }
+
+    if (isRegion) {
+      normalized.countryDescriptions = new Map([[sourceKind, entry.description]]);
+      normalized.description = composeCountryDescription(normalized.countryDescriptions);
+    }
+    entries.push(normalized);
+    seen.set(key, normalized);
   };
 
   for (let index = 0; index < lines.length; index += 1) {
@@ -213,7 +274,15 @@ export function buildGlossaryEntries(markdown) {
     index -= 1;
   }
 
-  return entries.sort((a, b) => a.kind.localeCompare(b.kind, "ko") || a.name.localeCompare(b.name, "ko"));
+  return entries
+    .map(entry => {
+      const { countryDescriptions, ...publicEntry } = entry;
+      if (countryDescriptions) {
+        publicEntry.description = composeCountryDescription(countryDescriptions);
+      }
+      return publicEntry;
+    })
+    .sort((a, b) => a.kind.localeCompare(b.kind, "ko") || a.name.localeCompare(b.name, "ko"));
 }
 
 function writeDataFile(sourcePath, outputPath) {

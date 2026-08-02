@@ -148,6 +148,11 @@ Assert-Contains -Pattern 'loading="lazy"' -Message '지연 로딩 이미지 누�
 Assert-Contains -Pattern 'event\.key\s*===\s*"ArrowLeft"' -Message '이전 이미지 키보드 조작 누락'
 Assert-Contains -Pattern 'event\.key\s*===\s*"ArrowRight"' -Message '다음 이미지 키보드 조작 누락'
 Assert-Contains -Pattern 'aria-live="polite"' -Message '슬라이드 변경 알림 영역 누락'
+Assert-Contains -Pattern 'id="lightbox"[^>]*aria-modal="true"' -Message '라이트박스 모달 의미 누락'
+Assert-Contains -Pattern 'class="reader-image-trigger"[^>]*type="button"' -Message '세계 읽기 이미지 버튼 누락'
+Assert-Contains -Pattern 'class="slide-image-trigger"[^>]*type="button"' -Message '갤러리 이미지 버튼 누락'
+Assert-Contains -Pattern 'event\.key\s*===\s*"Tab"' -Message '라이트박스 초점 순환 누락'
+Assert-Contains -Pattern 'opener\.focus\(\{\s*preventScroll:\s*true\s*\}\)' -Message '라이트박스 호출자 초점 복원 누락'
 Assert-Contains -Pattern 'ren-guide-full-cutout\.webp' -Message '렌 전신 누끼 안내자 이미지 누락'
 Assert-Contains -Pattern 'duran-guide-full-cutout\.webp' -Message '듀란 상반신 누끼 안내자 이미지 누락'
 Assert-Contains -Pattern '\.guide-portrait\.ren img\s*\{' -Message '렌 원본 비율 개별 배치 누락'
@@ -198,7 +203,7 @@ if (-not (Test-Path -LiteralPath $glossaryPath)) {
 }
 else {
     $glossary = Get-Content -Raw -LiteralPath $glossaryPath -Encoding UTF8
-    foreach ($pattern in @('id="glossarySearch"', 'id="glossaryFilters"', 'id="glossaryResults"', 'aria-live="polite"', 'src="\./glossary-canon-data\.js"', 'VIRETH_CANON_GLOSSARY_ENTRIES')) {
+    foreach ($pattern in @('id="glossarySearch"', '<span class="sr-only">고유명사 검색</span>', 'id="glossaryFilters"', 'id="glossaryResults"', 'aria-live="polite"', 'src="\./glossary-canon-data\.js"', 'VIRETH_CANON_GLOSSARY_ENTRIES')) {
         if ($glossary -notmatch $pattern) {
             $failures.Add("고유명사 검색 기능 누락: $pattern")
         }

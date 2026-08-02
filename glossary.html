@@ -33,6 +33,18 @@
     a { color: inherit; }
     button, input { font: inherit; }
 
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
     .topbar {
       position: sticky;
       top: 0;
@@ -281,8 +293,9 @@
       </p>
     </header>
 
-    <section class="search-panel" aria-label="고유명사 검색">
+    <section class="search-panel" aria-label="고유명사 검색 도구">
       <label class="search-field">
+        <span class="sr-only">고유명사 검색</span>
         <i data-lucide="search" aria-hidden="true"></i>
         <input id="glossarySearch" type="search" placeholder="예: 레오니아, 은량, 녹지절력, 그린할로우" autocomplete="off">
       </label>
