@@ -6,6 +6,7 @@ async page => {
 
   for (const viewport of [
     { width: 390, height: 900 },
+    { width: 768, height: 1024 },
     { width: 1280, height: 900 }
   ]) {
     await page.setViewportSize(viewport);
@@ -30,6 +31,8 @@ async page => {
         const rect = document.querySelector(selector).getBoundingClientRect();
         return { left: rect.left, top: rect.top, right: rect.right, bottom: rect.bottom, width: rect.width, height: rect.height };
       };
+      const intersectionHeight = (first, second) => Math.max(0, Math.min(first.bottom, second.bottom) - Math.max(first.top, second.top));
+      const intersects = (first, second) => first.left < second.right && first.right > second.left && first.top < second.bottom && first.bottom > second.top;
       const opaqueTop = selector => {
         const image = document.querySelector(selector);
         const rect = image.getBoundingClientRect();
@@ -37,19 +40,39 @@ async page => {
       };
       const ren = bounds(".guide-portrait.ren img");
       const duran = bounds(".guide-portrait.duran img");
+      const guideLayer = bounds(".hero-guides");
+      const heroCopy = bounds(".hero-copy");
+      const captions = [bounds(".ren-profile"), bounds(".duran-profile")];
       return {
         ren,
         duran,
+        guideLayer,
+        heroCopy,
+        captions,
         headTopDelta: Math.abs(opaqueTop(".guide-portrait.ren img") - opaqueTop(".guide-portrait.duran img")),
-        profileRects: [bounds(".ren-profile"), bounds(".duran-profile")]
+        intersectsCopy: [intersects(ren, heroCopy), intersects(duran, heroCopy)],
+        figureTopOccupancy: [(ren.top - guideLayer.top) / guideLayer.height, (duran.top - guideLayer.top) / guideLayer.height],
+        visibleOccupancy: [intersectionHeight(ren, guideLayer) / guideLayer.height, intersectionHeight(duran, guideLayer) / guideLayer.height]
       };
     });
     const heightRatio = guides.ren.height / guides.duran.height;
     assert(heightRatio >= 1.18 && heightRatio <= 1.24, `portrait height ratio ${viewport.width}: ${heightRatio.toFixed(3)}`);
     assert(guides.headTopDelta <= 12, `portrait head-top delta ${viewport.width}: ${guides.headTopDelta.toFixed(1)}px`);
-    for (const [index, profile] of guides.profileRects.entries()) {
+    assert(guides.intersectsCopy.every(intersects => !intersects), `portrait overlaps copy ${viewport.width}`);
+    if (viewport.width <= 1000) {
+      assert(guides.guideLayer.top >= guides.heroCopy.bottom, `guide layer is not stacked below copy ${viewport.width}`);
+    }
+    assert(guides.figureTopOccupancy.every(occupancy => occupancy >= 0 && occupancy <= 0.35), `guide figure start ${viewport.width}: ${guides.figureTopOccupancy.map(occupancy => occupancy.toFixed(2)).join(",")}`);
+    assert(guides.visibleOccupancy.every(occupancy => occupancy >= 0.68), `guide figure occupancy ${viewport.width}: ${guides.visibleOccupancy.map(occupancy => occupancy.toFixed(2)).join(",")}`);
+    for (const [index, profile] of guides.captions.entries()) {
       assert(profile.width > 0 && profile.height > 0, `profile dimensions ${viewport.width}:${index}`);
       assert(profile.right > 0 && profile.left < viewport.width && profile.bottom > 0 && profile.top < viewport.height, `profile visibility ${viewport.width}:${index}`);
+      const portrait = index === 0 ? guides.ren : guides.duran;
+      assert(profile.top >= portrait.top + portrait.height * 0.6, `caption obscures upper portrait ${viewport.width}:${index}`);
+    }
+    if (viewport.width <= 680) {
+      assert(guides.ren.height >= 340, `Ren mobile height ${guides.ren.height.toFixed(1)}px`);
+      assert(guides.duran.height >= 280, `Duran mobile height ${guides.duran.height.toFixed(1)}px`);
     }
   }
 

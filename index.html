@@ -220,7 +220,7 @@
 
     .guide-profile {
       position: absolute;
-      bottom: 24px;
+      bottom: 15px;
       width: 226px;
       margin: 0;
       padding: 10px 12px 11px;
@@ -1469,19 +1469,27 @@
 
     @media (max-width: 1000px) {
       .hero {
-        min-height: 640px;
+        min-height: 856px;
         align-items: flex-start;
-        padding-top: 72px;
+        padding: 72px max(20px, calc((100vw - 920px) / 2)) 500px;
       }
-      .hero-copy { width: min(600px, 66vw); }
+      .hero-copy {
+        width: 100%;
+        max-width: 680px;
+      }
       .hero-guides {
         right: 0;
-        width: 58vw;
-        height: 86%;
+        width: 100%;
+        height: 460px;
       }
       .guide-portrait.duran { right: 0; }
-      .guide-profile { width: 190px; }
-      .ren-profile { left: -18px; }
+      .guide-portrait.ren img { bottom: calc(24px - 15.9%); }
+      .guide-portrait.duran img { bottom: 24px; }
+      .guide-profile {
+        width: 190px;
+        padding: 5px 9px 6px;
+      }
+      .ren-profile { left: 24px; }
       .duran-profile { right: 8px; }
       .region-layout {
         grid-template-columns: 1fr;
@@ -1515,17 +1523,20 @@
         padding: 6px 9px;
       }
       .hero {
-        min-height: 700px;
+        min-height: 810px;
         align-items: flex-start;
-        padding: 48px 20px 250px;
+        padding: 48px 20px 400px;
         background-position: 58% center;
       }
-      .hero-copy { width: 100%; }
+      .hero-copy {
+        width: 100%;
+        max-width: none;
+      }
       .hero-guides {
         right: 0;
         bottom: 0;
         width: 100%;
-        height: 280px;
+        height: 400px;
       }
       .hero-guides::before { inset: 8% 0 10%; }
       .guide-portrait {
@@ -1541,11 +1552,12 @@
       .guide-portrait.ren img {
         right: -2%;
         height: 90%;
-        bottom: -15.9%;
+        bottom: calc(24px - 15.9%);
       }
       .guide-portrait.duran img {
         right: 0;
         height: 74%;
+        bottom: 24px;
       }
       .guide-portrait img {
         opacity: 0.88;
