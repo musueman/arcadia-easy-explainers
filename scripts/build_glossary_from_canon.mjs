@@ -129,6 +129,7 @@ function publicDescription(value) {
   return value
     .replace(/\b(?:HP|INST|CF|ARC(?:-L\d+)?|E)[-_]?\d+(?:[-_]\d+)*\b/gi, "")
     .replace(/\b(?:directtransition|culturaltransfer|recordamplified|institutionalresidue|mediumdependent|contested(?:succession)?|cumulativecluster|livedpressure|longtail|mythologized)\b/gi, "")
+    .replace(/([이가]) 중요하다/g, "$1 자주 보인다")
     .replace(/\s*[,;]\s*(?=[,;.]|$)/g, "")
     .replace(/\s{2,}/g, " ")
     .replace(/^[\s,;·.-]+|[\s,;·.-]+$/g, "");

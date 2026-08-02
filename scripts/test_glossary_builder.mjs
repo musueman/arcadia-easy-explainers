@@ -16,7 +16,7 @@ const sample = `
 ## 7. 언어·문자·기록
 | 언어명 | 주 사용권 | 특징 |
 |---|---|---|
-| 라드어 | 레오니아 | 궁정과 봉토 장부에 쓰이는 언어 |
+| 라드어 | 레오니아 | 궁정과 봉토 장부에서는 납품 인장이 중요하다 |
 
 ## 13. 장기역사 사건축·현재갈등 상세 DB
 | code | 이름 | 활동 시기 | 출신 권역 | 핵심 행위 |
@@ -42,5 +42,7 @@ assert.equal(byName.get("라우벤 세르쿰")?.kind, "역사 인물");
 assert.equal(byName.get("센푸쿰 배급 기준 재판")?.kind, "현재 갈등");
 assert.equal(byName.get("첫창고 기준 확정")?.kind, "역사·사건");
 assert.ok(entries.every(entry => !/HP001|CF5083-001|E0018|directtransition/.test(entry.description)));
+assert.match(byName.get("라드어")?.description || "", /납품 인장이 자주 보인다/);
+assert.ok(entries.every(entry => !/중요하다/.test(entry.description)));
 
 console.log(`glossary builder tests passed (${entries.length} entries)`);

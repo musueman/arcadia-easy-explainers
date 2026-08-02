@@ -54,9 +54,22 @@ foreach ($entry in $forbiddenPatterns.GetEnumerator()) {
     }
 }
 
-foreach ($term in @('금표', '20 은량', '동각', '1/12 은량', '비레스년', '660')) {
+$requiredReaderTerms = @(
+    '라드아르할',
+    '페르브루니르',
+    '금표',
+    '20 은량',
+    '천걸음',
+    '약 750미터',
+    '비레스년',
+    '660비레스일',
+    '그린할로우',
+    '5068년'
+)
+
+foreach ($term in $requiredReaderTerms) {
     if ($index -notmatch [regex]::Escape($term)) {
-        $failures.Add("필수 구체 정보 누락: $term")
+        $failures.Add("세계 안내 구체 정보 누락: $term")
     }
 }
 
