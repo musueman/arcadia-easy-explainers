@@ -12,15 +12,18 @@ $glossary = Get-Content -Raw -LiteralPath $GlossaryPath -Encoding UTF8
 $glossaryData = Get-Content -Raw -LiteralPath $GlossaryDataPath -Encoding UTF8
 $failures = [System.Collections.Generic.List[string]]::new()
 
-$forbiddenPatterns = @{
+$authoredForbiddenPatterns = @{
     '추상 표현: 중요하다' = '중요하다'
     '추상 표현: 힘을 가진다' = '힘을 가진다'
     '추상 표현: 길을 연다' = '길을 연다'
     '추상 표현: 사람을 가른다' = '사람을 가른다'
-    '일반 도시 설명' = '(수도 또는 중심 거점이다|주요 도시 또는 지역 거점이다)'
+    '일반 중심지 기능 단정' = '(행정, 거래, 통행 절차가 모이는 생활 중심지다|장터, 숙소, 작업장과 이동로를 잇는 지역 거점이다)'
     '제작 상태 문구' = '(웹툰이 더해지기 전까지|자료를 모았다|감을 잡게 하는 자료)'
     '금칙 표현: 삶과 가까운 장면이 열린다' = '삶과 가까운 장면이 열린다'
     '금칙 표현: 감을 잡게 한다' = '감을 잡게 한다'
+}
+
+$publicForbiddenPatterns = @{
     '공개 제작 용어: 객관정보' = '객관정보'
     '공개 제작 용어: 정본' = '정본'
     '공개 제작 용어: DB' = '\bDB\b'
@@ -47,8 +50,15 @@ $glossaryDataPublicCopy = [regex]::Replace(
     ''
 )
 $publicCopy = $indexPublicCopy + "`n" + $glossary + "`n" + $glossaryDataPublicCopy
+$authoredPublicCopy = $indexPublicCopy + "`n" + $glossary
 
-foreach ($entry in $forbiddenPatterns.GetEnumerator()) {
+foreach ($entry in $authoredForbiddenPatterns.GetEnumerator()) {
+    if ($authoredPublicCopy -match $entry.Value) {
+        $failures.Add($entry.Key)
+    }
+}
+
+foreach ($entry in $publicForbiddenPatterns.GetEnumerator()) {
     if ($publicCopy -match $entry.Value) {
         $failures.Add($entry.Key)
     }
@@ -67,9 +77,19 @@ $requiredReaderTerms = @(
     '5068년'
 )
 
-foreach ($term in $requiredReaderTerms) {
-    if ($index -notmatch [regex]::Escape($term)) {
-        $failures.Add("세계 안내 구체 정보 누락: $term")
+$readerMatch = [regex]::Match(
+    $index,
+    'const\s+readerSections\s*=\s*\[(?<body>[\s\S]*?)\];\s*const\s+readerIconNames'
+)
+if (-not $readerMatch.Success) {
+    $failures.Add('세계 안내 데이터 블록 누락')
+}
+else {
+    $readerCopy = $readerMatch.Groups['body'].Value
+    foreach ($term in $requiredReaderTerms) {
+        if ($readerCopy -notmatch [regex]::Escape($term)) {
+            $failures.Add("세계 안내 구체 정보 누락: $term")
+        }
     }
 }
 

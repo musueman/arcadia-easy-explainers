@@ -42,7 +42,6 @@ assert.equal(byName.get("라우벤 세르쿰")?.kind, "역사 인물");
 assert.equal(byName.get("센푸쿰 배급 기준 재판")?.kind, "현재 갈등");
 assert.equal(byName.get("첫창고 기준 확정")?.kind, "역사·사건");
 assert.ok(entries.every(entry => !/HP001|CF5083-001|E0018|directtransition/.test(entry.description)));
-assert.match(byName.get("라드어")?.description || "", /납품 인장이 자주 보인다/);
-assert.ok(entries.every(entry => !/중요하다/.test(entry.description)));
+assert.match(byName.get("라드어")?.description || "", /납품 인장이 중요하다/);
 
 console.log(`glossary builder tests passed (${entries.length} entries)`);

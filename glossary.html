@@ -326,8 +326,8 @@
     const glossary = [];
     regionRecords.forEach(([name, capital, cities, description]) => {
       glossary.push({ name, kind: "국가·권역", region: name, description });
-      glossary.push({ name: capital, kind: "도시·마을", region: name, description: `${name}에서 행정, 거래, 통행 절차가 모이는 생활 중심지다.` });
-      cities.forEach(city => glossary.push({ name: city, kind: "도시·마을", region: name, description: `${name}의 장터, 숙소, 작업장과 이동로를 잇는 지역 거점이다.` }));
+      glossary.push({ name: capital, kind: "도시·마을", region: name, description: `${name}의 수도 또는 중심 거점으로 기록된 곳이다.` });
+      cities.forEach(city => glossary.push({ name: city, kind: "도시·마을", region: name, description: `${name}의 도시 또는 지역 거점으로 기록된 곳이다.` }));
     });
 
     glossary.push(
