@@ -274,10 +274,10 @@
   <main>
     <header>
       <p class="eyebrow">이름으로 찾는 비레스</p>
-      <h1>낯선 이름 하나에서 길이 시작된다.</h1>
+      <h1>낯선 이름 하나가 길의 모양을 바꾼다</h1>
       <p class="lead">
-        나라와 도시, 종족과 화폐, 달력과 오래된 사건을 한곳에 모았다.
-        이름을 입력하거나 범주를 고르면 짧은 뜻과 관련 권역을 바로 찾을 수 있다.
+        나라와 도시, 종족과 화폐, 달력과 오래된 사건을 이름으로 찾는다.
+        검색창에 한 글자만 입력해도 관련 권역과 뜻이 함께 나타난다.
       </p>
     </header>
 
@@ -417,15 +417,15 @@
       { name: "드래곤스파이어 화산 군도", kind: "지형·생활권", region: "드래곤스파이어", description: "분화 감시와 피난 항로가 필요한 섬권이다." }
     );
 
-    const existingNames = new Set(glossary.map(item => item.name));
+    const glossaryByName = new Map();
+
+    glossary.forEach(item => glossaryByName.set(item.name, item));
     (window.VIRETH_CANON_GLOSSARY_ENTRIES || []).forEach(item => {
-      if (!existingNames.has(item.name)) {
-        glossary.push(item);
-        existingNames.add(item.name);
-      }
+      glossaryByName.set(item.name, item);
     });
 
-    const categories = ["전체", ...new Set(glossary.map(item => item.kind))];
+    const mergedGlossary = [...glossaryByName.values()];
+    const categories = ["전체", ...new Set(mergedGlossary.map(item => item.kind))];
     const search = document.getElementById("glossarySearch");
     const filters = document.getElementById("glossaryFilters");
     const results = document.getElementById("glossaryResults");
@@ -451,7 +451,7 @@
 
     function renderResults() {
       const query = search.value.trim().toLocaleLowerCase("ko");
-      const matched = glossary
+      const matched = mergedGlossary
         .filter(item => activeCategory === "전체" || item.kind === activeCategory)
         .filter(item => `${item.name} ${item.description} ${item.region}`.toLocaleLowerCase("ko").includes(query))
         .sort((a, b) => a.name.localeCompare(b.name, "ko"));

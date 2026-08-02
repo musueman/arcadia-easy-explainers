@@ -37,6 +37,15 @@ const byName = new Map(entries.map(entry => [entry.name, entry]));
 
 assert.equal(byName.get("라드가르에트")?.kind, "지명·가도");
 assert.equal(byName.get("라드가르가")?.kind, "도시·마을");
+assert.match(
+  byName.get("라드가르가")?.description ?? "",
+  /봉토 마을|곡물 집산/
+);
+assert.ok(
+  !/주요 도시 또는 지역 거점이다/.test(
+    byName.get("라드가르가")?.description ?? ""
+  )
+);
 assert.equal(byName.get("라드어")?.kind, "언어·문자");
 assert.equal(byName.get("라우벤 세르쿰")?.kind, "역사 인물");
 assert.equal(byName.get("센푸쿰 배급 기준 재판")?.kind, "현재 갈등");
