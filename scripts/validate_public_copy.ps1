@@ -5,6 +5,8 @@
 )
 
 $ErrorActionPreference = 'Stop'
+. (Join-Path $PSScriptRoot 'public_region_contract.ps1')
+
 $index = Get-Content -Raw -LiteralPath $IndexPath -Encoding UTF8
 $glossary = Get-Content -Raw -LiteralPath $GlossaryPath -Encoding UTF8
 $glossaryData = Get-Content -Raw -LiteralPath $GlossaryDataPath -Encoding UTF8
@@ -68,16 +70,36 @@ foreach ($term in @(
     }
 }
 
-$regionBlock = [regex]::Match(
+$regionMatch = [regex]::Match(
     $index,
-    'const regions = \[(?<body>[\s\S]*?)\];\s*const regionFacts'
-).Groups['body'].Value
-
-foreach ($field in @('name', 'short', 'first', 'places', 'life', 'pressure', 'memory', 'persona')) {
-    $minimumLength = if ($field -eq 'name') { 1 } else { 12 }
-    $count = [regex]::Matches($regionBlock, ([regex]::Escape($field) + ':\s*"[^"]{' + $minimumLength + ',}"')).Count
-    if ($count -ne 20) {
-        $failures.Add("구체 권역 필드 불일치: $field expected=20 actual=$count")
+    'const\s+regions\s*=\s*\[(?<body>[\s\S]*?)\];\s*const\s+regionFacts'
+)
+if (-not $regionMatch.Success) {
+    $failures.Add('권역 데이터 블록 누락')
+}
+else {
+    $regionNames = @(
+        '레오니아', '노르가르드', '티리스', '린레네트', '벡도레트',
+        '센할레트', '헤스페레트', '켈나베트', '헤스베케트', '옌메베트',
+        '님나레트', '실니메트', '아르도레트', '가르메베트', '실할레트',
+        '메르할레트', '님소레트', '실바니아', '드래곤스파이어', '펜리르의 눈'
+    )
+    $requiredRegionFields = @{
+        name = 1
+        short = 12
+        first = 12
+        places = 12
+        life = 12
+        pressure = 12
+        memory = 12
+        persona = 12
+    }
+    $regionErrors = Test-JavaScriptNamedObjectContract `
+        -Block $regionMatch.Groups['body'].Value `
+        -ExpectedNames $regionNames `
+        -RequiredFields $requiredRegionFields
+    foreach ($regionError in $regionErrors) {
+        $failures.Add($regionError)
     }
 }
 

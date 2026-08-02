@@ -3,6 +3,8 @@
 )
 
 $ErrorActionPreference = 'Stop'
+. (Join-Path $PSScriptRoot 'public_region_contract.ps1')
+
 $html = Get-Content -Raw -LiteralPath $HtmlPath -Encoding UTF8
 $failures = [System.Collections.Generic.List[string]]::new()
 
@@ -49,23 +51,45 @@ $regions = @(
 )
 
 foreach ($region in $regions) {
-    Assert-Contains -Pattern ('name:\s*"' + [regex]::Escape($region) + '"') -Message "권역 데이터 누락: $region"
-    Assert-Contains -Pattern ('"' + [regex]::Escape($region) + '":\s*"[^"]+"') -Message "권역 종족 설명 누락: $region"
+    Assert-Contains -Pattern ('["'']' + [regex]::Escape($region) + '["'']\s*:\s*["''][^"'']+["'']') -Message "권역 종족 설명 누락: $region"
 }
 
-$regionBlock = [regex]::Match($html, 'const regions = \[(?<body>[\s\S]*?)\];\s*const regionFacts').Groups['body'].Value
-foreach ($field in @('name', 'type', 'short', 'first', 'places', 'life', 'pressure', 'memory', 'persona')) {
-    $count = [regex]::Matches($regionBlock, ([regex]::Escape($field) + ':\s*"[^"]+"')).Count
-    if ($count -ne 20) {
-        $failures.Add("권역 필드 20개 불일치: $field (expected=20 actual=$count)")
+$regionMatch = [regex]::Match($html, 'const\s+regions\s*=\s*\[(?<body>[\s\S]*?)\];\s*const\s+regionFacts')
+if (-not $regionMatch.Success) {
+    $failures.Add('권역 데이터 블록 누락')
+}
+else {
+    $requiredRegionFields = @{
+        name = 1
+        type = 1
+        short = 12
+        first = 12
+        places = 12
+        life = 12
+        pressure = 12
+        memory = 12
+        persona = 12
+    }
+    $regionErrors = Test-JavaScriptNamedObjectContract `
+        -Block $regionMatch.Groups['body'].Value `
+        -ExpectedNames $regions `
+        -RequiredFields $requiredRegionFields
+    foreach ($regionError in $regionErrors) {
+        $failures.Add($regionError)
     }
 }
 
-$factsBlock = [regex]::Match($html, 'const regionFacts = \{(?<body>[\s\S]*?)\};\s*const regionIconNames').Groups['body'].Value
-foreach ($field in @('money', 'people', 'time', 'history')) {
-    $count = [regex]::Matches($factsBlock, ([regex]::Escape($field) + ':\s*"[^"]+"')).Count
-    if ($count -ne 20) {
-        $failures.Add("권역 생활 정보 20개 불일치: $field (expected=20 actual=$count)")
+$factsMatch = [regex]::Match($html, 'const\s+regionFacts\s*=\s*\{(?<body>[\s\S]*?)\};\s*const\s+regionIconNames')
+if (-not $factsMatch.Success) {
+    $failures.Add('권역 생활 정보 블록 누락')
+}
+else {
+    $factErrors = Test-JavaScriptKeyedObjectContract `
+        -Block $factsMatch.Groups['body'].Value `
+        -ExpectedKeys $regions `
+        -RequiredFields @('money', 'people', 'time', 'history')
+    foreach ($factError in $factErrors) {
+        $failures.Add($factError)
     }
 }
 
@@ -79,9 +103,30 @@ if ($readerCount -ne 6) {
 }
 
 $detailLabels = @('어떤 땅인가', '수도와 주요 도시', '사람과 종족', '돈과 장터', '달력과 계절', '역사와 현재', '여행의 시작')
-
-foreach ($label in $detailLabels) {
-    Assert-Contains -Pattern ([regex]::Escape($label)) -Message "권역 상세 항목 누락: $label"
+$detailFunctionStart = $html.IndexOf('function renderRegionDetail')
+if ($detailFunctionStart -lt 0) {
+    $failures.Add('권역 상세 렌더러 누락')
+}
+else {
+    $detailFunctionBlocks = @(Get-JavaScriptObjectBlocks -Text $html.Substring($detailFunctionStart))
+    if ($detailFunctionBlocks.Count -eq 0) {
+        $failures.Add('권역 상세 렌더러 본문 누락')
+    }
+    else {
+        $detailLabelMatches = [regex]::Matches(
+            $detailFunctionBlocks[0].Text,
+            '<h4\b[^>]*>\s*(?<label>[^<]+?)\s*</h4>'
+        )
+        $actualDetailLabels = @($detailLabelMatches | ForEach-Object { $_.Groups['label'].Value.Trim() })
+        if ($actualDetailLabels.Count -ne $detailLabels.Count) {
+            $failures.Add("권역 상세 항목 수 불일치: expected=$($detailLabels.Count) actual=$($actualDetailLabels.Count)")
+        }
+        elseif ([string]::Join("`n", $actualDetailLabels) -cne [string]::Join("`n", $detailLabels)) {
+            $failures.Add(
+                "권역 상세 항목 순서 불일치: expected=$([string]::Join(' > ', $detailLabels)) actual=$([string]::Join(' > ', $actualDetailLabels))"
+            )
+        }
+    }
 }
 
 $species = @('페르브루니르', '실레니르', '메르세니르', '님소리르')
