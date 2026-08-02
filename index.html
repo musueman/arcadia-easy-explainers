@@ -182,7 +182,7 @@
     }
 
     .guide-portrait.ren {
-      right: 45%;
+      right: 38%;
       z-index: 1;
     }
 
@@ -210,7 +210,7 @@
     .guide-portrait.ren img {
       right: 2%;
       height: 91%;
-      bottom: -15.9%;
+      bottom: -20.1%;
     }
 
     .guide-portrait.duran img {
@@ -1467,6 +1467,13 @@
       font-weight: 900;
     }
 
+    @media (min-width: 1280px) {
+      .ren-profile {
+        bottom: 0;
+        padding: 6px 12px;
+      }
+    }
+
     @media (max-width: 1279px) {
       .hero {
         min-height: 856px;
@@ -1483,13 +1490,17 @@
         height: 460px;
       }
       .guide-portrait.duran { right: 0; }
-      .guide-portrait.ren img { bottom: calc(24px - 15.9%); }
+      .guide-portrait.ren { right: 220px; }
+      .guide-portrait.ren img { bottom: calc(24px - 21.1%); }
       .guide-portrait.duran img { bottom: 24px; }
       .guide-profile {
         width: 190px;
         padding: 5px 9px 6px;
       }
-      .ren-profile { left: 24px; }
+      .ren-profile {
+        left: 24px;
+        bottom: 2px;
+      }
       .duran-profile { right: 8px; }
     }
 
@@ -1536,6 +1547,8 @@
         max-width: none;
       }
       .hero-guides {
+        --guide-pair-shift: max(0px, calc((100% - 390px) / 2));
+        --guide-ren-offset: min(45vw, 180px);
         right: 0;
         bottom: 0;
         width: 100%;
@@ -1547,15 +1560,15 @@
         height: 100%;
       }
       .guide-portrait.ren {
-        right: 48%;
+        right: calc(var(--guide-pair-shift) + var(--guide-ren-offset));
       }
       .guide-portrait.duran {
-        right: 0;
+        right: var(--guide-pair-shift);
       }
       .guide-portrait.ren img {
         right: -2%;
         height: 90%;
-        bottom: calc(24px - 15.9%);
+        bottom: calc(24px - 21.9%);
       }
       .guide-portrait.duran img {
         right: 0;
@@ -1568,11 +1581,16 @@
       }
       .guide-profile {
         bottom: 8px;
-        width: min(48vw, 180px);
+        width: min(46vw, 175px);
         min-height: 96px;
         padding: 8px 9px;
       }
-      .ren-profile { left: 4px; }
+      .ren-profile {
+        left: 4px;
+        bottom: 0;
+        min-height: 76px;
+        padding: 5px 9px;
+      }
       .duran-profile { right: 4px; }
       .guide-profile strong { font-size: 17px; }
       .guide-profile > span:last-child {
@@ -1652,7 +1670,7 @@
       .hero-guides { height: 360px; }
       .guide-portrait.ren img {
         height: 84%;
-        bottom: calc(40px - 14.9%);
+        bottom: calc(40px - 21.6%);
       }
       .guide-portrait.duran img {
         height: 69%;
