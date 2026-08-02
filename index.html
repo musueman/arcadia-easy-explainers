@@ -1631,6 +1631,10 @@
       background: transparent;
     }
 
+    .region-index-panel {
+      min-width: 0;
+    }
+
     .region-index-shell {
       display: grid;
       grid-template-columns: 48px minmax(0, 1fr) 48px;
@@ -1688,10 +1692,14 @@
       display: flex;
       justify-content: space-between;
       gap: 16px;
-      margin-top: -12px;
+      min-height: 20px;
+      margin-top: 10px;
+      align-items: flex-start;
+      flex-wrap: wrap;
       color: var(--muted);
       font-size: 12px;
       font-weight: 750;
+      line-height: 1.4;
     }
 
     .region-index-status strong {
@@ -1841,6 +1849,12 @@
       border: 0;
       border-radius: 0;
       object-fit: cover;
+    }
+
+    .region-article-image-button img.has-baked-caption {
+      object-position: center top;
+      transform: scale(1.24);
+      transform-origin: center top;
     }
 
     .region-article-image-button:focus-visible,
@@ -2171,7 +2185,8 @@
         height: 19px;
       }
       .region-index-status {
-        margin-top: -14px;
+        margin-top: 8px;
+        gap: 4px 12px;
         padding-inline: 2px;
       }
       .region-article-hero {
@@ -2281,7 +2296,7 @@
       </div>
 
       <div class="region-layout">
-        <div>
+        <div class="region-index-panel">
           <div class="region-index-shell">
             <button id="regionPrev" class="region-index-control" type="button" aria-label="이전 권역" aria-controls="regionGrid" disabled>
               <i data-lucide="chevron-left" aria-hidden="true"></i>
@@ -2795,14 +2810,16 @@
     const regionVisuals = {
       "레오니아": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-leonia-imagegen-v3-dragon-crest-2048-labeled.webp",
-            "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-leonia-radarhal-imagegen-v1-2560-labeled.webp",
+            "capital": "./viewer/assets/illustrations/single_slides/leonia-radarhal.jpg",
+            "capitalHasBakedCaption": false,
             "capitalName": "라드아르할",
             "capitalCaption": "궁정과 기사 봉토가 이어지는 레오니아의 중심 도시다.",
             "crestCaption": "레오니아의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
       },
       "노르가르드": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-norghard-imagegen-v1-2048-labeled.webp",
-            "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-norghard-marnabmir-imagegen-v1-2560-labeled.webp",
+            "capital": "./viewer/assets/illustrations/single_slides/norghard-marnabmir.jpg",
+            "capitalHasBakedCaption": false,
             "capitalName": "마르나브미르",
             "capitalCaption": "군항과 철강 부두, 겨울 보급 장부가 모이는 노르가르드의 큰 항구다.",
             "crestCaption": "노르가르드의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
@@ -2810,27 +2827,31 @@
       "티리스": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-tiris-imagegen-v1-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-tiris-radbarhal-imagegen-v1-2560-labeled.webp",
+            "capitalHasBakedCaption": true,
             "capitalName": "라드바르할·실버킵",
             "capitalCaption": "라드바르할과 실버킵은 왕실 행정의 중심이며, 베크켈카르와 레이븐스톤은 서부 접경의 큰 거점이다.",
             "crestCaption": "티리스의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
       },
       "린레네트": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-linrenet-imagegen-v1-2048-labeled.webp",
-            "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-linrenet-renumga-imagegen-v1-2560-labeled.webp",
+            "capital": "./viewer/assets/illustrations/single_slides/linrenet-renumga.jpg",
+            "capitalHasBakedCaption": false,
             "capitalName": "레눔가",
             "capitalCaption": "기록원, 사본 장터, 후원 계약이 길을 여는 린레네트의 학예 도시다.",
             "crestCaption": "린레네트의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
       },
       "벡도레트": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-bekdoret-imagegen-v1-2048-labeled.webp",
-            "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-bekdoret-dorkar-imagegen-v1-2560-labeled.webp",
+            "capital": "./viewer/assets/illustrations/single_slides/bekdoret-dorkar.jpg",
+            "capitalHasBakedCaption": false,
             "capitalName": "도르카르",
             "capitalCaption": "성문 보증과 통행 절차가 촘촘한 벡도레트의 교통 거점이다.",
             "crestCaption": "벡도레트의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
       },
       "센할레트": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-senhalet-imagegen-v1-2048-labeled.webp",
-            "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-senhalet-senpukum-imagegen-v1-2560-labeled.webp",
+            "capital": "./viewer/assets/illustrations/single_slides/senhalet-senpukum.jpg",
+            "capitalHasBakedCaption": false,
             "capitalName": "센푸쿰",
             "capitalCaption": "곡물 창고와 배급 순서가 사람들의 하루를 가르는 센할레트의 중심지다.",
             "crestCaption": "센할레트의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
@@ -2838,20 +2859,23 @@
       "헤스페레트": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-hesferet-imagegen-v2-no-runes-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-hesferet-hespukum-imagegen-v1-2560-labeled.webp",
+            "capitalHasBakedCaption": true,
             "capitalName": "헤스푸쿰",
             "capitalCaption": "추위, 저장품, 통행 허가가 함께 계산되는 헤스페레트의 북방 거점이다.",
             "crestCaption": "헤스페레트의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
       },
       "켈나베트": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-kelnabet-imagegen-v1-2048-labeled.webp",
-            "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-kelnabet-markelmir-imagegen-v1-2560-labeled.webp",
+            "capital": "./viewer/assets/illustrations/single_slides/kelnabet-markelmir.jpg",
+            "capitalHasBakedCaption": false,
             "capitalName": "마르켈미르",
             "capitalCaption": "선장 보증과 해도, 항만 장부가 힘을 갖는 켈나베트의 항구다.",
             "crestCaption": "켈나베트의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
       },
       "헤스베케트": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-hesbeket-imagegen-v1-2048-labeled.webp",
-            "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-hesbeket-bekhespukum-imagegen-v1-2560-labeled.webp",
+            "capital": "./viewer/assets/illustrations/single_slides/hesbeket-bekhespukum.jpg",
+            "capitalHasBakedCaption": false,
             "capitalName": "베크헤스푸쿰",
             "capitalCaption": "식량과 불씨, 방한구가 곧 생존인 혹한권 도시다.",
             "crestCaption": "헤스베케트의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
@@ -2859,6 +2883,7 @@
       "옌메베트": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-yenmebet-imagegen-v1-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-yenmebet-yenwokel-imagegen-v1-2560-labeled.webp",
+            "capitalHasBakedCaption": true,
             "capitalName": "옌워켈",
             "capitalCaption": "숲 경계와 표식권, 벌목 허락이 맞물리는 옌메베트의 거점이다.",
             "crestCaption": "옌메베트의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
@@ -2866,6 +2891,7 @@
       "님나레트": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-nimnaret-imagegen-v1-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-nimnaret-yalbekum-imagegen-v1-2560-labeled.webp",
+            "capitalHasBakedCaption": true,
             "capitalName": "얄베크움",
             "capitalCaption": "감찰실, 봉인 명령소, 출입 허가소와 외부자 대기실이 모인 님나레트의 폐쇄 학술 중심지다.",
             "crestCaption": "님나레트의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
@@ -2873,6 +2899,7 @@
       "실니메트": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-silnimet-imagegen-v1-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-silnimet-dorsorsan-imagegen-v1-2560-labeled.webp",
+            "capitalHasBakedCaption": true,
             "capitalName": "도르소르산",
             "capitalCaption": "산악 길과 수도원, 약초 장부가 생활을 지탱하는 실니메트의 산지 도시다.",
             "crestCaption": "실니메트의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
@@ -2880,6 +2907,7 @@
       "아르도레트": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-ardolet-imagegen-v1-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-ardolet-dorsorhal-imagegen-v1-2560-labeled.webp",
+            "capitalHasBakedCaption": true,
             "capitalName": "도르소르할",
             "capitalCaption": "산악 수도원, 천상 법원, 관측표 보관실과 등정 허가소가 모인 아르도레트의 고산 중심지다.",
             "crestCaption": "아르도레트의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
@@ -2887,6 +2915,7 @@
       "가르메베트": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-garmebet-imagegen-v1-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-garmebet-tikmebhal-imagegen-v1-2560-labeled.webp",
+            "capitalHasBakedCaption": true,
             "capitalName": "틱메브할",
             "capitalCaption": "초지의 물권, 동행료, 가축 장부가 도시 기능을 대신하는 가르메베트의 거점이다.",
             "crestCaption": "가르메베트의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
@@ -2894,6 +2923,7 @@
       "실할레트": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-silhalet-imagegen-v1-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-silhalet-silsorsan-imagegen-v1-2560-labeled.webp",
+            "capitalHasBakedCaption": true,
             "capitalName": "실소르산",
             "capitalCaption": "성림 의례, 장례 기억, 벌목 금기와 채집 허가가 모이는 실할레트의 숲 신정 중심지다.",
             "crestCaption": "실할레트의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
@@ -2901,6 +2931,7 @@
       "메르할레트": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-merhalet-imagegen-v1-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-merhalet-merbelmar-imagegen-v1-2560-labeled.webp",
+            "capitalHasBakedCaption": true,
             "capitalName": "메르벨마르",
             "capitalCaption": "항만세와 장부 신용, 수로 물자가 모이는 메르할레트의 물길 도시다.",
             "crestCaption": "메르할레트의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
@@ -2908,27 +2939,31 @@
       "님소레트": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-nimsolet-imagegen-v1-2048-labeled.webp",
             "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-nimsolet-nimhal-imagegen-v1-2560-labeled.webp",
+            "capitalHasBakedCaption": true,
             "capitalName": "님할",
             "capitalCaption": "학당, 왕실 후원청, 종교 강의장과 공개 시험장이 모인 님소레트의 학술 중심지다.",
             "crestCaption": "님소레트의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
       },
       "실바니아": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-sylvania-imagegen-v1-2048-labeled.webp",
-            "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-sylvania-silensan-imagegen-v1-2560-labeled.webp",
+            "capital": "./viewer/assets/illustrations/single_slides/sylvania-silensan.jpg",
+            "capitalHasBakedCaption": false,
             "capitalName": "실렌산",
             "capitalCaption": "숲의 허락과 산길 표식이 사람의 움직임을 정하는 실바니아의 성림 도시다.",
             "crestCaption": "실바니아의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
       },
       "드래곤스파이어": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-dragonspire-imagegen-v1-2048-labeled.webp",
-            "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-dragonspire-narmarkel-imagegen-v1-2560-labeled.webp",
+            "capital": "./viewer/assets/illustrations/single_slides/dragonspire-narmarkel.jpg",
+            "capitalHasBakedCaption": false,
             "capitalName": "나르마르켈",
             "capitalCaption": "화산 항로와 섬의 창고가 맞물린 드래곤스파이어의 도시다.",
             "crestCaption": "드래곤스파이어의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
       },
       "펜리르의 눈": {
             "crest": "./viewer/assets/illustrations/generated_outputs/heraldry/ck5083-heraldry-fenrir-eye-imagegen-v1-2048-labeled.webp",
-            "capital": "./viewer/assets/illustrations/generated_outputs/city_vistas/ck5083-city-fenrir-eye-dunartore-imagegen-v1-2560-labeled.webp",
+            "capital": "./viewer/assets/illustrations/single_slides/fenrir-eye-dunartore.jpg",
+            "capitalHasBakedCaption": false,
             "capitalName": "둔아르토르",
             "capitalCaption": "외해 등대와 난파 기록이 모이는 금기 해역의 거점이다.",
             "crestCaption": "펜리르의 눈의 문장이다. 깃발, 봉인, 병영 표식에서 가장 먼저 보이는 얼굴이다."
@@ -4001,7 +4036,7 @@
           const visualHtml = visual ? `
             <div class="region-article-hero">
               <button class="region-article-image-button" type="button" data-visual-index="1" aria-label="${visual.capitalName} 전경 크게 보기">
-                <img loading="lazy" src="${visual.capital}" alt="${visual.capitalName} 전경">
+                <img class="region-article-image${visual.capitalHasBakedCaption ? " has-baked-caption" : ""}" loading="lazy" src="${visual.capital}" alt="${visual.capitalName} 전경">
               </button>
               <div class="region-article-title">
                 <button class="region-article-crest" type="button" data-visual-index="0" aria-label="${region.name} 문장 크게 보기">
