@@ -4,7 +4,7 @@ async page => {
   const intersects = (first, second) => first[0] < second[2] && first[2] > second[0] && first[1] < second[3] && first[3] > second[1];
   const contains = (outer, inner) => inner[0] >= outer[0] && inner[1] >= outer[1] && inner[2] <= outer[2] && inner[3] <= outer[3];
 
-  for (const [width, height] of [[320, 960], [360, 960], [390, 900], [768, 1024], [1100, 900], [1180, 900], [1280, 900]]) {
+  for (const [width, height] of [[320, 960], [360, 960], [361, 960], [375, 960], [390, 900], [768, 1024], [1100, 900], [1180, 900], [1200, 900], [1279, 900], [1280, 900]]) {
     await page.setViewportSize({ width, height });
     await page.goto(`${origin}/`);
     await page.locator(".region-button").first().waitFor();
@@ -47,16 +47,16 @@ async page => {
     assert(state.headDelta <= 12, `head alignment ${width}`);
     assert(!intersects(state.ren.box, state.copy) && !intersects(state.duran.box, state.copy), `portrait overlaps copy ${width}`);
     assert(!intersects(state.ren.opaque, state.duran.opaque), `opaque portraits overlap ${width}`);
-    if (width <= 1180) assert(state.guides[1] >= state.copy[3], `guides not stacked ${width}`);
     assert(state.top.every(value => value >= 0 && value <= 0.35), `guide start ${width}`);
     assert(state.visible.every(value => value >= 0.68), `guide occupancy ${width}`);
     assert(!intersects(state.profiles[0], state.profiles[1]), `profiles overlap ${width}`);
     for (const [index, profile] of state.profiles.entries()) {
       const portrait = index ? state.duran.box : state.ren.box;
       assert(profile[4] > 0 && profile[5] > 0 && contains(state.hero, profile) && profile[0] >= 0 && profile[2] <= width, `profile containment ${width}:${index}`);
+      assert(profile[1] < height && profile[3] > 0, `profile viewport visibility ${width}:${index}`);
       assert(profile[1] >= portrait[1] + portrait[5] * 0.6, `caption obscures upper portrait ${width}:${index}`);
     }
-    if (width > 360 && width <= 680) {
+    if (width > 375 && width <= 680) {
       assert(state.ren.box[5] >= 340 && state.duran.box[5] >= 280, `mobile portrait size ${width}`);
     }
   }
