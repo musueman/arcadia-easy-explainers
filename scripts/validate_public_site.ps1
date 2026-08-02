@@ -147,6 +147,7 @@ if ($politeCount -gt 20) {
 }
 
 $glossaryPath = Join-Path (Split-Path -Parent $HtmlPath) 'glossary.html'
+$glossaryDataPath = Join-Path (Split-Path -Parent $HtmlPath) 'glossary-canon-data.js'
 if (-not (Test-Path -LiteralPath $glossaryPath)) {
     $failures.Add('고유명사 검색 페이지 파일 누락')
 }
@@ -158,7 +159,6 @@ else {
         }
     }
 
-    $glossaryDataPath = Join-Path (Split-Path -Parent $HtmlPath) 'glossary-canon-data.js'
     if (-not (Test-Path -LiteralPath $glossaryDataPath)) {
         $failures.Add('최신 통합본 기반 고유명사 데이터 파일 누락')
     }
@@ -194,19 +194,15 @@ foreach ($source in $assetPaths) {
     }
 }
 
-$forbidden = @('객관정보', '정본', '검산', '운용부록', '실투입본', 'TODO', 'FIXME')
-foreach ($term in $forbidden) {
-    Assert-Contains -Pattern ('^(?![\s\S]*' + [regex]::Escape($term) + ')') -Message "공개 화면 금칙어 발견: $term"
-}
-
 if ($failures.Count -gt 0) {
     $failures | ForEach-Object { Write-Host "ERROR: $_" -ForegroundColor Red }
     exit 1
 }
 
-& (Join-Path $PSScriptRoot 'validate_public_copy.ps1') -IndexPath $HtmlPath -GlossaryPath $glossaryPath
+& (Join-Path $PSScriptRoot 'validate_public_copy.ps1') -IndexPath $HtmlPath -GlossaryPath $glossaryPath -GlossaryDataPath $glossaryDataPath
 if ($LASTEXITCODE -ne 0) {
     exit $LASTEXITCODE
 }
 
 Write-Output "PUBLIC_SITE_VALIDATION_OK regions=$($regions.Count)"
+exit 0
