@@ -58,6 +58,16 @@ foreach ($term in @('금표', '20 은량', '동각', '1/12 은량', '비레스�
     }
 }
 
+foreach ($term in @(
+    '비레스의 어느 길로 들어설까',
+    '스무 권역이 스무 가지 삶을 품는다',
+    '길을 나서기 전에 알아둘 것'
+)) {
+    if ($index -notmatch [regex]::Escape($term)) {
+        $failures.Add("개편 제목 누락: $term")
+    }
+}
+
 if ($failures.Count -gt 0) {
     $failures | ForEach-Object { Write-Host "ERROR: $_" -ForegroundColor Red }
     exit 1
